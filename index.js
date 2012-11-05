@@ -4,24 +4,12 @@ var fs = require('fs')
 inter = {
 
   /**
-   * we display this version number inside
-   * the web frontend
-   */
-  version: "0.1.0",
-  
-  /**
-   * the defaults (indexed array)
-   * held by this application
-   */
-  defaults: { title: "My Interbox" },
-
-  /**
    * the plugins loaded into this application
    */
   plugins: {},
 
   /**
-   * load plugins from local (inter) path
+   * injects expressjs app with inter plugin eco-system
    *
    * this function should be called from express.js app.js
    * and should be loaded right after bodyParser has been loaded
@@ -29,14 +17,22 @@ inter = {
    * @param [express] - app the application object from expressjs
    *
    */
-  collectLocalPlugins: function loadPlugins( app ){
+  inject: function loadPlugins( app ){
 
     var pluginsPath = __dirname + '/lib/plugins';
     fs.readdirSync( pluginsPath ).forEach( function( dirName ){
       var plugin = require( path.join( pluginsPath, dirName ) );
       plugin.name = dirName;
       plugin.relativePath = path.join( pluginsPath, dirName );
-      inter.loadPlugin( plugin, app );
+      inter.registerPlugin( plugin, app );
+    });
+
+    var appPluginsPath = process.cwd() + '/app/plugins';
+    fs.readdirSync( appPluginsPath ).forEach( function( dirName ){
+      var plugin = require( path.join( appPluginsPath, dirName ) );
+      plugin.name = dirName;
+      plugin.relativePath = path.join( appPluginsPath, dirName );
+      inter.registerPlugin( plugin, app );
     });
 
   },
@@ -52,8 +48,8 @@ inter = {
    */
   registerPlugin: function registerPlugin( plugin, app ){
 
-    if( plugin.route )
-      plugin.route( app );
+    if( plugin.routes )
+      plugin.routes( app );
     if( plugin.middleware )
       plugin.middleware( app );
 

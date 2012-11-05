@@ -9,34 +9,100 @@ program
 
 var eol = 'win32' == os.platform() ? '\r\n' : '\n'
 
-var app_js = ['/**',
-' * tas10box application startup file',
-' */',
-'',
-'var tas10box = require(\'tas10box\');',
-'tas10box.start();',
-''
+var app_js = [
+"var express = require('express')",
+"  , http = require('http')",
+"  , path = require('path')",
+"  , i18next = require('i18next')",
+"  , fs = require('fs')",
+"  , inter = require('inter');",
+"",
+"",
+"i18next.init({",
+"    resGetPath: __dirname + '/public/locales/__lng__/__ns__.json',",
+"    fallbackLng: 'en',",
+"    saveMissing: true,",
+"    dynamicLoad: true",
+"});",
+"",
+"var access_logfile = fs.createWriteStream('./app.log', {flags: 'a'})",
+"  , app = express();",
+"",
+"app.configure(function(){",
+"  app.set('port', process.env.PORT || 3000);",
+"  app.set('views', __dirname + '/app/views');",
+"  app.set('view engine', 'jade');",
+"",
+"  app.set('view options', { pretty: true });",
+"",
+"  app.use(express.favicon( __dirname + '/public/favicon.ico' ));",
+"  //app.use(express.logger({stream: access_logfile }));",
+"  app.use(express.logger('dev'));",
+"  app.use(express.bodyParser());",
+"  app.use(i18next.handle);",
+"",
+"  inter.inject( app ); // inject app with inter defaults and plugins",
+"",
+"  app.use(express.methodOverride());",
+"  app.use(express.cookieParser('app'));",
+"  app.use(express.session());",
+"  app.use(app.router);",
+"  app.use(require('stylus').middleware(__dirname + '/public'));",
+"  app.use(express.static(path.join(__dirname, 'public')));",
+"});",
+"",
+"i18next.registerAppHelper(app);",
+"",
+"app.configure('development', function(){",
+"  app.use(express.errorHandler());",
+"});",
+"",
+"http.createServer(app).listen(app.get('port'), function(){",
+"  console.log('INTER server listening on port ' + app.get('port'));",
+"});",
+""
 ].join(eol);
 
-var settings_json = JSON.stringify({
-  "site": {
-    "title": "My tas10box app",
-    "domain": "localhost"
-  },
-  "port": 8080,
-  "db": "mongodb://localhost:27017/my_tas10box_app?auto_reconnect",
-    "mailerSettings": { "host": "localhost", "port": 25, "domain": "localhost", "authentication": false },
-  "plugins": {}
-});
+var settings_json = [
+'{',
+'"site": {',
+'  "title": "__appName__",',
+'    "domain": "localhost.loc"',
+'  },',
+'  "port": 3000,',
+'  "db": "mongodb://localhost:27017/__appName__?auto_reconnect",',
+'    "mailerSettings": { "host": "localhost.loc", "port": 25, "domain": "localhost.loc", "authentication": false }',
+'}'
+].join(eol);
+
+var package_json = [
+'{',
+'  "name": "__appName__",',
+'  "version": "0.0.1",',
+'  "preferGlobal": "true",',
+'  "main": "index",',
+'  "dependencies": {',
+'    "express": "*",',
+'    "jade": "*",',
+'    "stylus": "*",',
+'    "i18next": "*",',
+'    "inter": "*",',
+'    "konter": "*"',
+'  },',
+'  "license": "GPL3",',
+'  "engine": {',
+'    "node": ">=0.8"',
+'  }',
+'}'
+].join(eol);
 
 program
   .command('new <name>')
-  .description('create a new crevis scaffold')
+  .description('create a new inter scaffold')
   .action( function createScaffold( name ){
     mkdir( name );
     mkdir( name + '/app');
-    mkdir( name + '/app/routes');
-    mkdir( name + '/app/models');
+    mkdir( name + '/app/plugins');
     mkdir( name + '/app/views');
     mkdir( name + '/config');
     mkdir( name + '/public');
@@ -44,7 +110,9 @@ program
     mkdir( name + '/public/javascripts');
     mkdir( name + '/public/images');
     write( name + '/app.js', app_js );
-    write( name + '/config/tas10_settings.json', settings_json );
+    write( name + '/config/inter.json', settings_json.replace( /__appName__/g, name.replace(/ /g, '_') ) );
+    write( name + '/package.json', package_json.replace( /__appName__/g, name.replace(/ /g, '_') ) );
+    write( name + '/README.md', name + ' README' );
     console.log();
     console.log('   \x1b[32msuccess\x1b[0m');
     console.log();
@@ -55,9 +123,9 @@ program
   .description('setup a manager user and if specified in the configuration website and -pages. If config/tas10_settings.json is not present, it should be passed as argument')
   .action( function setupScaffold( configfile ){
     console.log();
-    configfile || (configfile = './config/tas10_settings.json' )
+    configfile || (configfile = './config/inter.json' )
     if( !fs.existsSync( './' + configfile ) )
-      return console.log('   \033[31merror\033[0m : ', configfile, ' was not found (if not config/tas10_settings.json, please pass it as argment)');
+      return console.log('   \033[31merror\033[0m : ', configfile, ' was not found (if not config/inter.json, please pass it as argment)');
     openConnection( configfile );
     console.log();
   })
