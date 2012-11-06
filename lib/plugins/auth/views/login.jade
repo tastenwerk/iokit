@@ -1,0 +1,35 @@
+extends ../../../../app/views/layout
+
+block header
+  link(rel='stylesheet', href='/stylesheets/login.css')
+
+block content
+
+
+  #login-content
+
+    #login-messages
+      -flash.error.forEach( function( error ){
+        .message
+          span.label.label-error= t('error')
+          =error
+      -})
+
+    #login-logo
+      img( src='/images/logo_150x150.png')
+
+    form.content-padding( action='/login', method='post' )
+      input( type='hidden', name='_csrf', value=_csrf )
+
+      p
+        label=t('user.email')
+        br
+        input.js-get-focus( type='text', name='email', placeholder=t('user.email') )
+      p
+        label=t('user.password')
+        br
+        input( type='text', name='password', placeholder=t('user.password') )
+
+      p
+        button.btn.pull-right(type='submit')= t('user.login')
+        a.pull-right( href='/forgot_password' )= t('user.forgot_password')

@@ -1,0 +1,8 @@
+#inter-sidebar-content
+#inter-sidebar
+  -for( i in inter.plugins )
+    -if( inter.plugins[i].sidebarWidget )
+      a.button( href=(inter.plugins[i].sidebarWidget.href || '/'+inter.plugins[i].name.toLowerCase()), data-sidebar-remote=(inter.plugins[i].sidebarWidget.sidebarRemote && inter.plugins[i].name.toLowerCase()+'/sidebar_content'), rel='tooltip-e' )
+        img.icon( src=(inter.plugins[i].sidebarWidget.icon || '/images/icons/'+inter.plugins[i].name.toLowerCase()+'_w.svg') )
+        .hover-text
+          span=t(inter.plugins[i].name.toLowerCase()+'.title')

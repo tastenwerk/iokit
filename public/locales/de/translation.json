@@ -1,0 +1,16 @@
+{
+  "error": "Fehler",
+  "user": {
+    "email": "Email Adresse",
+    "password": "Passwort",
+    "login": "Anmelden",
+    "login_required": "Anmeldung erforderlich",
+    "forgot_password": "Passwort vergessen?"
+  },
+  "dashboard": {
+    "title": "Dashboard"
+  },
+  "tree_browser": {
+    "title": "Dateien verwalten"
+  }
+}

@@ -17,7 +17,12 @@
   },
   "main": "index",
   "dependencies": {
-    "commander": "*"
+    "commander": "*",
+    "moment": "*",
+    "stylus": "*",
+    "i18next": "*",
+    "express": "3.x.x",
+    "connect-flash": "*"
   },
   "devDependencies": {
     "should": "x.x.x",

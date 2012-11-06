@@ -1,0 +1,374 @@
+@font-face {
+  font-family: SegoeUI;
+  src: url("/fonts/SegoeUI.ttf");
+}
+body {
+  font-size: 14px;
+  line-height: 20px;
+  font-family: 'SegeoUI', 'Lucida Grande', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+body .content-padding {
+  padding: 10px;
+}
+body .label {
+  color: #fff;
+  font-weight: bold;
+  padding: 3px 4px 2px;
+  text-transform: uppercase;
+  font-size: 11px;
+  background-color: #aaa;
+  margin-right: 5px;
+}
+body .label.label-error {
+  background-color: #b94a48;
+}
+body a {
+  color: #444;
+}
+body .btn {
+  font-size: 16px;
+  border: none;
+  background-color: #8a0;
+  padding: 2px 8px;
+  color: #fff;
+  cursor: pointer;
+}
+body .btn:hover {
+  background-color: #444;
+}
+body input[type=text],
+body input[type=password] {
+  border: 1px solid #aaa;
+  padding: 5px;
+}
+body input[type=text]:focus,
+body input[type=password]:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: #99d;
+}
+body h1 {
+  font-family: 'SegoeUI', sans-serif;
+  font-size: 40px;
+  font-weight: normal;
+  color: #444;
+}
+body #inter-sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  background-color: #444;
+  text-align: center;
+}
+body #inter-sidebar a.button {
+  float: left;
+  position: relative;
+  margin-left: -10px;
+  margin-top: 10px;
+  font-size: 10px;
+  color: #fff;
+  border: 2px solid #fafafa;
+  border-radius: 35px;
+  padding: 7px;
+}
+body #inter-sidebar a.button img {
+  border: none;
+  width: 28px;
+  height: 28px;
+}
+body #inter-sidebar a.button .loader {
+  width: 28px;
+  height: 28px;
+}
+body #inter-sidebar a.button .loader .circle {
+  width: 28px;
+  height: 28px;
+}
+body #inter-sidebar a.button.sidebar-button-hover {
+  background-color: #fafafa;
+}
+body #inter-sidebar a.button.sidebar-button-hover .loader .circle:after {
+  background: #000;
+}
+body #inter-sidebar a.button .hover-text {
+  font-family: SegoeUI, sans-serif;
+  display: none;
+  position: absolute;
+  left: 60px;
+  top: 10px;
+  font-size: 16px;
+  padding: 5px;
+  min-width: 200px;
+  color: #444;
+  text-align: left;
+  background-color: #fff;
+}
+body #inter-sidebar-content {
+  width: 25%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 60px;
+  bottom: 0;
+  background: #a9a9a9;
+}
+body #inter-main-content {
+  position: absolute;
+  margin-left: 60px;
+  top: 0;
+  left: 25%;
+  right: 0;
+  bottom: 0;
+}
+.loader {
+  position: relative;
+  width: 40px;
+  margin: auto;
+}
+.loader .circle {
+  position: absolute;
+  width: 38px;
+  height: 38px;
+  opacity: 0;
+  transform: rotate(225deg);
+  animation-iteration-count: infinite;
+  animation-name: orbit;
+  animation-duration: 5.5s;
+}
+.loader .circle:after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 5px;
+  background: #fff;
+}
+.loader .circle:nth-child(2) {
+  animation-delay: 240ms;
+}
+.loader .circle:nth-child(3) {
+  animation-delay: 480ms;
+}
+.loader .circle:nth-child(4) {
+  animation-delay: 720ms;
+}
+.loader .circle:nth-child(5) {
+  animation-delay: 960ms;
+}
+@-moz-keyframes orbit {
+  0% {
+    transform: rotate(225deg);
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+
+  7% {
+    transform: rotate(345deg);
+    animation-timing-function: linear;
+  }
+
+  30% {
+    transform: rotate(455deg);
+    animation-timing-function: ease-in-out;
+  }
+
+  39% {
+    transform: rotate(690deg);
+    animation-timing-function: linear;
+  }
+
+  70% {
+    transform: rotate(815deg);
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+
+  75% {
+    transform: rotate(945deg);
+    animation-timing-function: ease-out;
+  }
+
+  76% {
+    transform: rotate(945deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotate(945deg);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes orbit {
+  0% {
+    transform: rotate(225deg);
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+
+  7% {
+    transform: rotate(345deg);
+    animation-timing-function: linear;
+  }
+
+  30% {
+    transform: rotate(455deg);
+    animation-timing-function: ease-in-out;
+  }
+
+  39% {
+    transform: rotate(690deg);
+    animation-timing-function: linear;
+  }
+
+  70% {
+    transform: rotate(815deg);
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+
+  75% {
+    transform: rotate(945deg);
+    animation-timing-function: ease-out;
+  }
+
+  76% {
+    transform: rotate(945deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotate(945deg);
+    opacity: 0;
+  }
+}
+@-o-keyframes orbit {
+  0% {
+    transform: rotate(225deg);
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+
+  7% {
+    transform: rotate(345deg);
+    animation-timing-function: linear;
+  }
+
+  30% {
+    transform: rotate(455deg);
+    animation-timing-function: ease-in-out;
+  }
+
+  39% {
+    transform: rotate(690deg);
+    animation-timing-function: linear;
+  }
+
+  70% {
+    transform: rotate(815deg);
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+
+  75% {
+    transform: rotate(945deg);
+    animation-timing-function: ease-out;
+  }
+
+  76% {
+    transform: rotate(945deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotate(945deg);
+    opacity: 0;
+  }
+}
+@-ms-keyframes orbit {
+  0% {
+    transform: rotate(225deg);
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+
+  7% {
+    transform: rotate(345deg);
+    animation-timing-function: linear;
+  }
+
+  30% {
+    transform: rotate(455deg);
+    animation-timing-function: ease-in-out;
+  }
+
+  39% {
+    transform: rotate(690deg);
+    animation-timing-function: linear;
+  }
+
+  70% {
+    transform: rotate(815deg);
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+
+  75% {
+    transform: rotate(945deg);
+    animation-timing-function: ease-out;
+  }
+
+  76% {
+    transform: rotate(945deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotate(945deg);
+    opacity: 0;
+  }
+}
+@keyframes orbit {
+  0% {
+    transform: rotate(225deg);
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+
+  7% {
+    transform: rotate(345deg);
+    animation-timing-function: linear;
+  }
+
+  30% {
+    transform: rotate(455deg);
+    animation-timing-function: ease-in-out;
+  }
+
+  39% {
+    transform: rotate(690deg);
+    animation-timing-function: linear;
+  }
+
+  70% {
+    transform: rotate(815deg);
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+
+  75% {
+    transform: rotate(945deg);
+    animation-timing-function: ease-out;
+  }
+
+  76% {
+    transform: rotate(945deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotate(945deg);
+    opacity: 0;
+  }
+}
