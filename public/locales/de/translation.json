@@ -5,7 +5,9 @@
     "password": "Passwort",
     "login": "Anmelden",
     "login_required": "Anmeldung erforderlich",
-    "forgot_password": "Passwort vergessen?"
+    "forgot_password": "Passwort vergessen?",
+    "session_timeout": "Sitzung abgelaufen (__timeout__ min)",
+    "logout": "Abmelden"
   },
   "dashboard": {
     "title": "Dashboard"

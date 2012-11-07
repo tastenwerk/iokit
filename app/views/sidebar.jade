@@ -6,3 +6,9 @@
         img.icon( src=(inter.plugins[i].sidebarWidget.icon || '/images/icons/'+inter.plugins[i].name.toLowerCase()+'_w.svg') )
         .hover-text
           span=t(inter.plugins[i].name.toLowerCase()+'.title')
+
+  .sidebar-bottom-content
+    a.small.first( href='/history' )
+      img( src='/images/icons/history_w.svg' )
+    a.small.last( href='/preferences' )
+      img( src='/images/icons/preferences_w.svg' )

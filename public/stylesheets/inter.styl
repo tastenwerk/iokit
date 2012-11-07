@@ -4,7 +4,6 @@
 
 body
   font-size: 14px
-  line-height: 20px
   font-family: 'SegeoUI', 'Lucida Grande', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif
 
   .content-padding
@@ -23,7 +22,7 @@ body
 
   a
     color: #444
-    
+
   .btn
     font-size: 16px
     border: none
@@ -59,13 +58,13 @@ body
     a.button
       float: left
       position: relative
-      margin-left: -10px
+      margin-left: -15px
       margin-top: 10px
       font-size: 10px
       color: #fff
       border: 2px solid #fafafa
       border-radius: 35px
-      padding: 7px
+      padding: 7px 9px
       img
         border: none
         width: 28px
@@ -86,7 +85,7 @@ body
         font-family: SegoeUI, sans-serif
         display: none
         position: absolute
-        left: 60px
+        left: 70px
         top: 10px
         font-size: 16px
         padding: 5px
@@ -94,6 +93,26 @@ body
         color: #444
         text-align: left
         background-color: white
+    .sidebar-bottom-content
+      position: absolute
+      bottom: 0
+      left: 0
+      width: 100%
+      height: 20px
+      .small
+        position: absolute
+        top: 0
+        &.first
+          left: 2px
+          top: 1px
+          img
+            width: 18px
+            height: 18px
+        &.last
+          right: 2px
+          img
+            width: 20px
+            height: 20px
 
   #inter-sidebar-content
     width: 25%
@@ -111,6 +130,34 @@ body
     left: 25%
     right: 0
     bottom: 0
+
+  #inter-top-nav
+    position: absolute
+    top: 0
+    right: 0
+    left: 50px
+    height: 38px
+
+    #userpic
+      position: absolute
+      right: 200px
+      img
+        width: 38px
+        height: 38px
+        border: none
+
+    #useractions
+      position: absolute
+      right: 247px
+      top: 5px
+      font-size: 12px
+      text-align: right
+      a
+        text-decoration: none
+        font-weight: 900
+        &.logout
+          font-weight: 500
+          color: #777
 
 // loading animation
 .loader

@@ -4,7 +4,6 @@
 }
 body {
   font-size: 14px;
-  line-height: 20px;
   font-family: 'SegeoUI', 'Lucida Grande', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 }
 body .content-padding {
@@ -65,13 +64,13 @@ body #inter-sidebar {
 body #inter-sidebar a.button {
   float: left;
   position: relative;
-  margin-left: -10px;
+  margin-left: -15px;
   margin-top: 10px;
   font-size: 10px;
   color: #fff;
   border: 2px solid #fafafa;
   border-radius: 35px;
-  padding: 7px;
+  padding: 7px 9px;
 }
 body #inter-sidebar a.button img {
   border: none;
@@ -96,7 +95,7 @@ body #inter-sidebar a.button .hover-text {
   font-family: SegoeUI, sans-serif;
   display: none;
   position: absolute;
-  left: 60px;
+  left: 70px;
   top: 10px;
   font-size: 16px;
   padding: 5px;
@@ -104,6 +103,32 @@ body #inter-sidebar a.button .hover-text {
   color: #444;
   text-align: left;
   background-color: #fff;
+}
+body #inter-sidebar .sidebar-bottom-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
+}
+body #inter-sidebar .sidebar-bottom-content .small {
+  position: absolute;
+  top: 0;
+}
+body #inter-sidebar .sidebar-bottom-content .small.first {
+  left: 2px;
+  top: 1px;
+}
+body #inter-sidebar .sidebar-bottom-content .small.first img {
+  width: 18px;
+  height: 18px;
+}
+body #inter-sidebar .sidebar-bottom-content .small.last {
+  right: 2px;
+}
+body #inter-sidebar .sidebar-bottom-content .small.last img {
+  width: 20px;
+  height: 20px;
 }
 body #inter-sidebar-content {
   width: 25%;
@@ -121,6 +146,37 @@ body #inter-main-content {
   left: 25%;
   right: 0;
   bottom: 0;
+}
+body #inter-top-nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 50px;
+  height: 38px;
+}
+body #inter-top-nav #userpic {
+  position: absolute;
+  right: 200px;
+}
+body #inter-top-nav #userpic img {
+  width: 38px;
+  height: 38px;
+  border: none;
+}
+body #inter-top-nav #useractions {
+  position: absolute;
+  right: 247px;
+  top: 5px;
+  font-size: 12px;
+  text-align: right;
+}
+body #inter-top-nav #useractions a {
+  text-decoration: none;
+  font-weight: 900;
+}
+body #inter-top-nav #useractions a.logout {
+  font-weight: 500;
+  color: #777;
 }
 .loader {
   position: relative;

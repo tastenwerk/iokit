@@ -1,0 +1,9 @@
+#inter-top-nav
+  a#userpic( data-user-img=currentUser._id, href='/users/'+currentUser._id )
+    img.userpic( src='/images/icons/person.svg' )
+  #useractions
+    a( href='/users/'+currentUser._id )
+      =currentUser.name.full
+    br
+    a.logout( href='/logout' )
+      =t('user.logout')

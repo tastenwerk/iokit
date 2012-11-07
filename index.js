@@ -40,7 +40,7 @@ inter = {
     app.set('view engine', 'jade');
     app.use(express.bodyParser());
     app.use(express.cookieParser(new Date().getTime().toString(36)));
-    app.use(express.session({ key: 'inter', cookie: { maxAge: 60000 }}));
+    app.use(express.session({ key: 'inter' }));
     app.use( express.csrf() );
 
     var pluginsPath = __dirname + '/lib/plugins';

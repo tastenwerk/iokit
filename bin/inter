@@ -51,7 +51,7 @@ var settings_json = [
 '{',
 '"site": {',
 '  "title": "__appName__",',
-'    "domain": "localhost.loc"',
+'  "domain": "localhost.loc"',
 '  },',
 '  "port": 3000,',
 '  "db": {',
@@ -105,14 +105,14 @@ program
   });
 
 program
-  .command('setup [configfile]')
+  .command('setup [username] [password]')
   .description('setup a manager user and if specified in the configuration website and -pages. If config/tas10_settings.json is not present, it should be passed as argument')
-  .action( function setupScaffold( configfile ){
+  .action( function setupScaffold( username, password ){
     console.log();
-    configfile || (configfile = './config/inter.json' )
+    configfile = './config/inter.json';
     if( !fs.existsSync( './' + configfile ) )
       return console.log('   \033[31merror\033[0m : ', configfile, ' was not found (if not config/inter.json, please pass it as argment)');
-    openConnection( configfile );
+    openConnection( configfile, username, password );
     console.log();
   })
 
@@ -146,27 +146,30 @@ function mkdir(path) {
   }
 }
 
-function openConnection( configfile ){
+function openConnection( configfile, username, password ){
 
-  var settings = JSON.parse( fs.readFileSync( configfile ) );
-  var tas10core = require('tas10core');
+  var username = username || 'manager'
+    , password = password || 'mgr'
+    , settings = JSON.parse( fs.readFileSync( configfile ) )
+    , konter = require('konter')
+    , User = konter.models.User;
+
   if( !settings.db )
     return exitError( configfile + ' does not provide db information. Please check')
-  tas10core.connect( settings.db );
+  konter.connect( settings.db.url );
 
-  var User = tas10core.getUser();
-  User.query().where('name', 'manager').first( function( err, user ){
+  User.findOne({ email: username+'@'+settings.site.domain }, function( err, user ){
+    if( err ) exitError( err.message );
     if( user ){
-      console.log('   \033[31mskipped\033[0m : user manager alreadye exists');
+      console.log('   \033[31mskipped\033[0m : user ' + username + ' already exists');
       console.log();
       process.exit(0);
     } else
-      User.create({name: 'manager', password: 'manager'}, function( err, user ){
+      User.create({ email: username+'@'+settings.site.domain, 'name.nick': username, password: password}, function( err, user ){
         if( err )
           exitError( err.message );
         else
-          console.log('   \033[36mcreate\033[0m : user ', user.name, ' with password manager.' );
-
+          console.log('   \033[36mcreate\033[0m : user ', user.name.nick, ' with password ' + password + '.' );
         console.log();
         
         process.exit(0);
