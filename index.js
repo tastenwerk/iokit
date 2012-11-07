@@ -38,6 +38,8 @@ inter = {
     express = _express;
     
     app.set('view engine', 'jade');
+    app.engine('jade', require('jade').__express);
+    app.engine('ejs', require('ejs').__express);
     app.use(express.bodyParser());
     app.use(express.cookieParser(new Date().getTime().toString(36)));
     app.use(express.session({ key: 'inter' }));

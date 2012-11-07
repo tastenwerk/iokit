@@ -7,3 +7,10 @@
     br
     a.logout( href='/logout' )
       =t('user.logout')
+  #desktop-control(style="display:none")
+    a#minimize-window-button( href='#' )
+      img( src='/images/icons/win_minimize.svg' )
+    a#maximize-window-button( href='#' )
+      img( src='/images/icons/win_maximize.svg' )
+    a#close-window-button( href='#' )
+      img( src='/images/icons/win_close.svg' )

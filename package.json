@@ -21,6 +21,8 @@
     "moment": "*",
     "stylus": "*",
     "i18next": "*",
+    "jade": "*",
+    "ejs": "*",
     "express": "3.x.x",
     "connect-flash": "*"
   },

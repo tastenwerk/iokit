@@ -14,5 +14,13 @@
   },
   "tree_browser": {
     "title": "Dateien verwalten"
+  },
+  "preferences": {
+    "title": "Einstellungen",
+    "common": {
+      "title": "Allgemein",
+      "hosts": "Entfernte Hosts",
+      "locale": "Sprache"
+    }
   }
 }

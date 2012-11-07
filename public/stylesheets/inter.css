@@ -59,6 +59,7 @@ body #inter-sidebar {
   bottom: 0;
   width: 50px;
   background-color: #444;
+  overflow-y: hidden;
   text-align: center;
 }
 body #inter-sidebar a.button {
@@ -130,16 +131,17 @@ body #inter-sidebar .sidebar-bottom-content .small.last img {
   width: 20px;
   height: 20px;
 }
-body #inter-sidebar-content {
+body #inter-sidebar-content,
+body .sidebar-content {
   width: 25%;
   position: absolute;
   top: 0;
   left: 0;
   margin-left: 60px;
   bottom: 0;
-  background: #a9a9a9;
 }
-body #inter-main-content {
+body #inter-main-content,
+body .main-content {
   position: absolute;
   margin-left: 60px;
   top: 0;
@@ -156,7 +158,7 @@ body #inter-top-nav {
 }
 body #inter-top-nav #userpic {
   position: absolute;
-  right: 200px;
+  right: 150px;
 }
 body #inter-top-nav #userpic img {
   width: 38px;
@@ -165,7 +167,7 @@ body #inter-top-nav #userpic img {
 }
 body #inter-top-nav #useractions {
   position: absolute;
-  right: 247px;
+  right: 197px;
   top: 5px;
   font-size: 12px;
   text-align: right;
@@ -177,6 +179,40 @@ body #inter-top-nav #useractions a {
 body #inter-top-nav #useractions a.logout {
   font-weight: 500;
   color: #777;
+}
+body #inter-top-nav #desktop-control {
+  position: absolute;
+  right: 7px;
+  top: 12px;
+  height: 14px;
+  width: 120px;
+  text-align: right;
+}
+body #inter-top-nav #desktop-control a {
+  margin: 0 5px;
+}
+body #inter-top-nav #desktop-control a img {
+  width: 12px;
+  height: 12px;
+  opacity: 0.7;
+}
+body .inter-vertical-tabs .tab-container {
+  top: 100px;
+  margin-left: 0;
+}
+body .inter-vertical-tabs .tab-container .tab {
+  height: 20px;
+  font-size: 16px;
+  font-family: 'SegoeUI', sans-serif;
+  background-color: #ddd;
+  padding: 10px 20px 15px;
+}
+body .inter-vertical-tabs .tab-container .tab:hover {
+  background-color: #444;
+  color: #fff;
+}
+body .inter-vertical-tabs .tab-content-container {
+  top: 100px;
 }
 .loader {
   position: relative;
@@ -212,6 +248,31 @@ body #inter-top-nav #useractions a.logout {
 }
 .loader .circle:nth-child(5) {
   animation-delay: 960ms;
+}
+.paper-box {
+  font: 13px 'Lucida Sans', 'trebuchet MS', Arial, Helvetica;
+  background: #fff;
+  border: 1px solid #ddd;
+  color: #333;
+  padding: 20px;
+  width: 180px;
+  float: left;
+  _display: inline;
+/* IE6 double margin fix */
+  position: relative;
+  margin: 0 5px;
+  box-shadow: 0 2px 2px -1px rgba(0,0,0,0.3);
+}
+.paper-box:after {
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 10px;
+  right: 4px;
+  width: 80%;
+  top: 80%;
+  box-shadow: 0 12px 5px rgba(0,0,0,0.3);
+  transform: rotate(3deg);
 }
 @-moz-keyframes orbit {
   0% {

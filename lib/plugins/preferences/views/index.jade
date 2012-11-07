@@ -1,0 +1,38 @@
+h1= t('preferences.title')
+
+.inter-vertical-tabs
+  .tab-container.sidebar-content
+    -for( var i in currentUser.settings )
+      .tab
+        span= t('preferences.'+i+'.title')
+
+  .tab-content-container.main-content
+    -for( var i in currentUser.settings )
+      .tab-content
+        table.preferences
+          -for( var j in currentUser.settings[i] )
+            -if( typeof(currentUser.settings[i][j]) === 'object' && currentUser.settings[i][j] instanceof Array )
+                tr
+                  td
+                    input(type='text', value=t('preferences.'+i+'.'+j), disabled)
+                  td
+                    -for( var k in currentUser.settings[i][j] )
+                      input(type='text', value=currentUser.settings[i][j][k])
+                      br
+            -else if( typeof(currentUser.settings[i][j]) === 'object' )
+              tr
+                td
+                  h3=t('preferences'+i+'.'+j)
+                td
+              -for( var k in currentUser.settings[i][j] )
+                tr
+                  td
+                    input(type='text', value=t('preferences.'+i+'.'+j+'.'+k), disabled)
+                  td
+                    input(type='text', value=currentUser.settings[i][j][k])
+            -else
+              tr
+                td
+                  input(type='text', value=t('preferences.'+i+'.'+j), disabled)
+                td
+                  input(type='text', value=currentUser.settings[i][j])
