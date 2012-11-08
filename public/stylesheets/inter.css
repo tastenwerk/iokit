@@ -21,6 +21,9 @@ body .label {
 body .label.label-error {
   background-color: #b94a48;
 }
+body .label.parent {
+  background-color: #3a87ad;
+}
 body a {
   color: #444;
 }
@@ -28,12 +31,70 @@ body .btn {
   font-size: 16px;
   border: none;
   background-color: #8a0;
-  padding: 2px 8px;
+  padding: 2px 12px;
   color: #fff;
   cursor: pointer;
 }
 body .btn:hover {
   background-color: #444;
+}
+body .icnbtn {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+body .icnbtn:hover {
+  border: none;
+  background: none;
+}
+body .icn {
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+  background-size: 28px;
+  opacity: 0.7;
+}
+body .icn:hover {
+  opacity: 1;
+}
+body .icn.icn-save {
+  background: url("/images/icons/save.svg");
+  background-size: 28px;
+}
+body .icn.icn-save.icn-white {
+  background: url("/images/icons/save_w.svg");
+  background-size: 28px;
+}
+body .icn.icn-plus {
+  background: url("/images/icons/plus.svg");
+  background-size: 28px;
+}
+body .icn.icn-plus.icn-white {
+  background: url("/images/icons/plus_w.svg") #444;
+  background-size: 28px;
+}
+body .icn.icn-minus {
+  background: url("/images/icons/minus.svg");
+  background-size: 28px;
+}
+body .icn.icn-small {
+  width: 20px;
+  height: 20px;
+  background-size: 20px;
+}
+body #inter-action-icons {
+  margin: 10px 20px 20px;
+}
+body #inter-action-icons .icn {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+}
+body #inter-action-icons .icn:hover {
+  height: 32px;
+  width: 32px;
+  background-size: 32px;
+  margin: -2px auto auto -2px;
 }
 body input[type=text],
 body input[type=password] {
@@ -52,6 +113,55 @@ body h1 {
   font-weight: normal;
   color: #444;
 }
+body .span400 {
+  width: 400px;
+}
+body #inter-modal-overlay {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1001;
+}
+body #inter-modal {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin: auto;
+  height: 180px;
+  padding: 20px 0;
+  color: #fff;
+  background-color: #8a0;
+  z-index: 1001;
+}
+body #inter-modal .inner-wrapper {
+  margin: 0 10%;
+}
+body #inter-modal h1 {
+  color: #fff;
+  margin: 0;
+}
+body #inter-modal .control {
+  text-align: right;
+}
+body #inter-modal input[type=text] {
+  padding: 10px 5px;
+}
+body #inter-modal .btn {
+  border: 2px solid #fff;
+  margin-left: 10px;
+}
+body #inter-modal .btn:hover {
+  border-color: #444;
+}
+body #inter-modal .parent {
+  display: none;
+}
 body #inter-sidebar {
   position: absolute;
   top: 0;
@@ -59,8 +169,16 @@ body #inter-sidebar {
   bottom: 0;
   width: 50px;
   background-color: #444;
-  overflow-y: hidden;
   text-align: center;
+}
+body #inter-sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+body #inter-sidebar ul li {
+  margin: 0;
+  padding: 0;
 }
 body #inter-sidebar a.button {
   float: left;
@@ -86,10 +204,12 @@ body #inter-sidebar a.button .loader .circle {
   width: 28px;
   height: 28px;
 }
-body #inter-sidebar a.button.sidebar-button-hover {
+body #inter-sidebar a.button.sidebar-button-hover,
+body #inter-sidebar a.button.active {
   background-color: #fafafa;
 }
-body #inter-sidebar a.button.sidebar-button-hover .loader .circle:after {
+body #inter-sidebar a.button.sidebar-button-hover .loader .circle:after,
+body #inter-sidebar a.button.active .loader .circle:after {
   background: #000;
 }
 body #inter-sidebar a.button .hover-text {
@@ -97,17 +217,25 @@ body #inter-sidebar a.button .hover-text {
   display: none;
   position: absolute;
   left: 70px;
-  top: 10px;
+  top: 5px;
   font-size: 16px;
-  padding: 5px;
+  padding: 10px 20px;
   min-width: 200px;
-  color: #444;
+  color: #fff;
   text-align: left;
-  background-color: #fff;
+  background-color: #444;
+}
+body #inter-sidebar #active-line {
+  border-top: 2px solid #fff;
+  width: 15px;
+  height: 2px;
+  position: absolute;
+  top: 33px;
+  right: 0;
 }
 body #inter-sidebar .sidebar-bottom-content {
   position: absolute;
-  bottom: 0;
+  bottom: 3px;
   left: 0;
   width: 100%;
   height: 20px;
@@ -153,7 +281,7 @@ body #inter-top-nav {
   position: absolute;
   top: 0;
   right: 0;
-  left: 50px;
+  left: 30%;
   height: 38px;
 }
 body #inter-top-nav #userpic {
@@ -214,6 +342,40 @@ body .inter-vertical-tabs .tab-container .tab:hover {
 body .inter-vertical-tabs .tab-content-container {
   top: 100px;
 }
+body table.preferences {
+  border-spacing: 0;
+  width: 100%;
+}
+body table.preferences td {
+  vertical-align: top;
+  padding: 0;
+  position: relative;
+}
+body table.preferences td:first-child {
+  width: 30%;
+}
+body table.preferences td:last-child {
+  width: 60%;
+}
+body table.preferences td input[type=text] {
+  width: 100%;
+  margin-bottom: 2px;
+  padding: 5px 0;
+  margin-left: -2px;
+}
+body table.preferences td input[type=text]:disabled {
+  background: #eee;
+}
+body table.preferences .icn-small {
+  cursor: pointer;
+  opacity: 0.2;
+  position: absolute;
+  right: 3px;
+  margin-top: 3px;
+}
+body table.preferences .icn-small:hover {
+  opacity: 1;
+}
 .loader {
   position: relative;
   width: 40px;
@@ -273,6 +435,45 @@ body .inter-vertical-tabs .tab-content-container {
   top: 80%;
   box-shadow: 0 12px 5px rgba(0,0,0,0.3);
   transform: rotate(3deg);
+}
+.notice-wrap {
+  position: fixed;
+  top: 50px;
+  right: 0;
+  width: 250px;
+  z-index: 9999;
+}
+* html .notice-wrap {
+  position: absolute;
+}
+.notice-item {
+  min-height: 60px;
+  background-color: #01a31c;
+  color: #fff;
+  padding: 10px 20px;
+  font-family: 'SegoeUI', sans-serif;
+  font-size: 14px;
+  display: block;
+  position: relative;
+  margin: 0 0 12px 0;
+}
+.notice-item.error {
+  background-color: #d44a26;
+}
+.notice-item-close {
+  position: absolute;
+  font-family: Arial;
+  font-size: 20px;
+  font-weight: bold;
+  right: 2px;
+  top: 2px;
+  cursor: pointer;
+  padding: 2px 7px 0;
+}
+.notice-item-close:hover {
+  background-color: #fff;
+  color: #000;
+  opacity: 0.7;
 }
 @-moz-keyframes orbit {
   0% {

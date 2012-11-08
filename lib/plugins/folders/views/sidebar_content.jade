@@ -1,0 +1,26 @@
+#inter-action-icons
+  a( href='/folders/new', data-remote='true' )
+    i.icn.icn-plus
+
+#inter-folders
+
+script
+  var homogeneous = new kendo.data.HierarchicalDataSource({
+    transport: {
+      read: {
+        url: inter.host.master+'/folders',
+        dataType: 'json'
+      }
+    },
+    schema: {
+        model: {
+            id: "_id",
+            hasChildren: true
+        }
+    }
+  });
+
+  $("#inter-folders").kendoTreeView({
+    dataSource: homogeneous,
+    dataTextField: "name"
+  });

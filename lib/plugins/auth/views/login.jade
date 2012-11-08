@@ -9,10 +9,15 @@ block content
   #login-content
 
     #login-messages
-      -flash.error.forEach( function( error ){
+      -flash.error && flash.error.forEach( function( error ){
         .message
-          span.label.label-error= t('error')
+          span.label.label-error= t('info')
           =error
+      -})
+      -flash.notice && flash.notice.forEach( function( info ){
+        .message
+          span.label.label-error= t('info')
+          =info
       -})
 
     #login-logo

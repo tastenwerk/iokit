@@ -1,38 +1,45 @@
-h1= t('preferences.title')
+form( action='/preferences', method='post', data-remote='true' )
+  h1
+    span= t('preferences.title')
+    button.icnbtn( type='submit' )
+      i.icn.icn-save
 
-.inter-vertical-tabs
-  .tab-container.sidebar-content
-    -for( var i in currentUser.settings )
-      .tab
-        span= t('preferences.'+i+'.title')
+  .inter-vertical-tabs
+    .tab-container.sidebar-content
+      -for( var i in currentUser.preferences )
+        .tab
+          span= t('preferences.'+i+'.title')
 
-  .tab-content-container.main-content
-    -for( var i in currentUser.settings )
-      .tab-content
-        table.preferences
-          -for( var j in currentUser.settings[i] )
-            -if( typeof(currentUser.settings[i][j]) === 'object' && currentUser.settings[i][j] instanceof Array )
+    .tab-content-container.main-content
+      -for( var i in currentUser.preferences )
+        .tab-content
+          table.preferences
+            -for( var j in currentUser.preferences[i] )
+              -if( typeof(currentUser.preferences[i][j]) === 'object' && currentUser.preferences[i][j] instanceof Array )
+                  tr
+                    td
+                      input(type='text', value=t('preferences.'+i+'.'+j), disabled)
+                    td
+                      -for( var k in currentUser.preferences[i][j] )
+                        input(type='text', value=currentUser.preferences[i][j][k], name='preferences['+i+']['+j+'][]')  
+                        i.icn.icn-small.icn-minus
+                        -if( currentUser.preferences[i][j].length === parseInt(k)+1 )
+                          i.icn.icn-small.icn-plus(style='right: 25px')
+                        br
+              -else if( typeof(currentUser.preferences[i][j]) === 'object' )
+                tr
+                  td
+                    h3=t('preferences'+i+'.'+j)
+                  td
+                -for( var k in currentUser.preferences[i][j] )
+                  tr
+                    td
+                      input(type='text', value=t('preferences.'+i+'.'+j+'.'+k), disabled)
+                    td
+                      input(type='text', value=currentUser.preferences[i][j][k], name='preferences['+i+']['+j+']['+k+']')
+              -else
                 tr
                   td
                     input(type='text', value=t('preferences.'+i+'.'+j), disabled)
                   td
-                    -for( var k in currentUser.settings[i][j] )
-                      input(type='text', value=currentUser.settings[i][j][k])
-                      br
-            -else if( typeof(currentUser.settings[i][j]) === 'object' )
-              tr
-                td
-                  h3=t('preferences'+i+'.'+j)
-                td
-              -for( var k in currentUser.settings[i][j] )
-                tr
-                  td
-                    input(type='text', value=t('preferences.'+i+'.'+j+'.'+k), disabled)
-                  td
-                    input(type='text', value=currentUser.settings[i][j][k])
-            -else
-              tr
-                td
-                  input(type='text', value=t('preferences.'+i+'.'+j), disabled)
-                td
-                  input(type='text', value=currentUser.settings[i][j])
+                    input(type='text', value=currentUser.preferences[i][j], name='preferences['+i+']['+j+']')

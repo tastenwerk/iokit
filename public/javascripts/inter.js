@@ -2,11 +2,20 @@ $(function(){
 
   inter = {
 
+    host: {
+      master: $('#_host_master').val()
+    },
+
     mode: 'desktop',
 
     main: $('#inter-main-content'),
 
     sidebar: $('#inter-sidebar-content'),
+
+    hideSidebar: function(){ 
+      inter.sidebar.animate({ left: '-40%' }); 
+      $('#inter-main-content').animate({ left: 0 });
+    },
 
     setupAjaxHelpers: function setupAjaxHelpers(){
       
@@ -15,7 +24,7 @@ $(function(){
         if( xhr.status === 0 )
         inter.notify('You are offline!!\n Please Check Your Network.', 'error');
         else if( xhr.status in [401,403] )
-          location = '/login';
+          window.location.replace('/login');
         //else if( xhr.status === 404 )
         //  inter.notify('Destination target could not be found', true);
         else if( xhr.status === 500 )
@@ -31,9 +40,14 @@ $(function(){
 
       $('form[data-remote=true]').live('submit', function(e){
         e.preventDefault();
+        var data = $(this).serializeArray();
+        data.push({name: '_csrf', value: $('#_csrf').val() });
         $.ajax({ url: $(this).attr('action'),
              dataType: 'script',
-             data: $(this).serializeArray(),
+             data: data,
+             error: function( data, msg, err ){
+              console.log('error', err );
+             },
              type: $(this).attr('method') });
       });
 
@@ -49,13 +63,55 @@ $(function(){
      * add a notification message to the
      * notification system
      */
-    notify: function notify( msg, error ){
-      if( error )
-        $('#inter-notifier').addClass('error');
-      else
-        $('#inter-notifier').removeClass('error');
-      $('#inter-notifier .content').html(msg);
-      $('#inter-notifier').show().find('.wrapper').switchClass('low','high', 0).delay(2000).switchClass('high','low', 600, 'easeOutBack');
+    notify: function notify( msg, type ){
+      if( typeof(msg) === 'object' ){
+        if( msg.error && msg.error instanceof Array && msg.error.length > 0 )
+          msg.error.forEach( function( err ){
+            inter.notify( err, 'error' );
+          });
+        if( msg.notice && msg.notice instanceof Array && msg.notice.length > 0 )
+          msg.notice.forEach( function( notice ){
+            inter.notify( notice );
+          });
+        return;
+      }
+
+      $.noticeAdd({
+        text: msg,
+        stay: (type && type !== 'notice'),
+        type: type
+      });
+    },
+
+    /**
+     * adds a blocking modal box to the whole
+     * screen
+     *
+     * @param {String} [html] the html string to be rendered to this modal
+     * also, action strings are valid:
+     * 
+     * @param {Function} [callback] the callback that should be triggered
+     * after modal has been rendered.
+     *
+     * @example
+     *  inter.modal('close')
+     * closes the modal.
+     */
+    modal: function( html, callback ){
+      function closeModal(){
+        $('.inter-modal').fadeOut(300);
+        setTimeout( function(){
+          $('.inter-modal').remove();
+        }, 300);
+      }
+      if( html === 'close' )
+        return closeModal();
+      $('body').append('<div id="inter-modal-overlay" class="inter-modal"/>');
+      $('body').append('<div id="inter-modal" class="inter-modal"><div class="inner-wrapper" /></div>');
+      $('#inter-modal .inner-wrapper').html( html ).fadeIn(500);
+      $('#inter-modal-overlay').fadeIn(200).on('click', closeModal);
+      if( callback && typeof(callback) === 'function' )
+        setTimeout(function(){ callback( $('#inter-modal') ); }, 500 );
     },
 
     ajaxLoad: function( elem ){
@@ -72,21 +128,20 @@ $(function(){
 
   };
 
-  $('#inter-sidebar a.button').live('mouseenter', function(e){
-    $(this).find('img').attr('src', $(this).find('img').attr('src').replace('_w.svg', '.svg') ).end()
-           .addClass('sidebar-button-hover')
-           .find('.hover-text').show();
-  }).live('mouseleave', function(e){
-    $(this).find('img').attr('src', $(this).find('img').attr('src').replace('.svg', '_w.svg') ).end()
-           .removeClass('sidebar-button-hover')
-           .find('.hover-text').hide();
-  })
-
   $('body').tooltip({
     selector: '[rel=tooltip]'
   }).on('click', function(){
     $(this).find('div.tooltip').remove();
+  }).on('keydown', function(e){
+    // ESC
+    if ( e.keyCode === 27 ){
+      $('.inter-modal').fadeOut(300);
+      setTimeout( function(){
+        $('.inter-modal').remove();
+      },300);
+    }
   });
+
 
   $('.js-get-focus:first').focus();
 

@@ -19,6 +19,8 @@ body
     margin-right: 5px
     &.label-error
       background-color: #B94A48
+    &.parent
+      background-color: #3A87AD
 
   a
     color: #444
@@ -27,11 +29,58 @@ body
     font-size: 16px
     border: none
     background-color: #8a0
-    padding: 2px 8px
+    padding: 2px 12px
     color: white
     cursor: pointer
     &:hover
       background-color: #444
+
+  .icnbtn
+    border: none
+    background: none
+    cursor: pointer
+    &:hover
+      border: none
+      background: none
+  .icn
+    width: 28px
+    height: 28px
+    display: inline-block
+    background-size: 28px
+    opacity: 0.7
+    &:hover
+      opacity: 1
+    &.icn-save
+      background: url('/images/icons/save.svg')
+      background-size: 28px
+      &.icn-white
+        background: url('/images/icons/save_w.svg')
+        background-size: 28px
+    &.icn-plus
+      background: url('/images/icons/plus.svg')
+      background-size: 28px
+      &.icn-white
+        background: url('/images/icons/plus_w.svg') #444
+        background-size: 28px
+    &.icn-minus
+      background: url('/images/icons/minus.svg')
+      background-size: 28px
+    &.icn-small
+      width: 20px
+      height: 20px
+      background-size: 20px
+
+  #inter-action-icons
+    margin: 10px 20px 20px
+    .icn
+      -webkit-transition: all 0.3s ease
+      -moz-transition: all 0.3s ease
+      -o-transition: all 0.3s ease
+      &:hover
+        height: 32px
+        width: 32px
+        background-size: 32px
+        margin: -2px auto auto -2px
 
   input[type=text], input[type=password]
     border: 1px solid #aaa
@@ -46,6 +95,49 @@ body
     font-weight: normal
     color: #444
 
+  .span400
+    width: 400px
+
+  #inter-modal-overlay
+    position: absolute
+    top: 0%
+    left: 0%
+    width: 100%
+    height: 100%
+    background-color: rgba(0,0,0,0.5)
+    z-index:1001
+
+  #inter-modal
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    width: 100%
+    margin: auto
+    height: 180px
+    padding: 20px 0
+    color: white
+    background-color: #8a0
+    z-index: 1001
+    .inner-wrapper
+      margin: 0 10%
+
+    h1
+      color: white
+      margin: 0
+    .control
+      text-align: right
+    input[type=text]
+      padding: 10px 5px
+    .btn
+      border: 2px solid white
+      margin-left: 10px
+      &:hover
+        border-color: #444
+    .parent
+      display: none
+
   #inter-sidebar
     position: absolute
     top: 0
@@ -53,9 +145,15 @@ body
     bottom: 0
     width: 50px
     background-color: #444
-    overflow-y: hidden
     text-align: center
     
+    ul
+      list-style: none
+      margin: 0
+      padding: 0
+      li
+        margin: 0
+        padding: 0
     a.button
       float: left
       position: relative
@@ -76,7 +174,7 @@ body
         .circle
           width: 28px
           height: 28px
-      &.sidebar-button-hover
+      &.sidebar-button-hover, &.active
         background-color: #fafafa;
         .loader
           .circle
@@ -87,16 +185,23 @@ body
         display: none
         position: absolute
         left: 70px
-        top: 10px
+        top: 5px
         font-size: 16px
-        padding: 5px
+        padding: 10px 20px
         min-width: 200px
-        color: #444
+        color: white
         text-align: left
-        background-color: white
+        background-color: #444
+    #active-line
+      border-top: 2px solid white
+      width: 15px
+      height: 2px
+      position: absolute
+      top: 33px
+      right: 0
     .sidebar-bottom-content
       position: absolute
-      bottom: 0
+      bottom: 3px
       left: 0
       width: 100%
       height: 20px
@@ -135,7 +240,7 @@ body
     position: absolute
     top: 0
     right: 0
-    left: 50px
+    left: 30%
     height: 38px
 
     #userpic
@@ -187,8 +292,33 @@ body
           color: #fff
     .tab-content-container
       top: 100px
-    
 
+  table.preferences
+    border-spacing: 0
+    width: 100%
+    td
+      vertical-align: top
+      padding: 0
+      position: relative
+      &:first-child
+        width: 30%
+      &:last-child
+        width: 60%
+      input[type=text]
+        width: 100%
+        margin-bottom: 2px
+        padding: 5px 0
+        margin-left: -2px
+        &:disabled
+          background: #eee
+    .icn-small
+      cursor: pointer
+      opacity: 0.2
+      position: absolute
+      right: 3px
+      margin-top: 3px
+      &:hover
+        opacity: 1
 
 // loading animation
 .loader
@@ -281,3 +411,42 @@ body
   top: 80%
   box-shadow: 0 12px 5px rgba(0, 0, 0, .3)
   transform: rotate(3deg)
+
+// jquery.notice
+.notice-wrap
+  position: fixed
+  top: 50px
+  right: 0
+  width: 250px
+  z-index: 9999
+
+* html .notice-wrap
+  position: absolute
+ 
+.notice-item
+  min-height: 60px
+  background-color: #01A31C
+  color: white
+  padding: 10px 20px
+  font-family: 'SegoeUI', sans-serif
+  font-size: 14px
+  display: block
+  position: relative
+  margin: 0 0 12px 0
+  &.error
+    background-color: #D44A26
+
+.notice-item-close
+  position: absolute
+  font-family: Arial
+  font-size: 20px
+  font-weight: bold
+  right: 2px
+  top: 2px
+  cursor: pointer
+  padding: 2px 7px 0
+  &:hover
+    background-color: white
+    color: black
+    opacity: 0.7
+

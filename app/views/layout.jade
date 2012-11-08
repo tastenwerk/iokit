@@ -5,4 +5,5 @@ html
     block header
   body
     input( type='hidden', id='_csrf', value=_csrf )
+    input( type='hidden', id='_host_master', value='http://'+inter.config.site.domain+':'+inter.config.site.port )
     block content
