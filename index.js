@@ -6,7 +6,7 @@ var fs = require('fs')
   , express;
 
 i18next.init({
-    resGetPath: __dirname + '/public/locales/__lng__/__ns__.json',
+    resGetPath: __dirname + '/locales/__lng__/__ns__.json',
     fallbackLng: 'de',
     saveMissing: true,
     dynamicLoad: true
@@ -81,6 +81,24 @@ inter = {
   startDBConnection: function(){
     console.log('[inter] conecting to mongodb '+ inter.config.db.url );
     inter.conn = konter.connect( inter.config.db.url, inter.config.db.debug );
+  },
+
+  /**
+   * loads a plugin to the inter
+   * system
+   */
+  plugin: function( app, plugin ){
+
+    inter.plugins[plugin.name] = plugin;
+    
+    if( plugin.middleware )
+      plugin.middleware( app );
+
+    if( plugin.routes )
+      plugin.routes( app );
+
+    inter.loadPluginStatics( app, plugin.statics.public );
+
   },
 
   /**

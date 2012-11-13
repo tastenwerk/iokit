@@ -27,13 +27,13 @@ $(function(){
         active.removeClass('active').removeClass('sidebar-button-hover');
       }
 
-      $('#active-line').animate({top: 33+(62*$(self).closest('li').index()) }, 100);
+      $('#active-line').animate({top: 33+(60*$(self).closest('li').index()) }, 100);
       $('#active-line').show();
 
       setTimeout( function(){
         if( $(self).attr('data-sidebar-remote') )
           inter.sidebar.load( $(self).attr('data-sidebar-remote'), function(){
-            inter.main.animate({ left: '25%' })
+            inter.main.animate({ left: '300px' })
             inter.sidebar.animate({ left: 0 });
             cleanUp();
           });

@@ -38,5 +38,5 @@
     "test" : "node_modules/.bin/mocha --reporter list",
     "doc": "node_modules/.bin/doc_generator"
   },
-  "bin" : { "npm" : "./bin/inter" }
+  "bin" : { "inter" : "./bin/inter" }
 }

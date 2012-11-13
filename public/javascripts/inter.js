@@ -97,7 +97,7 @@ $(function(){
      *  inter.modal('close')
      * closes the modal.
      */
-    modal: function( html, callback ){
+    modal: function( html, options ){
       function closeModal(){
         $('.inter-modal').fadeOut(300);
         setTimeout( function(){
@@ -110,8 +110,12 @@ $(function(){
       $('body').append('<div id="inter-modal" class="inter-modal"><div class="inner-wrapper" /></div>');
       $('#inter-modal .inner-wrapper').html( html ).fadeIn(500);
       $('#inter-modal-overlay').fadeIn(200).on('click', closeModal);
-      if( callback && typeof(callback) === 'function' )
-        setTimeout(function(){ callback( $('#inter-modal') ); }, 500 );
+      if( options.height && typeof(options.height) === 'number' )
+        $('#inter-modal').css( 'height', options.height );
+      if( options.before && typeof(options.before) === 'function' )
+        options.before( $('#inter-modal') );
+      if( options.complete && typeof(options.complete) === 'function' )
+        setTimeout(function(){ options.complete( $('#inter-modal') ); }, 500 );
     },
 
     ajaxLoad: function( elem ){
@@ -127,6 +131,8 @@ $(function(){
     }
 
   };
+
+  $.i18n.init({ dynamicLoad: true, useLocalStorage: false, fallbackLng: 'de', resGetPath: inter.host.master+'/translations.json?lng=__lng__&ns=__ns__' });
 
   $('body').tooltip({
     selector: '[rel=tooltip]'

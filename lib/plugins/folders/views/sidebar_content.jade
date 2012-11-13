@@ -1,8 +1,10 @@
 #inter-action-icons
-  a( href='/folders/new', data-remote='true' )
+  a.icnbtn( href='/folders/new', data-remote='true' )
     i.icn.icn-plus
+  a.icnbtn( href='/upload', data-remote='true' )
+    i.icn.icn-upload
 
-#inter-folders
+#inter-folders.inter-tree
 
 script
   var homogeneous = new kendo.data.HierarchicalDataSource({
@@ -20,7 +22,25 @@ script
     }
   });
 
-  $("#inter-folders").kendoTreeView({
+  $('#inter-folders').kendoTreeView({
     dataSource: homogeneous,
-    dataTextField: "name"
+    template: '<a href="/#= item._type.toLowerCase()+"s" #/#= item._id #" data-remote="true" class="title" data-iid="#= item._id #" data-itype="# item._type #">#= item.name #</a><a href="/documents/#= item._id #" class="delete pull-right">&times;</a>'
+  });
+
+  $('#inter-folders .delete').live('click', function( e ){
+    e.preventDefault();
+    var treeView = $('#inter-folders').data('kendoTreeView');
+    var uid = $(this).closest('li').attr('data-uid');
+    var item = treeView.dataSource.getByUid( uid );
+
+    $.ajax({ url: '/documents/' + item._id,
+      type: 'delete',
+      dataType: 'json',
+      data: { _csrf: $('#_csrf').val() },
+      success: function( data ){
+        if( data.flash && data.flash.notice && data.flash.notice.length > 0 )
+          treeView.detach( treeView.findByUid( uid ) );
+        inter.notify( data.flash );
+      }
+    })
   });

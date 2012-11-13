@@ -52,7 +52,17 @@ var settings_json = [
 '"site": {',
 '  "title": "__appName__",',
 '  "domain": "localhost.loc"',
+'  "locales": ["de", "en"]',
 '  },',
+'  "session": {',
+'    "timeout": {',
+'      "mins": 30',
+'    }',
+'  }',
+'  "datastore": {',
+'    "absolutePath": "__absolutePath__"',
+'    "maxUploadSizeMB": 50',
+'  }',
 '  "port": 3000,',
 '  "db": {',
 '    "url": "mongodb://localhost:27017/__appName__?auto_reconnect",',
@@ -86,6 +96,7 @@ program
   .command('new <name>')
   .description('create a new inter scaffold')
   .action( function createScaffold( name ){
+    var normalizedName = name.replace(/ /g, '_');
     mkdir( name );
     mkdir( name + '/app');
     mkdir( name + '/app/plugins');
@@ -96,7 +107,7 @@ program
     mkdir( name + '/public/javascripts');
     mkdir( name + '/public/images');
     write( name + '/app.js', app_js );
-    write( name + '/config/inter.json', settings_json.replace( /__appName__/g, name.replace(/ /g, '_') ) );
+    write( name + '/config/inter.json', settings_json.replace( /__appName__/g, normalizedName ).replace(/__absolutePath__/g, process.cwd()+'/'+normalizedName) );
     write( name + '/package.json', package_json.replace( /__appName__/g, name.replace(/ /g, '_') ) );
     write( name + '/README.md', name + ' README' );
     console.log();

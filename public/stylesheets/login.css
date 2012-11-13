@@ -1,5 +1,5 @@
 body {
-  background-color: #444;
+  background-color: #eae5e0;
 }
 #login-content {
   position: absolute;
@@ -11,13 +11,14 @@ body {
   height: 220px;
   margin: auto;
   background: #fff;
+  border: 1px solid #aaa;
 }
 #login-content #login-messages {
   position: absolute;
   width: 100%;
   top: -40px;
   text-align: center;
-  color: #fff;
+  color: #444;
 }
 #login-content .content-padding {
   padding-top: 20px;
