@@ -24,6 +24,31 @@ inter = {
    */
   plugins: {},
 
+  enableMultiViews: function enableMultipleViews() {
+    console.log(express);
+    var origLookup = express.views.lookup;
+
+    express.views.lookup = function (view, options) {
+      if (options.root instanceof Array) {
+        // clones the options object
+        var opts = {};
+        for (var key in options) opts[key] = options[key];
+
+        // loops through the paths and tries to match the view
+        var matchedView = null,
+          roots = opts.root;
+        for (var i=0; i<roots.length; i++) {
+          opts.root = roots[i];
+          matchedView = origLookup.call(this, view, opts);
+          if (matchedView.exists) break;
+        }
+        return matchedView;
+      }
+
+      return origLookup.call(express.view, view, options)
+    };
+  },
+
   /**
    * injects expressjs app with inter plugin eco-system
    *
@@ -73,6 +98,38 @@ inter = {
     app.use( express.favicon( __dirname + '/public/favicon.ico' ));
     app.get('/inter', inter.plugins.auth.check, function( req, res ){ res.render( __dirname + '/app/views/index' ); } );
   
+  },
+
+  view: {
+
+    paths: [],
+
+    /**
+     * iterate through the inter.view.paths
+     * if the given relative path matches
+     * with them.
+     *
+     * @param {String} [relPath] the relative path that
+     * is expected to be in one of the defined view.paths
+     *
+     * @returns {String} [absPath] the absolute path which
+     * can be passed to expressjs' res.render.
+     *
+     * @example
+     *  res.render( inter.view.paths('/auth/login.jade'), {flash: 'please log in'} );
+     */
+    lookup: function( relPath ){
+      var found;
+      for( var i=0, pth; pth = inter.view.paths[i]; i++ ){
+        var absPth = path.join( pth, relPath );
+        if( fs.existsSync( absPth ) )
+          return (found = absPth);
+      }
+      console.log('using view', found);
+      if( found ) return found;
+      throw( new Error('could not find template '+ relPath +' in any of the provided views ('+inter.view.paths.join(',')+')') );
+    }
+
   },
 
   /**

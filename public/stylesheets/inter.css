@@ -330,7 +330,7 @@ body #inter-sidebar-content h4 .icnbtn,
 body .sidebar-content h4 .icnbtn {
   position: absolute;
   right: 5px;
-  top: 5px;
+  top: -3px;
 }
 body #inter-main-content,
 body .main-content {
