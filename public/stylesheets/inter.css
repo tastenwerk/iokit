@@ -239,6 +239,10 @@ body .inter-tree .list-item:hover > .delete,
 body .inter-list .list-item:hover > .delete {
   opacity: 0.7;
 }
+body .inter-tree a,
+body .inter-list a {
+  text-decoration: none;
+}
 body .inter-tree .delete {
   position: absolute;
   right: 5px;
@@ -582,6 +586,8 @@ body .inter-tabs .k-state-active,
 body .inter-tabs .k-state-active:hover,
 body .inter-tabs .k-active-filter {
   border-color: #aaa;
+  background-color: #eee;
+  border-bottom: none;
 }
 body .inter-tabs .k-window-titlebar,
 body .inter-tabs .k-block > .k-header,

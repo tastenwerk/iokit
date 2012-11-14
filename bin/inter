@@ -180,9 +180,9 @@ function openConnection( configfile, username, password ){
       console.log();
       process.exit(0);
     } else
-      User.create({ email: username+'@'+settings.site.domain, 'name.nick': username, password: password}, function( err, user ){
+      User.create({ email: username+'@'+settings.site.domain, 'name.nick': username, roles: ['user','manager'], password: password}, function( err, user ){
         if( err )
-          exitError( err.message );
+          exitError( 'error creating user: ' + err + ' email: ' + username+'@'+settings.site.domain );
         else
           console.log('   \033[36mcreate\033[0m : user ', user.name.nick, ' with password ' + password + '.' );
         console.log();

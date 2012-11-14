@@ -6,7 +6,7 @@
   "save": "Speichern",
   "updatedAt": "Letzte Änderung",
   "privileges": "Zugriffsrechte",
-  "file_size": "Dateigröße",
+  "fileSize": "Dateigröße",
   "by": "von",
   "saving": {
     "ok": "__name__ wurde gespeichert",
@@ -26,6 +26,7 @@
     "password": "Passwort",
     "login": "Anmelden",
     "login_required": "Anmeldung erforderlich",
+    "login_failed": "Anmeldung fehlgeschlagen",
     "forgot_password": "Passwort vergessen?",
     "session_timeout": "Sitzung abgelaufen (__timeout__ min)",
     "logout": "Abmelden",
@@ -72,8 +73,20 @@
     },
     "change_subtype": "Typ ändern"
   },
-  "articales": {
-    "title": "Artikel"
+  "articles": {
+    "title": "Artikel",
+    "new": "Neuer Artikel",
+    "published": "Veröffentlicht",
+    "waiting": "Wartend",
+    "mine": "Meine",
+    "name": "Titel",
+    "template": "Vorlage",
+    "content": "Text",
+    "you_are_creating": "Sie erstellen diese Seite gerade",
+    "last_edited_ago": "Zuletzt geändert __mins__ von __by__",
+    "last_edited_at": "Zuletzt geändert am __date__",
+    "locked_for_public": "Nicht für die Öffentlichkeit freigeschaltet",
+    "connect_with_project": "Veranstaltung"
   },
   "webpages": {
     "title": "Webpages",
@@ -82,7 +95,7 @@
     "template": "Vorlage",
     "content": "Text",
     "you_are_creating": "Sie erstellen diese Seite gerade",
-    "last_edited_ago": "Zuletzt geändert vor __mins__",
+    "last_edited_ago": "Zuletzt geändert __mins__ von __by__",
     "last_edited_at": "Zuletzt geändert am __date__",
     "startpage": "Startpage",
     "locked_for_public": "Nicht für die Öffentlichkeit freigeschaltet"
