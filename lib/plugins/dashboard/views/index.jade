@@ -1,4 +1,122 @@
 h1 Dashboard
 
+#authors.paper-box(style='width:40%;')
+#piechart.paper-box(style='width:20%;')
+#piechart2.paper-box(style='width:20%;')
+#clock
+
 .paper-box
   h1 Notiz
+
+
+script
+  var chart = new Highcharts.Chart({
+
+    chart: {
+        renderTo: 'authors',
+        type: 'line'
+    },
+    title: {
+        text: 'Nutzungsstatistik Übersicht'
+    },
+    xAxis: {
+        type: 'datetime',
+        title: {
+            text: null
+        }
+    },
+    yAxis: {
+        title: {
+            text: 'Seitenaufrufe'
+        },
+        showFirstLabel: false
+    },
+    legend: {
+        enabled: false
+    },
+    plotOptions: {
+        line: {
+            dataLabels: {
+                enabled: true
+            },
+            enableMouseTracking: false
+        }
+    },
+
+    series: [{
+        type: 'area',
+        name: 'Besucher',
+        pointInterval: 24 * 3600 * 1000,
+        pointStart: Date.UTC(2006, 0, 01),
+        data: [ 50, 20, 39, 100, 150, 230, 300, 120, 180, 179 ]
+    }]
+  });
+
+  var piechart = new Highcharts.Chart({
+      chart: {
+          renderTo: 'piechart',
+          plotBackgroundColor: null,
+          plotBorderWidth: null,
+          plotShadow: false
+      },
+      title: {
+          text: 'Aktivste Autoren'
+      },
+      tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage}%</b>',
+        percentageDecimals: 1
+      },
+      plotOptions: {
+          pie: {
+              allowPointSelect: true,
+              cursor: 'pointer',
+              showInLegend: true,
+              dataLabels: { enabled: false }
+          }
+      },
+      series: [{
+          type: 'pie',
+          name: 'Autoren',
+          data: [
+              ['Martin',   45],
+              ['Julia', 26],
+              ['Hemma', 10]
+          ]
+      }]
+  });
+
+  var piechart = new Highcharts.Chart({
+      chart: {
+          renderTo: 'piechart2',
+          plotBackgroundColor: null,
+          plotBorderWidth: null,
+          plotShadow: false
+      },
+      title: {
+          text: 'Beliebteste Artikel'
+      },
+      tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage}%</b>',
+        percentageDecimals: 1
+      },
+      plotOptions: {
+          pie: {
+              allowPointSelect: true,
+              cursor: 'pointer',
+              dataLabels: {
+                enabled: false,
+              },
+              showInLegend: true
+          }
+      },
+      series: [{
+          type: 'pie',
+          name: 'Autoren',
+          data: [
+              ['Die Klage der Greise',   45],
+              ['Schrott mit Pulver', 6],
+              ['Das Lied vom Säufer', 10],
+              ['Mekkern, Mekkern, Mekkern', 5]
+          ]
+      }]
+  });

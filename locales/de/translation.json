@@ -4,6 +4,10 @@
   "name": "Name",
   "cancel": "Abbrechen",
   "save": "Speichern",
+  "updatedAt": "Letzte Änderung",
+  "privileges": "Zugriffsrechte",
+  "file_size": "Dateigröße",
+  "by": "von",
   "saving": {
     "ok": "__name__ wurde gespeichert",
     "failed": "__name__ konnte nicht gespeichert werden"
@@ -51,12 +55,36 @@
     "upload": "Hochladen",
     "success": "__name__ wurde auf den Server hochgeladen",
     "failed": "__name__ konnte nicht auf den Server hochgeladen werden",
-    "failed_to_save_rel_path": "Konnte relativen Pfad für __name__ nicht setzen"
+    "failed_to_save_rel_path": "Konnte relativen Pfad für __name__ nicht setzen",
+    "already_exists_path": "Eine Datei dem Namen __name__ existiert bereits in diesem Pfad"
   },
   "web": {
     "title": "Web",
     "pages": "Webseiten",
     "articles": "Artikel",
-    "navigation": "Navigation"
+    "navigation": "Navigation",
+    "new": "Neues Web Element",
+    "subtypes": {
+      "webpage": "Seite",
+      "blogpost": "Blogeintrag",
+      "article": "Artikel",
+      "newsticker": "Newsticker"
+    },
+    "change_subtype": "Typ ändern"
+  },
+  "articales": {
+    "title": "Artikel"
+  },
+  "webpages": {
+    "title": "Webpages",
+    "new": "Neue Seite",
+    "name": "Titel",
+    "template": "Vorlage",
+    "content": "Text",
+    "you_are_creating": "Sie erstellen diese Seite gerade",
+    "last_edited_ago": "Zuletzt geändert vor __mins__",
+    "last_edited_at": "Zuletzt geändert am __date__",
+    "startpage": "Startpage",
+    "locked_for_public": "Nicht für die Öffentlichkeit freigeschaltet"
   }
 }

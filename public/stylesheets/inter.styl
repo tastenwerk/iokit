@@ -1,6 +1,13 @@
 INTER_ORANGE = #D44A26
 INTER_GREY = #eee
 
+html, body, h1, h2, h3, h4, p, form, ul, li
+  margin: 0
+  padding: 0
+
+h1, h2, h3, h4, p
+  margin: 10px 0
+
 @font-face
   font-family: SegoeUI
   src: url('/fonts/SegoeUI.ttf')
@@ -43,6 +50,16 @@ body
 
   .icnbtn
     margin-right: 5px
+    background: none
+    border: none
+    cursor: pointer
+    &:hover
+      .icn
+        background-color: #8a0
+        border-color: #8a0
+        opacity: 1
+        background-image: url('/images/icons/inter-sprites24x24w.png')
+
   .icn
     width: 24px
     height: 24px
@@ -53,12 +70,14 @@ body
     opacity: 0.7
     &.icn-no-border
       border: none
+      &:hover
+        background-image: url('/images/icons/inter-sprites24x24.png')
     &.pale
       opacity: 0.5
     &:hover
       opacity: 1
     &.icn-save
-      background-position: 0 0
+      background-position: -168px 0
     &.icn-plus
       background-position: 0 0
     &.icn-minus
@@ -71,6 +90,16 @@ body
       background-position: -120px 0
     &.icn-gear
       background-position: -143px 0
+    &.icn-webpage
+      background-position: -192px 0
+    &.icn-article
+      background-position: -216px 0
+    &.icn-newsticker
+      background-position: -240px 0
+    &.icn-home
+      background-position: -264px 0
+    &.icn-locked
+      background-position: -288px 0
     &.icn-small
       width: 20px
       height: 20px
@@ -80,6 +109,41 @@ body
       border-color: #8a0
       opacity: 1
       background-image: url('/images/icons/inter-sprites24x24w.png')
+
+  .fill-width
+    width: 100%
+
+  form.wide
+    width: 100%
+    margin-top: 20px
+    p
+      margin: 10px 0
+    input.large[type=text]
+      padding: 8px 5px
+    textarea
+      width: 99%
+      min-height: 200px
+    label
+      color: #777
+      text-transform: uppercase
+      padding-bottom: 5px
+
+
+  .horizontal-form
+    .control-label
+      float: left
+      width: 200px
+      text-align: right
+      margin-right: 20px
+      margin-top: 8px
+      color: #555
+      text-transform: uppercase
+    .control-fields
+      margin-bottom: 20px
+      input[type=text]
+        padding: 8px 5px
+      select
+        padding: 5px
 
   #inter-action-icons
     margin: 10px 20px 20px
@@ -93,9 +157,15 @@ body
       border-color: #8a0
   h1
     font-family: 'SegoeUI', sans-serif
-    font-size: 40px
+    font-size: 30px
+    line-height: 32px
     font-weight: normal
     color: #444
+
+  span.h1footer
+    margin-top: -5px
+    color: #777
+    font-size: 12px
 
   .span200
     width: 200px
@@ -106,20 +176,23 @@ body
   .span800
     width: 800px
 
-  .inter-tree
+  .inter-tree, .inter-list
     .delete
-      position: absolute
-      right: 5px
       border: 1px solid #aaa
       opacity: 0
       padding: 0 4px 2px
+      margin: 0 0 0 -5px
       text-decoration: none
       &:hover
         opacity: 1
         background-color: INTER_ORANGE
         color: white
-    .k-item > div:hover > .k-in > .delete
+    .k-item > div:hover > .k-in > .delete, .list-item:hover > .delete
       opacity: 0.7
+  .inter-tree
+    .delete
+      position: absolute
+      right: 5px
 
   #inter-sidebar-content .inter-tree
     position: absolute
@@ -143,16 +216,16 @@ body
     position: absolute
     top: 0
     bottom: 0
-    left: 0
-    right: 0
-    width: 100%
+    left: 5%
+    right: 5%
     margin: auto
     height: 180px
     padding: 20px 0
-    color: white
     background-color: white
     border-top: 1px solid #aaa
     border-bottom: 1px solid #aaa
+    border: 1px solid #aaa
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5)
     z-index: 1001
     .inner-wrapper
       margin: 0 10%
@@ -286,6 +359,14 @@ body
         right: 5px
         top: -3px
 
+    .sidebar-margin
+      margin: 10px
+
+  .desc-header
+    text-transform: uppercase
+    font-size: 14px
+    color: #555
+
   #inter-main-content, .main-content
     position: absolute
     margin-left: 50px
@@ -294,6 +375,17 @@ body
     right: 0
     bottom: 0
     background-color: #fafafa
+
+    .inter-main-content-inner
+      margin: 60px 0 0 40px
+
+  .container-overflow
+    position: absolute
+    top: 0
+    left: 5px
+    right: 5px
+    bottom: 5px
+    overflow: auto
 
   #inter-top-nav
     position: absolute
@@ -394,6 +486,30 @@ body
       border-color: #aaa
     .k-window-titlebar, .k-block > .k-header, .k-tabstrip-items .k-item, .k-panelbar .k-tabstrip-items .k-item, .k-tabstrip-items .k-link, .k-calendar-container.k-state-border-down, .k-list-container.k-state-border-down, .k-autocomplete.k-state-border-down, .k-dropdown-wrap.k-state-border-down, .k-picker-wrap.k-state-border-down, .k-numeric-wrap.k-state-border-down
       border-radius: 0
+
+  .inter-list
+    &.k-widget
+      border: none
+      background: none
+    .icn
+      border: none
+      &.pull-right
+        opacity: 0.3
+      &:hover
+        background-color: transparent
+        border: none
+    .placeholder
+      width: 24px
+      height: 24px
+    .icn.pull-left
+      margin: -4px 5px 0 0
+    .icn.pull-right
+      margin: -4px 0 0 5px
+    .list-item
+      height: 20px
+      padding: 5px 0
+      a
+        text-decoration: none
   
 // loading animation
 .loader

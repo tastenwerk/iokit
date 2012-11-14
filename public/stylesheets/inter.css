@@ -1,3 +1,23 @@
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+form,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 10px 0;
+}
 @font-face {
   font-family: SegoeUI;
   src: url("/fonts/SegoeUI.ttf");
@@ -43,6 +63,15 @@ body .btn:hover {
 }
 body .icnbtn {
   margin-right: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+body .icnbtn:hover .icn {
+  background-color: #8a0;
+  border-color: #8a0;
+  opacity: 1;
+  background-image: url("/images/icons/inter-sprites24x24w.png");
 }
 body .icn {
   width: 24px;
@@ -56,6 +85,9 @@ body .icn {
 body .icn.icn-no-border {
   border: none;
 }
+body .icn.icn-no-border:hover {
+  background-image: url("/images/icons/inter-sprites24x24.png");
+}
 body .icn.pale {
   opacity: 0.5;
 }
@@ -63,7 +95,7 @@ body .icn:hover {
   opacity: 1;
 }
 body .icn.icn-save {
-  background-position: 0 0;
+  background-position: -168px 0;
 }
 body .icn.icn-plus {
   background-position: 0 0;
@@ -83,6 +115,21 @@ body .icn.icn-pencil {
 body .icn.icn-gear {
   background-position: -143px 0;
 }
+body .icn.icn-webpage {
+  background-position: -192px 0;
+}
+body .icn.icn-article {
+  background-position: -216px 0;
+}
+body .icn.icn-newsticker {
+  background-position: -240px 0;
+}
+body .icn.icn-home {
+  background-position: -264px 0;
+}
+body .icn.icn-locked {
+  background-position: -288px 0;
+}
 body .icn.icn-small {
   width: 20px;
   height: 20px;
@@ -93,6 +140,46 @@ body .icn:hover {
   border-color: #8a0;
   opacity: 1;
   background-image: url("/images/icons/inter-sprites24x24w.png");
+}
+body .fill-width {
+  width: 100%;
+}
+body form.wide {
+  width: 100%;
+  margin-top: 20px;
+}
+body form.wide p {
+  margin: 10px 0;
+}
+body form.wide input.large[type=text] {
+  padding: 8px 5px;
+}
+body form.wide textarea {
+  width: 99%;
+  min-height: 200px;
+}
+body form.wide label {
+  color: #777;
+  text-transform: uppercase;
+  padding-bottom: 5px;
+}
+body .horizontal-form .control-label {
+  float: left;
+  width: 200px;
+  text-align: right;
+  margin-right: 20px;
+  margin-top: 8px;
+  color: #555;
+  text-transform: uppercase;
+}
+body .horizontal-form .control-fields {
+  margin-bottom: 20px;
+}
+body .horizontal-form .control-fields input[type=text] {
+  padding: 8px 5px;
+}
+body .horizontal-form .control-fields select {
+  padding: 5px;
 }
 body #inter-action-icons {
   margin: 10px 20px 20px;
@@ -110,9 +197,15 @@ body input[type=password]:focus {
 }
 body h1 {
   font-family: 'SegoeUI', sans-serif;
-  font-size: 40px;
+  font-size: 30px;
+  line-height: 32px;
   font-weight: normal;
   color: #444;
+}
+body span.h1footer {
+  margin-top: -5px;
+  color: #777;
+  font-size: 12px;
 }
 body .span200 {
   width: 200px;
@@ -126,21 +219,29 @@ body .span400 {
 body .span800 {
   width: 800px;
 }
-body .inter-tree .delete {
-  position: absolute;
-  right: 5px;
+body .inter-tree .delete,
+body .inter-list .delete {
   border: 1px solid #aaa;
   opacity: 0;
   padding: 0 4px 2px;
+  margin: 0 0 0 -5px;
   text-decoration: none;
 }
-body .inter-tree .delete:hover {
+body .inter-tree .delete:hover,
+body .inter-list .delete:hover {
   opacity: 1;
   background-color: #d44a26;
   color: #fff;
 }
-body .inter-tree .k-item > div:hover > .k-in > .delete {
+body .inter-tree .k-item > div:hover > .k-in > .delete,
+body .inter-list .k-item > div:hover > .k-in > .delete,
+body .inter-tree .list-item:hover > .delete,
+body .inter-list .list-item:hover > .delete {
   opacity: 0.7;
+}
+body .inter-tree .delete {
+  position: absolute;
+  right: 5px;
 }
 body #inter-sidebar-content .inter-tree {
   position: absolute;
@@ -163,16 +264,16 @@ body #inter-modal {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
+  left: 5%;
+  right: 5%;
   margin: auto;
   height: 180px;
   padding: 20px 0;
-  color: #fff;
   background-color: #fff;
   border-top: 1px solid #aaa;
   border-bottom: 1px solid #aaa;
+  border: 1px solid #aaa;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
   z-index: 1001;
 }
 body #inter-modal .inner-wrapper {
@@ -332,6 +433,15 @@ body .sidebar-content h4 .icnbtn {
   right: 5px;
   top: -3px;
 }
+body #inter-sidebar-content .sidebar-margin,
+body .sidebar-content .sidebar-margin {
+  margin: 10px;
+}
+body .desc-header {
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #555;
+}
 body #inter-main-content,
 body .main-content {
   position: absolute;
@@ -341,6 +451,18 @@ body .main-content {
   right: 0;
   bottom: 0;
   background-color: #fafafa;
+}
+body #inter-main-content .inter-main-content-inner,
+body .main-content .inter-main-content-inner {
+  margin: 60px 0 0 40px;
+}
+body .container-overflow {
+  position: absolute;
+  top: 0;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  overflow: auto;
 }
 body #inter-top-nav {
   position: absolute;
@@ -473,6 +595,37 @@ body .inter-tabs .k-dropdown-wrap.k-state-border-down,
 body .inter-tabs .k-picker-wrap.k-state-border-down,
 body .inter-tabs .k-numeric-wrap.k-state-border-down {
   border-radius: 0;
+}
+body .inter-list.k-widget {
+  border: none;
+  background: none;
+}
+body .inter-list .icn {
+  border: none;
+}
+body .inter-list .icn.pull-right {
+  opacity: 0.3;
+}
+body .inter-list .icn:hover {
+  background-color: transparent;
+  border: none;
+}
+body .inter-list .placeholder {
+  width: 24px;
+  height: 24px;
+}
+body .inter-list .icn.pull-left {
+  margin: -4px 5px 0 0;
+}
+body .inter-list .icn.pull-right {
+  margin: -4px 0 0 5px;
+}
+body .inter-list .list-item {
+  height: 20px;
+  padding: 5px 0;
+}
+body .inter-list .list-item a {
+  text-decoration: none;
 }
 .loader {
   position: relative;

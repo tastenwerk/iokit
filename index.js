@@ -96,7 +96,7 @@ inter = {
     inter.loadPluginStatics( app );
 
     app.use( express.favicon( __dirname + '/public/favicon.ico' ));
-    app.get('/inter', inter.plugins.auth.check, function( req, res ){ res.render( __dirname + '/app/views/index' ); } );
+    app.get('/inter', inter.plugins.auth.check, function( req, res ){ res.render( __dirname + '/app/views/index', {title: inter.config.site.title+'|tas10box'} ); } );
   
   },
 
@@ -154,7 +154,8 @@ inter = {
     if( plugin.routes )
       plugin.routes( app );
 
-    inter.loadPluginStatics( app, plugin.statics.public );
+    if( plugin.statics )
+      inter.loadPluginStatics( app, plugin.statics.public );
 
   },
 

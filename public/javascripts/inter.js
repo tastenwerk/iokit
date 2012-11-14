@@ -6,9 +6,11 @@ $(function(){
       master: $('#_host_master').val()
     },
 
-    mode: 'desktop',
+    mode: 'remote',
 
     main: $('#inter-main-content'),
+
+    mainHeight: function(){ return $(window).height() - 70 },
 
     sidebar: $('#inter-sidebar-content'),
 
@@ -106,8 +108,8 @@ $(function(){
       }
       if( html === 'close' )
         return closeModal();
-      $('body').append('<div id="inter-modal-overlay" class="inter-modal"/>');
-      $('body').append('<div id="inter-modal" class="inter-modal"><div class="inner-wrapper" /></div>');
+      $('#inter-main-content').append('<div id="inter-modal-overlay" class="inter-modal"/>');
+      $('#inter-main-content').append('<div id="inter-modal" class="inter-modal"><div class="inner-wrapper" /></div>');
       $('#inter-modal .inner-wrapper').html( html ).fadeIn(500);
       $('#inter-modal-overlay').fadeIn(200).on('click', closeModal);
       if( options.height && typeof(options.height) === 'number' )
@@ -121,7 +123,7 @@ $(function(){
     ajaxLoad: function( elem ){
       var method = $(elem).attr('data-method') || 'get'
         , data = null;
-      if( $(elem).attr('data-method') !== 'get' )
+      if( $(elem).attr('data-method') && $(elem).attr('data-method') !== 'get' )
         data = {_csrf: $('#_csrf').val()};
         $.ajax({ url: $(elem).attr('href'),
              dataType: 'script',

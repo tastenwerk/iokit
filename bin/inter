@@ -55,7 +55,7 @@ var settings_json = [
 '{',
 '"site": {',
 '  "title": "__appName__",',
-'  "domain": "localhost.loc",',
+'  "domain": "localhost",',
 '  "locales": ["de", "en"]',
 '  },',
 '  "session": {',
