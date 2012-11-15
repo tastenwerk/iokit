@@ -130,6 +130,12 @@ body .icn.icn-home {
 body .icn.icn-locked {
   background-position: -288px 0;
 }
+body .icn.icn-unlocked {
+  background-position: -312px 0;
+}
+body .icn.icn-veranstaltung {
+  background-position: -336px 0;
+}
 body .icn.icn-small {
   width: 20px;
   height: 20px;
@@ -148,6 +154,13 @@ body form.wide {
   width: 100%;
   margin-top: 20px;
 }
+body form.wide h1.section {
+  text-transform: uppercase;
+  color: #777;
+  font-weight: 500;
+  margin: 30px 0 10px;
+  font-size: 22px;
+}
 body form.wide p {
   margin: 10px 0;
 }
@@ -158,10 +171,17 @@ body form.wide textarea {
   width: 99%;
   min-height: 200px;
 }
+body form.wide textarea.span600 {
+  width: 628px;
+}
 body form.wide label {
   color: #777;
   text-transform: uppercase;
   padding-bottom: 5px;
+  font-size: 12px;
+}
+body form.wide .span600 {
+  width: 616px;
 }
 body .horizontal-form .control-label {
   float: left;
@@ -216,8 +236,17 @@ body .span300 {
 body .span400 {
   width: 400px;
 }
+body .span600 {
+  width: 600px;
+}
 body .span800 {
   width: 800px;
+}
+body input.inter-list-filter {
+  opacity: 0.5;
+  background: rgba(255,255,255,0.5);
+  padding: 5px 0;
+  width: 100%;
 }
 body .inter-tree .delete,
 body .inter-list .delete {

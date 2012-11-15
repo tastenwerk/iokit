@@ -28,7 +28,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="5.2784913"
-     inkscape:cx="225.91645"
+     inkscape:cx="301.69568"
      inkscape:cy="18.73603"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -38,7 +38,7 @@
      inkscape:window-height="752"
      inkscape:window-x="0"
      inkscape:window-y="22"
-     inkscape:window-maximized="1"
+     inkscape:window-maximized="0"
      inkscape:snap-global="false">
     <inkscape:grid
        type="xygrid"
@@ -391,5 +391,73 @@
          x="259.39438"
          id="tspan11942"
          sodipodi:role="line">n</tspan></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1.05568528;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect4093"
+       width="11.699249"
+       height="13.320877"
+       x="342.01187"
+       y="21.630028"
+       ry="0.50363284"
+       inkscape:export-filename="/Users/zerha/devel/tw/tas10/tas10box/vendor/assets/images/tas10-icons_16x16.png"
+       inkscape:export-xdpi="44.996399"
+       inkscape:export-ydpi="44.996399" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.19370747;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 350.72404,20.966891 c 0,2.92761 0,-0.629931 0,2.297631"
+       id="path4103"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/Users/zerha/devel/tw/tas10/tas10box/vendor/assets/images/tas10-icons_16x16.png"
+       inkscape:export-xdpi="44.996399"
+       inkscape:export-ydpi="44.996399" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path4105"
+       d="m 345.0359,20.930643 c 0,2.980757 -0.0321,-0.646879 -0.0321,2.333879"
+       style="fill:none;stroke:#000000;stroke-width:1.16603661;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       inkscape:export-filename="/Users/zerha/devel/tw/tas10/tas10box/vendor/assets/images/tas10-icons_16x16.png"
+       inkscape:export-xdpi="44.996399"
+       inkscape:export-ydpi="44.996399" />
+    <rect
+       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="rect12829"
+       width="10.915521"
+       height="3.4444535"
+       x="342.3382"
+       y="31.302137"
+       ry="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:5.34919214px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="344.58725"
+       y="28.951849"
+       id="text12831"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan12833"
+         x="344.58725"
+         y="28.951849"
+         style="font-weight:bold;fill:#000000;-inkscape-font-specification:Sans Bold">31</tspan></text>
+    <path
+       sodipodi:nodetypes="ccccccc"
+       inkscape:connector-curvature="0"
+       id="path12966"
+       d="m 317.83396,26.67873 13.07192,0 0,7.317431 -1.34982,1.586628 -10.56173,0 -1.16037,-1.515585 z"
+       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+    <path
+       transform="matrix(1.3406631,0,0,0.98266427,-14.193468,15.791449)"
+       d="m 250.05341,7.7474228 a 2.8417211,4.2625818 0 0 1 5.15524,3.5200052"
+       sodipodi:ry="4.2625818"
+       sodipodi:rx="2.8417211"
+       sodipodi:cy="9.8262129"
+       sodipodi:cx="252.53429"
+       id="path12968"
+       style="fill:none;stroke:#000000;stroke-width:1.74247909;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       sodipodi:type="arc"
+       sodipodi:start="3.6510268"
+       sodipodi:end="6.6280916"
+       sodipodi:open="true" />
   </g>
 </svg>

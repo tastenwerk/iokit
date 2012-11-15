@@ -7,6 +7,9 @@
   "updatedAt": "Letzte Änderung",
   "privileges": "Zugriffsrechte",
   "fileSize": "Dateigröße",
+  "you_are_creating": "Sie erstellen diese Seite gerade",
+  "last_edited_ago": "Zuletzt geändert __mins__ von __by__",
+  "last_edited_at": "Zuletzt geändert am __date__",
   "by": "von",
   "saving": {
     "ok": "__name__ wurde gespeichert",
@@ -82,9 +85,6 @@
     "name": "Titel",
     "template": "Vorlage",
     "content": "Text",
-    "you_are_creating": "Sie erstellen diese Seite gerade",
-    "last_edited_ago": "Zuletzt geändert __mins__ von __by__",
-    "last_edited_at": "Zuletzt geändert am __date__",
     "locked_for_public": "Nicht für die Öffentlichkeit freigeschaltet",
     "connect_with_project": "Veranstaltung"
   },
@@ -94,10 +94,29 @@
     "name": "Titel",
     "template": "Vorlage",
     "content": "Text",
-    "you_are_creating": "Sie erstellen diese Seite gerade",
-    "last_edited_ago": "Zuletzt geändert __mins__ von __by__",
-    "last_edited_at": "Zuletzt geändert am __date__",
     "startpage": "Startpage",
     "locked_for_public": "Nicht für die Öffentlichkeit freigeschaltet"
+  },
+  "veranstaltungen": {
+    "title": "Veranstaltungen",
+    "new": "Neue Veranstaltung",
+    "name": "Titel",
+    "subtitle": "Untertitel",
+    "company": "Kompanie / Performer / Veranstalter",
+    "description": "Kurzbeschreibung",
+    "dates": "Termine",
+    "starts_at": "Beginn",
+    "select_date_time": "Wählen Sie Datum und Uhrzeit",
+    "sections": {
+      "location": "Veranstaltungsort",
+      "dates": "Termine",
+      "general": "Allgemein",
+      "photos": "Fotos"
+    },
+    "address": "Adresse",
+    "contact": "Kontaktadresse",
+    "web": "Internetauftritt",
+    "tickets": "Kartenreservierung",
+    "select_photos": "Wählen Sie Fotos aus"
   }
 }
