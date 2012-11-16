@@ -11,6 +11,7 @@
   "last_edited_ago": "Zuletzt geändert __mins__ von __by__",
   "last_edited_at": "Zuletzt geändert am __date__",
   "by": "von",
+  "history": "Verlauf",
   "saving": {
     "ok": "__name__ wurde gespeichert",
     "failed": "__name__ konnte nicht gespeichert werden"

@@ -14,10 +14,10 @@
    id="svg4875"
    version="1.1"
    inkscape:version="0.48.2 r9819"
-   sodipodi:docname="inter-sprites24x24.svg"
-   inkscape:export-filename="/Users/zerha/devel/tw/experimental/node_modules/inter/public/images/icons/inter-sprites24x24.png"
-   inkscape:export-xdpi="89.440994"
-   inkscape:export-ydpi="89.440994">
+   sodipodi:docname="inter-sprites96x96.svg"
+   inkscape:export-filename="/Users/zerha/devel/tw/experimental/node_modules/inter/public/images/inter-icons96x96.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
   <defs
      id="defs4877" />
   <sodipodi:namedview
@@ -27,9 +27,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.5"
-     inkscape:cx="626.93566"
-     inkscape:cy="790.38238"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="467.85771"
+     inkscape:cy="933.76029"
      inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:document-units="px"
@@ -460,5 +460,17 @@
        id="path12985"
        d="m 182.09763,-849.05031 -76.3437,0"
        style="fill:none;stroke:#000000;stroke-width:19.65630341;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path13574"
+       d="m 600.08414,-744.26353 24.26651,-22.31281 24.26657,22.31281 z"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2.32691765px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2.32691765px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 696.08414,-766.57634 24.26651,22.31281 24.26657,-22.31281 z"
+       id="path13576"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
   </g>
 </svg>

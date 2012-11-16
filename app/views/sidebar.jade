@@ -1,17 +1,6 @@
-#inter-sidebar-content
-#inter-sidebar
-  #active-line
-  ul
-    -for( i in inter.plugins )
-      -if( inter.plugins[i].sidebarWidget )
-        li
-          a.button( href=(inter.plugins[i].sidebarWidget.href || '/'+inter.plugins[i].name.toLowerCase()), data-sidebar-remote=(inter.plugins[i].sidebarWidget.sidebarRemote && inter.plugins[i].name.toLowerCase()+'/sidebar_content'), rel='tooltip-e' )
-            img.icon( src=(inter.plugins[i].sidebarWidget.icon || '/images/icons/'+inter.plugins[i].name.toLowerCase()+'_w.svg') )
-            .hover-text
-              span=t(inter.plugins[i].name.toLowerCase()+'.title')
-
-  .sidebar-bottom-content
-    a.small.first( href='/history', data-remote='true' )
-      img( src='/images/icons/history_w.svg' )
-    a.small.last( href='/preferences', data-remote='true' )
-      img( src='/images/icons/preferences_w.svg' )
+ul#inter-sidebar
+  -for( i in inter.plugins )
+    -if( inter.plugins[i].sidebarWidget )
+      li
+        a( href=(inter.plugins[i].sidebarWidget.href || '/'+inter.plugins[i].name.toLowerCase()), data-sidebar-remote=(inter.plugins[i].sidebarWidget.sidebarRemote && inter.plugins[i].name.toLowerCase()+'/sidebar_content'), rel='tooltip-e' )
+          img.icon( src=(inter.plugins[i].sidebarWidget.icon || '/images/app-icons/'+inter.plugins[i].name.toLowerCase()+'/96x96.svg') )

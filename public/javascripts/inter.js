@@ -136,6 +136,11 @@ $(function(){
 
   $.i18n.init({ dynamicLoad: true, useLocalStorage: false, fallbackLng: 'de', resGetPath: inter.host.master+'/translations.json?lng=__lng__&ns=__ns__' });
 
+  $('.dropdown [data-toggle=dropdown]').live('click', function(e){
+    $(this).closest('.dropdown').find('.dropdown-menu').toggle(300);
+  });
+
+/*
   $('body').tooltip({
     selector: '[rel=tooltip]'
   }).on('click', function(){
@@ -149,7 +154,11 @@ $(function(){
       },300);
     }
   });
-
+*/
+  $(document).on('click', function(e){
+    if( !$(e.target).closest('.dropdown').length )
+      $('.dropdown-menu').hide();
+  })
 
   $('.js-get-focus:first').focus();
 

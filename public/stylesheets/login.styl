@@ -1,5 +1,5 @@
-body
-  background-color: #eae5e0
+html
+  background-color: #eee
 
 
 #login-content
@@ -11,8 +11,10 @@ body
   width: 600px
   height: 220px
   margin: auto
-  background: #fff
-  border: 1px solid #aaa
+  background: #f9f9f9
+  //border: 1px solid #aaa
+  box-shadow: -2px 2px 4px #999
+
 
   #login-messages
     position: absolute
@@ -37,9 +39,11 @@ body
     padding: 7px 0
     width: 340px
 
+  a
+    font-size: 12px
   a[href='/forgot_password']
     margin-right: 10px
-    margin-top: 3px
+    margin-top: 5px
     opacity: 0.5
     &:hover
       opacity: 1
@@ -47,6 +51,3 @@ body
   label
     color: #777
     font-size: 12px
-
-  button[type=submit]
-    margin-right: 38px

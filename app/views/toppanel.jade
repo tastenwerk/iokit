@@ -1,12 +1,23 @@
-#inter-top-nav
+#inter-top-panel
   a#userpic( data-user-img=currentUser._id, href='/users/'+currentUser._id )
-    img.userpic( src='/images/icons/person.svg' )
+    img( src='/users/'+currentUser._id+'/pic?size=24' )
   #useractions
     a( href='/users/'+currentUser._id )
       =currentUser.name.full
-    br
-    a.logout( href='/logout' )
-      =t('user.logout')
+    .dropdown.pull-right
+      a( href='#', data-toggle='dropdown' )
+        span.icn.icn-caret.white
+      ul.dropdown-menu.right-hand
+        li
+          a( href='/history', data-remote='true' )
+            =t('history')
+        li
+          a( href='/preferences', data-remote='true' )
+            =t('preferences.title')
+        li
+          a( href='/logout' )
+            =t('logout')
+
   #desktop-control(style="display:none")
     a#minimize-window-button( href='#' )
       img( src='/images/icons/win_minimize.svg' )

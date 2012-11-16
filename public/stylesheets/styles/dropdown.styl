@@ -1,0 +1,30 @@
+@import colors
+.dropdown
+  position: relative
+ul.dropdown-menu
+  background: INTER_LIGHT_WHITE
+  position: absolute
+  list-style: none
+  top: 22px
+  left: 0px
+  z-index: 100
+  min-width: 135px
+  padding: 10px 0 5px
+  border-radius: 1px
+  box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.45)
+  display: none
+  &.right-hand
+    left: auto
+    right: 0
+
+.dropdown li
+  color: #555
+  display: block
+  padding: 6px 15px
+  cursor: pointer
+  text-decoration:none
+
+.dropdown li:hover
+  background: INTER_GREY_HOVER
+  color: black
+  text-decoration: none
