@@ -72,6 +72,7 @@ var settings_json = [
 '    "url": "mongodb://localhost:27017/__appName__?auto_reconnect",',
 '    "debug": true',
 '  },',
+'  "userRoles": ["manager", "user"]',
 '  "mailerSettings": { "host": "localhost.loc", "port": 25, "domain": "localhost.loc", "authentication": false }',
 '}'
 ].join(eol);

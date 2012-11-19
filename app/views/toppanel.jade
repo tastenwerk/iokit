@@ -1,13 +1,14 @@
 #inter-top-panel
-  a#userpic( data-user-img=currentUser._id, href='/users/'+currentUser._id )
+  a#userpic( data-user-img=currentUser._id, href='/users/'+currentUser._id, data-remote='true' )
     img( src='/users/'+currentUser._id+'/pic?size=24' )
   #useractions
-    a( href='/users/'+currentUser._id )
-      =currentUser.name.full
     .dropdown.pull-right
       a( href='#', data-toggle='dropdown' )
         span.icn.icn-caret.white
       ul.dropdown-menu.right-hand
+        li
+          a( href='/users/#{currentUser._id}', data-remote='true' )
+            =t('user.my_profile')
         li
           a( href='/history', data-remote='true' )
             =t('history')
@@ -17,6 +18,8 @@
         li
           a( href='/logout' )
             =t('logout')
+    a.pull-right( href='/users/'+currentUser._id, data-remote='true' )
+      =currentUser.name.full
 
   #desktop-control(style="display:none")
     a#minimize-window-button( href='#' )

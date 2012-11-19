@@ -31,7 +31,6 @@ section,summary,time,mark,audio,video
 html
   font-family: "OpenSans", 'Arial', sans-serif
   font-size: 100%
-  min-height: 512px
   background-color: INTER_DARK_GREY
 
 .pull-right
@@ -39,6 +38,51 @@ html
 
 .pull-left
   float: left
+
+.hide
+  display: none
+
+table
+  font-size: 12px
+
+fieldset
+  border: none
+  border-top: 1px solid #ddd
+  padding: 20px
+
+  legend
+    background: INTER_WHITE
+    padding: 2px 10px 2px 0
+    font-weight: 300
+
+  label
+    font-size: 10px
+    color: INTER_FONT_LIGHTGREY
+
+.userpic
+  border: 3px solid INTER_WHITE
+  box-shadow: -1px 1px 3px INTER_DARK_GREY
+  position: relative
+  .editpic
+    background-color: rgba( 0, 0, 0, 0.5 )
+    color: white
+    padding: 10px
+    text-align: center
+    display: none
+    position: absolute
+    bottom: 0
+    left: 0
+    font-weight: 300
+    font-size: 12px
+    cursor: pointer
+  &:hover
+    .editpic
+      display: block
+  &.userpic96
+    width: 96px
+    height: 96px
+    margin: 10px 50px 10px 10px
+
 
 a
   color: #55b
@@ -68,6 +112,7 @@ h1
     line-height: 14px
     text-align: right
     padding-top: 5px
+    width: 300px
     a
       color: #aaa
       text-decoration: none
@@ -92,24 +137,21 @@ h1
 #inter-main-content
   position: absolute
   top: 10px
-  left: 70px
+  left: 75px
   right: 10px
   bottom: 10px
-  background-color: INTER_LIGHT_WHITE
+  background-color: INTER_WHITE
   box-shadow: -2px 2px 4px #bbb
-
-  .content-padding
-    position: absolute
-    top: 12px
-    left: 20px
-    right: 20px
-    bottom: 10px
-    overflow: auto
 
   h1.title
     font-size: 18px
     color: #777
     font-weight: 300
+
+  .main-control
+    position: absolute
+    top: 12px
+    right: 10px
 
 
 ul#inter-sidebar
@@ -117,24 +159,62 @@ ul#inter-sidebar
   top: 10px
   left: 10px
   bottom: 10px
-  width: 30px
   list-style: none
   li
     margin: 0 5px 10px 5px
     padding: 15px
-    width: 25px
+    width: 30px
     border-radius: 1px
+    text-align: center
     img.icon
       background-size: 24px
       width: 24px
       height: 24px
       opacity: 0.7
     &.active
-      background: INTER_LIGHT_WHITE
+      background: INTER_WHITE
       box-shadow: -2px 2px 2px #bbb
+      border-bottom-left-radius: 3px;
+      border-top-left-radius: 3px;
       img.icon
         opacity: 0.8
 
+
+.content-padding
+  padding: 12px 20px
+
+.content-padding-w-overflow
+  position: absolute
+  top: 12px
+  left: 20px
+  right: 20px
+  bottom: 10px
+  overflow: auto
+
+#inter-modal
+  INTER_POS_ABSOLUTE()
+  width: 800px
+  height: 600px
+  background-color: INTER_WHITE
+  box-shadow: INTER_BOX_SHADOW
+  margin: auto
+
+  .modal-title
+    position: absolute
+    top: 5px
+    left: 5px
+    font-weight: 300
+
+  .modal-inner-wrapper
+    INTER_POS_ABSOLUTE()
+    top: 40px
+    overflow: auto
+
+#inter-modal-overlay
+  INTER_POS_ABSOLUTE()
+  width: 100%
+  height: 100%
+  background-color: rgba(0,0,0,0.7)
   
 .btn
   background-color: INTER_BUTTON_WHITE;
@@ -162,6 +242,20 @@ ul#inter-sidebar
     transition: none 0s ease 0s;
     z-index: 2;
 
+.cntBox
+  padding: 1px 6px
+  border: 1px solid #aaa
+  background-color: #ccc
+  color: black
+  margin: 0 5px
+  font-size: 10px
+  font-weight: 900
+  border-radius: 1px
+  .new
+    background-color: INTER_ORANGE
+    border-color: INTER_ORANGE
+    color: black
+
 input[type=text],input[type=password]
   border: 1px solid #dcdcdc;
   border-radius: 1px
@@ -171,3 +265,62 @@ input[type=text],input[type=password]
     box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.3) inset;
     outline: medium none;
     transition: none 0s ease 0s;
+
+.inter-docklet
+  width: 100px
+  height: 100px
+  background-color: INTER_GREY_BG;
+  background-image: -moz-linear-gradient(center top , #F5F5F5, #F1F1F1)
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#F5F5F5), to(#F1F1F1))
+  background-repeat: repeat-x;
+  box-shadow: -1px 1px 2px rgba(0,0,0,0.5);
+  position: relative
+  margin: 5px
+  .loader
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    height: 40px
+  h1
+    font-size: 18px
+    font-weight: 300
+    border-bottom: 1px solid #ddd
+    padding: 5px 10px
+  .action-btn
+    position: absolute
+    top: 6px
+    right: 35px
+    padding: 4px 12px 2px
+    color: #aaa
+    font-size: 12px
+    &:hover
+      color: #555
+
+.close-icn
+  position: absolute
+  top: 6px
+  right: 6px
+  color: #aaa
+  padding: 0 7px
+  cursor: pointer
+  &:hover
+    color: #555
+
+.inter-vertical-tabs
+  .tab-container
+    top: 100px
+    margin-left: 0
+    .tab
+      height: 20px
+      font-size: 16px
+      font-family: 'SegoeUI', sans-serif
+      background-color: #ddd
+      padding: 10px 20px 15px
+      &:hover
+        background-color: #444
+        color: #fff
+  .tab-content-container
+    top: 100px
+

@@ -34,7 +34,43 @@
     "forgot_password": "Passwort vergessen?",
     "session_timeout": "Sitzung abgelaufen (__timeout__ min)",
     "logout": "Abmelden",
-    "logged_off": "Sie sind jetzt abgemeldet"
+    "your_messages": "Ihre Nachrichten",
+    "my_profile": "Mein Profil",
+    "profile_of": "Profil von __name__",
+    "contact": "Kontakt",
+    "messages": {
+      "center": "Nachrichtenzentrale",
+      "new_message": "Neue Nachricht",
+      "to": "An",
+      "new": "eine neu",
+      "new_plural_0": "keine neu",
+      "new_plural_2": "__count__ neu",
+      "add_receipients": "Empfänger Email oder Name",
+      "send": "Abschicken",
+      "none": "Keine Nachrichten"
+    },
+    "logged_off": "Sie sind jetzt abgemeldet",
+    "administrational_privileges": "Administrative Rechte",
+    "email": "Email",
+    "name": "Name",
+    "nick": "Nick",
+    "picture": {
+      "edit": "Bild bearbeiten"
+    },
+    "roles": {
+      "manager": "AdministratorIn",
+      "user": "StandardbenutzerIn",
+      "editor": "EditorIn",
+      "title": "Rollen"
+    }
+  },
+  "users": {
+    "title": "BenutzerInnen",
+    "docklets": {
+      "messages": {
+        "title": "Persönliche Nachrichten"
+      }
+    }
   },
   "dashboard": {
     "title": "Dashboard"
@@ -50,6 +86,9 @@
       "title": "Allgemein",
       "hosts": "Entfernte Hosts",
       "locale": "Sprache"
+    },
+    "docklets": {
+      "title": "Docklets"
     }
   },
   "files": {

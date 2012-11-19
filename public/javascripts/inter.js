@@ -8,11 +8,32 @@ $(function(){
 
     mode: 'remote',
 
-    main: $('#inter-main-content'),
+    main: {
+      show: function( text, options, callback ){
+        if( !callback && options && typeof(options) === 'function' )
+          callback = options;
+        $('#inter-main-content').fadeOut(function(){
+          $('#inter-main-content').html( text ).fadeIn( function(){
+            if( callback && typeof(callback) === 'function' )
+              callback( $('#inter-main-content') );
+          });
+        });
+      },
+      load: function( url, callback ){
+        $('#inter-main-content').fadeOut()
+          .load( url, function(){
+            $('#inter-main-content').fadeIn();
+            if( callback && typeof(callback) === 'function' )
+              callback( $('#inter-main-content') );
+          });
+      }
+    },
+
+    _csrf: $('#_csrf').val(),
 
     mainHeight: function(){ return $(window).height() - 70 },
 
-    sidebar: $('#inter-sidebar-content'),
+    sidebar: $('#inter-sidebar'),
 
     hideSidebar: function(){ 
       inter.sidebar.animate({ left: '-40%' }); 
@@ -91,6 +112,13 @@ $(function(){
      *
      * @param {String} [html] the html string to be rendered to this modal
      * also, action strings are valid:
+     *
+     * @param {Object} [options] options are:
+     * * height: desired height of modal window
+     * * before: callback function, before modal will be shown
+     * * completed: callback function, after modal has been shown and is visible
+     * to the user.
+     * * url: remote url, if this modal should be loaded from url
      * 
      * @param {Function} [callback] the callback that should be triggered
      * after modal has been rendered.
@@ -100,24 +128,62 @@ $(function(){
      * closes the modal.
      */
     modal: function( html, options ){
+
       function closeModal(){
         $('.inter-modal').fadeOut(300);
         setTimeout( function(){
           $('.inter-modal').remove();
         }, 300);
+        $(window).off( 'resize', checkModalHeight );
       }
+
+      function checkModalHeight(){
+        if( $('#inter-modal').height() > $(window).height() - 40 )
+          $('#inter-modal').animate({ height: $(window).height() - 40 }, 200);
+        else
+          $('#inter-modal').animate({ height: $('#inter-modal').data('origHeight') }, 200);
+      }
+
       if( html === 'close' )
         return closeModal();
-      $('#inter-main-content').append('<div id="inter-modal-overlay" class="inter-modal"/>');
-      $('#inter-main-content').append('<div id="inter-modal" class="inter-modal"><div class="inner-wrapper" /></div>');
-      $('#inter-modal .inner-wrapper').html( html ).fadeIn(500);
+      else if( typeof(html) === 'object' )
+        options = html;
+
+      $('.inter-modal').remove();
+      $('body').append('<div id="inter-modal-overlay" class="inter-modal"/>')
+        .append('<div id="inter-modal" class="inter-modal"><div class="modal-inner-wrapper" /></div>');
+      var closeModalBtn = $('<a class="close-icn btn">&times;</a>');
+      $('#inter-modal').prepend(closeModalBtn);
+      closeModalBtn.on('click', closeModal);
       $('#inter-modal-overlay').fadeIn(200).on('click', closeModal);
-      if( options.height && typeof(options.height) === 'number' )
+      if( options && options.title )
+        $('#inter-modal').prepend('<span class="modal-title">'+options.title+'</span>');
+
+
+      // height configuration      
+      if( options && options.height && typeof(options.height) === 'number' )
         $('#inter-modal').css( 'height', options.height );
-      if( options.before && typeof(options.before) === 'function' )
-        options.before( $('#inter-modal') );
-      if( options.complete && typeof(options.complete) === 'function' )
-        setTimeout(function(){ options.complete( $('#inter-modal') ); }, 500 );
+      $('#inter-modal').data('origHeight', $('#inter-modal').height());
+
+      checkModalHeight();
+      $(window).on( 'resize', checkModalHeight );
+
+      if( options.url ){
+        $('#inter-modal .modal-inner-wrapper').load( options.url, function(){
+          if( options && options.before && typeof(options.before) === 'function' )
+            options.before( $('#inter-modal') );
+          $('#inter-modal').fadeIn( 200 );
+          if( options && options.completed && typeof(options.completed) === 'function' )
+            setTimeout(function(){ options.completed( $('#inter-modal') ); }, 500 );
+        });
+      } else {
+        $('#inter-modal .modal-inner-wrapper').html( html ).fadeIn(500);
+        if( options && options.before && typeof(options.before) === 'function' )
+          options.before( $('#inter-modal') );
+        if( options && options.completed && typeof(options.completed) === 'function' )
+          setTimeout(function(){ options.completed( $('#inter-modal') ); }, 500 );
+      }
+
     },
 
     ajaxLoad: function( elem ){
@@ -135,10 +201,6 @@ $(function(){
   };
 
   $.i18n.init({ dynamicLoad: true, useLocalStorage: false, fallbackLng: 'de', resGetPath: inter.host.master+'/translations.json?lng=__lng__&ns=__ns__' });
-
-  $('.dropdown [data-toggle=dropdown]').live('click', function(e){
-    $(this).closest('.dropdown').find('.dropdown-menu').toggle(300);
-  });
 
 /*
   $('body').tooltip({
@@ -158,7 +220,10 @@ $(function(){
   $(document).on('click', function(e){
     if( !$(e.target).closest('.dropdown').length )
       $('.dropdown-menu').hide();
-  })
+  }).on('keydown', function(e){
+    if( e.keyCode === 27 ) // ESC
+      inter.modal('close');
+  });
 
   $('.js-get-focus:first').focus();
 

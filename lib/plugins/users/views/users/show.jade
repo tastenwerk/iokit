@@ -1,0 +1,44 @@
+.content-padding
+  h1.title=t('user.profile_of', {name: user.name.full})
+
+  div( style='margin-left: 40px')
+
+    fieldset
+      legend=t('user.contact')
+
+      .userpic.userpic96.pull-left
+        img( src='/users/#{user._id}/pic?size=96')
+        .editpic
+          =t('user.picture.edit')
+
+      p
+        label=t('user.name')
+        br
+        span=user.name.full
+
+      p
+        label=t('user.nick')
+        br
+        span=user.name.nick
+
+      p
+        label=t('user.email')
+        br
+        span=user.email
+
+    fieldset
+      legend=t('user.administrational_privileges')
+
+      p
+        label=t('user.roles.title')
+
+      table
+        -each role in inter.config.userRoles
+          tr
+            td( style='padding-right: 20px')=t('user.roles.'+role)
+            td
+              span.icn.icn-checkbox( class=(user.roles.indexOf(role) >= 0 ? 'checked' : null) )
+
+
+      -if( user.canWrite( currentUser ) )
+        span edit

@@ -15,9 +15,9 @@
    version="1.1"
    inkscape:version="0.48.2 r9819"
    sodipodi:docname="inter-sprites96x96.svg"
-   inkscape:export-filename="/Users/zerha/devel/tw/experimental/node_modules/inter/public/images/inter-icons96x96.png"
-   inkscape:export-xdpi="90"
-   inkscape:export-ydpi="90">
+   inkscape:export-filename="/Users/zerha/devel/tw/experimental/node_modules/inter/public/images/inter-icons16x16.png"
+   inkscape:export-xdpi="15"
+   inkscape:export-ydpi="15">
   <defs
      id="defs4877" />
   <sodipodi:namedview
@@ -27,9 +27,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="467.85771"
-     inkscape:cy="933.76029"
+     inkscape:zoom="0.796875"
+     inkscape:cx="538.32716"
+     inkscape:cy="903.46546"
      inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:document-units="px"
@@ -472,5 +472,33 @@
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect4448"
+       width="52.419247"
+       height="52.419247"
+       x="790.02045"
+       y="-772.42725"
+       ry="0"
+       inkscape:export-filename="/Users/zerha/devel/tw/tas10/tas10box/vendor/assets/images/tas10-icons_16x16.png"
+       inkscape:export-xdpi="44.996399"
+       inkscape:export-ydpi="44.996399" />
+    <rect
+       inkscape:export-ydpi="44.996399"
+       inkscape:export-xdpi="44.996399"
+       inkscape:export-filename="/Users/zerha/devel/tw/tas10/tas10box/vendor/assets/images/tas10-icons_16x16.png"
+       ry="0"
+       y="-773.68219"
+       x="882.88318"
+       height="52.419247"
+       width="52.419247"
+       id="rect14266"
+       style="fill:none;stroke:#000000;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       style="fill:none;stroke:#009c00;stroke-width:12;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 894.74111,-762.00632 19.28704,26.97422 43.78011,-60.94719"
+       id="path14264"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc" />
   </g>
 </svg>

@@ -88,11 +88,27 @@ video {
 .icn.icn-plus {
   background-position: 0 0;
 }
+.icn.icn-minus {
+  background-position: -16px 0;
+}
+.icn.icn-preferences,
+.icn.icn-settings {
+  background-position: -96px 0;
+}
 .icn.icn-person {
   background-position: -864px 0;
 }
 .icn.icn-caret {
   background-position: -112px -16px;
+}
+.icn.icn-save {
+  background-position: -112px 0;
+}
+.icn.icn-checkbox {
+  background-position: -128px -16px;
+}
+.icn.icn-checkbox.checked {
+  background-position: -144px -16px;
 }
 .icn.white {
   background-image: url("/images/inter-icons16x16w.png");
@@ -100,8 +116,17 @@ video {
 .dropdown {
   position: relative;
 }
+.dropdown.btn {
+  padding: 4px 12px 2px 12px;
+}
+.dropdown.btn .icn {
+  opacity: 0.6;
+}
+.dropdown.btn:hover .icn {
+  opacity: 0.9;
+}
 ul.dropdown-menu {
-  background: #f8f8f8;
+  background: INTER_LIGHT_WHITE;
   position: absolute;
   list-style: none;
   top: 22px;
@@ -110,7 +135,8 @@ ul.dropdown-menu {
   min-width: 135px;
   padding: 10px 0 5px;
   border-radius: 1px;
-  box-shadow: -2px 2px 4px rgba(0,0,0,0.45);
+  border: 1px solid #ddd;
+  box-shadow: -2px 2px 2px rgba(0,0,0,0.45);
   display: none;
 }
 ul.dropdown-menu.right-hand {
@@ -120,9 +146,14 @@ ul.dropdown-menu.right-hand {
 .dropdown li {
   color: #555;
   display: block;
-  padding: 6px 15px;
+  padding: 6px 25px;
   cursor: pointer;
   text-decoration: none;
+  font-weight: 300;
+  font-size: 12px;
+}
+.dropdown li .icn-checkbox {
+  margin-right: 5px;
 }
 .dropdown li:hover {
   background: #dfdfdf;
@@ -150,7 +181,7 @@ ul.dropdown-menu.right-hand {
   width: 5px;
   height: 5px;
   border-radius: 5px;
-  background: #fff;
+  background: #999;
 }
 .loader .circle:nth-child(2) {
   animation-delay: 240ms;
@@ -397,7 +428,6 @@ ul.dropdown-menu.right-hand {
 html {
   font-family: "OpenSans", 'Arial', sans-serif;
   font-size: 100%;
-  min-height: 512px;
   background-color: #333;
 }
 .pull-right {
@@ -405,6 +435,52 @@ html {
 }
 .pull-left {
   float: left;
+}
+.hide {
+  display: none;
+}
+table {
+  font-size: 12px;
+}
+fieldset {
+  border: none;
+  border-top: 1px solid #ddd;
+  padding: 20px;
+}
+fieldset legend {
+  background: #f8f8f8;
+  padding: 2px 10px 2px 0;
+  font-weight: 300;
+}
+fieldset label {
+  font-size: 10px;
+  color: #777;
+}
+.userpic {
+  border: 3px solid #f8f8f8;
+  box-shadow: -1px 1px 3px #333;
+  position: relative;
+}
+.userpic .editpic {
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-weight: 300;
+  font-size: 12px;
+  cursor: pointer;
+}
+.userpic:hover .editpic {
+  display: block;
+}
+.userpic.userpic96 {
+  width: 96px;
+  height: 96px;
+  margin: 10px 50px 10px 10px;
 }
 a {
   color: #55b;
@@ -437,6 +513,7 @@ h1 {
   line-height: 14px;
   text-align: right;
   padding-top: 5px;
+  width: 300px;
 }
 #inter-top-panel #useractions a {
   color: #aaa;
@@ -464,38 +541,35 @@ h1 {
 #inter-main-content {
   position: absolute;
   top: 10px;
-  left: 70px;
+  left: 75px;
   right: 10px;
   bottom: 10px;
   background-color: #f8f8f8;
   box-shadow: -2px 2px 4px #bbb;
-}
-#inter-main-content .content-padding {
-  position: absolute;
-  top: 12px;
-  left: 20px;
-  right: 20px;
-  bottom: 10px;
-  overflow: auto;
 }
 #inter-main-content h1.title {
   font-size: 18px;
   color: #777;
   font-weight: 300;
 }
+#inter-main-content .main-control {
+  position: absolute;
+  top: 12px;
+  right: 10px;
+}
 ul#inter-sidebar {
   position: absolute;
   top: 10px;
   left: 10px;
   bottom: 10px;
-  width: 30px;
   list-style: none;
 }
 ul#inter-sidebar li {
   margin: 0 5px 10px 5px;
   padding: 15px;
-  width: 25px;
+  width: 30px;
   border-radius: 1px;
+  text-align: center;
 }
 ul#inter-sidebar li img.icon {
   background-size: 24px;
@@ -506,9 +580,59 @@ ul#inter-sidebar li img.icon {
 ul#inter-sidebar li.active {
   background: #f8f8f8;
   box-shadow: -2px 2px 2px #bbb;
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
 }
 ul#inter-sidebar li.active img.icon {
   opacity: 0.8;
+}
+.content-padding {
+  padding: 12px 20px;
+}
+.content-padding-w-overflow {
+  position: absolute;
+  top: 12px;
+  left: 20px;
+  right: 20px;
+  bottom: 10px;
+  overflow: auto;
+}
+#inter-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 800px;
+  height: 600px;
+  background-color: #f8f8f8;
+  box-shadow: -1px 1px 3px rgba(0,0,0,0.5);
+  margin: auto;
+}
+#inter-modal .modal-title {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-weight: 300;
+}
+#inter-modal .modal-inner-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 40px;
+  overflow: auto;
+}
+#inter-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
 }
 .btn {
   background-color: #f3f3f3;
@@ -537,6 +661,21 @@ ul#inter-sidebar li.active img.icon {
   transition: none 0s ease 0s;
   z-index: 2;
 }
+.cntBox {
+  padding: 1px 6px;
+  border: 1px solid #aaa;
+  background-color: #ccc;
+  color: #000;
+  margin: 0 5px;
+  font-size: 10px;
+  font-weight: 900;
+  border-radius: 1px;
+}
+.cntBox .new {
+  background-color: #d44a26;
+  border-color: #d44a26;
+  color: #000;
+}
 input[type=text],
 input[type=password] {
   border: 1px solid #dcdcdc;
@@ -550,4 +689,69 @@ input[type=password]:hover {
   box-shadow: -1px 1px 2px rgba(0,0,0,0.3) inset;
   outline: medium none;
   transition: none 0s ease 0s;
+}
+.inter-docklet {
+  width: 100px;
+  height: 100px;
+  background-color: #eaeaea;
+  background-image: -moz-linear-gradient(center top, #f5f5f5, #f1f1f1);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#f1f1f1));
+  background-repeat: repeat-x;
+  box-shadow: -1px 1px 2px rgba(0,0,0,0.5);
+  position: relative;
+  margin: 5px;
+}
+.inter-docklet .loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 40px;
+}
+.inter-docklet h1 {
+  font-size: 18px;
+  font-weight: 300;
+  border-bottom: 1px solid #ddd;
+  padding: 5px 10px;
+}
+.inter-docklet .action-btn {
+  position: absolute;
+  top: 6px;
+  right: 35px;
+  padding: 4px 12px 2px;
+  color: #aaa;
+  font-size: 12px;
+}
+.inter-docklet .action-btn:hover {
+  color: #555;
+}
+.close-icn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  color: #aaa;
+  padding: 0 7px;
+  cursor: pointer;
+}
+.close-icn:hover {
+  color: #555;
+}
+.inter-vertical-tabs .tab-container {
+  top: 100px;
+  margin-left: 0;
+}
+.inter-vertical-tabs .tab-container .tab {
+  height: 20px;
+  font-size: 16px;
+  font-family: 'SegoeUI', sans-serif;
+  background-color: #ddd;
+  padding: 10px 20px 15px;
+}
+.inter-vertical-tabs .tab-container .tab:hover {
+  background-color: #444;
+  color: #fff;
+}
+.inter-vertical-tabs .tab-content-container {
+  top: 100px;
 }
