@@ -55,7 +55,12 @@
     "name": "Name",
     "nick": "Nick",
     "picture": {
-      "edit": "Bild bearbeiten"
+      "edit": "Bild bearbeiten",
+      "select": "Bild wählen",
+      "upload": {
+        "ok": "Profilbild wurde gespeichert",
+        "failed": "Profilbild konnte nicht gespeichert werden"
+      }
     },
     "roles": {
       "manager": "AdministratorIn",
@@ -157,6 +162,6 @@
     "contact": "Kontaktadresse",
     "web": "Internetauftritt",
     "tickets": "Kartenreservierung",
-    "select_photos": "Wählen Sie Fotos aus"
+    "select_file": "Datei wählen"
   }
 }

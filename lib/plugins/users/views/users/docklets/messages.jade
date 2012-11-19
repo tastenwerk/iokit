@@ -24,10 +24,6 @@ style
   form.new-message .k-widget{ background: none; border: none }
   form.new-message .k-widget.k-state-hover{ background: none; border: none; box-shadow: none }
   input.receipient{ border: none; width: auto; box-shadow: none; border-radius: 1px; background: inherit; }
-  #users-docklets-messages .k-widget, #users-docklets-messages .k-input[type="text"]{ font-size: 12px; width: 300px }
-  #users-docklets-messages .k-autocomplete .k-input{ box-shadow: none }
-  #users-docklets-messages .k-autocomplete:hover .k-input, #users-docklets-messages .k-autocomplete:focus .k-input{ box-shadow: none; border: none }
-  #users-docklets-messages .k-autocomplete.k-state-focused .k-input{ border: none }
 
 script
   $('#users-docklets-messages').css( {width: 400, height: 400 })
@@ -36,13 +32,4 @@ script
       $('#users-docklets-messages form').slideToggle(200);
     })
     .end()
-    .find('input.receipient').kendoAutoComplete({
-      minLength: 2,
-      dataSource: {
-          type: "json",
-          transport: {
-              read: inter.host.master + '/users.json'
-          }
-      },
-      template: '#= name.full #'
-  });
+    .find('input.receipient') // do autocomplete here

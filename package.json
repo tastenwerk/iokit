@@ -24,7 +24,8 @@
     "jade": "*",
     "ejs": "*",
     "express": "3.x.x",
-    "connect-flash": "*"
+    "connect-flash": "*",
+    "imagemagick": "*"
   },
   "devDependencies": {
     "should": "x.x.x",

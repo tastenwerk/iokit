@@ -1,3 +1,6 @@
 .content-padding
-  form( action='/users/#{user._id}/change_pic_modal', method='post', enctype='multipart/form-data' )
-    input( type='file', name='picture' )
+
+  #uploader
+
+  #upload-progress.progress(style='display:none')
+    .bar(style='width:0%')
