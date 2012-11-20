@@ -3,6 +3,7 @@
   "info": "Info",
   "name": "Name",
   "cancel": "Abbrechen",
+  "edit": "bearbeiten",
   "save": "Speichern",
   "updatedAt": "Letzte Änderung",
   "privileges": "Zugriffsrechte",
@@ -12,6 +13,7 @@
   "last_edited_at": "Zuletzt geändert am __date__",
   "by": "von",
   "history": "Verlauf",
+  "finished": "fertig",
   "saving": {
     "ok": "__name__ wurde gespeichert",
     "failed": "__name__ konnte nicht gespeichert werden"
@@ -55,19 +57,30 @@
     "name": "Name",
     "nick": "Nick",
     "picture": {
-      "edit": "Bild bearbeiten",
+      "of": "Profilbild von __name__",
       "select": "Bild wählen",
       "upload": {
+        "title": "Hochladen",
         "ok": "Profilbild wurde gespeichert",
         "failed": "Profilbild konnte nicht gespeichert werden"
-      }
+      },
+      "cropped_and_saved": "Zuschnitt des Profilbildes wurde gespeichert",
+      "edit": "Bearbeiten",
+      "edit_desc": "Sie können den sichtbaren Bereich markieren, indem Sie mit dem Mauszeiger über dem Bild einen Rahmen ziehen, bzw. diesen in Größe und Proportion verändern"
     },
     "roles": {
       "manager": "AdministratorIn",
       "user": "StandardbenutzerIn",
       "editor": "EditorIn",
       "title": "Rollen"
-    }
+    },
+    "change_password": "Passwort ändern",
+    "old_password": "Aktuelles Passwort",
+    "new_password": "Neues Passwort",
+    "new_password_confirm": "Neues Passwort wiederholen",
+    "password_does_not_match": "Aktuelles Passwort stimmt nicht",
+    "new_passwords_missmatch": "Die eingegebenen Passwörter stimmen nicht überein",
+    "password_saved": "Neues Passwort gespeichert"
   },
   "users": {
     "title": "BenutzerInnen",

@@ -32,7 +32,7 @@ section,summary,time,mark,audio,video
 html
   font-family: "OpenSans", 'Arial', sans-serif
   font-size: 100%
-  background-color: INTER_DARK_GREY
+  background-color: INTER_BLACK
 
 .pull-right
   float: right
@@ -42,6 +42,13 @@ html
 
 .hide
   display: none
+
+.desc
+  color: #777
+  font-size: 12px
+
+.span400
+  width: 400px
 
 table
   font-size: 12px
@@ -62,7 +69,7 @@ fieldset
 
 .userpic
   border: 3px solid INTER_WHITE
-  box-shadow: -1px 1px 3px INTER_DARK_GREY
+  box-shadow: -1px 1px 3px INTER_BLACK
   position: relative
   .editpic
     background-color: rgba( 0, 0, 0, 0.5 )
@@ -73,6 +80,7 @@ fieldset
     position: absolute
     bottom: 0
     left: 0
+    right: 0
     font-weight: 300
     font-size: 12px
     cursor: pointer
@@ -83,6 +91,9 @@ fieldset
     width: 96px
     height: 96px
     margin: 10px 50px 10px 10px
+    img
+      width: 96px
+      height: 96px
 
 
 a
@@ -98,7 +109,7 @@ h1
   left: 0
   right: 0
   height: 30px
-  background-color: INTER_VERYDARK_GREY
+  background-color: INTER_PITCHBLACK
   padding: 5px
   a#userpic
     float: right
@@ -179,6 +190,8 @@ ul#inter-sidebar
       border-top-left-radius: 3px;
       img.icon
         opacity: 0.8
+    &.loading
+      height: 28px
 
 
 .content-padding
@@ -192,9 +205,11 @@ ul#inter-sidebar
   bottom: 10px
   overflow: auto
 
-#upload-progress
+.progress
   width: 300px
   height: 10px
+  background-color: INTER_GREY_BG
+  border: 1px solid INTER_DARK_GREY
   .bar
     width:0%
     height:100%
@@ -219,14 +234,43 @@ ul#inter-sidebar
 
   .modal-title
     position: absolute
-    top: 5px
-    left: 5px
-    font-weight: 300
+    top: 10px
+    left: 10px
+    font-weight: 900
 
   .modal-inner-wrapper
     INTER_POS_ABSOLUTE()
     top: 40px
     overflow: auto
+    border-top: 1px solid #ddd
+
+    .modal-sidebar
+
+      .sidebar-nav
+        INTER_POS_ABSOLUTE()
+        width: 150px
+        overflow: auto
+        border-right: 1px solid #ddd
+        list-style: none
+        padding: 20px 0
+        li
+          padding: 5px
+          font-weight: 300
+          cursor: pointer
+          border-left: 5px solid transparent
+          font-size: 0.9em
+          &:hover
+            background-color: INTER_GREY_BG
+          &.active
+            border-color: INTER_ORANGE
+            font-weight: 900
+            color: INTER_ORANGE
+      .sidebar-content
+        INTER_POS_ABSOLUTE()
+        left: 160px
+        overflow: auto
+        >div
+          display: none
 
 #inter-modal-overlay
   INTER_POS_ABSOLUTE()
@@ -247,6 +291,8 @@ ul#inter-sidebar
   text-shadow: -1px 1px 0 #FFFFFF
   white-space: nowrap
   border-radius: 1px
+  text-decoration: none
+  font-size: 12px
   &:hover
     background-color: INTER_BUTTON_WHITE_HOVER;
     background-image: -moz-linear-gradient(center top , #F8F8F8, #F1F1F1);
@@ -277,6 +323,8 @@ ul#inter-sidebar
 input[type=text],input[type=password]
   border: 1px solid #dcdcdc;
   border-radius: 1px
+  padding: 5px 0
+  text-indent: 5px
 
   &:focus, &:hover
     border: 1px solid #bbb;
@@ -318,11 +366,12 @@ input[type=text],input[type=password]
 
 .close-icn
   position: absolute
-  top: 6px
-  right: 6px
+  top: 9px
+  right: 9px
   color: #aaa
   padding: 0 7px
   cursor: pointer
+  font-size: 14px
   &:hover
     color: #555
 
@@ -342,3 +391,41 @@ input[type=text],input[type=password]
   .tab-content-container
     top: 100px
 
+
+// jquery.notice
+.notice-wrap
+  position: fixed
+  top: 50px
+  right: 0
+  width: 250px
+  z-index: 9999
+
+* html .notice-wrap
+  position: absolute
+ 
+.notice-item
+  min-height: 60px
+  background-color: #01A31C
+  color: white
+  padding: 10px 20px
+  font-family: 'SegoeUI', sans-serif
+  font-size: 14px
+  display: block
+  position: relative
+  margin: 0 0 12px 0
+  &.error
+    background-color: #D44A26
+
+.notice-item-close
+  position: absolute
+  font-family: Arial
+  font-size: 20px
+  font-weight: bold
+  right: 2px
+  top: 2px
+  cursor: pointer
+  padding: 2px 7px 0
+  &:hover
+    background-color: white
+    color: black
+    opacity: 0.7

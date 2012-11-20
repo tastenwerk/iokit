@@ -1,13 +1,17 @@
 .content-padding
   h1.title=t('user.profile_of', {name: user.name.full})
 
-  div( style='margin-left: 40px')
+  .content-padding-w-overflow( style='top: 50px; left: 40px')
 
     fieldset
       legend=t('user.contact')
 
+      .pull-right
+        a.btn( href='/users/#{user._id}/edit', data-remote='true', style='margin-right: 5px' )=t('edit')
+        a.btn( href='/users/#{user._id}/change_password_modal', data-remote='true' )=t('user.change_password')
+
       .userpic.userpic96.pull-left
-        img( src='/users/#{user._id}/pic?size=96')
+        img( src='/users/#{user._id}/pic?size=96' )
         .editpic
           =t('user.picture.edit')
 

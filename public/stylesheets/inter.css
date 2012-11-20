@@ -611,6 +611,13 @@ html {
 .hide {
   display: none;
 }
+.desc {
+  color: #777;
+  font-size: 12px;
+}
+.span400 {
+  width: 400px;
+}
 table {
   font-size: 12px;
 }
@@ -642,6 +649,7 @@ fieldset label {
   position: absolute;
   bottom: 0;
   left: 0;
+  right: 0;
   font-weight: 300;
   font-size: 12px;
   cursor: pointer;
@@ -653,6 +661,10 @@ fieldset label {
   width: 96px;
   height: 96px;
   margin: 10px 50px 10px 10px;
+}
+.userpic.userpic96 img {
+  width: 96px;
+  height: 96px;
 }
 a {
   color: #55b;
@@ -758,6 +770,9 @@ ul#inter-sidebar li.active {
 ul#inter-sidebar li.active img.icon {
   opacity: 0.8;
 }
+ul#inter-sidebar li.loading {
+  height: 28px;
+}
 .content-padding {
   padding: 12px 20px;
 }
@@ -769,11 +784,13 @@ ul#inter-sidebar li.active img.icon {
   bottom: 10px;
   overflow: auto;
 }
-#upload-progress {
+.progress {
   width: 300px;
   height: 10px;
+  background-color: #eaeaea;
+  border: 1px solid #aaa;
 }
-#upload-progress .bar {
+.progress .bar {
   width: 0%;
   height: 100%;
   color: #fff;
@@ -801,9 +818,9 @@ ul#inter-sidebar li.active img.icon {
 }
 #inter-modal .modal-title {
   position: absolute;
-  top: 5px;
-  left: 5px;
-  font-weight: 300;
+  top: 10px;
+  left: 10px;
+  font-weight: 900;
 }
 #inter-modal .modal-inner-wrapper {
   position: absolute;
@@ -813,6 +830,46 @@ ul#inter-sidebar li.active img.icon {
   bottom: 0;
   top: 40px;
   overflow: auto;
+  border-top: 1px solid #ddd;
+}
+#inter-modal .modal-inner-wrapper .modal-sidebar .sidebar-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 150px;
+  overflow: auto;
+  border-right: 1px solid #ddd;
+  list-style: none;
+  padding: 20px 0;
+}
+#inter-modal .modal-inner-wrapper .modal-sidebar .sidebar-nav li {
+  padding: 5px;
+  font-weight: 300;
+  cursor: pointer;
+  border-left: 5px solid transparent;
+  font-size: 0.9em;
+}
+#inter-modal .modal-inner-wrapper .modal-sidebar .sidebar-nav li:hover {
+  background-color: #eaeaea;
+}
+#inter-modal .modal-inner-wrapper .modal-sidebar .sidebar-nav li.active {
+  border-color: #d44a26;
+  font-weight: 900;
+  color: #d44a26;
+}
+#inter-modal .modal-inner-wrapper .modal-sidebar .sidebar-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  left: 160px;
+  overflow: auto;
+}
+#inter-modal .modal-inner-wrapper .modal-sidebar .sidebar-content >div {
+  display: none;
 }
 #inter-modal-overlay {
   position: absolute;
@@ -837,6 +894,8 @@ ul#inter-sidebar li.active img.icon {
   text-shadow: -1px 1px 0 #fff;
   white-space: nowrap;
   border-radius: 1px;
+  text-decoration: none;
+  font-size: 12px;
 }
 .btn:hover {
   background-color: #f5f5f5;
@@ -870,6 +929,8 @@ input[type=text],
 input[type=password] {
   border: 1px solid #dcdcdc;
   border-radius: 1px;
+  padding: 5px 0;
+  text-indent: 5px;
 }
 input[type=text]:focus,
 input[type=password]:focus,
@@ -918,11 +979,12 @@ input[type=password]:hover {
 }
 .close-icn {
   position: absolute;
-  top: 6px;
-  right: 6px;
+  top: 9px;
+  right: 9px;
   color: #aaa;
   padding: 0 7px;
   cursor: pointer;
+  font-size: 14px;
 }
 .close-icn:hover {
   color: #555;
@@ -944,4 +1006,43 @@ input[type=password]:hover {
 }
 .inter-vertical-tabs .tab-content-container {
   top: 100px;
+}
+.notice-wrap {
+  position: fixed;
+  top: 50px;
+  right: 0;
+  width: 250px;
+  z-index: 9999;
+}
+* html .notice-wrap {
+  position: absolute;
+}
+.notice-item {
+  min-height: 60px;
+  background-color: #01a31c;
+  color: #fff;
+  padding: 10px 20px;
+  font-family: 'SegoeUI', sans-serif;
+  font-size: 14px;
+  display: block;
+  position: relative;
+  margin: 0 0 12px 0;
+}
+.notice-item.error {
+  background-color: #d44a26;
+}
+.notice-item-close {
+  position: absolute;
+  font-family: Arial;
+  font-size: 20px;
+  font-weight: bold;
+  right: 2px;
+  top: 2px;
+  cursor: pointer;
+  padding: 2px 7px 0;
+}
+.notice-item-close:hover {
+  background-color: #fff;
+  color: #000;
+  opacity: 0.7;
 }

@@ -144,6 +144,19 @@ $(function(){
           $('#inter-modal').animate({ height: $('#inter-modal').data('origHeight') }, 200);
       }
 
+      function setupModalActions(){
+        if( $('#inter-modal .modal-sidebar').length > 0 ){
+          $('#inter-modal .modal-sidebar > .sidebar-nav li').on('click', function(){
+            $(this).closest('ul').find('.active').removeClass('active');
+            $('#inter-modal .sidebar-content > div').hide();
+            $($('#inter-modal .sidebar-content > div')[$(this).index()]).show();
+            $(this).addClass('active');
+          }).first().click();
+        }
+        if( options && options.completed && typeof(options.completed) === 'function' )
+          setTimeout(function(){ options.completed( $('#inter-modal') ); }, 500 );
+      }
+
       if( html === 'close' )
         return closeModal();
       else if( typeof(html) === 'object' )
@@ -173,15 +186,13 @@ $(function(){
           if( options && options.before && typeof(options.before) === 'function' )
             options.before( $('#inter-modal') );
           $('#inter-modal').fadeIn( 200 );
-          if( options && options.completed && typeof(options.completed) === 'function' )
-            setTimeout(function(){ options.completed( $('#inter-modal') ); }, 500 );
+          setupModalActions();
         });
       } else {
-        $('#inter-modal .modal-inner-wrapper').html( html ).fadeIn(500);
+        $('#inter-modal .modal-inner-wrapper').html( html ).fadeIn(200);
         if( options && options.before && typeof(options.before) === 'function' )
           options.before( $('#inter-modal') );
-        if( options && options.completed && typeof(options.completed) === 'function' )
-          setTimeout(function(){ options.completed( $('#inter-modal') ); }, 500 );
+        setupModalActions();
       }
 
     },
