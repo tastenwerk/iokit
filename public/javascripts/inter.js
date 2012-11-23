@@ -213,7 +213,7 @@ $(function(){
 
   };
 
-  $.i18n.init({ dynamicLoad: true, useLocalStorage: false, fallbackLng: 'de', resGetPath: inter.host.master+'/translations.json?lng=__lng__&ns=__ns__' });
+  $.i18n.init({ dynamicLoad: true, useLocalStorage: false, fallbackLng: 'de', load: 'unspecific', resGetPath: inter.host.master+'/translations.json?lng=__lng__&ns=__ns__' });
 
   $('.live-tipsy').tipsy({live: true});
   $('.live-tipsy-e').tipsy({live: true, gravity: 'e'});
@@ -237,9 +237,16 @@ $(function(){
   $(document).on('click', function(e){
     if( !$(e.target).closest('.dropdown').length )
       $('.dropdown-menu').hide();
+    if( !$(e.target).hasClass('js-remove-on-click-trigger') &&
+        !$(e.target).closest('.js-remove-on-click-trigger').length &&
+        !$(e.target).hasClass('js-remove-on-click') && 
+        !$(e.target).closest('.js-remove-on-click').length )
+      $('.js-remove-on-click').remove();
+    $('.tipsy').remove();
   }).on('keydown', function(e){
-    if( e.keyCode === 27 ) // ESC
+    if( e.keyCode === 27 ){ // ESC
       inter.modal('close');
+    }
   });
 
   $('.js-get-focus:first').focus();
