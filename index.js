@@ -80,12 +80,13 @@ inter = {
 
     // get plugins from app (maybe they override some of the defaults)
     var appPluginsPath = process.cwd() + '/app/plugins';
-    fs.readdirSync( appPluginsPath ).forEach( function( dirName ){
-      var plugin = require( path.join( appPluginsPath, dirName ) );
-      plugin.name = dirName;
-      plugin.relativePath = path.join( appPluginsPath, dirName );
-      inter.registerPlugin( plugin );
-    });
+    if( fs.existsSync(appPluginsPath) )
+      fs.readdirSync( appPluginsPath ).forEach( function( dirName ){
+        var plugin = require( path.join( appPluginsPath, dirName ) );
+        plugin.name = dirName;
+        plugin.relativePath = path.join( appPluginsPath, dirName );
+        inter.registerPlugin( plugin );
+      });
 
     app.use(i18next.handle);
     i18next.registerAppHelper(app);

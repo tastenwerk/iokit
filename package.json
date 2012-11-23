@@ -25,7 +25,7 @@
     "ejs": "*",
     "express": "3.x.x",
     "connect-flash": "*",
-    "imagemagick": "*"
+    "easyimage": "*"
   },
   "devDependencies": {
     "should": "x.x.x",

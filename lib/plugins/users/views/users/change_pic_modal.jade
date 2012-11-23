@@ -23,4 +23,4 @@
           input(type='hidden', name='w')
           input(type='hidden', name='h')
           input.btn( type='submit', value=t('save') )
-      img#user-profile-pic( src='/users/#{currentUser._id}/pic?orig=true&_t=#{new Date()}')
+      img#user-profile-pic( src='/users/#{currentUser._id}/pic?#{new Date().getTime().toString()}=0&orig=true')

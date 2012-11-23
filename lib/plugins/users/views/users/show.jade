@@ -11,7 +11,7 @@
         a.btn( href='/users/#{user._id}/change_password_modal', data-remote='true' )=t('user.change_password')
 
       .userpic.userpic96.pull-left
-        img( src='/users/#{user._id}/pic?size=96' )
+        img( src='/users/#{user._id}/pic?size=96', class='userpic-#{user._id}' )
         .editpic
           =t('user.picture.edit')
 

@@ -1,6 +1,6 @@
 #inter-top-panel
   a#userpic( data-user-img=currentUser._id, href='/users/'+currentUser._id, data-remote='true' )
-    img( src='/users/'+currentUser._id+'/pic?size=24', style='width:24px;height:24px' )
+    img( class='userpic-#{currentUser._id}', src='/users/'+currentUser._id+'/pic?size=24', style='width:24px;height:24px' )
   #useractions
     .dropdown.pull-right
       a( href='#', data-toggle='dropdown' )
