@@ -12,20 +12,22 @@ $(function(){
       show: function( text, options, callback ){
         if( !callback && options && typeof(options) === 'function' )
           callback = options;
-        $('#inter-main-content').fadeOut(function(){
-          $('#inter-main-content').html( text ).fadeIn( function(){
+        $('#inter-main-content').fadeOut(200, function(){
+          $('#inter-main-content').html( text ).fadeIn( 200, function(){
             if( callback && typeof(callback) === 'function' )
               callback( $('#inter-main-content') );
           });
         });
       },
       load: function( url, callback ){
-        $('#inter-main-content').fadeOut()
-          .load( url, function(){
-            $('#inter-main-content').fadeIn();
-            if( callback && typeof(callback) === 'function' )
-              callback( $('#inter-main-content') );
+        $('#inter-main-content').fadeOut( 200, function(){
+          $('#inter-main-content').load( url, function(){
+            $('#inter-main-content').fadeIn( 200, function(){
+              if( callback && typeof(callback) === 'function' )
+                callback( $('#inter-main-content') );
+            });
           });
+        });
       }
     },
 
@@ -212,6 +214,10 @@ $(function(){
   };
 
   $.i18n.init({ dynamicLoad: true, useLocalStorage: false, fallbackLng: 'de', resGetPath: inter.host.master+'/translations.json?lng=__lng__&ns=__ns__' });
+
+  $('.live-tipsy').tipsy({live: true});
+  $('.live-tipsy-e').tipsy({live: true, gravity: 'e'});
+  $('.live-tipsy-w').tipsy({live: true, gravity: 'w'});
 
 /*
   $('body').tooltip({

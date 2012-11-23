@@ -882,11 +882,12 @@ ul#inter-sidebar li.loading {
   background-color: rgba(0,0,0,0.7);
 }
 .btn {
-  background-color: #f3f3f3;
+  background-color: #f5f5f5;
   background-image: -moz-linear-gradient(center top, #f5f5f5, #f1f1f1);
   background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#f1f1f1));
   background-repeat: repeat-x;
   border: 1px solid #dcdcdc;
+  border-radius: 1px;
   color: #333;
   cursor: pointer;
   font-weight: bold;
@@ -909,6 +910,12 @@ ul#inter-sidebar li.loading {
   text-shadow: none;
   transition: none 0s ease 0s;
   z-index: 2;
+}
+.btn.w-icn-only {
+  padding: 4px 8px 2px;
+}
+.btn.w-icn-only .icn {
+  opacity: 0.5;
 }
 .cntBox {
   padding: 1px 6px;
@@ -944,9 +951,10 @@ input[type=password]:hover {
 .inter-docklet {
   width: 100px;
   height: 100px;
-  background-color: #eaeaea;
+  background-color: #f5f5f5;
   background-image: -moz-linear-gradient(center top, #f5f5f5, #f1f1f1);
   background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#f1f1f1));
+  background-repeat: repeat-x;
   background-repeat: repeat-x;
   box-shadow: -1px 1px 2px rgba(0,0,0,0.5);
   position: relative;
@@ -968,7 +976,7 @@ input[type=password]:hover {
 }
 .inter-docklet .action-btn {
   position: absolute;
-  top: 6px;
+  top: 8px;
   right: 35px;
   padding: 4px 12px 2px;
   color: #aaa;
@@ -976,6 +984,10 @@ input[type=password]:hover {
 }
 .inter-docklet .action-btn:hover {
   color: #555;
+}
+.inter-docklet .close-icn {
+  top: 8px;
+  padding: 2px 7px;
 }
 .close-icn {
   position: absolute;
@@ -1006,6 +1018,109 @@ input[type=password]:hover {
 }
 .inter-vertical-tabs .tab-content-container {
   top: 100px;
+}
+.inter-tree.outer-decoration {
+  border: 1px solid #e0e0e0;
+  background-color: #f1f1f1;
+  background-image: -moz-linear-gradient(center top, #f1f1f1, #e5e5e5);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f1f1f1), to(#e5e5e5));
+  background-repeat: repeat-x;
+  border-radius: 2px;
+  padding: 5px;
+  margin: 5px;
+}
+.inter-tree ul {
+  padding: 5px;
+  list-style: none;
+}
+.inter-tree ul li {
+  margin: 5px;
+  background-color: #f3f3f3;
+  background-image: -moz-linear-gradient(center top, #f3f3f3, #efefef);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f3f3f3), to(#efefef));
+  background-repeat: repeat-x;
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -ms-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  padding: 10px 5px;
+  font-size: 12px;
+  border-radius: 1px;
+  border: 1px solid #ddd;
+  height: 15px;
+  position: relative;
+}
+.inter-tree ul li:hover {
+  box-shadow: -1px 1px 2px rgba(0,0,0,0.3);
+}
+.inter-tree ul li:hover .tree-trigger {
+  opacity: 1;
+}
+.inter-tree ul li .title {
+  font-size: 14px;
+}
+.inter-tree ul li.selected {
+  box-shadow: -1px 1px 2px rgba(0,0,0,0.3) inset;
+  background-color: #118be7;
+  background-image: -moz-linear-gradient(center top, #118be7, #007ad6);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#118be7), to(#007ad6));
+  background-repeat: repeat-x;
+  color: #fff;
+}
+.inter-tree ul li.selected .show-options-trigger .caret {
+  border-color: rgba(255,255,255,0.5) transparent transparent transparent;
+}
+.inter-tree ul li.show-options {
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -ms-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  height: 50px;
+}
+.inter-tree ul li .tree-trigger {
+  cursor: pointer;
+}
+.inter-tree ul li .tree-trigger {
+  opacity: 0;
+}
+.inter-tree ul li .show-options-trigger {
+  top: 5px;
+  right: 5px;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+}
+.inter-tree ul li .show-options-trigger .caret {
+  border-color: rgba(0,0,0,0.5) transparent transparent transparent;
+  border-style: solid;
+  border-width: 5px;
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 11px;
+  right: 8px;
+}
+.inter-tree .tree-controls {
+  height: 30px;
+  margin: 5px 10px;
+}
+.inter-tree .tree-controls .btn {
+  margin-right: 5px;
+}
+.second-sidebar {
+  width: 25%;
 }
 .notice-wrap {
   position: fixed;
@@ -1045,4 +1160,107 @@ input[type=password]:hover {
   background-color: #fff;
   color: #000;
   opacity: 0.7;
+}
+/* ------------------------------------------------ tipys */
+.tipsy {
+  font-size: 10px;
+  position: absolute;
+  padding: 5px;
+  z-index: 100000;
+}
+.tipsy-inner {
+  background-color: rgba(0,0,0,0.8);
+  color: #fff;
+  max-width: 200px;
+  padding: 5px 8px 4px 8px;
+  text-align: center;
+  border-radius: 1px;
+}
+.tipsy-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  line-height: 0;
+  border: 5px dashed rgba(0,0,0,0.9);
+}
+/* Rules to colour arrows */
+.tipsy-arrow-n {
+  border-bottom-color: rgba(0,0,0,0.9);
+}
+.tipsy-arrow-s {
+  border-top-color: rgba(0,0,0,0.9);
+}
+.tipsy-arrow-e {
+  border-left-color: rgba(0,0,0,0.9);
+}
+.tipsy-arrow-w {
+  border-right-color: rgba(0,0,0,0.9);
+}
+.tipsy-n .tipsy-arrow {
+  top: 0px;
+  left: 50%;
+  margin-left: -5px;
+  border-bottom-style: solid;
+  border-top: none;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+.tipsy-nw .tipsy-arrow {
+  top: 0;
+  left: 10px;
+  border-bottom-style: solid;
+  border-top: none;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+.tipsy-ne .tipsy-arrow {
+  top: 0;
+  right: 10px;
+  border-bottom-style: solid;
+  border-top: none;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+.tipsy-s .tipsy-arrow {
+  bottom: 0;
+  left: 50%;
+  margin-left: -5px;
+  border-top-style: solid;
+  border-bottom: none;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+.tipsy-sw .tipsy-arrow {
+  bottom: 0;
+  left: 10px;
+  border-top-style: solid;
+  border-bottom: none;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+.tipsy-se .tipsy-arrow {
+  bottom: 0;
+  right: 10px;
+  border-top-style: solid;
+  border-bottom: none;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+.tipsy-e .tipsy-arrow {
+  right: 0;
+  top: 50%;
+  margin-top: -5px;
+  border-left-style: solid;
+  border-right: none;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+.tipsy-w .tipsy-arrow {
+  left: 0;
+  top: 50%;
+  margin-top: -5px;
+  border-right-style: solid;
+  border-left: none;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
 }

@@ -17,4 +17,23 @@ INTER_POS_ABSOLUTE()
   right: 0
   bottom: 0
 
+INTER_GRADIENT(col1, col2)
+  background-color: col1;
+  background-image: -moz-linear-gradient(center top , col1, col2)
+  background-image: -webkit-gradient(linear, left top, left bottom, from(col1), to(col2))
+  background-repeat: repeat-x
+
+INTER_TRANSITION(duration)
+  -webkit-transition-property: all
+  -moz-transition-property: all
+  -o-transition-property: all
+  -ms-transition-property: all
+  transition-property: all
+
+  -webkit-transition-duration: duration
+  -moz-transition-duration: duration
+  -o-transition-duration: duration
+  -ms-transition-duration: duration
+  transition-duration: duration
+
 INTER_BOX_SHADOW = -1px 1px 3px rgba( 0, 0, 0, 0.5 )
