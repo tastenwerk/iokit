@@ -67,6 +67,9 @@ fieldset
     font-size: 10px
     color: INTER_FONT_LIGHTGREY
 
+form
+  p
+    margin: 5px 0 
 .userpic
   border: 3px solid INTER_WHITE
   box-shadow: -1px 1px 3px INTER_BLACK
@@ -230,6 +233,7 @@ ul#inter-sidebar
   height: 600px
   background-color: INTER_WHITE
   box-shadow: INTER_BOX_SHADOW
+  border-radius: 1px
   margin: auto
 
   .modal-title
@@ -325,7 +329,7 @@ ul#inter-sidebar
 input[type=text],input[type=password]
   border: 1px solid #dcdcdc;
   border-radius: 1px
-  padding: 5px 0
+  padding: 8px 0
   text-indent: 5px
 
   &:focus, &:hover
@@ -397,73 +401,91 @@ input[type=text],input[type=password]
 .inter-tree
   &.outer-decoration
     margin: 5px
+  li
+    margin: 5px 0 0 2px
   ul
-    padding: 0 5px
     list-style: none
-    li
-      margin: 5px
-      INTER_GRADIENT(#F3F3F3, #EfEfEf)
+    margin: 0 0 0 10px
+    ul
+      list-style: none
+      margin: 0 0 0 10px
+  .placeholder
+    outline: 1px dashed INTER_ORANGE
+    border-radius: 1px
+  .tree-item
+    INTER_GRADIENT(#F3F3F3, #EfEfEf)
+    INTER_TRANSITION(0.3s)
+    padding: 10px 5px
+    font-size: 12px
+    border-radius: 1px
+    border: 1px solid #ddd
+    height: 15px
+    position: relative
+    overflow: hidden
+    &:hover
+      box-shadow: -1px 1px 2px rgba(0,0,0,0.3)
+      .tree-trigger
+        opacity: 1
+
+    .title
+      font-size: 14px
+    &.selected
+      box-shadow: -1px 1px 2px rgba(0,0,0,0.3) inset
+      INTER_GRADIENT(#118be7, #007ad6)
+      color: white
+      .show-options-trigger .caret
+        border-color: rgba(255,255,255,0.5) transparent transparent transparent
+    &.show-options
       INTER_TRANSITION(0.3s)
-      padding: 10px 5px
-      font-size: 12px
-      border-radius: 1px
-      border: 1px solid #ddd
-      height: 15px
-      position: relative
-      overflow: hidden
-      &:hover
-        box-shadow: -1px 1px 2px rgba(0,0,0,0.3)
-        .tree-trigger
+      height: 45px
+    .published-status
+      opacity: 0.5
+      margin-right: 25px
+    .tree-trigger
+      cursor: pointer
+    .tree-trigger
+      opacity: 0
+    .show-options-trigger
+      top: 5px
+      right: 5px
+      position: absolute
+      width: 30px
+      height: 30px
+      .caret
+        border-color: rgba(0,0,0,0.5) transparent transparent transparent
+        border-style: solid
+        border-width: 5px
+        height: 0
+        width: 0
+        position: absolute
+        top: 11px
+        right: 8px
+    .tree-item-control
+      margin-top: 12px
+      text-align: right
+      .btn
+        padding: 6px 2px 0
+        margin-right: 2px
+        border: none
+        background: none
+        box-shadow: none
+        opacity: 0.5
+        &:hover
           opacity: 1
 
-      .title
-        font-size: 14px
-      &.selected
-        box-shadow: -1px 1px 2px rgba(0,0,0,0.3) inset
-        INTER_GRADIENT(#118be7, #007ad6)
-        color: white
-        .show-options-trigger .caret
-          border-color: rgba(255,255,255,0.5) transparent transparent transparent
-      &.show-options
-        INTER_TRANSITION(0.3s)
-        height: 45px
-      .tree-trigger
-        cursor: pointer
-      .tree-trigger
-        opacity: 0
-      .show-options-trigger
-        top: 5px
-        right: 5px
-        position: absolute
-        width: 30px
-        height: 30px
-        .caret
-          border-color: rgba(0,0,0,0.5) transparent transparent transparent
-          border-style: solid
-          border-width: 5px
-          height: 0
-          width: 0
-          position: absolute
-          top: 11px
-          right: 8px
-      .tree-item-control
-        margin-top: 12px
-        text-align: right
-        .btn
-          padding: 6px 2px 0
-          margin-right: 2px
-          border: none
-          background: none
-          box-shadow: none
-          opacity: 0.5
-          &:hover
-            opacity: 1
+    .children-caret
+      border-color: transparent transparent transparent rgba(0,0,0,0.5) 
+      border-style: solid
+      border-width: 5px
+      height: 0
+      width: 0
+      float: left
+      margin: 4px
 
   .tree-controls
     height: 25px
     margin: 5px 10px 0
     .btn
-      margin-right: 5px
       background: none
       box-shadow: none
       border: none
@@ -473,6 +495,17 @@ input[type=text],input[type=password]
 
 .second-sidebar
   width: 25%
+  position: absolute
+  top: 10px
+  left: 10px
+  bottom: 10px
+  .inter-tree-list
+    overflow: auto
+    position: absolute
+    bottom: 0
+    left: 0
+    top: 30px
+    right: 0
 
 #info-modal
   min-height: 300px
@@ -482,6 +515,11 @@ input[type=text],input[type=password]
   background-color: INTER_WHITE
   padding: 10px
   box-shadow: -1px 1px 3px #ddd
+  h1.title
+    font-size: 16px
+    line-height: 16px
+    margin-top: -1px
+
 #info-modal-caret
   position: absolute
   height: 0

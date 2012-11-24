@@ -4,7 +4,10 @@
   "name": "Name",
   "cancel": "Abbrechen",
   "edit": "bearbeiten",
+  "create": "erstellen",
+  "delete": "löschen",
   "save": "Speichern",
+  "refresh": "Aktualisieren",
   "updatedAt": "Letzte Änderung",
   "privileges": "Zugriffsrechte",
   "fileSize": "Dateigröße",
@@ -90,6 +93,18 @@
       }
     }
   },
+  "document": {
+    "order": {
+      "saving": {
+        "ok": "Sortierung gespeichert",
+        "failed": "Sortierung konnte nicht gespeichert werden"
+      }
+    },
+    "info": {
+      "general": "Allgemein",
+      "comments": "Kommentare"
+    }
+  },
   "dashboard": {
     "title": "Dashboard"
   },
@@ -151,6 +166,7 @@
     "new": "Neue Seite hinzufügen",
     "name": "Titel",
     "template": "Vorlage",
+    "layout": "Layout",
     "content": "Text",
     "startpage": "Startpage",
     "locked_for_public": "Nicht für die Öffentlichkeit freigeschaltet"

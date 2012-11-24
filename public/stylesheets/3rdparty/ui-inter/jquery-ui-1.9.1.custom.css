@@ -209,6 +209,9 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 .ui-widget-header { border: 1px solid #aaaaaa; background: #555 url(images/ui-bg_flat_0_555555_40x100.png) 50% 50% repeat-x; color: #fff; font-weight: bold; }
 .ui-widget-header a { color: #fff; }
 
+.tabs .ui-widget-header{ border: none; border-bottom: 1px solid #aaa; background: none; }
+.tabs li{ font-size: 10px; }
+
 /* Interaction states
 ----------------------------------*/
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { border: 1px solid #f5f5f5; background: #f5f5f5 url(images/ui-bg_flat_75_f5f5f5_40x100.png) 50% 50% repeat-x; font-weight: normal; color: #555555; }

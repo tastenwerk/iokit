@@ -122,6 +122,15 @@ video {
 .icn.icn-trash {
   background-position: -16px -32px;
 }
+.icn.icn-refresh {
+  background-position: -32px -32px;
+}
+.icn.icn-locked {
+  background-position: -48px -16px;
+}
+.icn.icn-locked.unlocked {
+  background-position: -64px -16px;
+}
 .icn.icn-info {
   background-position: -64px 0;
 }
@@ -647,6 +656,9 @@ fieldset label {
   font-size: 10px;
   color: #777;
 }
+form p {
+  margin: 5px 0;
+}
 .userpic {
   border: 3px solid #f8f8f8;
   box-shadow: -1px 1px 3px #333;
@@ -826,6 +838,7 @@ ul#inter-sidebar li.loading {
   height: 600px;
   background-color: #f8f8f8;
   box-shadow: -1px 1px 3px rgba(0,0,0,0.5);
+  border-radius: 1px;
   margin: auto;
 }
 #inter-modal .modal-title {
@@ -948,7 +961,7 @@ input[type=text],
 input[type=password] {
   border: 1px solid #dcdcdc;
   border-radius: 1px;
-  padding: 5px 0;
+  padding: 8px 0;
   text-indent: 5px;
 }
 input[type=text]:focus,
@@ -1034,12 +1047,22 @@ input[type=password]:hover {
 .inter-tree.outer-decoration {
   margin: 5px;
 }
-.inter-tree ul {
-  padding: 0 5px;
-  list-style: none;
+.inter-tree li {
+  margin: 5px 0 0 2px;
 }
-.inter-tree ul li {
-  margin: 5px;
+.inter-tree ul {
+  list-style: none;
+  margin: 0 0 0 10px;
+}
+.inter-tree ul ul {
+  list-style: none;
+  margin: 0 0 0 10px;
+}
+.inter-tree .placeholder {
+  outline: 1px dashed #d44a26;
+  border-radius: 1px;
+}
+.inter-tree .tree-item {
   background-color: #f3f3f3;
   background-image: -moz-linear-gradient(center top, #f3f3f3, #efefef);
   background-image: -webkit-gradient(linear, left top, left bottom, from(#f3f3f3), to(#efefef));
@@ -1062,16 +1085,16 @@ input[type=password]:hover {
   position: relative;
   overflow: hidden;
 }
-.inter-tree ul li:hover {
+.inter-tree .tree-item:hover {
   box-shadow: -1px 1px 2px rgba(0,0,0,0.3);
 }
-.inter-tree ul li:hover .tree-trigger {
+.inter-tree .tree-item:hover .tree-trigger {
   opacity: 1;
 }
-.inter-tree ul li .title {
+.inter-tree .tree-item .title {
   font-size: 14px;
 }
-.inter-tree ul li.selected {
+.inter-tree .tree-item.selected {
   box-shadow: -1px 1px 2px rgba(0,0,0,0.3) inset;
   background-color: #118be7;
   background-image: -moz-linear-gradient(center top, #118be7, #007ad6);
@@ -1079,10 +1102,10 @@ input[type=password]:hover {
   background-repeat: repeat-x;
   color: #fff;
 }
-.inter-tree ul li.selected .show-options-trigger .caret {
+.inter-tree .tree-item.selected .show-options-trigger .caret {
   border-color: rgba(255,255,255,0.5) transparent transparent transparent;
 }
-.inter-tree ul li.show-options {
+.inter-tree .tree-item.show-options {
   -webkit-transition-property: all;
   -moz-transition-property: all;
   -o-transition-property: all;
@@ -1095,20 +1118,24 @@ input[type=password]:hover {
   transition-duration: 0.3s;
   height: 45px;
 }
-.inter-tree ul li .tree-trigger {
+.inter-tree .tree-item .published-status {
+  opacity: 0.5;
+  margin-right: 25px;
+}
+.inter-tree .tree-item .tree-trigger {
   cursor: pointer;
 }
-.inter-tree ul li .tree-trigger {
+.inter-tree .tree-item .tree-trigger {
   opacity: 0;
 }
-.inter-tree ul li .show-options-trigger {
+.inter-tree .tree-item .show-options-trigger {
   top: 5px;
   right: 5px;
   position: absolute;
   width: 30px;
   height: 30px;
 }
-.inter-tree ul li .show-options-trigger .caret {
+.inter-tree .tree-item .show-options-trigger .caret {
   border-color: rgba(0,0,0,0.5) transparent transparent transparent;
   border-style: solid;
   border-width: 5px;
@@ -1118,11 +1145,11 @@ input[type=password]:hover {
   top: 11px;
   right: 8px;
 }
-.inter-tree ul li .tree-item-control {
+.inter-tree .tree-item .tree-item-control {
   margin-top: 12px;
   text-align: right;
 }
-.inter-tree ul li .tree-item-control .btn {
+.inter-tree .tree-item .tree-item-control .btn {
   padding: 6px 2px 0;
   margin-right: 2px;
   border: none;
@@ -1130,15 +1157,23 @@ input[type=password]:hover {
   box-shadow: none;
   opacity: 0.5;
 }
-.inter-tree ul li .tree-item-control .btn:hover {
+.inter-tree .tree-item .tree-item-control .btn:hover {
   opacity: 1;
+}
+.inter-tree .tree-item .children-caret {
+  border-color: transparent transparent transparent rgba(0,0,0,0.5);
+  border-style: solid;
+  border-width: 5px;
+  height: 0;
+  width: 0;
+  float: left;
+  margin: 4px;
 }
 .inter-tree .tree-controls {
   height: 25px;
   margin: 5px 10px 0;
 }
 .inter-tree .tree-controls .btn {
-  margin-right: 5px;
   background: none;
   box-shadow: none;
   border: none;
@@ -1149,6 +1184,18 @@ input[type=password]:hover {
 }
 .second-sidebar {
   width: 25%;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+}
+.second-sidebar .inter-tree-list {
+  overflow: auto;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  top: 30px;
+  right: 0;
 }
 #info-modal {
   min-height: 300px;
@@ -1158,6 +1205,11 @@ input[type=password]:hover {
   background-color: #f8f8f8;
   padding: 10px;
   box-shadow: -1px 1px 3px #ddd;
+}
+#info-modal h1.title {
+  font-size: 16px;
+  line-height: 16px;
+  margin-top: -1px;
 }
 #info-modal-caret {
   position: absolute;
