@@ -216,8 +216,10 @@ $(function(){
   $.i18n.init({ dynamicLoad: true, useLocalStorage: false, fallbackLng: 'de', load: 'unspecific', resGetPath: inter.host.master+'/translations.json?lng=__lng__&ns=__ns__' });
 
   $('.live-tipsy').tipsy({live: true});
-  $('.live-tipsy-e').tipsy({live: true, gravity: 'e'});
-  $('.live-tipsy-w').tipsy({live: true, gravity: 'w'});
+  $('.live-tipsy-l').tipsy({live: true, gravity: 'e'});
+  $('.live-tipsy-r').tipsy({live: true, gravity: 'w'});
+
+  moment.lang('de');
 
 /*
   $('body').tooltip({

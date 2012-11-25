@@ -125,6 +125,9 @@ video {
 .icn.icn-refresh {
   background-position: -32px -32px;
 }
+.icn.icn-comments {
+  background-position: -48px -32px;
+}
 .icn.icn-locked {
   background-position: -48px -16px;
 }
@@ -896,6 +899,52 @@ ul#inter-sidebar li.loading {
 #inter-modal .modal-inner-wrapper .modal-sidebar .sidebar-content >div {
   display: none;
 }
+.side-tabs .side-tabs-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 30px;
+  overflow: auto;
+  border-right: 1px solid #ddd;
+  list-style: none;
+  padding: 10px 0;
+}
+.side-tabs .side-tabs-nav li {
+  padding: 3px 0 0 4px;
+  font-weight: 300;
+  cursor: pointer;
+  border-left: 5px solid transparent;
+  font-size: 0.9em;
+}
+.side-tabs .side-tabs-nav li:hover {
+  background-color: #eaeaea;
+}
+.side-tabs .side-tabs-nav li:hover .icn {
+  opacity: 1;
+}
+.side-tabs .side-tabs-nav li.active {
+  border-color: #d44a26;
+  font-weight: 900;
+  color: #d44a26;
+}
+.side-tabs .side-tabs-nav li .icn {
+  opacity: 0.5;
+}
+.side-tabs .side-tabs-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  left: 31px;
+  overflow: auto;
+  padding: 10px;
+}
+.side-tabs .side-tabs-content >div {
+  display: none;
+}
 #inter-modal-overlay {
   position: absolute;
   top: 0;
@@ -1119,8 +1168,11 @@ input[type=password]:hover {
   height: 45px;
 }
 .inter-tree .tree-item .published-status {
-  opacity: 0.5;
+  opacity: 0.3;
   margin-right: 25px;
+}
+.inter-tree .tree-item .published-status.unlocked {
+  opacity: 0;
 }
 .inter-tree .tree-item .tree-trigger {
   cursor: pointer;
@@ -1169,6 +1221,24 @@ input[type=password]:hover {
   float: left;
   margin: 4px;
 }
+.inter-tree .tree-item .children-caret.open {
+  transform: rotate(45deg);
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -ms-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.5;
+  -moz-transition-duration: 0.5;
+  -o-transition-duration: 0.5;
+  -ms-transition-duration: 0.5;
+  transition-duration: 0.5;
+}
+.inter-tree .tree-item .children-caret.loading {
+  animation-iteration-count: infinite;
+  animation-name: orbit;
+  animation-duration: 2s;
+}
 .inter-tree .tree-controls {
   height: 25px;
   margin: 5px 10px 0;
@@ -1199,17 +1269,37 @@ input[type=password]:hover {
 }
 #info-modal {
   min-height: 300px;
-  width: 250px;
+  width: 300px;
   position: absolute;
   border: 1px solid #ddd;
   background-color: #f8f8f8;
-  padding: 10px;
   box-shadow: -1px 1px 3px #ddd;
 }
+#info-modal .info-modal-title {
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}
 #info-modal h1.title {
-  font-size: 16px;
-  line-height: 16px;
-  margin-top: -1px;
+  font-size: 14px;
+  line-height: 14px;
+}
+#info-modal .side-tabs {
+  position: absolute;
+  left: 0;
+  top: 35px;
+  bottom: 0;
+  right: 0;
+}
+#info-modal .side-tabs-content div {
+  padding: 10px;
+  font-size: 12px;
+}
+#info-modal .side-tabs-content div label.pull-left {
+  width: 100px;
+  color: #777;
+}
+#info-modal .side-tabs-content div p {
+  margin: 10px 0;
 }
 #info-modal-caret {
   position: absolute;
@@ -1237,6 +1327,20 @@ input[type=password]:hover {
   top: 0;
   z-index: 101;
   left: 0;
+}
+.lbl {
+  background-color: #aaa;
+  padding: 0.1em 5px;
+  font-size: 0.8em;
+  color: #fff;
+  border-radius: 1px;
+}
+.lbl.public-status {
+  background-color: #338000;
+  cursor: pointer;
+}
+.lbl.public-status.locked {
+  background-color: #c55;
 }
 .notice-wrap {
   position: fixed;
@@ -1297,20 +1401,20 @@ input[type=password]:hover {
   width: 0;
   height: 0;
   line-height: 0;
-  border: 5px dashed rgba(0,0,0,0.9);
+  border: 5px dashed rgba(0,0,0,0.95);
 }
 /* Rules to colour arrows */
 .tipsy-arrow-n {
-  border-bottom-color: rgba(0,0,0,0.9);
+  border-bottom-color: rgba(0,0,0,0.95);
 }
 .tipsy-arrow-s {
-  border-top-color: rgba(0,0,0,0.9);
+  border-top-color: rgba(0,0,0,0.95);
 }
 .tipsy-arrow-e {
-  border-left-color: rgba(0,0,0,0.9);
+  border-left-color: rgba(0,0,0,0.95);
 }
 .tipsy-arrow-w {
-  border-right-color: rgba(0,0,0,0.9);
+  border-right-color: rgba(0,0,0,0.95);
 }
 .tipsy-n .tipsy-arrow {
   top: 0px;

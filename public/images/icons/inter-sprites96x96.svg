@@ -27,9 +27,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.2539029"
-     inkscape:cx="392.18412"
-     inkscape:cy="783.22307"
+     inkscape:zoom="1.59375"
+     inkscape:cx="389.06765"
+     inkscape:cy="752.64227"
      inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:document-units="px"
@@ -618,5 +618,20 @@
            sodipodi:type="arc" />
       </g>
     </g>
+    <rect
+       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="rect4402"
+       width="85.685776"
+       height="57.89579"
+       x="292.69928"
+       y="-687.86359"
+       ry="3.3290131" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:connector-curvature="0"
+       id="path4404"
+       d="m 330.82583,-633.879 18.95894,17.43254 18.95899,-17.43254 z"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.81797445px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
   </g>
 </svg>

@@ -276,6 +276,40 @@ ul#inter-sidebar
         >div
           display: none
 
+.side-tabs
+
+  .side-tabs-nav
+    INTER_POS_ABSOLUTE()
+    width: 30px
+    overflow: auto
+    border-right: 1px solid #ddd
+    list-style: none
+    padding: 10px 0
+    li
+      padding: 3px 0 0 4px
+      font-weight: 300
+      cursor: pointer
+      border-left: 5px solid transparent
+      font-size: 0.9em
+      &:hover
+        background-color: INTER_GREY_BG
+        .icn
+          opacity: 1
+      &.active
+        border-color: INTER_ORANGE
+        font-weight: 900
+        color: INTER_ORANGE
+      .icn
+        opacity: 0.5
+  .side-tabs-content
+    INTER_POS_ABSOLUTE()
+    left: 31px
+    overflow: auto
+    padding: 10px
+    >div
+      display: none
+
+
 #inter-modal-overlay
   INTER_POS_ABSOLUTE()
   width: 100%
@@ -439,8 +473,10 @@ input[type=text],input[type=password]
       INTER_TRANSITION(0.3s)
       height: 45px
     .published-status
-      opacity: 0.5
+      opacity: 0.3
       margin-right: 25px
+      &.unlocked
+        opacity: 0
     .tree-trigger
       cursor: pointer
     .tree-trigger
@@ -481,6 +517,13 @@ input[type=text],input[type=password]
       width: 0
       float: left
       margin: 4px
+      &.open
+        transform: rotate(45deg)
+        INTER_TRANSITION(0.5)
+      &.loading
+        animation-iteration-count: infinite
+        animation-name: orbit
+        animation-duration: 2s
 
   .tree-controls
     height: 25px
@@ -509,16 +552,34 @@ input[type=text],input[type=password]
 
 #info-modal
   min-height: 300px
-  width: 250px
+  width: 300px
   position: absolute
   border: 1px solid #ddd
   background-color: INTER_WHITE
-  padding: 10px
   box-shadow: -1px 1px 3px #ddd
+  .info-modal-title
+    border-bottom: 1px solid #ddd
+    padding: 10px
   h1.title
-    font-size: 16px
-    line-height: 16px
-    margin-top: -1px
+    font-size: 14px
+    line-height: 14px
+  .side-tabs
+    position: absolute
+    left: 0
+    top: 35px
+    bottom: 0
+    right: 0
+  .side-tabs-content
+    div
+      padding: 10px
+      font-size: 12px
+      label.pull-left
+        width: 100px
+        color: #777
+      p
+        margin: 10px 0
+
+
 
 #info-modal-caret
   position: absolute
@@ -544,6 +605,18 @@ input[type=text],input[type=password]
     top: 0
     z-index: 101
     left: 0
+
+.lbl
+  background-color: INTER_DARK_GREY
+  padding: 0.1em 5px
+  font-size: 0.8em
+  color: white
+  border-radius: 1px
+  &.public-status
+    background-color: INTER_GREEN
+    cursor: pointer
+    &.locked
+      background-color: INTER_RED
 
 
 // jquery.notice
@@ -599,13 +672,13 @@ input[type=text],input[type=password]
   text-align: center
   border-radius: 1px
 
-.tipsy-arrow { position: absolute; width: 0; height: 0; line-height: 0; border: 5px dashed rgba(0,0,0,0.9); }
+.tipsy-arrow { position: absolute; width: 0; height: 0; line-height: 0; border: 5px dashed rgba(0,0,0,0.95); }
 
 /* Rules to colour arrows */
-.tipsy-arrow-n { border-bottom-color: rgba(0,0,0,0.9); }
-.tipsy-arrow-s { border-top-color: rgba(0,0,0,0.9); }
-.tipsy-arrow-e { border-left-color: rgba(0,0,0,0.9); }
-.tipsy-arrow-w { border-right-color: rgba(0,0,0,0.9); }
+.tipsy-arrow-n { border-bottom-color: rgba(0,0,0,0.95); }
+.tipsy-arrow-s { border-top-color: rgba(0,0,0,0.95); }
+.tipsy-arrow-e { border-left-color: rgba(0,0,0,0.95); }
+.tipsy-arrow-w { border-right-color: rgba(0,0,0,0.95); }
 
 .tipsy-n .tipsy-arrow { top: 0px; left: 50%; margin-left: -5px; border-bottom-style: solid; border-top: none; border-left-color: transparent; border-right-color: transparent; }
 .tipsy-nw .tipsy-arrow { top: 0; left: 10px; border-bottom-style: solid; border-top: none; border-left-color: transparent; border-right-color: transparent;}
