@@ -763,10 +763,16 @@ h1 {
   color: #777;
   font-weight: 300;
 }
-#inter-main-content .main-control {
+#inter-main-content .main-control,
+#inter-main-content .main-control-r {
   position: absolute;
   top: 12px;
   right: 10px;
+}
+#inter-main-content .main-control-l {
+  position: absolute;
+  top: 12px;
+  left: 10px;
 }
 ul#inter-sidebar {
   position: absolute;
@@ -1099,6 +1105,10 @@ input[type=password]:hover {
 .inter-tree li {
   margin: 5px 0 0 2px;
 }
+.inter-tree li a {
+  text-decoration: none;
+  color: #333;
+}
 .inter-tree ul {
   list-style: none;
   margin: 0 0 0 10px;
@@ -1150,6 +1160,12 @@ input[type=password]:hover {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#118be7), to(#007ad6));
   background-repeat: repeat-x;
   color: #fff;
+}
+.inter-tree .tree-item.selected a {
+  color: #fff;
+}
+.inter-tree .tree-item.selected .children-caret {
+  border-color: transparent transparent transparent rgba(255,255,255,0.5);
 }
 .inter-tree .tree-item.selected .show-options-trigger .caret {
   border-color: rgba(255,255,255,0.5) transparent transparent transparent;
@@ -1267,6 +1283,14 @@ input[type=password]:hover {
   top: 30px;
   right: 0;
 }
+.second-main-container {
+  position: absolute;
+  top: 10px;
+  left: 25%;
+  margin-left: 20px;
+  right: 10px;
+  bottom: 10px;
+}
 #info-modal {
   min-height: 300px;
   width: 300px;
@@ -1380,6 +1404,44 @@ input[type=password]:hover {
   background-color: #fff;
   color: #000;
   opacity: 0.7;
+}
+.inter-editor-controls {
+  height: 25px;
+  margin: 5px 10px 0 0;
+}
+.inter-editor-controls .btn {
+  background: none;
+  box-shadow: none;
+  border: none;
+  opacity: 0.5;
+}
+.inter-editor-controls .btn:hover {
+  opacity: 1;
+}
+.inter-editor-controls .icn {
+  background-image: url("/images/icons/inter-editor-icons16x16.png");
+}
+.inter-editor-controls .icn.editor-icn-bold {
+  background-position: 0 0;
+}
+.inter-editor-controls .icn.editor-icn-italic {
+  background-position: -16px 0;
+}
+.inter-editor-controls .icn.editor-icn-underline {
+  background-position: -32px 0;
+}
+.inter-editor-controls .icn.editor-icn-strikeThrough {
+  background-position: -48px 0;
+}
+.inter-editor-controls .icn.editor-icn-link {
+  background-position: -64px 0;
+}
+.inter-editor-content {
+  margin: 5px;
+  border: 1px solid #ddd;
+  padding: 5px;
+  box-shadow: -2px 2px 2px #ccc;
+  overflow: auto;
 }
 /* ------------------------------------------------ tipys */
 .tipsy {
