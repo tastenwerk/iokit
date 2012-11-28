@@ -83,7 +83,7 @@ video {
   width: 16px;
   height: 16px;
   display: inline-block;
-  background-image: url("/images/inter-icons16x16.png");
+  background-image: url("/images/icons/inter-icons16x16.png");
 }
 .icn.icn-plus {
   background-position: 0 0;
@@ -94,6 +94,12 @@ video {
 .icn.icn-upload {
   background-position: -32px 0;
 }
+.icn.icn-download {
+  background-position: -48px 0;
+}
+.icn.icn-info {
+  background-position: -64px 0;
+}
 .icn.icn-pencil {
   background-position: -80px 0;
 }
@@ -101,41 +107,72 @@ video {
 .icn.icn-settings {
   background-position: -96px 0;
 }
-.icn.icn-person {
-  background-position: -864px 0;
-}
-.icn.icn-caret {
-  background-position: -112px -16px;
-}
 .icn.icn-save {
   background-position: -112px 0;
 }
-.icn.icn-checkbox {
-  background-position: -128px -16px;
-}
-.icn.icn-checkbox.checked {
-  background-position: -144px -16px;
-}
-.icn.icn-web_element {
-  background-position: 0 -32px;
-}
-.icn.icn-trash {
-  background-position: -16px -32px;
-}
-.icn.icn-refresh {
-  background-position: -32px -32px;
+.icn.icn-home {
+  background-position: -128px 0;
 }
 .icn.icn-comments {
+  background-position: -144px 0;
+}
+.icn.icn-person,
+.icnicn-person-male {
+  background-position: -32px 0;
+}
+.icnicn-person-female {
+  background-position: -32px -16px;
+}
+.icn.icn-checkbox {
+  background-position: 0 -80px;
+}
+.icn.icn-checkbox.checked {
+  background-position: -16px -80px;
+}
+.icn.icn-web_element {
+  background-position: -112px -64px;
+}
+.icn.icn-trash {
   background-position: -48px -32px;
 }
+.icn.icn-refresh {
+  background-position: -80px -16px;
+}
 .icn.icn-locked {
-  background-position: -48px -16px;
+  background-position: -80px -32px;
 }
 .icn.icn-locked.unlocked {
-  background-position: -64px -16px;
+  background-position: -96px -32px;
 }
-.icn.icn-info {
-  background-position: -64px 0;
+.icn.icn-bold {
+  background-position: -32px -48px;
+}
+.icn.icn-italic {
+  background-position: -16px -48px;
+}
+.icn.icn-underline {
+  background-position: -48px -48px;
+}
+.icn.icn-strikeThrough {
+  background-position: -64px -48px;
+}
+.icn.icn-link {
+  background-position: 0 -48px;
+}
+.icn.icn-align-left {
+  background-position: -80px -48px;
+}
+.icn.icn-align-right {
+  background-position: -96px -48px;
+}
+.icn.icn-align-center {
+  background-position: -112px -48px;
+}
+.icn.icn-align-justify {
+  background-position: -128px -48px;
+}
+.icn.icn-list {
+  background-position: -144px -48px;
 }
 .icn.white {
   background-image: url("/images/inter-icons16x16w.png");
@@ -638,9 +675,13 @@ html {
 .desc {
   color: #777;
   font-size: 12px;
+  font-weight: 300;
 }
 .span400 {
   width: 400px;
+}
+.span-full {
+  width: 100%;
 }
 table {
   font-size: 12px;
@@ -660,7 +701,17 @@ fieldset label {
   color: #777;
 }
 form p {
-  margin: 5px 0;
+  margin: 8px 0;
+}
+form label {
+  font-weight: 300;
+  color: #999;
+  font-size: 12px;
+}
+form label.pull-left {
+  width: 100px;
+  color: #777;
+  margin: 6px;
 }
 .userpic {
   border: 3px solid #f8f8f8;
@@ -732,8 +783,15 @@ h1 {
   font-size: 12px;
   line-height: 16px;
 }
-#inter-top-panel #useractions a .icn-caret {
-  margin: 2px 0 0 5px;
+#inter-top-panel #useractions a .caret.white {
+  border-color: rgba(255,255,255,0.7) transparent transparent transparent;
+  border-style: solid;
+  border-width: 5px;
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 6px;
+  right: 0;
 }
 #inter-top-panel #useractions .dropdown a {
   color: #555;
@@ -1405,36 +1463,21 @@ input[type=password]:hover {
   color: #000;
   opacity: 0.7;
 }
+.inter-form-controls,
 .inter-editor-controls {
   height: 25px;
   margin: 5px 10px 0 0;
 }
+.inter-form-controls .btn,
 .inter-editor-controls .btn {
   background: none;
   box-shadow: none;
   border: none;
   opacity: 0.5;
 }
+.inter-form-controls .btn:hover,
 .inter-editor-controls .btn:hover {
   opacity: 1;
-}
-.inter-editor-controls .icn {
-  background-image: url("/images/icons/inter-editor-icons16x16.png");
-}
-.inter-editor-controls .icn.editor-icn-bold {
-  background-position: 0 0;
-}
-.inter-editor-controls .icn.editor-icn-italic {
-  background-position: -16px 0;
-}
-.inter-editor-controls .icn.editor-icn-underline {
-  background-position: -32px 0;
-}
-.inter-editor-controls .icn.editor-icn-strikeThrough {
-  background-position: -48px 0;
-}
-.inter-editor-controls .icn.editor-icn-link {
-  background-position: -64px 0;
 }
 .inter-editor-content {
   margin: 5px;

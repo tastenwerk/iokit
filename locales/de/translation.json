@@ -7,6 +7,7 @@
   "create": "erstellen",
   "delete": "löschen",
   "save": "Speichern",
+  "path": "Pfad",
   "refresh": "Aktualisieren",
   "updatedAt": "Letzte Änderung",
   "createdAt": "Erstellt",
@@ -102,6 +103,9 @@
         "failed": "Sortierung konnte nicht gespeichert werden"
       }
     },
+    "tags": {
+      "title": "Tags"
+    },
     "public_status": "öffentl. Status",
     "published": "Veröffentlicht",
     "locked": "Gesperrt",
@@ -178,7 +182,12 @@
     "layout": "Layout",
     "content": "Text",
     "startpage": "Startpage",
-    "locked_for_public": "Nicht für die Öffentlichkeit freigeschaltet"
+    "locked_for_public": "Nicht für die Öffentlichkeit freigeschaltet",
+    "hidden": "Versteckt",
+    "hidden_desc": "Diese Seite wird nicht in der Navigation / Menü angezeigt",
+    "no_robots": "Keine SEO",
+    "no_robots_desc": "Suchmaschinen anweisen, diese Seite nicht in ihre Ergebnisliste miteinzubeziehen",
+    "slug": "Slug (ID)"
   },
   "veranstaltungen": {
     "title": "Veranstaltungen",

@@ -46,9 +46,13 @@ html
 .desc
   color: #777
   font-size: 12px
+  font-weight: 300
 
 .span400
   width: 400px
+
+.span-full
+  width: 100%
 
 table
   font-size: 12px
@@ -69,7 +73,16 @@ fieldset
 
 form
   p
-    margin: 5px 0 
+    margin: 8px 0 
+  label
+    font-weight: 300
+    color: #999
+    font-size: 12px
+    &.pull-left
+      width: 100px
+      color: #777
+      margin: 6px
+
 .userpic
   border: 3px solid INTER_WHITE
   box-shadow: -1px 1px 3px INTER_BLACK
@@ -133,8 +146,15 @@ h1
       text-decoration: none
       font-size: 12px
       line-height: 16px
-      .icn-caret
-        margin: 2px 0 0 5px
+      .caret.white
+        border-color: rgba(255,255,255,0.7) transparent transparent transparent
+        border-style: solid
+        border-width: 5px
+        height: 0
+        width: 0
+        position: absolute
+        top: 6px
+        right: 0
     .dropdown
       a
         color: #555
@@ -677,7 +697,7 @@ input[type=text],input[type=password]
     color: black
     opacity: 0.7
 
-.inter-editor-controls
+.inter-form-controls, .inter-editor-controls
   height: 25px
   margin: 5px 10px 0 0
   .btn
@@ -687,18 +707,6 @@ input[type=text],input[type=password]
     opacity: 0.5
     &:hover
       opacity: 1
-  .icn
-    background-image: url('/images/icons/inter-editor-icons16x16.png')
-    &.editor-icn-bold
-      background-position: 0 0
-    &.editor-icn-italic
-      background-position: -16px 0
-    &.editor-icn-underline
-      background-position: -32px 0
-    &.editor-icn-strikeThrough
-      background-position: -48px 0
-    &.editor-icn-link
-      background-position: -64px 0
 
 .inter-editor-content
   margin: 5px
