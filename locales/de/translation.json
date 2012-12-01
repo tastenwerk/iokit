@@ -139,7 +139,9 @@
   },
   "files": {
     "title": "Dateien",
-    "new": "Daten hochladen",
+    "upload": "Datei(en) oder Bild(er) hochladen",
+    "drag_here_to_upload": "Datei(en) oder Bild(er) hier herziehen zum Hochladen",
+    "select": "Datei(en) oder Bild(er) auswählen",
     "description": "Beschreibung",
     "copyright": "Copyright",
     "upload": "Hochladen",
@@ -160,7 +162,13 @@
       "article": "Artikel",
       "newsticker": "Newsticker"
     },
-    "change_subtype": "Typ ändern"
+    "change_subtype": "Typ ändern",
+    "files": {
+      "manage": "Dateien und Bilder verwalten",
+      "upload": "Hochladen",
+      "pictures": "Bilder",
+      "files": "Dateien"
+    }
   },
   "articles": {
     "title": "Artikel",

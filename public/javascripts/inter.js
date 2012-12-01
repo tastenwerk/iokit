@@ -209,9 +209,22 @@ $(function(){
              type: method,
              data: data
         });
+    },
+
+    fineUploaderText: function fineUploaderText(){
+      return {
+        uploadButton: '<i class="icn icn-upload pull-left"></i> <span class="pull-left">'+$.i18n.t('files.select')+'</span>',
+        cancelButton: 'Cancel',
+        retryButton: 'Retry',
+        failUpload: 'Upload failed',
+        dragZone: $.i18n.t('files.drag_here_to_upload'),
+        formatProgress: "{percent}% of {total_size}",
+        waitingForResponse: "Processing..."
+      }
     }
 
   };
+
 
   $.i18n.init({ dynamicLoad: true, useLocalStorage: false, fallbackLng: 'de', load: 'unspecific', resGetPath: inter.host.master+'/translations.json?lng=__lng__&ns=__ns__' });
 
