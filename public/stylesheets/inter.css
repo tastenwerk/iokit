@@ -178,7 +178,7 @@ video {
   background-position: -32px -80px;
 }
 .icn.white {
-  background-image: url("/images/inter-icons16x16w.png");
+  background-image: url("/images/icons/inter-icons16x16w.png");
 }
 .dropdown {
   position: relative;
@@ -977,6 +977,17 @@ ul#inter-sidebar li.loading {
 }
 #inter-modal .modal-inner-wrapper .modal-sidebar .sidebar-content >div {
   display: none;
+}
+#inter-modal .modal-inner-wrapper .modal-sidebar .offset-details-view {
+  margin-right: 250px;
+}
+#inter-modal .modal-inner-wrapper .modal-sidebar .modal-details-view {
+  width: 250px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-left: 1px solid #ddd;
 }
 .side-tabs .side-tabs-nav {
   position: absolute;

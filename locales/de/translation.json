@@ -18,6 +18,7 @@
   "last_edited_ago": "Zuletzt geändert __mins__ von __by__",
   "last_edited_at": "Zuletzt geändert am __date__",
   "by": "von",
+  "of": "von",
   "history": "Verlauf",
   "finished": "fertig",
   "saving": {
@@ -167,7 +168,9 @@
       "manage": "Dateien und Bilder verwalten",
       "upload": "Hochladen",
       "pictures": "Bilder",
-      "files": "Dateien"
+      "files": "Dateien",
+      "images_in_total": "Bilder",
+      "selected": "ausgewählt"
     }
   },
   "articles": {
