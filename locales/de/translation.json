@@ -19,8 +19,10 @@
   "last_edited_at": "Zuletzt geändert am __date__",
   "by": "von",
   "of": "von",
+  "undo": "rückgängig machen",
   "history": "Verlauf",
   "finished": "fertig",
+  "not_found": "Dokument nicht gefunden",
   "saving": {
     "ok": "__name__ wurde gespeichert",
     "failed": "__name__ konnte nicht gespeichert werden"
@@ -32,7 +34,8 @@
   "removing": {
     "ok": "__name__ wurde vom System gelöscht",
     "failed": "Löschen fehlgeschlagen",
-    "denied": "Sie besitzen nicht ausreichend Rechte um dieses Dokument zu löschen"
+    "denied": "Sie besitzen nicht ausreichend Rechte um dieses Dokument zu löschen",
+    "undo": "Rückgängig machen"
   },
   "user": {
     "email": "Email Adresse",
@@ -165,12 +168,23 @@
     },
     "change_subtype": "Typ ändern",
     "files": {
-      "manage": "Dateien und Bilder verwalten",
+      "manage": "Medien verwalten",
       "upload": "Hochladen",
       "pictures": "Bilder",
       "files": "Dateien",
       "images_in_total": "Bilder",
-      "selected": "ausgewählt"
+      "images_in_total": "Dateien",
+      "selected": "ausgewählt",
+      "deleted": "Eine Datei wurde gelöscht",
+      "deleted_plural_2": "__count__ Dateien wurden gelöscht",
+      "click_for_details": "Auf ein Bild oder eine Datei klicken, um Details anzuzeigen",
+      "name": "Dateiname",
+      "description": "Beschreibung",
+      "copyright": "Copyright-Verweise",
+      "file_size": "Dateigröße",
+      "content_type": "Dateityp",
+      "rel_path": "Relativer Pfad",
+      "dimensions": "Dimension"
     }
   },
   "articles": {

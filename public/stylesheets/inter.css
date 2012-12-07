@@ -979,10 +979,10 @@ ul#inter-sidebar li.loading {
   display: none;
 }
 #inter-modal .modal-inner-wrapper .modal-sidebar .offset-details-view {
-  margin-right: 250px;
+  margin-right: 220px;
 }
 #inter-modal .modal-inner-wrapper .modal-sidebar .modal-details-view {
-  width: 250px;
+  width: 240px;
   position: absolute;
   top: 0;
   right: 0;
@@ -1080,6 +1080,17 @@ ul#inter-sidebar li.loading {
 }
 .btn.w-icn-only .icn {
   opacity: 0.5;
+}
+.btn.no-bg {
+  background: none;
+  box-shadow: none;
+  opacity: 0.8;
+  border: none;
+}
+.btn.no-bg:hover {
+  background: none;
+  box-shadow: none;
+  opacity: 1;
 }
 .cntBox {
   padding: 1px 6px;
