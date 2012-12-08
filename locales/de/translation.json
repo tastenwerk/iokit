@@ -185,6 +185,23 @@
       "content_type": "Dateityp",
       "rel_path": "Relativer Pfad",
       "dimensions": "Dimension"
+    },
+    "editor": {
+      "bold": "Fett",
+      "italic": "Kursiv",
+      "underline": "Unterstrichen",
+      "strikeThrough": "Durchgestrichen",
+      "justifyLeft": "Linksbündig",
+      "justifyRight": "Rechtsbündig",
+      "justifyCenter": "Zentrieren",
+      "justifyFull": "Blocksatz",
+      "insertUnorderedList": "Aufzählungsliste",
+      "insertOrderedList": "Geordnete Aufzählungsliste",
+      "link": "Verknüpfung",
+      "image": "Bild / Medien",
+      "preview": "Vorschau",
+      "preferences": "Eigenschaften",
+      "save": "Speichern"
     }
   },
   "articles": {

@@ -167,8 +167,19 @@ $(function(){
       $('.inter-modal').remove();
       $('body').append('<div id="inter-modal-overlay" class="inter-modal"/>')
         .append('<div id="inter-modal" class="inter-modal"><div class="modal-inner-wrapper" /></div>');
-      var closeModalBtn = $('<a class="close-icn btn">&times;</a>');
+      var closeModalBtn = $('<a class="close-icn">&times;</a>');
       $('#inter-modal').prepend(closeModalBtn);
+      if( options.windowControls ){
+        var countWinCtrlBtns = 1;
+        for( ctrl in options.windowControls ){
+          var winCtrlBtn = $('<a class="modal-win-ctrl" href="#"><span class="icn '+options.windowControls[ctrl].icn+'" /></a>');
+          winCtrlBtn.css({right: 9*(++countWinCtrlBtns)+20});
+          $('#inter-modal').prepend(winCtrlBtn);
+          winCtrlBtn.on('click', function(e){
+            options.windowControls[ctrl].callback( $('#inter-modal') );
+          })
+        }
+      }
       closeModalBtn.on('click', closeModal);
       $('#inter-modal-overlay').fadeIn(200).on('click', closeModal);
       if( options && options.title )

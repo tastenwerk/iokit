@@ -135,8 +135,15 @@ video {
 .icn.icn-trash {
   background-position: -48px -32px;
 }
+.icn.icn-preview,
+.icn.icn-eye-open {
+  background-position: -64px -32px;
+}
 .icn.icn-refresh {
   background-position: -80px -16px;
+}
+.icn.icn-win-arrange-left {
+  background-position: -144px -16px;
 }
 .icn.icn-locked {
   background-position: -80px -32px;
@@ -171,8 +178,12 @@ video {
 .icn.icn-justifyFull {
   background-position: -128px -48px;
 }
-.icn.icn-list {
+.icn.icn-list,
+.icn.icn-insertUnorderedList {
   background-position: -144px -48px;
+}
+.icn.icn-insertOrderedList {
+  background-position: -144px -64px;
 }
 .icn.icn-image {
   background-position: -32px -80px;
@@ -923,6 +934,19 @@ ul#inter-sidebar li.loading {
   border-radius: 1px;
   margin: auto;
 }
+#inter-modal .modal-win-ctrl {
+  position: absolute;
+  top: 9px;
+  padding: 0;
+  opacity: 0.5;
+}
+#inter-modal .modal-win-ctrl:hover {
+  opacity: 1;
+}
+#inter-modal .close-icn {
+  top: 5px;
+  font-size: 20px;
+}
 #inter-modal .modal-title {
   position: absolute;
   top: 10px;
@@ -988,6 +1012,40 @@ ul#inter-sidebar li.loading {
   right: 0;
   bottom: 0;
   border-left: 1px solid #ddd;
+}
+#inter-modal.arrange-left {
+  margin: 0;
+  left: 0;
+  bottom: 0;
+  width: 150px;
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -ms-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+#inter-modal.arrange-left .sidebar-nav {
+  display: none;
+}
+#inter-modal.arrange-left .modal-details-view {
+  display: none;
+}
+#inter-modal.arrange-left .modal-sidebar .sidebar-content {
+  left: 0;
+}
+#inter-modal.arrange-left .modal-sidebar .offset-details-view {
+  margin-right: 0;
+}
+#inter-modal.arrange-left .modal-title {
+  display: none;
+}
+#inter-modal.arrange-left .web-files-control div {
+  display: none;
 }
 .side-tabs .side-tabs-nav {
   position: absolute;

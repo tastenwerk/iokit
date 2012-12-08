@@ -270,6 +270,18 @@ ul#inter-sidebar
   border-radius: 1px
   margin: auto
 
+  .modal-win-ctrl
+    position: absolute
+    top: 9px
+    padding: 0
+    opacity: 0.5
+    &:hover
+      opacity: 1
+
+  .close-icn
+    top: 5px
+    font-size: 20px
+
   .modal-title
     position: absolute
     top: 10px
@@ -319,6 +331,25 @@ ul#inter-sidebar
         right: 0
         bottom: 0
         border-left: 1px solid #ddd
+  &.arrange-left
+    margin: 0
+    left: 0
+    bottom: 0
+    width: 150px
+    INTER_TRANSITION(0.3s)
+    .sidebar-nav
+      display: none
+    .modal-details-view
+      display: none
+    .modal-sidebar 
+      .sidebar-content
+        left: 0
+      .offset-details-view
+        margin-right: 0
+    .modal-title
+      display: none
+    .web-files-control div
+      display: none
 
 .side-tabs
 
