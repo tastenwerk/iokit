@@ -161,8 +161,10 @@ $(function(){
 
       if( html === 'close' )
         return closeModal();
-      else if( typeof(html) === 'object' )
+      else if( typeof(html) === 'object' ){
         options = html;
+        html = null;
+      }
 
       $('.inter-modal').remove();
       $('body').append('<div id="inter-modal-overlay" class="inter-modal"/>')
@@ -171,12 +173,15 @@ $(function(){
       $('#inter-modal').prepend(closeModalBtn);
       if( options.windowControls ){
         var countWinCtrlBtns = 1;
+        console.log(options.windowControls);
         for( ctrl in options.windowControls ){
-          var winCtrlBtn = $('<a class="modal-win-ctrl" href="#"><span class="icn '+options.windowControls[ctrl].icn+'" /></a>');
-          winCtrlBtn.css({right: 9*(++countWinCtrlBtns)+20});
+          var winCtrlBtn = $('<a winCtrl="'+ctrl+'" class="modal-win-ctrl live-tipsy" href="#" original-title="'+options.windowControls[ctrl].title+'"><span class="icn '+options.windowControls[ctrl].icn+'" /></a>');
+          winCtrlBtn.css( { right: 16*(countWinCtrlBtns++)+32 } );
           $('#inter-modal').prepend(winCtrlBtn);
+          console.log(ctrl);
           winCtrlBtn.on('click', function(e){
-            options.windowControls[ctrl].callback( $('#inter-modal') );
+            console.log('callback for', ctrl);
+            options.windowControls[$(this).attr('winCtrl')].callback( $('#inter-modal') );
           })
         }
       }
@@ -202,6 +207,7 @@ $(function(){
           setupModalActions();
         });
       } else {
+        html = html || options.data;
         $('#inter-modal .modal-inner-wrapper').html( html ).fadeIn(200);
         if( options && options.before && typeof(options.before) === 'function' )
           options.before( $('#inter-modal') );

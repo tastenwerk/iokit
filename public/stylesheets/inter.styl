@@ -34,6 +34,12 @@ html
   font-size: 100%
   background-color: INTER_BLACK
 
+[draggable]
+  -moz-user-select: none
+  -khtml-user-select: none
+  -webkit-user-select: none
+  user-select: none
+
 .pull-right
   float: right
 
@@ -331,6 +337,7 @@ ul#inter-sidebar
         right: 0
         bottom: 0
         border-left: 1px solid #ddd
+
   &.arrange-left
     margin: 0
     left: 0
@@ -349,6 +356,8 @@ ul#inter-sidebar
     .modal-title
       display: none
     .web-files-control div
+      display: none
+    .selected-counter
       display: none
 
 .side-tabs

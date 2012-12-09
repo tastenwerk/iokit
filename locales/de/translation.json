@@ -160,6 +160,11 @@
     "articles": "Artikel",
     "navigation": "Navigation",
     "new": "Neues Web Element",
+    "source": {
+      "refresh": "neu laden von original",
+      "save": "Quellcode ins Original übertragen",
+      "title": "Quellcode bearbeiten"
+    },
     "subtypes": {
       "webpage": "Seite",
       "blogpost": "Blogeintrag",
@@ -201,7 +206,9 @@
       "image": "Bild / Medien",
       "preview": "Vorschau",
       "preferences": "Eigenschaften",
-      "save": "Speichern"
+      "save": "Speichern",
+      "unsaved_changes": "Änderungen am Dokument verwerfen?",
+      "source": "Quellcode bearbeiten"
     }
   },
   "articles": {

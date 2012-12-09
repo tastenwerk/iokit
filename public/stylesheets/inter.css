@@ -166,6 +166,10 @@ video {
 .icn.icn-link {
   background-position: 0 -48px;
 }
+.icn.icn-code,
+.icn.icn-source {
+  background-position: 0 -64px;
+}
 .icn.icn-justifyLeft {
   background-position: -80px -48px;
 }
@@ -681,6 +685,12 @@ html {
   font-size: 100%;
   background-color: #333;
 }
+[draggable] {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
 .pull-right {
   float: right;
 }
@@ -1045,6 +1055,9 @@ ul#inter-sidebar li.loading {
   display: none;
 }
 #inter-modal.arrange-left .web-files-control div {
+  display: none;
+}
+#inter-modal.arrange-left .selected-counter {
   display: none;
 }
 .side-tabs .side-tabs-nav {
