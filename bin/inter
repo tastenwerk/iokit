@@ -2,6 +2,7 @@
 
 var program = require('commander')
   , fs = require('fs')
+  , path = require('path')
   , os = require('os');
 
 program
@@ -20,12 +21,13 @@ var app_js = [
 "  , app = express();",
 "",
 "app.configure(function(){",
-"  app.set('port', process.env.PORT || 3000);",
+"",
+"  inter.inject( express, app ); // inject app with inter defaults and plugins",
 "",
 "  //app.use(express.logger({stream: access_logfile }));",
 "  app.use(express.logger('dev'));",
 "",
-"  inter.inject( express, app ); // inject app with inter defaults and plugins",
+"  app.set('port', process.env.PORT || inter.config.port || 3000);",
 "",
 " // override inter's views with your own views",
 " // and devine new ones.",
@@ -111,11 +113,13 @@ program
     mkdir( name + '/config');
     mkdir( name + '/public');
     mkdir( name + '/datastore');
+    mkdir( name + '/datastore/files');
+    mkdir( name + '/datastore/users');
     mkdir( name + '/public/stylesheets');
     mkdir( name + '/public/javascripts');
     mkdir( name + '/public/images');
     write( name + '/app.js', app_js );
-    write( name + '/config/inter.json', settings_json.replace( /__appName__/g, normalizedName ).replace(/__absolutePath__/g, process.cwd()+'/'+normalizedName) );
+    write( name + '/config/inter.json', settings_json.replace( /__appName__/g, normalizedName ).replace(/__absolutePath__/g, process.cwd()+path.sep+normalizedName) );
     write( name + '/package.json', package_json.replace( /__appName__/g, name.replace(/ /g, '_') ) );
     write( name + '/README.md', name + ' README' );
     console.log();

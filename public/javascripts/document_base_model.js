@@ -49,6 +49,31 @@ function DocumentBaseModel( self ){
 
     isImage: function(){
       return ( self.contentType() && self.contentType().indexOf('image') === 0 );
+    },
+
+    saveName: function(){
+    },
+
+    renameItem: function(){
+      var renameForm = $('<form class="content-padding" data-bind="submit: saveName"/>');
+      renameForm.append($('<p/>').append('<label>'+$.i18n.t('name')+'</label>')
+                .append('<input type="text" data-bind="value: name" />'));
+      inter.modal({title: $.i18n.t('rename_item', {name: self.name}),
+                   data: renameForm,
+                   completed: function( modal ){
+                    modal.find('.js-get-focus').focus();
+                   },
+                   windowControls: {
+                      save: {
+                        icn: 'icn-save',
+                        title: $.i18n.t('save'),
+                        callback: function( modal ){
+                          modal.find('form').submit();
+                          inter.modal('close');
+                        }
+                      }
+                    }
+      });
     }
   }
 
