@@ -1429,10 +1429,16 @@ input[type=password]:hover {
   background: none;
   box-shadow: none;
   border: none;
-  opacity: 0.5;
+  opacity: 0.8;
 }
 .inter-tree .tree-controls .btn:hover {
   opacity: 1;
+}
+.inter-tree .tree-controls .enableable {
+  opacity: 0.2;
+}
+.inter-tree .tree-controls .enableable.enabled {
+  opacity: 0.8;
 }
 .second-sidebar {
   width: 25%;
