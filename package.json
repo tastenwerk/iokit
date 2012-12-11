@@ -4,19 +4,20 @@
   "version": "0.1.1",
   "preferGlobal": "true",
   "author": "thorsten zerha <thorsten.zerha@tastenwerk.com>",
-  "description": "konter is a content repository",
-  "keywords": [ "mongoose", "tas10", "content repository" ],
+  "description": "inter internet repository",
+  "keywords": [ "TASTEN", "content repository" ],
   "repository": { 
     "type" : "git", 
-    "url" : "http://github.com/tastenwerk/konter.git"
+    "url" : "http://github.com/tastenwerk/inter.git"
   },
-  "homepage": "http://github.com/quaqua/konter",
+  "homepage": "http://github.com/quaqua/inter",
   "bugs": { 
-    "url" : "http://github.com/quaqua/konter/issues", 
-    "email" : "konter@tastenwerk.com"
+    "url" : "http://github.com/quaqua/inter/issues", 
+    "email" : "contact@tastenwerk.com"
   },
   "main": "index",
   "dependencies": {
+    "konter": "git://github.com/tastenwerk/konter.git",
     "commander": "*",
     "moment": "*",
     "stylus": "*",
