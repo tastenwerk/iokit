@@ -6,6 +6,10 @@ $(function(){
       master: $('#_host_master').val()
     },
 
+    socket: {
+      master: $('#_host_master').val()
+    },
+
     mode: 'remote',
 
     main: {
@@ -265,7 +269,7 @@ $(function(){
       },300);
     }
   });
-*/
+  */
   $(document).on('click', function(e){
     if( !$(e.target).closest('.dropdown').length )
       $('.dropdown-menu').hide();
@@ -293,7 +297,8 @@ $(function(){
     })
   }
 
-  $('#inter-sidebar').interSidebar();
+  if( typeof($.fn.interSidebar) === 'function' )
+    $('#inter-sidebar').interSidebar();
   inter.setupAjaxHelpers();
 
 });

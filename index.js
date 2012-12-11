@@ -30,10 +30,12 @@ inter = {
    * this function should be called from express.js app.js
    * and should be loaded right after bodyParser has been loaded
    *
-   * @param [express] - app the application object from expressjs
+   * @param [express] - expressjs object
+   * @param [app] - the app object
+   * @param [io] - the socket.io object (if initialized)
    *
    */
-  inject: function loadPlugins( _express, app ){
+  inject: function loadPlugins( _express, app, io ){
 
     express = _express;
     
@@ -68,6 +70,8 @@ inter = {
     
     inter.loadPluginStatics( app, __dirname + '/public' );
     inter.loadPluginMiddleware( app );
+    if( typeof( io ) !== 'undefined' )
+      inter.loadPluginSocketware( io );
     inter.loadPluginRoutes( app );
     inter.loadPluginStatics( app );
 
@@ -159,6 +163,16 @@ inter = {
       var plugin = inter.plugins[i];
       if( plugin.middleware )
         plugin.middleware( app );
+    }
+
+  },
+
+  loadPluginSocketware: function loadPluginSocketware( io ){
+
+    for( var i in inter.plugins ){
+      var plugin = inter.plugins[i];
+      if( plugin.socketware )
+        plugin.socketware( io );
     }
 
   },
