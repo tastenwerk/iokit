@@ -1,6 +1,23 @@
 function DocumentBaseModel( self ){
 
   return {
+
+    restrictedAttributes: ['_id', 'acl', 'createdAt', '_creator', '_updater', 'updatedAt', 'deletedAt', 'logs', '_type', 'paths' ],
+
+
+    /**
+     * returns a nice formatted date
+     * of given date object
+     *
+     * @param {Date} [date] - the date to format
+     * @param {Boolean} [human] - human friendly format (from now, until)
+     */
+    formattedDate: function formattedDate(date, human){
+      if( human )
+        return moment(date).fromNow();
+      else
+        return moment(date).format('DD.MM.YYYY HH:MM');
+    },
     
     // -------------------------------------------------------- PUBLIC STATUS */
     /**
