@@ -46,6 +46,14 @@ $(function(){
       $('#inter-main-content').animate({ left: 0 });
     },
 
+    loaderHtml: '<div class="loader"><div class="circle" /><div class="circle" /><div class="circle" /><div class="circle" /><div class="circle" /></div>',
+
+    setupTranslations: function setupTranslations(){
+      $('.i18n').each( function(){
+        $(this).text( $.i18n.t($(this).attr('data-i18n')) );
+      });
+    },
+
     setupAjaxHelpers: function setupAjaxHelpers(){
       
       $(document).bind("ajaxSend", function(e, req){})

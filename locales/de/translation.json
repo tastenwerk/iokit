@@ -10,6 +10,7 @@
   "delete_selected": "ausgewählte löschen",
   "save": "Speichern",
   "path": "Pfad",
+  "close": "Schließen",
   "refresh": "Aktualisieren",
   "updatedAt": "Letzte Änderung",
   "createdAt": "Erstellt",
@@ -25,6 +26,9 @@
   "history": "Verlauf",
   "finished": "fertig",
   "not_found": "Dokument nicht gefunden",
+  "select_all": "Alle markieren",
+  "delete_selected": "Markierte Dokumente löschen",
+  "edit_selected": "Markiertes Dokument bearbeiten",
   "saving": {
     "ok": "__name__ wurde gespeichert",
     "failed": "__name__ konnte nicht gespeichert werden"
