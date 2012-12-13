@@ -59,7 +59,7 @@ $(function(){
       $(document).bind("ajaxSend", function(e, req){})
       .bind("ajaxError", function(e, xhr){
         if( xhr.status === 0 )
-        inter.notify('You are offline!!\n Please Check Your Network.', 'error');
+          inter.notify({error: ['You are offline!!\n Please Check Your Network.']});
         else if( xhr.status in [401,403] )
           window.location.replace('/login');
         //else if( xhr.status === 404 )

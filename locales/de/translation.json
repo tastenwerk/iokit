@@ -164,6 +164,8 @@
     "title": "Web",
     "pages": "Webseiten",
     "articles": "Artikel",
+    "content": "Inhalt",
+    "short_content": "Kurzinhalt",
     "navigation": "Navigation",
     "new": "Neues Web Element",
     "source": {
