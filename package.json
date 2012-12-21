@@ -26,7 +26,9 @@
     "ejs": "*",
     "express": "3.x.x",
     "connect-flash": "*",
-    "easyimage": "*"
+    "easyimage": "*",
+    "nodemailer": "*",
+    "express-validator": "*"
   },
   "devDependencies": {
     "should": "x.x.x",

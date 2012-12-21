@@ -185,14 +185,11 @@ $(function(){
       $('#inter-modal').prepend(closeModalBtn);
       if( options.windowControls ){
         var countWinCtrlBtns = 1;
-        console.log(options.windowControls);
         for( ctrl in options.windowControls ){
           var winCtrlBtn = $('<a winCtrl="'+ctrl+'" class="modal-win-ctrl live-tipsy" href="#" original-title="'+options.windowControls[ctrl].title+'"><span class="icn '+options.windowControls[ctrl].icn+'" /></a>');
           winCtrlBtn.css( { right: 16*(countWinCtrlBtns++)+32 } );
           $('#inter-modal').prepend(winCtrlBtn);
-          console.log(ctrl);
           winCtrlBtn.on('click', function(e){
-            console.log('callback for', ctrl);
             options.windowControls[$(this).attr('winCtrl')].callback( $('#inter-modal') );
           })
         }

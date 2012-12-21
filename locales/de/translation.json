@@ -6,6 +6,7 @@
   "edit": "bearbeiten",
   "rename": "umbenennen",
   "create": "erstellen",
+  "really_delete": "Wirklich löschen?",
   "delete": "löschen",
   "delete_selected": "ausgewählte löschen",
   "save": "Speichern",
@@ -57,6 +58,12 @@
     "my_profile": "Mein Profil",
     "profile_of": "Profil von __name__",
     "contact": "Kontakt",
+    "verification_required": "Fast fertig! Eine Email wurde an die angegebene Adresse gesendet",
+    "mail_already_registered": "Diese Emailadresse ist bereits registriert",
+    "registration": {
+      "ok": "Die Registrierung abgeschlossen",
+      "failed": "Registrierung konnte nicht durchgeführt werden. Bitte kontaktieren Sie den Support"
+    },
     "messages": {
       "center": "Nachrichtenzentrale",
       "new_message": "Neue Nachricht",
@@ -91,7 +98,14 @@
       "editor": "EditorIn",
       "title": "Rollen"
     },
+    "key_not_found": "Die angegebene Kombination aus Schlüssel und Email führte zu keinem Ergebnis",
     "change_password": "Passwort ändern",
+    "complete_registration": "Registration abschließen",
+    "choose_nick": "Wähle einen \"Nick\"-Name",
+    "optional": "optional",
+    "choose_password": "Wähle ein Passwort",
+    "confirm_password": "Wiederhole das Passwort",
+    "create_profile": "Profil anlegen",
     "old_password": "Aktuelles Passwort",
     "new_password": "Neues Passwort",
     "new_password_confirm": "Neues Passwort wiederholen",

@@ -3,7 +3,9 @@ var fs = require('fs')
   , stylus = require('stylus')
   , i18next = require('i18next')
   , konter = require('konter')
-  , express;
+  , express
+  , expressValidator = require('express-validator');
+
 
 i18next.init({
     resGetPath: __dirname + '/locales/__lng__/__ns__.json',
@@ -42,7 +44,10 @@ inter = {
     app.set('view engine', 'jade');
     app.engine('jade', require('jade').__express);
     app.engine('ejs', require('ejs').__express);
+
     app.use(express.bodyParser());
+    app.use(expressValidator); // VALIDATOR
+
     app.use(express.cookieParser(new Date().getTime().toString(36)));
     app.use(express.session({ key: 'inter' }));
     app.use( express.csrf() );
@@ -209,7 +214,9 @@ inter = {
         }
       }
 
-  }
+  },
+
+  sendMail: require( __dirname + '/lib/sendmail')
 
 }
 
