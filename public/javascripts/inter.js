@@ -3,10 +3,12 @@ $(function(){
   inter = {
 
     host: {
+      native: document.location.protocol+'//'+document.location.host,
       master: $('#_host_master').val()
     },
 
     socket: {
+      native: document.location.protocol+'//'+document.location.host,
       master: $('#_host_master').val()
     },
 
@@ -252,7 +254,7 @@ $(function(){
   };
 
 
-  $.i18n.init({ dynamicLoad: true, useLocalStorage: false, fallbackLng: 'de', load: 'unspecific', resGetPath: 'http://'+document.domain+'/translations.json?lng=__lng__&ns=__ns__' });
+  $.i18n.init({ dynamicLoad: true, useLocalStorage: false, fallbackLng: 'de', load: 'unspecific', resGetPath: inter.host.native+'/translations.json?lng=__lng__&ns=__ns__' });
 
   $('.live-tipsy').tipsy({live: true});
   $('.live-tipsy-l').tipsy({live: true, gravity: 'e'});
