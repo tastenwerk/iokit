@@ -252,7 +252,7 @@ $(function(){
   };
 
 
-  $.i18n.init({ dynamicLoad: true, useLocalStorage: false, fallbackLng: 'de', load: 'unspecific', resGetPath: inter.host.master+'/translations.json?lng=__lng__&ns=__ns__' });
+  $.i18n.init({ dynamicLoad: true, useLocalStorage: false, fallbackLng: 'de', load: 'unspecific', resGetPath: 'http://'+document.domain+'/translations.json?lng=__lng__&ns=__ns__' });
 
   $('.live-tipsy').tipsy({live: true});
   $('.live-tipsy-l').tipsy({live: true, gravity: 'e'});
