@@ -59,7 +59,10 @@
     "profile_of": "Profil von __name__",
     "contact": "Kontakt",
     "verification_required": "Fast fertig! Eine Email wurde an die angegebene Adresse gesendet",
-    "mail_already_registered": "Diese Emailadresse ist bereits registriert",
+    "mail_already_registered": "Diese Emailadresse ist bereits registriert (Posteingang bzw. Spamordner prüfen)",
+    "send_confirmation_again": "Email noch einmal versenden (__tries__ Versuche übrig)",
+    "too_many_tries": "Zu viele fehlgeschlagne Versuche. Support kontaktieren",
+    "confirmation_sent_again": "Bestätigungsemail wurde noch einmal versandt an __email__ (__tries__ verbleibende Versuche)",
     "registration": {
       "ok": "Die Registrierung abgeschlossen",
       "failed": "Registrierung konnte nicht durchgeführt werden. Bitte kontaktieren Sie den Support"

@@ -1563,6 +1563,9 @@ input[type=password]:hover {
 .notice-item.error {
   background-color: #d44a26;
 }
+.notice-item a {
+  color: #fff;
+}
 .notice-item-close {
   position: absolute;
   font-family: Arial;
