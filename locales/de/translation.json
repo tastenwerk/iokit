@@ -54,6 +54,7 @@
     "forgot_password": "Passwort vergessen?",
     "session_timeout": "Sitzung abgelaufen (__timeout__ min)",
     "logout": "Abmelden",
+    "edit_profile": "Profil bearbeiten",
     "your_messages": "Ihre Nachrichten",
     "my_profile": "Mein Profil",
     "profile_of": "Profil von __name__",
@@ -66,6 +67,10 @@
     "registration": {
       "ok": "Die Registrierung abgeschlossen",
       "failed": "Registrierung konnte nicht durchgeführt werden. Bitte kontaktieren Sie den Support"
+    },
+    "saving": {
+      "ok": "Profileinstellungen gespeichert",
+      "failed": "Profileinstellungen konnten nicht gespeichert werden"
     },
     "messages": {
       "center": "Nachrichtenzentrale",
@@ -82,6 +87,8 @@
     "administrational_privileges": "Administrative Rechte",
     "email": "Email",
     "name": "Name",
+    "firstname": "Vorname",
+    "lastname": "Nachname",
     "nick": "Nick",
     "picture": {
       "of": "Profilbild von __name__",
@@ -96,6 +103,8 @@
       "edit_desc": "Sie können den sichtbaren Bereich markieren, indem Sie mit dem Mauszeiger über dem Bild einen Rahmen ziehen, bzw. diesen in Größe und Proportion verändern"
     },
     "roles": {
+      "title": "Rollen",
+      "prawn": "Bauer/Bäurin",
       "manager": "AdministratorIn",
       "user": "StandardbenutzerIn",
       "editor": "EditorIn",

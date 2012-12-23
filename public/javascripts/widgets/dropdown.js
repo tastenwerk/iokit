@@ -5,6 +5,7 @@ $(function(){
   }
 
   $('.dropdown [data-toggle=dropdown]').live('click', function(e){
+    e.preventDefault();
     var self = this;
     if( $(this).attr('data-remote') && $(this).attr('href').length > 0 )
       $(this.closest('.dropdown').load( $(this).attr('href') ), function(){
