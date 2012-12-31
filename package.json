@@ -28,7 +28,8 @@
     "connect-flash": "*",
     "easyimage": "*",
     "nodemailer": "*",
-    "express-validator": "*"
+    "express-validator": "*",
+    "string": "*"
   },
   "devDependencies": {
     "should": "x.x.x",
