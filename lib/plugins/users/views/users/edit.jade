@@ -5,7 +5,7 @@
       .pull-right
         h1=t('user.roles.title')
         table
-          -each role in inter.config.userRoles
+          -each role in iokit.config.userRoles
             tr
               td
                 input(type='checkbox', name='user[roles][]', value=role, checked=(user.roles.indexOf(role) < 0 ? false : true) )

@@ -1,11 +1,11 @@
-#inter-tree-browser
+#iokit-tree-browser
 
 script
   var Contents = new kendo.data.HierarchicalDataSource({
     type: "odata",
     transport: {
       read: {
-        url: inter.host.master+'/contents'
+        url: iokit.host.master+'/contents'
       }
     },
     schema: {

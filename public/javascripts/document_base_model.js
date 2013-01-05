@@ -37,9 +37,9 @@ function DocumentBaseModel( self ){
                       $(e.target).removeClass('locked').text($.i18n.t('document.published'));
                     else
                       $(e.target).addClass('locked').text($.i18n.t('document.locked'));
-                    inter.notify( data.flash );
+                    iokit.notify( data.flash );
                   } else
-                    inter.notify({ error: $.i18n.t('document.publishing_failed_unknown')});
+                    iokit.notify({ error: $.i18n.t('document.publishing_failed_unknown')});
                 }
       })
     },
@@ -61,7 +61,7 @@ function DocumentBaseModel( self ){
           else
             self.humanReadablePathTrunc(self.humanReadablePath);
         } else
-          inter.notify( data.flash );
+          iokit.notify( data.flash );
       });
     },
 
@@ -76,7 +76,7 @@ function DocumentBaseModel( self ){
       var renameForm = $('<form class="content-padding" data-bind="submit: saveName"/>');
       renameForm.append($('<p/>').append('<label>'+$.i18n.t('name')+'</label>')
                 .append('<input type="text" data-bind="value: name" />'));
-      inter.modal({title: $.i18n.t('rename_item', {name: self.name}),
+      iokit.modal({title: $.i18n.t('rename_item', {name: self.name}),
                    data: renameForm,
                    completed: function( modal ){
                     modal.find('.js-get-focus').focus();
@@ -87,7 +87,7 @@ function DocumentBaseModel( self ){
                         title: $.i18n.t('save'),
                         callback: function( modal ){
                           modal.find('form').submit();
-                          inter.modal('close');
+                          iokit.modal('close');
                         }
                       }
                     }

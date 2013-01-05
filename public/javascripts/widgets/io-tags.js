@@ -1,12 +1,12 @@
 /**
- * inter tags
+ * IOtags
  * transforms input field into a nice tag selector
  *
  */
 
 $(function(){
 
-  $.fn.interTags = function interTags( options ){
+  $.fn.ioTags = function ioTags( options ){
 
     var self = this;
 

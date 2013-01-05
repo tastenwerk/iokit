@@ -1,6 +1,6 @@
 $(function(){
 
-  inter = {
+  iokit = {
 
     host: {
       native: document.location.protocol+'//'+document.location.host,
@@ -18,19 +18,19 @@ $(function(){
       show: function( text, options, callback ){
         if( !callback && options && typeof(options) === 'function' )
           callback = options;
-        $('#inter-main-content').fadeOut(200, function(){
-          $('#inter-main-content').html( text ).fadeIn( 200, function(){
+        $('#iokit-main-content').fadeOut(200, function(){
+          $('#iokit-main-content').html( text ).fadeIn( 200, function(){
             if( callback && typeof(callback) === 'function' )
-              callback( $('#inter-main-content') );
+              callback( $('#iokit-main-content') );
           });
         });
       },
       load: function( url, callback ){
-        $('#inter-main-content').fadeOut( 200, function(){
-          $('#inter-main-content').load( url, function(){
-            $('#inter-main-content').fadeIn( 200, function(){
+        $('#iokit-main-content').fadeOut( 200, function(){
+          $('#iokit-main-content').load( url, function(){
+            $('#iokit-main-content').fadeIn( 200, function(){
               if( callback && typeof(callback) === 'function' )
-                callback( $('#inter-main-content') );
+                callback( $('#iokit-main-content') );
             });
           });
         });
@@ -41,11 +41,11 @@ $(function(){
 
     mainHeight: function(){ return $(window).height() - 70 },
 
-    sidebar: $('#inter-sidebar'),
+    sidebar: $('#iokit-sidebar'),
 
     hideSidebar: function(){ 
-      inter.sidebar.animate({ left: '-40%' }); 
-      $('#inter-main-content').animate({ left: 0 });
+      iokit.sidebar.animate({ left: '-40%' }); 
+      $('#iokit-main-content').animate({ left: 0 });
     },
 
     loaderHtml: '<div class="loader"><div class="circle" /><div class="circle" /><div class="circle" /><div class="circle" /><div class="circle" /></div>',
@@ -61,17 +61,17 @@ $(function(){
       $(document).bind("ajaxSend", function(e, req){})
       .bind("ajaxError", function(e, xhr){
         if( xhr.status === 0 )
-          inter.notify({error: ['You are offline!!\n Please Check Your Network.']});
+          iokit.notify({error: ['You are offline!!\n Please Check Your Network.']});
         else if( xhr.status in [401,403] )
           window.location.replace('/login');
         //else if( xhr.status === 404 )
-        //  inter.notify('Destination target could not be found', true);
+        //  iokit.notify('Destination target could not be found', true);
         else if( xhr.status === 500 )
-          inter.notify('Unexpected server error - We have been notified!', 'error');
+          iokit.notify('Unexpected server error - We have been notified!', 'error');
         else if( e === 'parsererror' )
-          inter.notify('Error.\nParsing JSON Request failed.', 'error');
+          iokit.notify('Error.\nParsing JSON Request failed.', 'error');
         else if( e === 'timeout' )
-          inter.notify('Request Time out.', 'error');
+          iokit.notify('Request Time out.', 'error');
       });
       $('.ajax-button').live('click', function(){
         $(this).addClass('want-to-load-ajax');
@@ -93,7 +93,7 @@ $(function(){
       $('a[data-remote=true]').live('click', function(e){
         e.preventDefault();
         var elem = this;
-        inter.ajaxLoad( this );
+        iokit.ajaxLoad( this );
       })
 
     },
@@ -106,11 +106,11 @@ $(function(){
       if( typeof(msg) === 'object' ){
         if( msg.error && msg.error instanceof Array && msg.error.length > 0 )
           msg.error.forEach( function( err ){
-            inter.notify( err, 'error' );
+            iokit.notify( err, 'error' );
           });
         if( msg.notice && msg.notice instanceof Array && msg.notice.length > 0 )
           msg.notice.forEach( function( notice ){
-            inter.notify( notice );
+            iokit.notify( notice );
           });
         return;
       }
@@ -140,37 +140,37 @@ $(function(){
      * after modal has been rendered.
      *
      * @example
-     *  inter.modal('close')
+     *  iokit.modal('close')
      * closes the modal.
      */
     modal: function( html, options ){
 
       function closeModal(){
-        $('.inter-modal').fadeOut(300);
+        $('.iokit-modal').fadeOut(300);
         setTimeout( function(){
-          $('.inter-modal').remove();
+          $('.iokit-modal').remove();
         }, 300);
         $(window).off( 'resize', checkModalHeight );
       }
 
       function checkModalHeight(){
-        if( $('#inter-modal').height() > $(window).height() - 40 )
-          $('#inter-modal').animate({ height: $(window).height() - 40 }, 200);
+        if( $('#iokit-modal').height() > $(window).height() - 40 )
+          $('#iokit-modal').animate({ height: $(window).height() - 40 }, 200);
         else
-          $('#inter-modal').animate({ height: $('#inter-modal').data('origHeight') }, 200);
+          $('#iokit-modal').animate({ height: $('#iokit-modal').data('origHeight') }, 200);
       }
 
       function setupModalActions(){
-        if( $('#inter-modal .modal-sidebar').length > 0 ){
-          $('#inter-modal .modal-sidebar > .sidebar-nav li').on('click', function(){
+        if( $('#iokit-modal .modal-sidebar').length > 0 ){
+          $('#iokit-modal .modal-sidebar > .sidebar-nav li').on('click', function(){
             $(this).closest('ul').find('.active').removeClass('active');
-            $('#inter-modal .sidebar-content > div').hide();
-            $($('#inter-modal .sidebar-content > div')[$(this).index()]).show();
+            $('#iokit-modal .sidebar-content > div').hide();
+            $($('#iokit-modal .sidebar-content > div')[$(this).index()]).show();
             $(this).addClass('active');
           }).first().click();
         }
         if( options && options.completed && typeof(options.completed) === 'function' )
-          setTimeout(function(){ options.completed( $('#inter-modal') ); }, 500 );
+          setTimeout(function(){ options.completed( $('#iokit-modal') ); }, 500 );
       }
 
       if( html === 'close' )
@@ -180,48 +180,48 @@ $(function(){
         html = null;
       }
 
-      $('.inter-modal').remove();
-      $('body').append('<div id="inter-modal-overlay" class="inter-modal"/>')
-        .append('<div id="inter-modal" class="inter-modal"><div class="modal-inner-wrapper" /></div>');
+      $('.iokit-modal').remove();
+      $('body').append('<div id="iokit-modal-overlay" class="iokit-modal"/>')
+        .append('<div id="iokit-modal" class="iokit-modal"><div class="modal-inner-wrapper" /></div>');
       var closeModalBtn = $('<a class="close-icn">&times;</a>');
-      $('#inter-modal').prepend(closeModalBtn);
+      $('#iokit-modal').prepend(closeModalBtn);
       if( options.windowControls ){
         var countWinCtrlBtns = 1;
         for( ctrl in options.windowControls ){
           var winCtrlBtn = $('<a winCtrl="'+ctrl+'" class="modal-win-ctrl live-tipsy" href="#" original-title="'+options.windowControls[ctrl].title+'"><span class="icn '+options.windowControls[ctrl].icn+'" /></a>');
           winCtrlBtn.css( { right: 16*(countWinCtrlBtns++)+32 } );
-          $('#inter-modal').prepend(winCtrlBtn);
+          $('#iokit-modal').prepend(winCtrlBtn);
           winCtrlBtn.on('click', function(e){
-            options.windowControls[$(this).attr('winCtrl')].callback( $('#inter-modal') );
+            options.windowControls[$(this).attr('winCtrl')].callback( $('#iokit-modal') );
           })
         }
       }
       closeModalBtn.on('click', closeModal);
-      $('#inter-modal-overlay').fadeIn(200).on('click', closeModal);
+      $('#iokit-modal-overlay').fadeIn(200).on('click', closeModal);
       if( options && options.title )
-        $('#inter-modal').prepend('<span class="modal-title">'+options.title+'</span>');
+        $('#iokit-modal').prepend('<span class="modal-title">'+options.title+'</span>');
 
 
       // height configuration      
       if( options && options.height && typeof(options.height) === 'number' )
-        $('#inter-modal').css( 'height', options.height );
-      $('#inter-modal').data('origHeight', $('#inter-modal').height());
+        $('#iokit-modal').css( 'height', options.height );
+      $('#iokit-modal').data('origHeight', $('#iokit-modal').height());
 
       checkModalHeight();
       $(window).on( 'resize', checkModalHeight );
 
       if( options.url ){
-        $('#inter-modal .modal-inner-wrapper').load( options.url, function(){
+        $('#iokit-modal .modal-inner-wrapper').load( options.url, function(){
           if( options && options.before && typeof(options.before) === 'function' )
-            options.before( $('#inter-modal') );
-          $('#inter-modal').fadeIn( 200 );
+            options.before( $('#iokit-modal') );
+          $('#iokit-modal').fadeIn( 200 );
           setupModalActions();
         });
       } else {
         html = html || options.data;
-        $('#inter-modal .modal-inner-wrapper').html( html ).fadeIn(200);
+        $('#iokit-modal .modal-inner-wrapper').html( html ).fadeIn(200);
         if( options && options.before && typeof(options.before) === 'function' )
-          options.before( $('#inter-modal') );
+          options.before( $('#iokit-modal') );
         setupModalActions();
       }
 
@@ -254,7 +254,7 @@ $(function(){
   };
 
 
-  $.i18n.init({ dynamicLoad: true, useLocalStorage: false, fallbackLng: 'de', load: 'unspecific', resGetPath: inter.host.native+'/translations.json?lng=__lng__&ns=__ns__' });
+  $.i18n.init({ dynamicLoad: true, useLocalStorage: false, fallbackLng: 'de', load: 'unspecific', resGetPath: iokit.host.native+'/translations.json?lng=__lng__&ns=__ns__' });
 
   $('.live-tipsy').tipsy({live: true});
   $('.live-tipsy-l').tipsy({live: true, gravity: 'e'});
@@ -270,9 +270,9 @@ $(function(){
   }).on('keydown', function(e){
     // ESC
     if ( e.keyCode === 27 ){
-      $('.inter-modal').fadeOut(300);
+      $('.iokit-modal').fadeOut(300);
       setTimeout( function(){
-        $('.inter-modal').remove();
+        $('.iokit-modal').remove();
       },300);
     }
   });
@@ -288,13 +288,13 @@ $(function(){
     $('.tipsy').remove();
   }).on('keydown', function(e){
     if( e.keyCode === 27 ){ // ESC
-      inter.modal('close');
+      iokit.modal('close');
     }
   });
 
   $('.js-get-focus:first').focus();
 
-  if( inter.mode === 'desktop' ){
+  if( iokit.mode === 'desktop' ){
     $('#desktop-control').show();
     $(document).on('keydown', function(e){
       if( e.metaKey && e.keyCode === 82 )
@@ -304,8 +304,8 @@ $(function(){
     })
   }
 
-  if( typeof($.fn.interSidebar) === 'function' )
-    $('#inter-sidebar').interSidebar();
-  inter.setupAjaxHelpers();
+  if( typeof($.fn.iokitSidebar) === 'function' )
+    $('#iokit-sidebar').iokitSidebar();
+  iokit.setupAjaxHelpers();
 
 });

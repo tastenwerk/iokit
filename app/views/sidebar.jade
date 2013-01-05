@@ -1,6 +1,6 @@
-ul#inter-sidebar
-  -for( i in inter.plugins )
-    -if( inter.plugins[i].sidebarWidget && inter.pluginAllowed( inter.plugins[i] ) ) 
+ul#iokit-sidebar
+  -for( i in iokit.plugins )
+    -if( iokit.plugins[i].sidebarWidget && iokit.pluginAllowed( iokit.plugins[i] ) ) 
       li
-        a( href=(inter.plugins[i].sidebarWidget.href || '/'+inter.plugins[i].name.toLowerCase()), data-sidebar-remote=(inter.plugins[i].sidebarWidget.sidebarRemote && inter.plugins[i].name.toLowerCase()+'/sidebar_content'), rel='tooltip-e' )
-          img.icon( src=(inter.plugins[i].sidebarWidget.icon || '/images/app-icons/'+inter.plugins[i].name.toLowerCase()+'/96x96.png') )
+        a( href=(iokit.plugins[i].sidebarWidget.href || '/'+iokit.plugins[i].name.toLowerCase()), data-sidebar-remote=(iokit.plugins[i].sidebarWidget.sidebarRemote && iokit.plugins[i].name.toLowerCase()+'/sidebar_content'), rel='tooltip-e' )
+          img.icon( src=(iokit.plugins[i].sidebarWidget.icon || '/images/app-icons/'+iokit.plugins[i].name.toLowerCase()+'/96x96.png') )

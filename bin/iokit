@@ -3,10 +3,10 @@
 var program = require('commander')
   , fs = require('fs')
   , path = require('path')
-  , os = require('os');
+  , os = require('os')
+  , iokitVersion = require( __dirname + '/../lib/version');
 
-program
-  .version('0.0.1')
+program.version(iokitVersion);
 
 var eol = 'win32' == os.platform() ? '\r\n' : '\n'
 
@@ -15,23 +15,23 @@ var app_js = [
 "  , http = require('http')",
 "  , path = require('path')",
 "  , fs = require('fs')",
-"  , inter = require('inter');",
+"  , iokit = require('iokit');",
 "",
 "var access_logfile = fs.createWriteStream('./app.log', {flags: 'a'})",
 "  , app = express();",
 "",
 "app.configure(function(){",
 "",
-"  inter.inject( express, app ); // inject app with inter defaults and plugins",
+"  iokit.inject( express, app ); // inject app with iokit defaults and plugins",
 "",
 "  //app.use(express.logger({stream: access_logfile }));",
 "  app.use(express.logger('dev'));",
 "",
-"  app.set('port', process.env.PORT || inter.config.port || 3000);",
+"  app.set('port', process.env.PORT || iokit.config.port || 3000);",
 "",
-" // override inter's views with your own views",
+" // override iokit's views with your own views",
 " // and devine new ones.",
-" inter.view.paths = [ __dirname + '/app/views' ].concat( inter.view.paths );",
+" iokit.view.paths = [ __dirname + '/app/views' ].concat( iokit.view.paths );",
 "",
 "  app.use(express.methodOverride());",
 "  app.use(app.router);",
@@ -43,12 +43,12 @@ var app_js = [
 "});",
 "",
 "app.get('/', function( req, res ){",
-"  res.redirect('/inter');",
+"  res.redirect('/iokit');",
 "});",
 "",
 "http.createServer(app).listen(app.get('port'), function(){",
 "  console.log('INTER server listening on port ' + app.get('port'));",
-"  inter.startDBConnection();",
+"  iokit.startDBConnection();",
 "});",
 ""
 ].join(eol);
@@ -91,8 +91,8 @@ var package_json = [
 '    "express": "*",',
 '    "jade": "*",',
 '    "stylus": "*",',
-'    "inter": "*",',
-'    "konter": "*"',
+'    "iokit": "*",',
+'    "iomapper": "*"',
 '  },',
 '  "license": "GPL3",',
 '  "engine": {',
@@ -103,7 +103,7 @@ var package_json = [
 
 program
   .command('new <name>')
-  .description('create a new inter scaffold')
+  .description('create a new iokit scaffold')
   .action( function createScaffold( name ){
     var normalizedName = name.replace(/ /g, '_');
     mkdir( name );
@@ -119,7 +119,7 @@ program
     mkdir( name + '/public/javascripts');
     mkdir( name + '/public/images');
     write( name + '/app.js', app_js );
-    write( name + '/config/inter.json', settings_json.replace( /__appName__/g, normalizedName ).replace(/__absolutePath__/g, process.cwd()+path.sep+normalizedName) );
+    write( name + '/config/iokit.json', settings_json.replace( /__appName__/g, normalizedName ).replace(/__absolutePath__/g, process.cwd()+path.sep+normalizedName) );
     write( name + '/package.json', package_json.replace( /__appName__/g, name.replace(/ /g, '_') ) );
     write( name + '/README.md', name + ' README' );
     console.log();
@@ -132,9 +132,9 @@ program
   .description('setup a manager user and if specified in the configuration website and -pages. If config/tas10_settings.json is not present, it should be passed as argument')
   .action( function setupScaffold( username, password ){
     console.log();
-    configfile = './config/inter.json';
+    configfile = './config/iokit.json';
     if( !fs.existsSync( './' + configfile ) )
-      return console.log('   \033[31merror\033[0m : ', configfile, ' was not found (if not config/inter.json, please pass it as argment)');
+      return console.log('   \033[31merror\033[0m : ', configfile, ' was not found (if not config/iokit.json, please pass it as argment)');
     openConnection( configfile, username, password );
     console.log();
   })
@@ -174,12 +174,12 @@ function openConnection( configfile, username, password ){
   var username = username || 'manager'
     , password = password || 'mgr'
     , settings = JSON.parse( fs.readFileSync( configfile ) )
-    , konter = require('konter')
-    , User = konter.models.User;
+    , iomapper = require('iomapper')
+    , User = iomapper.models.User;
 
   if( !settings.db )
     return exitError( configfile + ' does not provide db information. Please check')
-  konter.connect( settings.db.url );
+  iomapper.connect( settings.db.url );
 
   User.findOne({ email: username+'@'+settings.site.domain }, function( err, user ){
     var domainName = settings.site.domain;

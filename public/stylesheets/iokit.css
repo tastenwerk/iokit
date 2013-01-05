@@ -83,7 +83,7 @@ video {
   width: 16px;
   height: 16px;
   display: inline-block;
-  background-image: url("/images/icons/inter-icons16x16.png");
+  background-image: url("/images/icons/iokit-icons16x16.png");
 }
 .icn.icn-plus {
   background-position: 0 0;
@@ -193,7 +193,7 @@ video {
   background-position: -32px -80px;
 }
 .icn.white {
-  background-image: url("/images/icons/inter-icons16x16w.png");
+  background-image: url("/images/icons/iokit-icons16x16w.png");
 }
 .dropdown {
   position: relative;
@@ -229,7 +229,7 @@ ul.dropdown-menu.right-hand {
   color: #555;
   display: block;
   padding: 6px 25px;
-  cursor: pointer;
+  cursor: poiokit;
   text-decoration: none;
   font-weight: 300;
   font-size: 12px;
@@ -505,7 +505,7 @@ ul.dropdown-menu.right-hand {
   background-repeat: repeat-x;
   border: 1px solid #dcdcdc;
   color: #333;
-  cursor: pointer;
+  cursor: poiokit;
   font-weight: bold;
   padding: 4px 12px;
   text-shadow: -1px 1px 0 #fff;
@@ -766,7 +766,7 @@ form label.pull-left {
   right: 0;
   font-weight: 300;
   font-size: 12px;
-  cursor: pointer;
+  cursor: poiokit;
 }
 .userpic:hover .editpic {
   display: block;
@@ -787,7 +787,7 @@ h1 {
   font-size: 24px;
   line-height: 28px;
 }
-#inter-top-panel {
+#iokit-top-panel {
   position: absolute;
   top: 0;
   left: 0;
@@ -796,16 +796,16 @@ h1 {
   background-color: #111;
   padding: 5px;
 }
-#inter-top-panel a#userpic {
+#iokit-top-panel a#userpic {
   float: right;
 }
-#inter-top-panel a#userpic img {
+#iokit-top-panel a#userpic img {
   border: none;
   width: 28px;
   height: 28px;
   border-radius: 1px;
 }
-#inter-top-panel #useractions {
+#iokit-top-panel #useractions {
   float: right;
   margin-right: 10px;
   line-height: 14px;
@@ -813,13 +813,13 @@ h1 {
   padding-top: 5px;
   width: 300px;
 }
-#inter-top-panel #useractions a {
+#iokit-top-panel #useractions a {
   color: #aaa;
   text-decoration: none;
   font-size: 12px;
   line-height: 16px;
 }
-#inter-top-panel #useractions a .caret.white {
+#iokit-top-panel #useractions a .caret.white {
   border-color: rgba(255,255,255,0.7) transparent transparent transparent;
   border-style: solid;
   border-width: 5px;
@@ -829,13 +829,13 @@ h1 {
   top: 6px;
   right: 0;
 }
-#inter-top-panel #useractions .dropdown a {
+#iokit-top-panel #useractions .dropdown a {
   color: #555;
 }
-#inter-top-panel #useractions .dropdown a:hover {
+#iokit-top-panel #useractions .dropdown a:hover {
   color: #000;
 }
-#inter-main-panel {
+#iokit-main-panel {
   position: absolute;
   top: 40px;
   left: 0;
@@ -843,7 +843,7 @@ h1 {
   bottom: 0;
   background: #eaeaea;
 }
-#inter-main-content {
+#iokit-main-content {
   position: absolute;
   top: 10px;
   left: 75px;
@@ -852,52 +852,52 @@ h1 {
   background-color: #f8f8f8;
   box-shadow: -2px 2px 4px #bbb;
 }
-#inter-main-content h1.title {
+#iokit-main-content h1.title {
   font-size: 18px;
   color: #777;
   font-weight: 300;
 }
-#inter-main-content .main-control,
-#inter-main-content .main-control-r {
+#iokit-main-content .main-control,
+#iokit-main-content .main-control-r {
   position: absolute;
   top: 12px;
   right: 10px;
 }
-#inter-main-content .main-control-l {
+#iokit-main-content .main-control-l {
   position: absolute;
   top: 12px;
   left: 10px;
 }
-ul#inter-sidebar {
+ul#iokit-sidebar {
   position: absolute;
   top: 10px;
   left: 10px;
   bottom: 10px;
   list-style: none;
 }
-ul#inter-sidebar li {
+ul#iokit-sidebar li {
   margin: 0 5px 10px 5px;
   padding: 15px;
   width: 30px;
   border-radius: 1px;
   text-align: center;
 }
-ul#inter-sidebar li img.icon {
+ul#iokit-sidebar li img.icon {
   background-size: 24px;
   width: 24px;
   height: 24px;
   opacity: 0.7;
 }
-ul#inter-sidebar li.active {
+ul#iokit-sidebar li.active {
   background: #f8f8f8;
   box-shadow: -2px 2px 2px #bbb;
   border-bottom-left-radius: 3px;
   border-top-left-radius: 3px;
 }
-ul#inter-sidebar li.active img.icon {
+ul#iokit-sidebar li.active img.icon {
   opacity: 0.8;
 }
-ul#inter-sidebar li.loading {
+ul#iokit-sidebar li.loading {
   height: 28px;
 }
 .content-padding {
@@ -931,7 +931,7 @@ ul#inter-sidebar li.loading {
   -o-transition: width 0.6s ease;
   transition: width 0.6s ease;
 }
-#inter-modal {
+#iokit-modal {
   position: absolute;
   top: 0;
   left: 0;
@@ -945,26 +945,26 @@ ul#inter-sidebar li.loading {
   margin: auto;
   z-index: 1000;
 }
-#inter-modal .modal-win-ctrl {
+#iokit-modal .modal-win-ctrl {
   position: absolute;
   top: 9px;
   padding: 0;
   opacity: 0.5;
 }
-#inter-modal .modal-win-ctrl:hover {
+#iokit-modal .modal-win-ctrl:hover {
   opacity: 1;
 }
-#inter-modal .close-icn {
+#iokit-modal .close-icn {
   top: 5px;
   font-size: 20px;
 }
-#inter-modal .modal-title {
+#iokit-modal .modal-title {
   position: absolute;
   top: 10px;
   left: 10px;
   font-weight: 900;
 }
-#inter-modal .modal-inner-wrapper {
+#iokit-modal .modal-inner-wrapper {
   position: absolute;
   top: 0;
   left: 0;
@@ -974,7 +974,7 @@ ul#inter-sidebar li.loading {
   overflow: auto;
   border-top: 1px solid #ddd;
 }
-#inter-modal .modal-inner-wrapper .modal-sidebar .sidebar-nav {
+#iokit-modal .modal-inner-wrapper .modal-sidebar .sidebar-nav {
   position: absolute;
   top: 0;
   left: 0;
@@ -986,22 +986,22 @@ ul#inter-sidebar li.loading {
   list-style: none;
   padding: 20px 0;
 }
-#inter-modal .modal-inner-wrapper .modal-sidebar .sidebar-nav li {
+#iokit-modal .modal-inner-wrapper .modal-sidebar .sidebar-nav li {
   padding: 5px;
   font-weight: 300;
-  cursor: pointer;
+  cursor: poiokit;
   border-left: 5px solid transparent;
   font-size: 0.9em;
 }
-#inter-modal .modal-inner-wrapper .modal-sidebar .sidebar-nav li:hover {
+#iokit-modal .modal-inner-wrapper .modal-sidebar .sidebar-nav li:hover {
   background-color: #eaeaea;
 }
-#inter-modal .modal-inner-wrapper .modal-sidebar .sidebar-nav li.active {
+#iokit-modal .modal-inner-wrapper .modal-sidebar .sidebar-nav li.active {
   border-color: #d44a26;
   font-weight: 900;
   color: #d44a26;
 }
-#inter-modal .modal-inner-wrapper .modal-sidebar .sidebar-content {
+#iokit-modal .modal-inner-wrapper .modal-sidebar .sidebar-content {
   position: absolute;
   top: 0;
   left: 0;
@@ -1010,13 +1010,13 @@ ul#inter-sidebar li.loading {
   left: 160px;
   overflow: auto;
 }
-#inter-modal .modal-inner-wrapper .modal-sidebar .sidebar-content >div {
+#iokit-modal .modal-inner-wrapper .modal-sidebar .sidebar-content >div {
   display: none;
 }
-#inter-modal .modal-inner-wrapper .modal-sidebar .offset-details-view {
+#iokit-modal .modal-inner-wrapper .modal-sidebar .offset-details-view {
   margin-right: 220px;
 }
-#inter-modal .modal-inner-wrapper .modal-sidebar .modal-details-view {
+#iokit-modal .modal-inner-wrapper .modal-sidebar .modal-details-view {
   width: 240px;
   position: absolute;
   top: 0;
@@ -1024,7 +1024,7 @@ ul#inter-sidebar li.loading {
   bottom: 0;
   border-left: 1px solid #ddd;
 }
-#inter-modal.arrange-left {
+#iokit-modal.arrange-left {
   margin: 0;
   left: 0;
   bottom: 0;
@@ -1040,25 +1040,25 @@ ul#inter-sidebar li.loading {
   -ms-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
-#inter-modal.arrange-left .sidebar-nav {
+#iokit-modal.arrange-left .sidebar-nav {
   display: none;
 }
-#inter-modal.arrange-left .modal-details-view {
+#iokit-modal.arrange-left .modal-details-view {
   display: none;
 }
-#inter-modal.arrange-left .modal-sidebar .sidebar-content {
+#iokit-modal.arrange-left .modal-sidebar .sidebar-content {
   left: 0;
 }
-#inter-modal.arrange-left .modal-sidebar .offset-details-view {
+#iokit-modal.arrange-left .modal-sidebar .offset-details-view {
   margin-right: 0;
 }
-#inter-modal.arrange-left .modal-title {
+#iokit-modal.arrange-left .modal-title {
   display: none;
 }
-#inter-modal.arrange-left .web-files-control div {
+#iokit-modal.arrange-left .web-files-control div {
   display: none;
 }
-#inter-modal.arrange-left .selected-counter {
+#iokit-modal.arrange-left .selected-counter {
   display: none;
 }
 .side-tabs .side-tabs-nav {
@@ -1076,7 +1076,7 @@ ul#inter-sidebar li.loading {
 .side-tabs .side-tabs-nav li {
   padding: 3px 0 0 4px;
   font-weight: 300;
-  cursor: pointer;
+  cursor: poiokit;
   border-left: 5px solid transparent;
   font-size: 0.9em;
 }
@@ -1107,7 +1107,7 @@ ul#inter-sidebar li.loading {
 .side-tabs .side-tabs-content >div {
   display: none;
 }
-#inter-modal-overlay {
+#iokit-modal-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -1125,7 +1125,7 @@ ul#inter-sidebar li.loading {
   border: 1px solid #dcdcdc;
   border-radius: 1px;
   color: #333;
-  cursor: pointer;
+  cursor: poiokit;
   font-weight: bold;
   padding: 4px 12px;
   text-shadow: -1px 1px 0 #fff;
@@ -1195,7 +1195,7 @@ input[type=password]:hover {
   outline: medium none;
   transition: none 0s ease 0s;
 }
-.inter-docklet {
+.iokit-docklet {
   width: 100px;
   height: 100px;
   background-color: #f5f5f5;
@@ -1207,7 +1207,7 @@ input[type=password]:hover {
   position: relative;
   margin: 5px;
 }
-.inter-docklet .loader {
+.iokit-docklet .loader {
   position: absolute;
   top: 0;
   left: 0;
@@ -1215,13 +1215,13 @@ input[type=password]:hover {
   bottom: 0;
   height: 40px;
 }
-.inter-docklet h1 {
+.iokit-docklet h1 {
   font-size: 18px;
   font-weight: 300;
   border-bottom: 1px solid #ddd;
   padding: 5px 10px;
 }
-.inter-docklet .action-btn {
+.iokit-docklet .action-btn {
   position: absolute;
   top: 8px;
   right: 35px;
@@ -1229,10 +1229,10 @@ input[type=password]:hover {
   color: #aaa;
   font-size: 12px;
 }
-.inter-docklet .action-btn:hover {
+.iokit-docklet .action-btn:hover {
   color: #555;
 }
-.inter-docklet .close-icn {
+.iokit-docklet .close-icn {
   top: 8px;
   padding: 2px 7px;
 }
@@ -1242,53 +1242,53 @@ input[type=password]:hover {
   right: 9px;
   color: #aaa;
   padding: 0 7px;
-  cursor: pointer;
+  cursor: poiokit;
   font-size: 14px;
 }
 .close-icn:hover {
   color: #555;
 }
-.inter-vertical-tabs .tab-container {
+.iokit-vertical-tabs .tab-container {
   top: 100px;
   margin-left: 0;
 }
-.inter-vertical-tabs .tab-container .tab {
+.iokit-vertical-tabs .tab-container .tab {
   height: 20px;
   font-size: 16px;
   font-family: 'SegoeUI', sans-serif;
   background-color: #ddd;
   padding: 10px 20px 15px;
 }
-.inter-vertical-tabs .tab-container .tab:hover {
+.iokit-vertical-tabs .tab-container .tab:hover {
   background-color: #444;
   color: #fff;
 }
-.inter-vertical-tabs .tab-content-container {
+.iokit-vertical-tabs .tab-content-container {
   top: 100px;
 }
-.inter-tree.outer-decoration {
+.iokit-tree.outer-decoration {
   margin: 5px;
 }
-.inter-tree li {
+.iokit-tree li {
   margin: 5px 0 0 2px;
 }
-.inter-tree li a {
+.iokit-tree li a {
   text-decoration: none;
   color: #333;
 }
-.inter-tree ul {
+.iokit-tree ul {
   list-style: none;
   margin: 0 0 0 10px;
 }
-.inter-tree ul ul {
+.iokit-tree ul ul {
   list-style: none;
   margin: 0 0 0 10px;
 }
-.inter-tree .placeholder {
+.iokit-tree .placeholder {
   outline: 1px dashed #d44a26;
   border-radius: 1px;
 }
-.inter-tree .tree-item {
+.iokit-tree .tree-item {
   background-color: #f3f3f3;
   background-image: -moz-linear-gradient(center top, #f3f3f3, #efefef);
   background-image: -webkit-gradient(linear, left top, left bottom, from(#f3f3f3), to(#efefef));
@@ -1311,16 +1311,16 @@ input[type=password]:hover {
   position: relative;
   overflow: hidden;
 }
-.inter-tree .tree-item:hover {
+.iokit-tree .tree-item:hover {
   box-shadow: -1px 1px 2px rgba(0,0,0,0.3);
 }
-.inter-tree .tree-item:hover .tree-trigger {
+.iokit-tree .tree-item:hover .tree-trigger {
   opacity: 1;
 }
-.inter-tree .tree-item .title {
+.iokit-tree .tree-item .title {
   font-size: 14px;
 }
-.inter-tree .tree-item.selected {
+.iokit-tree .tree-item.selected {
   box-shadow: -1px 1px 2px rgba(0,0,0,0.3) inset;
   background-color: #118be7;
   background-image: -moz-linear-gradient(center top, #118be7, #007ad6);
@@ -1328,16 +1328,16 @@ input[type=password]:hover {
   background-repeat: repeat-x;
   color: #fff;
 }
-.inter-tree .tree-item.selected a {
+.iokit-tree .tree-item.selected a {
   color: #fff;
 }
-.inter-tree .tree-item.selected .children-caret {
+.iokit-tree .tree-item.selected .children-caret {
   border-color: transparent transparent transparent rgba(255,255,255,0.5);
 }
-.inter-tree .tree-item.selected .show-options-trigger .caret {
+.iokit-tree .tree-item.selected .show-options-trigger .caret {
   border-color: rgba(255,255,255,0.5) transparent transparent transparent;
 }
-.inter-tree .tree-item.show-options {
+.iokit-tree .tree-item.show-options {
   -webkit-transition-property: all;
   -moz-transition-property: all;
   -o-transition-property: all;
@@ -1350,27 +1350,27 @@ input[type=password]:hover {
   transition-duration: 0.3s;
   height: 45px;
 }
-.inter-tree .tree-item .published-status {
+.iokit-tree .tree-item .published-status {
   opacity: 0.3;
   margin-right: 25px;
 }
-.inter-tree .tree-item .published-status.unlocked {
+.iokit-tree .tree-item .published-status.unlocked {
   opacity: 0;
 }
-.inter-tree .tree-item .tree-trigger {
-  cursor: pointer;
+.iokit-tree .tree-item .tree-trigger {
+  cursor: poiokit;
 }
-.inter-tree .tree-item .tree-trigger {
+.iokit-tree .tree-item .tree-trigger {
   opacity: 0;
 }
-.inter-tree .tree-item .show-options-trigger {
+.iokit-tree .tree-item .show-options-trigger {
   top: 5px;
   right: 5px;
   position: absolute;
   width: 30px;
   height: 30px;
 }
-.inter-tree .tree-item .show-options-trigger .caret {
+.iokit-tree .tree-item .show-options-trigger .caret {
   border-color: rgba(0,0,0,0.5) transparent transparent transparent;
   border-style: solid;
   border-width: 5px;
@@ -1380,11 +1380,11 @@ input[type=password]:hover {
   top: 11px;
   right: 8px;
 }
-.inter-tree .tree-item .tree-item-control {
+.iokit-tree .tree-item .tree-item-control {
   margin-top: 12px;
   text-align: right;
 }
-.inter-tree .tree-item .tree-item-control .btn {
+.iokit-tree .tree-item .tree-item-control .btn {
   padding: 6px 2px 0;
   margin-right: 2px;
   border: none;
@@ -1392,10 +1392,10 @@ input[type=password]:hover {
   box-shadow: none;
   opacity: 0.5;
 }
-.inter-tree .tree-item .tree-item-control .btn:hover {
+.iokit-tree .tree-item .tree-item-control .btn:hover {
   opacity: 1;
 }
-.inter-tree .tree-item .children-caret {
+.iokit-tree .tree-item .children-caret {
   border-color: transparent transparent transparent rgba(0,0,0,0.5);
   border-style: solid;
   border-width: 5px;
@@ -1404,7 +1404,7 @@ input[type=password]:hover {
   float: left;
   margin: 4px;
 }
-.inter-tree .tree-item .children-caret.open {
+.iokit-tree .tree-item .children-caret.open {
   transform: rotate(45deg);
   -webkit-transition-property: all;
   -moz-transition-property: all;
@@ -1417,28 +1417,28 @@ input[type=password]:hover {
   -ms-transition-duration: 0.5;
   transition-duration: 0.5;
 }
-.inter-tree .tree-item .children-caret.loading {
+.iokit-tree .tree-item .children-caret.loading {
   animation-iteration-count: infinite;
   animation-name: orbit;
   animation-duration: 2s;
 }
-.inter-tree .tree-controls {
+.iokit-tree .tree-controls {
   height: 25px;
   margin: 5px 10px 0;
 }
-.inter-tree .tree-controls .btn {
+.iokit-tree .tree-controls .btn {
   background: none;
   box-shadow: none;
   border: none;
   opacity: 0.8;
 }
-.inter-tree .tree-controls .btn:hover {
+.iokit-tree .tree-controls .btn:hover {
   opacity: 1;
 }
-.inter-tree .tree-controls .enableable {
+.iokit-tree .tree-controls .enableable {
   opacity: 0.2;
 }
-.inter-tree .tree-controls .enableable.enabled {
+.iokit-tree .tree-controls .enableable.enabled {
   opacity: 0.8;
 }
 .second-sidebar {
@@ -1448,7 +1448,7 @@ input[type=password]:hover {
   left: 10px;
   bottom: 10px;
 }
-.second-sidebar .inter-tree-list {
+.second-sidebar .iokit-tree-list {
   overflow: auto;
   position: absolute;
   bottom: 0;
@@ -1534,7 +1534,7 @@ input[type=password]:hover {
 }
 .lbl.public-status {
   background-color: #338000;
-  cursor: pointer;
+  cursor: poiokit;
 }
 .lbl.public-status.locked {
   background-color: #c55;
@@ -1573,7 +1573,7 @@ input[type=password]:hover {
   font-weight: bold;
   right: 2px;
   top: 2px;
-  cursor: pointer;
+  cursor: poiokit;
   padding: 2px 7px 0;
 }
 .notice-item-close:hover {
@@ -1581,23 +1581,23 @@ input[type=password]:hover {
   color: #000;
   opacity: 0.7;
 }
-.inter-form-controls,
-.inter-editor-controls {
+.iokit-form-controls,
+.iokit-editor-controls {
   height: 25px;
   margin: 5px 10px 0 0;
 }
-.inter-form-controls .btn,
-.inter-editor-controls .btn {
+.iokit-form-controls .btn,
+.iokit-editor-controls .btn {
   background: none;
   box-shadow: none;
   border: none;
   opacity: 0.5;
 }
-.inter-form-controls .btn:hover,
-.inter-editor-controls .btn:hover {
+.iokit-form-controls .btn:hover,
+.iokit-editor-controls .btn:hover {
   opacity: 1;
 }
-.inter-editor-content {
+.iokit-editor-content {
   margin: 5px;
   border: 1px solid #ddd;
   padding: 5px;

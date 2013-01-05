@@ -2,7 +2,7 @@ var fs = require('fs')
   , path = require('path')
   , stylus = require('stylus')
   , i18next = require('i18next')
-  , konter = require('konter')
+  , iomapper = require('iomapper')
   , express
   , expressValidator = require('express-validator');
 
@@ -14,7 +14,7 @@ i18next.init({
     dynamicLoad: true
 });
 
-inter = {
+iokit = {
 
   /**
    * the mongo connection object
@@ -27,7 +27,7 @@ inter = {
   plugins: {},
 
   /**
-   * injects expressjs app with inter plugin eco-system
+   * injects expressjs app with iokit plugin eco-system
    *
    * this function should be called from express.js app.js
    * and should be loaded right after bodyParser has been loaded
@@ -49,7 +49,7 @@ inter = {
     app.use(expressValidator); // VALIDATOR
 
     app.use(express.cookieParser(new Date().getTime().toString(36)));
-    app.use(express.session({ key: 'inter' }));
+    app.use(express.session({ key: 'iokit' }));
     app.use( express.csrf() );
 
     var pluginsPath = __dirname + '/lib/plugins';
@@ -57,7 +57,7 @@ inter = {
       var plugin = require( path.join( pluginsPath, dirName ) );
       plugin.name = dirName;
       plugin.relativePath = path.join( pluginsPath, dirName );
-      inter.registerPlugin( plugin );
+      iokit.registerPlugin( plugin );
     });
 
     // get plugins from app (maybe they override some of the defaults)
@@ -67,21 +67,21 @@ inter = {
         var plugin = require( path.join( appPluginsPath, dirName ) );
         plugin.name = dirName;
         plugin.relativePath = path.join( appPluginsPath, dirName );
-        inter.registerPlugin( plugin );
+        iokit.registerPlugin( plugin );
       });
 
     app.use(i18next.handle);
     i18next.registerAppHelper(app);
     
-    inter.loadPluginStatics( app, __dirname + '/public' );
-    inter.loadPluginMiddleware( app );
+    iokit.loadPluginStatics( app, __dirname + '/public' );
+    iokit.loadPluginMiddleware( app );
     if( typeof( io ) !== 'undefined' )
-      inter.loadPluginSocketware( io );
-    inter.loadPluginRoutes( app );
-    inter.loadPluginStatics( app );
+      iokit.loadPluginSocketware( io );
+    iokit.loadPluginRoutes( app );
+    iokit.loadPluginStatics( app );
 
     app.use( express.favicon( __dirname + '/public/favicon.ico' ));
-    app.get('/inter', inter.plugins.auth.check, function( req, res ){ res.render( __dirname + '/app/views/index', {title: inter.config.site.title+'|tas10box'} ); } );
+    app.get('/iokit', iokit.plugins.auth.check, function( req, res ){ res.render( __dirname + '/app/views/index', {title: iokit.config.site.title+'|tas10box'} ); } );
   
   },
 
@@ -90,7 +90,7 @@ inter = {
     paths: [],
 
     /**
-     * iterate through the inter.view.paths
+     * iterate through the iokit.view.paths
      * if the given relative path matches
      * with them.
      *
@@ -101,11 +101,11 @@ inter = {
      * can be passed to expressjs' res.render.
      *
      * @example
-     *  res.render( inter.view.paths('/auth/login.jade'), {flash: 'please log in'} );
+     *  res.render( iokit.view.paths('/auth/login.jade'), {flash: 'please log in'} );
      */
     lookup: function( relPath, noError ){
       var found;
-      for( var i=0, pth; pth = inter.view.paths[i]; i++ ){
+      for( var i=0, pth; pth = iokit.view.paths[i]; i++ ){
         var absPth = path.join( pth, relPath );
         if( fs.existsSync( absPth ) )
           return (found = absPth);
@@ -114,7 +114,7 @@ inter = {
       if( found ) return found;
       if( noError )
         return;
-      throw( new Error('could not find template '+ relPath +' in any of the provided views ('+inter.view.paths.join(',')+')') );
+      throw( new Error('could not find template '+ relPath +' in any of the provided views ('+iokit.view.paths.join(',')+')') );
     }
 
   },
@@ -123,17 +123,17 @@ inter = {
    * starts the mongo connection
    */
   startDBConnection: function(){
-    console.log('[inter] conecting to mongodb '+ inter.config.db.url );
-    inter.conn = konter.connect( inter.config.db.url, inter.config.db.debug );
+    console.log('[iokit] conecting to mongodb '+ iokit.config.db.url );
+    iokit.conn = iomapper.connect( iokit.config.db.url, iokit.config.db.debug );
   },
 
   /**
-   * loads a plugin to the inter
+   * loads a plugin to the iokit
    * system
    */
   plugin: function( app, plugin ){
 
-    inter.plugins[plugin.name] = plugin;
+    iokit.plugins[plugin.name] = plugin;
     
     if( plugin.middleware )
       plugin.middleware( app );
@@ -142,7 +142,7 @@ inter = {
       plugin.routes( app );
 
     if( plugin.statics )
-      inter.loadPluginStatics( app, plugin.statics.public );
+      iokit.loadPluginStatics( app, plugin.statics.public );
 
   },
 
@@ -158,14 +158,14 @@ inter = {
   registerPlugin: function registerPlugin( plugin ){
 
     if( plugin.name )
-      inter.plugins[plugin.name] = plugin;
+      iokit.plugins[plugin.name] = plugin;
 
   },
 
   loadPluginMiddleware: function loadPluginMiddleware( app ){
 
-    for( var i in inter.plugins ){
-      var plugin = inter.plugins[i];
+    for( var i in iokit.plugins ){
+      var plugin = iokit.plugins[i];
       if( plugin.middleware )
         plugin.middleware( app );
     }
@@ -174,8 +174,8 @@ inter = {
 
   loadPluginSocketware: function loadPluginSocketware( io ){
 
-    for( var i in inter.plugins ){
-      var plugin = inter.plugins[i];
+    for( var i in iokit.plugins ){
+      var plugin = iokit.plugins[i];
       if( plugin.socketware )
         plugin.socketware( io );
     }
@@ -184,8 +184,8 @@ inter = {
 
   loadPluginRoutes: function loadPluginRoutes( app ){
 
-    for( var i in inter.plugins ){
-      var plugin = inter.plugins[i];
+    for( var i in iokit.plugins ){
+      var plugin = iokit.plugins[i];
       if( plugin.routes )
         plugin.routes( app );
     }
@@ -206,8 +206,8 @@ inter = {
     if( dirname )
       loadPluginPublic( dirname );
     else
-      for( var i in inter.plugins ){
-        var plugin = inter.plugins[i];
+      for( var i in iokit.plugins ){
+        var plugin = iokit.plugins[i];
         if( plugin.statics ){
           if( plugin.statics.public )
             loadPluginPublic( plugin.statics.public );
@@ -220,4 +220,4 @@ inter = {
 
 }
 
-module.exports = inter;
+module.exports = iokit;

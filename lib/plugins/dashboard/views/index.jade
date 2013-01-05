@@ -5,19 +5,19 @@
       span.icn.icn-preferences
       span.icn.icn-caret
     ul.dropdown-menu.right-hand.select-docklets
-      -for( var i in inter.plugins )
-        -if( inter.plugins[i].docklets )
-          -for( var j=0, docklet; docklet=inter.plugins[i].docklets[j]; j++ )
-            -dockletPath = inter.plugins[i].name+'/docklets/'+docklet;
+      -for( var i in iokit.plugins )
+        -if( iokit.plugins[i].docklets )
+          -for( var j=0, docklet; docklet=iokit.plugins[i].docklets[j]; j++ )
+            -dockletPath = iokit.plugins[i].name+'/docklets/'+docklet;
             li(data-docklet-path=dockletPath)
               span.icn.icn-checkbox.pull-left( class=(currentUser.preferences.docklets.indexOf( dockletPath ) >= 0 ? 'checked' : null) )
-              span=t(inter.plugins[i].name+'.docklets.'+docklet+'.title')
+              span=t(iokit.plugins[i].name+'.docklets.'+docklet+'.title')
 
   h1.title Dashboard
 
   .docklets-container.content-padding-w-overflow(style='top: 47px')
     -currentUser.preferences.docklets.forEach(function( docklet ){
-      .inter-docklet(id=docklet.replace(/\//g,'-'))
+      .iokit-docklet(id=docklet.replace(/\//g,'-'))
         .loader
           .circle
           .circle
@@ -31,14 +31,14 @@ script
     $(this).toggleClass('checked');
     if( $(this).hasClass('checked') ){
       var dockletPath = $(this).closest('li').attr('data-docklet-path');
-      var docklet = $('<div class="inter-docklet"><div class="loader"><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div></div></div>');
+      var docklet = $('<div class="iokit-docklet"><div class="loader"><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div></div></div>');
       docklet.attr('id', dockletPath.replace(/\//g,'-') )
       $('.docklets-container').append( docklet );
-      $.ajax({ url: '/users/docklets', dataType: 'script', data: {_csrf: inter._csrf, docklets: dockletPath }, type: 'post' });
-      docklet.load( inter.host.master + '/' + dockletPath )
+      $.ajax({ url: '/users/docklets', dataType: 'script', data: {_csrf: iokit._csrf, docklets: dockletPath }, type: 'post' });
+      docklet.load( iokit.host.master + '/' + dockletPath )
     }
   });
 
 -each docklet in currentUser.preferences.docklets
   script
-    $('#' + '#{docklet.replace(/\//g,'-')}').load( inter.host.master + '/#{docklet}' )
+    $('#' + '#{docklet.replace(/\//g,'-')}').load( iokit.host.master + '/#{docklet}' )

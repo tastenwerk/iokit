@@ -6,7 +6,7 @@
 
 $(function(){
 
-  $.fn.interSideTabs = function interSideTabs( options ){
+  $.fn.iokitSideTabs = function iokitSideTabs( options ){
 
     var sidetabs = this;
 
