@@ -1,4 +1,4 @@
-= IOkit
+# IOkit
 
 IOkit is a frontend to expressjs providing you with a
 management console and many widgets for a typical use
@@ -7,7 +7,7 @@ pages, articles, contacts, events, ... anything you
 store and share and want to use from different places
 in the internet.
 
-== Features
+## Features
 
 Basically you will be using expressjs for the most of
 your scripting and implementation work but there are 
@@ -23,13 +23,13 @@ objects kit:
 * io-tags (jquery tagging)
 * notification system (using jquery.notice.)
 
-== Installation
+## Installation
 
-  npm install iokit
+    npm install iokit
 
-== Setting up your application
+## Setting up your application
 
-  iokit new <appname>
+    iokit new <appname>
 
 This will create a basic application structure very similar
 to the one expressjs creates when using express' new command.
@@ -41,44 +41,43 @@ the iokit.json file in the config directory.
 
 It looks like this:
 
-  {
-    "hostname": "http://localhost:3000",
-    "site": {
-      "title": "myapp",
-      "domain": "localhost",
-      "locales": ["de", "en"],
-      "layouts": ["default", "front"],
-      "support": "support@domain.com"
-      },
-      "session": {
-        "timeout": {
-          "mins": 30
-        }
-      },
-      "datastore": {
-        "absolutePath": "/path/to/my/app/datastore",
-        "maxUploadSizeMB": 50,
-        "resizeDefaultPX": 500
-      },
-      "userRoles": [user", "manager", "editor"],
-      "port": 3000,
-      "db": {
-        "url": "mongodb://localhost:27017/myapp?auto_reconnect",
-        "debug": true
-      },
-    "mailerSettings": {
-        "host": "myhost.com",
-        "port": 465,
-        "auth": {
-          "user": "automailer@domain.com",
-          "pass": "xxxxxx"
+    {
+      "hostname": "http://localhost:3000",
+      "site": {
+        "title": "myapp",
+        "locales": ["de", "en"],
+        "layouts": ["default", "front"],
+        "support": "support@domain.com"
         },
-        "secureConnection": true
-      },
-    "mailerFrom": "automailer <automailer@domain.com>"
-  }
+        "session": {
+          "timeout": {
+            "mins": 30
+          }
+        },
+        "datastore": {
+          "absolutePath": "/path/to/my/app/datastore",
+          "maxUploadSizeMB": 50,
+          "resizeDefaultPX": 500
+        },
+        "userRoles": [user", "manager", "editor"],
+        "port": 3000,
+        "db": {
+          "url": "mongodb://localhost:27017/myapp?auto_reconnect",
+          "debug": true
+        },
+      "mailerSettings": {
+          "host": "myhost.com",
+          "port": 465,
+          "auth": {
+            "user": "automailer@domain.com",
+            "pass": "xxxxxx"
+          },
+          "secureConnection": true
+        },
+      "mailerFrom": "automailer <automailer@domain.com>"
+    }
 
-=== Further reading
+### Further reading
 
 to get more information about using iokit, you should visit the
 ioweb plugin page on http://github.com/tastenwerk/ioweb

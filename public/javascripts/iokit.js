@@ -62,7 +62,7 @@ $(function(){
       .bind("ajaxError", function(e, xhr){
         if( xhr.status === 0 )
           iokit.notify({error: ['You are offline!!\n Please Check Your Network.']});
-        else if( xhr.status in [401,403] )
+        else if( xhr.status in [401,403,304] )
           window.location.replace('/login');
         //else if( xhr.status === 404 )
         //  iokit.notify('Destination target could not be found', true);

@@ -33,16 +33,13 @@
     fieldset
       legend=t('user.administrational_privileges')
 
-      p
-        label=t('user.roles.title')
+      div(style='margin-left: 160px')
+        p
+          label=t('user.roles.title')
 
-      table
-        -each role in iokit.config.userRoles
-          tr
-            td( style='padding-right: 20px')=t('user.roles.'+role)
-            td
-              span.icn.icn-checkbox( class=(user.roles.indexOf(role) >= 0 ? 'checked' : null) )
-
-
-      -if( user.canWrite( currentUser ) )
-        span edit
+        table
+          -each role in iokit.config.userRoles
+            tr
+              td( style='padding-right: 20px')=t('user.roles.'+role)
+              td
+                span.icn.icn-check( class=(user.roles.indexOf(role) >= 0 ? 'checked' : null) )

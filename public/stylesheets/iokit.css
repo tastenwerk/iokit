@@ -129,7 +129,8 @@ video {
 .icn.icn-checkbox.checked {
   background-position: -16px -80px;
 }
-.icn.icn-web_element {
+.icn.icn-web_element,
+.icn.icn-webelement {
   background-position: -112px -64px;
 }
 .icn.icn-trash {
@@ -766,7 +767,7 @@ form label.pull-left {
   right: 0;
   font-weight: 300;
   font-size: 12px;
-  cursor: poiokit;
+  cursor: pointer;
 }
 .userpic:hover .editpic {
   display: block;
@@ -989,7 +990,7 @@ ul#iokit-sidebar li.loading {
 #iokit-modal .modal-inner-wrapper .modal-sidebar .sidebar-nav li {
   padding: 5px;
   font-weight: 300;
-  cursor: poiokit;
+  cursor: pointer;
   border-left: 5px solid transparent;
   font-size: 0.9em;
 }
@@ -1076,7 +1077,7 @@ ul#iokit-sidebar li.loading {
 .side-tabs .side-tabs-nav li {
   padding: 3px 0 0 4px;
   font-weight: 300;
-  cursor: poiokit;
+  cursor: pointer;
   border-left: 5px solid transparent;
   font-size: 0.9em;
 }
@@ -1125,7 +1126,7 @@ ul#iokit-sidebar li.loading {
   border: 1px solid #dcdcdc;
   border-radius: 1px;
   color: #333;
-  cursor: poiokit;
+  cursor: pointer;
   font-weight: bold;
   padding: 4px 12px;
   text-shadow: -1px 1px 0 #fff;
@@ -1133,6 +1134,7 @@ ul#iokit-sidebar li.loading {
   border-radius: 1px;
   text-decoration: none;
   font-size: 12px;
+  cursor: pointer;
 }
 .btn:hover {
   background-color: #f5f5f5;
@@ -1203,7 +1205,7 @@ input[type=password]:hover {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#f1f1f1));
   background-repeat: repeat-x;
   background-repeat: repeat-x;
-  box-shadow: -1px 1px 2px rgba(0,0,0,0.5);
+  box-shadow: -1px 1px 4px rgba(0,0,0,0.5);
   position: relative;
   margin: 5px;
 }
@@ -1224,17 +1226,18 @@ input[type=password]:hover {
 .iokit-docklet .action-btn {
   position: absolute;
   top: 8px;
-  right: 35px;
-  padding: 4px 12px 2px;
+  right: 40px;
+  padding: 4px 12px 3px;
   color: #aaa;
   font-size: 12px;
+  cursor: pointer;
 }
 .iokit-docklet .action-btn:hover {
   color: #555;
 }
 .iokit-docklet .close-icn {
   top: 8px;
-  padding: 2px 7px;
+  padding: 2px 8px;
 }
 .close-icn {
   position: absolute;
@@ -1242,7 +1245,7 @@ input[type=password]:hover {
   right: 9px;
   color: #aaa;
   padding: 0 7px;
-  cursor: poiokit;
+  cursor: pointer;
   font-size: 14px;
 }
 .close-icn:hover {
@@ -1358,7 +1361,7 @@ input[type=password]:hover {
   opacity: 0;
 }
 .iokit-tree .tree-item .tree-trigger {
-  cursor: poiokit;
+  cursor: pointer;
 }
 .iokit-tree .tree-item .tree-trigger {
   opacity: 0;
@@ -1534,10 +1537,20 @@ input[type=password]:hover {
 }
 .lbl.public-status {
   background-color: #338000;
-  cursor: poiokit;
+  cursor: pointer;
 }
 .lbl.public-status.locked {
   background-color: #c55;
+}
+.lbl.green {
+  background-color: #8a0;
+}
+.lbl.red {
+  background-color: #c55;
+}
+.lbl.black {
+  background-color: #333;
+  color: #fff;
 }
 .notice-wrap {
   position: fixed;
@@ -1573,7 +1586,7 @@ input[type=password]:hover {
   font-weight: bold;
   right: 2px;
   top: 2px;
-  cursor: poiokit;
+  cursor: pointer;
   padding: 2px 7px 0;
 }
 .notice-item-close:hover {

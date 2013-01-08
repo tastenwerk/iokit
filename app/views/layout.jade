@@ -5,5 +5,5 @@ html
     block header
   body
     input( type='hidden', id='_csrf', value=_csrf )
-    input( type='hidden', id='_host_master', value='http://'+iokit.config.site.domain+':'+iokit.config.port )
+    input( type='hidden', id='_host_master', value=iokit.config.hostname )
     block content

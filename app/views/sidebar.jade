@@ -2,5 +2,5 @@ ul#iokit-sidebar
   -for( i in iokit.plugins )
     -if( iokit.plugins[i].sidebarWidget && iokit.pluginAllowed( iokit.plugins[i] ) ) 
       li
-        a( href=(iokit.plugins[i].sidebarWidget.href || '/'+iokit.plugins[i].name.toLowerCase()), data-sidebar-remote=(iokit.plugins[i].sidebarWidget.sidebarRemote && iokit.plugins[i].name.toLowerCase()+'/sidebar_content'), rel='tooltip-e' )
-          img.icon( src=(iokit.plugins[i].sidebarWidget.icon || '/images/app-icons/'+iokit.plugins[i].name.toLowerCase()+'/96x96.png') )
+        a( href=(typeof(iokit.plugins[i].sidebarWidget) === 'object' && iokit.plugins[i].sidebarWidget.href ? iokit.plugins[i].sidebarWidget.href : '/'+iokit.plugins[i].name.toLowerCase()), data-sidebar-remote=(iokit.plugins[i].sidebarWidget.sidebarRemote && iokit.plugins[i].name.toLowerCase()+'/sidebar_content'), rel='tooltip-e' )
+          img.icon( src=(typeof(iokit.plugins[i].sidebarWidget) === 'object' && iokit.plugins[i].sidebarWidget.icon ? iokit.plugins[i].sidebarWidget.icon : '/images/app-icons/'+iokit.plugins[i].name.toLowerCase()+'/96x96.png') )

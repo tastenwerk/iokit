@@ -31,19 +31,32 @@
   "select_all": "Alle markieren",
   "delete_selected": "Markierte Dokumente löschen",
   "edit_selected": "Markiertes Dokument bearbeiten",
+  "anybody": "jeder",
   "saving": {
     "ok": "__name__ wurde gespeichert",
     "failed": "__name__ konnte nicht gespeichert werden"
   },
   "creation": {
+    "title": "erstellt",
     "ok": "__name__ wurde erstellt",
     "failed": "Dokument konnte nicht erstellt werden"
   },
   "removing": {
     "ok": "__name__ wurde vom System gelöscht",
+    "permanent_ok": "__name__ wurde unwiederruflich vom System gelöscht",
     "failed": "Löschen fehlgeschlagen",
     "denied": "Sie besitzen nicht ausreichend Rechte um dieses Dokument zu löschen",
     "undo": "Rückgängig machen"
+  },
+  "sharing": {
+    "title": "geteilt",
+    "ok_for": "__name__ wurde freigegeben für",
+    "failed_for": "__name__ konnte nicht mit geteilt werden mit"
+  },
+  "unsharing": {
+    "title": "entzogen",
+    "ok_for": "Zugriff auf __name__ wurde entzogen für",
+    "failed_for": "Zugriff auf __name__ konnte nicht entzogen werden für"
   },
   "user": {
     "email": "Email Adresse",
@@ -71,17 +84,6 @@
     "saving": {
       "ok": "Profileinstellungen gespeichert",
       "failed": "Profileinstellungen konnten nicht gespeichert werden"
-    },
-    "messages": {
-      "center": "Nachrichtenzentrale",
-      "new_message": "Neue Nachricht",
-      "to": "An",
-      "new": "eine neu",
-      "new_plural_0": "keine neu",
-      "new_plural_2": "__count__ neu",
-      "add_receipients": "Empfänger Email oder Name",
-      "send": "Abschicken",
-      "none": "Keine Nachrichten"
     },
     "logged_off": "Sie sind jetzt abgemeldet",
     "administrational_privileges": "Administrative Rechte",
@@ -126,11 +128,24 @@
     "password_saved": "Neues Passwort gespeichert"
   },
   "users": {
-    "title": "BenutzerInnen",
+    "title": "BenutzerInnen"
+  },
+  "notification_service": {
     "docklets": {
-      "messages": {
+      "stream": {
         "title": "Persönliche Nachrichten"
       }
+    },
+    "messages": {
+      "center": "Nachrichtenzentrale",
+      "new_message": "Neue Nachricht",
+      "to": "An",
+      "new": "eine neu",
+      "new_plural_0": "keine neu",
+      "new_plural_2": "__count__ neu",
+      "add_receipients": "Empfänger Email oder Name",
+      "send": "Abschicken",
+      "none": "Keine Nachrichten"
     }
   },
   "document": {
@@ -143,7 +158,7 @@
     "tags": {
       "title": "Tags"
     },
-    "public_status": "öffentl. Status",
+    "public_status": "öffentl. Zugriff",
     "published": "Veröffentlicht",
     "locked": "Gesperrt",
     "has_been_published": "__name__ wurde für die Öffentlichkeit freigeschaltet",

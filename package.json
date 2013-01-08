@@ -23,7 +23,7 @@
     "i18next": "*",
     "jade": "*",
     "ejs": "*",
-    "express": "3.x.x",
+    "express": "3.0.x",
     "connect-flash": "*",
     "easyimage": "*",
     "nodemailer": "*",

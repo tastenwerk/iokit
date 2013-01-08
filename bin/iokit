@@ -4,9 +4,9 @@ var program = require('commander')
   , fs = require('fs')
   , path = require('path')
   , os = require('os')
-  , iokitVersion = require( __dirname + '/../lib/version');
+  , version = JSON.parse( fs.readFileSync( __dirname+'/../package.json' ) ).version
 
-program.version(iokitVersion);
+program.version(version);
 
 var eol = 'win32' == os.platform() ? '\r\n' : '\n'
 
@@ -15,23 +15,43 @@ var app_js = [
 "  , http = require('http')",
 "  , path = require('path')",
 "  , fs = require('fs')",
-"  , iokit = require('iokit');",
+"  , stylus = require('stylus')",
+"  , iokit = require('iokit')",
+"  , ioweb = require('ioweb')",
 "",
 "var access_logfile = fs.createWriteStream('./app.log', {flags: 'a'})",
 "  , app = express();",
 "",
-"app.configure(function(){",
+"app.set('port', process.env.PORT || iokit.port);",
 "",
-"  iokit.inject( express, app ); // inject app with iokit defaults and plugins",
+"var server = require('http').createServer(app)",
+", io = require('socket.io').listen(server);",
+"",
+"server.listen(app.get('port'), function(){",
+"  console.log('IOkit server listening on port ' + app.get('port'));",
+"  iokit.startDBConnection();",
+"});",
+"",
+"app.configure(function(){",
 "",
 "  //app.use(express.logger({stream: access_logfile }));",
 "  app.use(express.logger('dev'));",
 "",
-"  app.set('port', process.env.PORT || iokit.config.port || 3000);",
+"  // use app's static files and routes first",
+"  app.use( stylus.middleware( __dirname + '/public' ) );",
+"  app.use( express.static( __dirname + '/public' ) );",
 "",
-" // override iokit's views with your own views",
-" // and devine new ones.",
-" iokit.view.paths = [ __dirname + '/app/views' ].concat( iokit.view.paths );",
+"  iokit.inject( express, app, io ); // inject app with iokit defaults and plugins",
+"",
+"  // load external ioweb plugins",
+"  for( var i=0, iowebPlugin; iowebPlugin=ioweb[i]; i++ )",
+"    iokit.plugin( app, iowebPlugin );",
+"",
+"  app.use( express.favicon( __dirname + '/public/favicon.ico' ));",
+"",
+"  // override iokit's views with your own views",
+"  // and devine new ones.",
+"  iokit.view.paths = [ __dirname + '/app/views' ].concat( iokit.view.paths );",
 "",
 "  app.use(express.methodOverride());",
 "  app.use(app.router);",
@@ -43,21 +63,16 @@ var app_js = [
 "});",
 "",
 "app.get('/', function( req, res ){",
-"  res.redirect('/iokit');",
-"});",
-"",
-"http.createServer(app).listen(app.get('port'), function(){",
-"  console.log('INTER server listening on port ' + app.get('port'));",
-"  iokit.startDBConnection();",
+"  res.redirect('/admin');",
 "});",
 ""
 ].join(eol);
 
 var settings_json = [
 '{',
+'"hostname": "http://localhost:3000",',
 '"site": {',
 '  "title": "__appName__",',
-'  "domain": "localhost",',
 '  "locales": ["de", "en"],',
 '  "layouts": ["default"]',
 '  },',
@@ -71,7 +86,6 @@ var settings_json = [
 '    "maxUploadSizeMB": 50,',
 '    "resizeDefaultPX": 500',
 '  },',
-'  "port": 3000,',
 '  "db": {',
 '    "url": "mongodb://localhost:27017/__appName__?auto_reconnect",',
 '    "debug": true',
@@ -88,11 +102,14 @@ var package_json = [
 '  "preferGlobal": "true",',
 '  "main": "index",',
 '  "dependencies": {',
-'    "express": "*",',
-'    "jade": "*",',
-'    "stylus": "*",',
-'    "iokit": "*",',
-'    "iomapper": "*"',
+'    "moment": "1.7.x",',
+'    "socket.io": "0.9.x",',
+'    "express": "3.0.x",',
+'    "jade": "0.27.x",',
+'    "stylus": "0.30.x",',
+'    "iomapper": "git://github.com/tastenwerk/iomapper.git#0.1.0",',
+'    "iokit": "git://github.com/tastenwerk/iokit.git#0.1.0",',
+'    "ioweb": "git://github.com/tastenwerk/ioweb.git#0.1.1"',
 '  },',
 '  "license": "GPL3",',
 '  "engine": {',
@@ -175,14 +192,17 @@ function openConnection( configfile, username, password ){
     , password = password || 'mgr'
     , settings = JSON.parse( fs.readFileSync( configfile ) )
     , iomapper = require('iomapper')
-    , User = iomapper.models.User;
+    , User = iomapper.models.User
+    , domain = settings.hostname.split(':')[1];
+
+  domain = domain ? domain.replace('//','') : 'localhost.loc';
 
   if( !settings.db )
     return exitError( configfile + ' does not provide db information. Please check')
   iomapper.connect( settings.db.url );
 
-  User.findOne({ email: username+'@'+settings.site.domain }, function( err, user ){
-    var domainName = settings.site.domain;
+  User.findOne({ email: username+'@'+domain }, function( err, user ){
+    var domainName = domain;
     if( domainName === 'localhost' )
       domainName = 'localhost.loc';
     if( err ) exitError( err.message );
@@ -195,7 +215,7 @@ function openConnection( configfile, username, password ){
         if( err )
           exitError( 'error creating user: ' + err + ' email: ' + username+'@'+settings.site.domain );
         else
-          console.log('   \033[36mcreate\033[0m : user ', user.name.nick, ' with password ' + password + '.' );
+          console.log('   \033[36mcreate\033[0m : user:' + user.name.nick + ' email:' + user.email + ' with password:' + password );
         console.log();
         
         process.exit(0);

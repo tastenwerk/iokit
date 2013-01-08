@@ -32,7 +32,7 @@ section,summary,time,mark,audio,video
 html
   font-family: "OpenSans", 'Arial', sans-serif
   font-size: 100%
-  background-color: INTER_BLACK
+  background-color: IO_BLACK
 
 [draggable]
   -moz-user-select: none
@@ -69,13 +69,13 @@ fieldset
   padding: 20px
 
   legend
-    background: INTER_WHITE
+    background: IO_WHITE
     padding: 2px 10px 2px 0
     font-weight: 300
 
   label
     font-size: 10px
-    color: INTER_FONT_LIGHTGREY
+    color: IO_FONT_LIGHTGREY
 
 form
   p
@@ -99,8 +99,8 @@ form
       margin: 5px
 
 .userpic
-  border: 3px solid INTER_WHITE
-  box-shadow: -1px 1px 3px INTER_BLACK
+  border: 3px solid IO_WHITE
+  box-shadow: -1px 1px 3px IO_BLACK
   position: relative
   .editpic
     background-color: rgba( 0, 0, 0, 0.5 )
@@ -114,7 +114,7 @@ form
     right: 0
     font-weight: 300
     font-size: 12px
-    cursor: poiokit
+    cursor: pointer
   &:hover
     .editpic
       display: block
@@ -140,7 +140,7 @@ h1
   left: 0
   right: 0
   height: 30px
-  background-color: INTER_PITCHBLACK
+  background-color: IO_PITCHBLACK
   padding: 5px
   a#userpic
     float: right
@@ -182,7 +182,7 @@ h1
   left: 0
   right: 0
   bottom: 0
-  background: INTER_GREY_BG
+  background: IO_GREY_BG
 
 #iokit-main-content
   position: absolute
@@ -190,7 +190,7 @@ h1
   left: 75px
   right: 10px
   bottom: 10px
-  background-color: INTER_WHITE
+  background-color: IO_WHITE
   box-shadow: -2px 2px 4px #bbb
 
   h1.title
@@ -227,7 +227,7 @@ ul#iokit-sidebar
       height: 24px
       opacity: 0.7
     &.active
-      background: INTER_WHITE
+      background: IO_WHITE
       box-shadow: -2px 2px 2px #bbb
       border-bottom-left-radius: 3px;
       border-top-left-radius: 3px;
@@ -251,8 +251,8 @@ ul#iokit-sidebar
 .progress
   width: 300px
   height: 10px
-  background-color: INTER_GREY_BG
-  border: 1px solid INTER_DARK_GREY
+  background-color: IO_GREY_BG
+  border: 1px solid IO_DARK_GREY
   .bar
     width:0%
     height:100%
@@ -261,18 +261,18 @@ ul#iokit-sidebar
     font-size:12px
     text-align:center
     text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25)
-    background-color: INTER_ORANGE
+    background-color: IO_ORANGE
     -webkit-transition: width 0.6s ease
     -moz-transition:width 0.6s ease
     -o-transition:width 0.6s ease
     transition:width 0.6s ease
 
 #iokit-modal
-  INTER_POS_ABSOLUTE()
+  IO_POS_ABSOLUTE()
   width: 800px
   height: 600px
-  background-color: INTER_WHITE
-  box-shadow: INTER_BOX_SHADOW
+  background-color: IO_WHITE
+  box-shadow: IO_BOX_SHADOW
   border-radius: 1px
   margin: auto
   z-index: 1000
@@ -296,7 +296,7 @@ ul#iokit-sidebar
     font-weight: 900
 
   .modal-inner-wrapper
-    INTER_POS_ABSOLUTE()
+    IO_POS_ABSOLUTE()
     top: 40px
     overflow: auto
     border-top: 1px solid #ddd
@@ -304,7 +304,7 @@ ul#iokit-sidebar
     .modal-sidebar
 
       .sidebar-nav
-        INTER_POS_ABSOLUTE()
+        IO_POS_ABSOLUTE()
         width: 150px
         overflow: auto
         border-right: 1px solid #ddd
@@ -313,17 +313,17 @@ ul#iokit-sidebar
         li
           padding: 5px
           font-weight: 300
-          cursor: poiokit
+          cursor: pointer
           border-left: 5px solid transparent
           font-size: 0.9em
           &:hover
-            background-color: INTER_GREY_BG
+            background-color: IO_GREY_BG
           &.active
-            border-color: INTER_ORANGE
+            border-color: IO_ORANGE
             font-weight: 900
-            color: INTER_ORANGE
+            color: IO_ORANGE
       .sidebar-content
-        INTER_POS_ABSOLUTE()
+        IO_POS_ABSOLUTE()
         left: 160px
         overflow: auto
         >div
@@ -344,7 +344,7 @@ ul#iokit-sidebar
     left: 0
     bottom: 0
     width: 150px
-    INTER_TRANSITION(0.3s)
+    IO_TRANSITION(0.3s)
     .sidebar-nav
       display: none
     .modal-details-view
@@ -364,7 +364,7 @@ ul#iokit-sidebar
 .side-tabs
 
   .side-tabs-nav
-    INTER_POS_ABSOLUTE()
+    IO_POS_ABSOLUTE()
     width: 30px
     overflow: auto
     border-right: 1px solid #ddd
@@ -373,21 +373,21 @@ ul#iokit-sidebar
     li
       padding: 3px 0 0 4px
       font-weight: 300
-      cursor: poiokit
+      cursor: pointer
       border-left: 5px solid transparent
       font-size: 0.9em
       &:hover
-        background-color: INTER_GREY_BG
+        background-color: IO_GREY_BG
         .icn
           opacity: 1
       &.active
-        border-color: INTER_ORANGE
+        border-color: IO_ORANGE
         font-weight: 900
-        color: INTER_ORANGE
+        color: IO_ORANGE
       .icn
         opacity: 0.5
   .side-tabs-content
-    INTER_POS_ABSOLUTE()
+    IO_POS_ABSOLUTE()
     left: 31px
     overflow: auto
     padding: 10px
@@ -396,17 +396,17 @@ ul#iokit-sidebar
 
 
 #iokit-modal-overlay
-  INTER_POS_ABSOLUTE()
+  IO_POS_ABSOLUTE()
   width: 100%
   height: 100%
   background-color: rgba(0,0,0,0.7)
   
 .btn
-  INTER_GRADIENT( #f5f5f5, #f1f1f1 )
+  IO_GRADIENT( #f5f5f5, #f1f1f1 )
   border: 1px solid #DCDCDC
   border-radius: 1px
   color: #333333;
-  cursor: poiokit;
+  cursor: pointer;
   font-weight: bold
   padding: 4px 12px
   text-shadow: -1px 1px 0 #FFFFFF
@@ -414,8 +414,9 @@ ul#iokit-sidebar
   border-radius: 1px
   text-decoration: none
   font-size: 12px
+  cursor: pointer
   &:hover
-    background-color: INTER_BUTTON_WHITE_HOVER;
+    background-color: IO_BUTTON_WHITE_HOVER;
     background-image: -moz-linear-gradient(center top , #F8F8F8, #F1F1F1);
     background-image: -webkit-gradient(linear, left top, left bottom, from(#F8f8f8), to(#F8f8f8))
     background-position: 0 0;
@@ -450,8 +451,8 @@ ul#iokit-sidebar
   font-weight: 900
   border-radius: 1px
   .new
-    background-color: INTER_ORANGE
-    border-color: INTER_ORANGE
+    background-color: IO_ORANGE
+    border-color: IO_ORANGE
     color: black
 
 input[type=text],input[type=password]
@@ -469,9 +470,9 @@ input[type=text],input[type=password]
 .iokit-docklet
   width: 100px
   height: 100px
-  INTER_GRADIENT(#F5F5F5, #F1F1F1)
+  IO_GRADIENT(#F5F5F5, #F1F1F1)
   background-repeat: repeat-x;
-  box-shadow: -1px 1px 2px rgba(0,0,0,0.5);
+  box-shadow: -1px 1px 4px rgba(0,0,0,0.5);
   position: relative
   margin: 5px
   .loader
@@ -489,15 +490,16 @@ input[type=text],input[type=password]
   .action-btn
     position: absolute
     top: 8px
-    right: 35px
-    padding: 4px 12px 2px
+    right: 40px
+    padding: 4px 12px 3px
     color: #aaa
     font-size: 12px
+    cursor: pointer
     &:hover
       color: #555
   .close-icn
     top: 8px
-    padding: 2px 7px
+    padding: 2px 8px
 
 .close-icn
   position: absolute
@@ -505,7 +507,7 @@ input[type=text],input[type=password]
   right: 9px
   color: #aaa
   padding: 0 7px
-  cursor: poiokit
+  cursor: pointer
   font-size: 14px
   &:hover
     color: #555
@@ -541,11 +543,11 @@ input[type=text],input[type=password]
       list-style: none
       margin: 0 0 0 10px
   .placeholder
-    outline: 1px dashed INTER_ORANGE
+    outline: 1px dashed IO_ORANGE
     border-radius: 1px
   .tree-item
-    INTER_GRADIENT(#F3F3F3, #EfEfEf)
-    INTER_TRANSITION(0.3s)
+    IO_GRADIENT(#F3F3F3, #EfEfEf)
+    IO_TRANSITION(0.3s)
     padding: 10px 5px
     font-size: 12px
     border-radius: 1px
@@ -562,7 +564,7 @@ input[type=text],input[type=password]
       font-size: 14px
     &.selected
       box-shadow: -1px 1px 2px rgba(0,0,0,0.3) inset
-      INTER_GRADIENT(#118be7, #007ad6)
+      IO_GRADIENT(#118be7, #007ad6)
       color: white
       a
         color: white
@@ -571,7 +573,7 @@ input[type=text],input[type=password]
       .show-options-trigger .caret
         border-color: rgba(255,255,255,0.5) transparent transparent transparent
     &.show-options
-      INTER_TRANSITION(0.3s)
+      IO_TRANSITION(0.3s)
       height: 45px
     .published-status
       opacity: 0.3
@@ -579,7 +581,7 @@ input[type=text],input[type=password]
       &.unlocked
         opacity: 0
     .tree-trigger
-      cursor: poiokit
+      cursor: pointer
     .tree-trigger
       opacity: 0
     .show-options-trigger
@@ -620,7 +622,7 @@ input[type=text],input[type=password]
       margin: 4px
       &.open
         transform: rotate(45deg)
-        INTER_TRANSITION(0.5)
+        IO_TRANSITION(0.5)
       &.loading
         animation-iteration-count: infinite
         animation-name: orbit
@@ -668,7 +670,7 @@ input[type=text],input[type=password]
   width: 300px
   position: absolute
   border: 1px solid #ddd
-  background-color: INTER_WHITE
+  background-color: IO_WHITE
   box-shadow: -1px 1px 3px #ddd
   .info-modal-title
     border-bottom: 1px solid #ddd
@@ -699,7 +701,7 @@ input[type=text],input[type=password]
   height: 0
   width: 0
   .caret-inner
-    border-color: transparent INTER_WHITE transparent transparent
+    border-color: transparent IO_WHITE transparent transparent
     border-style: solid
     border-width: 10px
     height: 0
@@ -720,16 +722,23 @@ input[type=text],input[type=password]
     left: 0
 
 .lbl
-  background-color: INTER_DARK_GREY
+  background-color: IO_DARK_GREY
   padding: 0.1em 5px
   font-size: 0.8em
   color: white
   border-radius: 1px
   &.public-status
-    background-color: INTER_GREEN
-    cursor: poiokit
+    background-color: IO_PUBLISH_GREEN
+    cursor: pointer
     &.locked
-      background-color: INTER_RED
+      background-color: IO_RED
+  &.green
+    background-color: IO_GREEN
+  &.red
+    background-color: IO_RED
+  &.black
+    background-color: #333
+    color: white
 
 
 // jquery.notice
@@ -766,7 +775,7 @@ input[type=text],input[type=password]
   font-weight: bold
   right: 2px
   top: 2px
-  cursor: poiokit
+  cursor: pointer
   padding: 2px 7px 0
   &:hover
     background-color: white

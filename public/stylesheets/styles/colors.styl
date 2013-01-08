@@ -1,31 +1,32 @@
-INTER_ORANGE = #D44A26
-INTER_GREEN = #338000
-INTER_RED = #c55
-INTER_GREY_BG = #eaeaea
-INTER_GREY_HOVER = #dfdfdf
-INTER_DARK_GREY = #aaa
-INTER_BLACK = #333
-INTER_PITCHBLACK = #111
-INTER_BUTTON_WHITE = #F3F3F3
-INTER_WHITE = #f8f8f8
-INTER_BUTTON_WHITE_HOVER = #F5F5F5
+IO_ORANGE = #D44A26
+IO_GREEN = #8a0
+IO_PUBLISH_GREEN = #338000
+IO_RED = #c55
+IO_GREY_BG = #eaeaea
+IO_GREY_HOVER = #dfdfdf
+IO_DARK_GREY = #aaa
+IO_BLACK = #333
+IO_PITCHBLACK = #111
+IO_BUTTON_WHITE = #F3F3F3
+IO_WHITE = #f8f8f8
+IO_BUTTON_WHITE_HOVER = #F5F5F5
 
-INTER_FONT_LIGHTGREY = #777
+IO_FONT_LIGHTGREY = #777
 
-INTER_POS_ABSOLUTE()
+IO_POS_ABSOLUTE()
   position: absolute
   top: 0
   left: 0
   right: 0
   bottom: 0
 
-INTER_GRADIENT(col1, col2)
+IO_GRADIENT(col1, col2)
   background-color: col1;
   background-image: -moz-linear-gradient(center top , col1, col2)
   background-image: -webkit-gradient(linear, left top, left bottom, from(col1), to(col2))
   background-repeat: repeat-x
 
-INTER_TRANSITION(duration)
+IO_TRANSITION(duration)
   -webkit-transition-property: all
   -moz-transition-property: all
   -o-transition-property: all
@@ -38,4 +39,4 @@ INTER_TRANSITION(duration)
   -ms-transition-duration: duration
   transition-duration: duration
 
-INTER_BOX_SHADOW = -1px 1px 3px rgba( 0, 0, 0, 0.5 )
+IO_BOX_SHADOW = -1px 1px 3px rgba( 0, 0, 0, 0.5 )

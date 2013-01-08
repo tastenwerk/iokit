@@ -8,18 +8,6 @@ block content
 
   #login-content
 
-    #login-messages
-      -flash.error && flash.error.forEach( function( error ){
-        .message
-          span.label.label-error= t('info')
-          =error
-      -})
-      -flash.notice && flash.notice.forEach( function( info ){
-        .message
-          span.label.label-error= t('info')
-          =info
-      -})
-
     #login-logo
       img( src='/images/logo_150x150.png')
 
@@ -38,3 +26,16 @@ block content
       p(style='margin: 10px 48px 0 0')
         button.btn.pull-right(type='submit')= t('user.login')
         a.pull-right( href='/forgot_password' )= t('user.forgot_password')
+
+
+  -if( flash.error )
+    -for( var i=0,msg; msg=flash.error[i]; i++ )
+      script
+        $(function(){
+          iokit.notify('#{msg}', 'error');
+        });
+
+  script
+    $(function(){
+      $('.js-get-focus:first').focus();
+    })

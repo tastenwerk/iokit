@@ -81,7 +81,7 @@ iokit = {
     iokit.loadPluginStatics( app );
 
     app.use( express.favicon( __dirname + '/public/favicon.ico' ));
-    app.get('/iokit', iokit.plugins.auth.check, function( req, res ){ res.render( __dirname + '/app/views/index', {title: iokit.config.site.title+'|tas10box'} ); } );
+    app.get('/admin', iokit.plugins.auth.check, function( req, res ){ res.render( __dirname + '/app/views/index', {title: iokit.config.site.title+'|tas10box'} ); } );
   
   },
 
@@ -128,37 +128,90 @@ iokit = {
   },
 
   /**
-   * loads a plugin to the iokit
-   * system
+   * registers an iokit plugin
+   *
+   * a plugin can either be a collection of plugins where
+   * the collection's keys are the plugin's names (will override .name)
+   * or a single plugin where .name is defined
+   *
+   * @param {object} [app] - the expressjs application object
+   * @param {object} [plugin] - the plugin or collection of plugins to be registered.
+   *
+   * @example
+   *  { name: 'myplugin',
+   *    routes: function( app ){ // routes as described in expressjs },
+   *    middleware: function( app ){ // middleware as described in expressjs },
+   *    docklets: [ array, of, <dockletName>s, to, be, expected, in, 'views/<pluginName>/docklets/<dockletName>'],
+   *    statics: [ public: 'path/to/public/path/to/be/added', javascripts: 'path/to/javascripts' ],
+   *    views: absolutePathToAdditionaViewsDir,
+   *    translations: absolutePathToTranslationsFile,
+   *    sidebarWidget: true // will be listed in sidebar, also: { url: 'url/to/widget.html', icon: 'url/to/img' } are possible
+   *    allowedRoles: [ array, of, userRoles, allowed, to, access, this, plugin ]
+   *  }
+   *
+   * @example of more than one plugin within a plugin folder
+   *  { myplugin1: {
+   *      routes: //routes as described above,
+   *      middleware: // middleware as described above
+   *    },
+   *    myplugin2: {
+   *      routes: //routes as described above
+   *    }
+   *  }
+   *
    */
-  plugin: function( app, plugin ){
+  registerPlugin: function registerPlugin( app, plugin ){
 
-    iokit.plugins[plugin.name] = plugin;
-    
-    if( plugin.middleware )
-      plugin.middleware( app );
+    // external plugin loads with (app, plugin)
+    if( arguments.length === 2 ){
 
-    if( plugin.routes )
-      plugin.routes( app );
+      if( !plugin.name )
+        for( var pluginName in plugin ){
+          plugin[pluginName].name = pluginName;
+          this._registerPlugin( app, plugin[pluginName] );
+        }
+      else
+        this._registerPlugin( plugin );
 
-    if( plugin.statics )
-      iokit.loadPluginStatics( app, plugin.statics.public );
+    } else {
+
+      plugin = app;
+      if( plugin.name )
+        if( plugin.disabled )
+          console.log('[iokit] [INTERNAL PLUGIN] ['+plugin.name+'] DISABLED !!!');
+        else
+          iokit.plugins[plugin.name] = plugin;
+
+    }
 
   },
 
   /**
-   * registers a plugin
-   *
-   * a plugin structure can be like:
-   *
-   *  { routes: function( app ){ define routes here }, 
-   *    middleware: function( app ){ define your middleware here } 
-   *  }
+   * internal register function called from
+   * iokit.registerPlugin
    */
-  registerPlugin: function registerPlugin( plugin ){
+  _registerPlugin: function _registerPlugin( app, plugin ){
 
-    if( plugin.name )
-      iokit.plugins[plugin.name] = plugin;
+    this.plugins[plugin.name] = plugin;
+
+    if( plugin.disabled ){
+      console.log('[iokit] [PLUGIN] ['+plugin.name+'] DISABLED !!!');
+      return;
+    }
+
+    if( plugin.middleware )
+      plugin.middleware( app );
+
+    if( plugin.routes )
+      this.loadPluginRoutes( app, plugin );
+
+    if( plugin.statics )
+      this.loadPluginStatics( app, plugin.statics.public );
+
+    if( plugin.views )
+      this.view.paths = [ plugin.views ].concat( this.view.paths );
+
+    console.log('[iokit] [PLUGIN] ['+plugin.name+'] registered');
 
   },
 
@@ -182,15 +235,39 @@ iokit = {
 
   },
 
-  loadPluginRoutes: function loadPluginRoutes( app ){
+  loadPluginRoutes: function loadPluginRoutes( app, plugin ){
 
-    for( var i in iokit.plugins ){
-      var plugin = iokit.plugins[i];
-      if( plugin.routes )
-        plugin.routes( app );
+    if( arguments.length === 2 ){
+      this._loadPluginRoutes( app, plugin );
+    } else {
+      for( var i in iokit.plugins ){
+        var plugin = iokit.plugins[i];
+        this._loadPluginRoutes( app, plugin );
+      }
     }
 
   },
+
+  _loadPluginRoutes: function _loadPluginRoutes( app, plugin ){
+
+    if( plugin.routes )
+
+      if( typeof(plugin.routes) === 'function' )
+
+        plugin.routes( app );
+
+      else if( typeof(plugin.routes) === 'string' ){
+
+        fs.readdirSync( plugin.routes ).forEach( function( routeFile ){
+
+            if( routeFile.indexOf('index') < 0 )
+              require( path.join(plugin.routes, routeFile ) )( app );
+
+          });
+
+      }
+
+    },
 
   loadPluginStatics: function loadPluginStatics( app, dirname ){
 
@@ -216,7 +293,12 @@ iokit = {
 
   },
 
-  sendMail: require( __dirname + '/lib/sendmail')
+  sendMail: require( __dirname + '/lib/sendmail'),
+
+  port: function(){
+    var hostname = JSON.parse( fs.readFileSync( process.cwd()+'/config/iokit.json' ) ).hostname
+    return( hostname.split(':').length === 3 ? hostname.split(':')[2] : 3000 );
+  }()
 
 }
 
