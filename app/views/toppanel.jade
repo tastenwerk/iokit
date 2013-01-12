@@ -1,7 +1,7 @@
-#iokit-top-panel
+#iokit-top-panel.iokit-top-panel
   a#userpic( data-user-img=currentUser._id, href='/users/'+currentUser._id, data-remote='true' )
     img( class='userpic-#{currentUser._id}', src='/users/'+currentUser._id+'/pic?size=24', style='width:24px;height:24px' )
-  #useractions
+  #useractions.useractions
     .dropdown.pull-right
       a( href='#', data-toggle='dropdown' )
         span &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -11,11 +11,9 @@
           a( href='/users/#{currentUser._id}', data-remote='true' )
             =t('user.my_profile')
         li
-          a( href='/history', data-remote='true' )
-            =t('history')
-        li
           a( href='/preferences', data-remote='true' )
             =t('preferences.title')
+        li.spacer
         li
           a( href='/logout' )
             =t('user.logout')
@@ -29,3 +27,36 @@
       img( src='/images/icons/win_maximize.svg' )
     a#close-window-button( href='#' )
       img( src='/images/icons/win_close.svg' )
+
+  #click-here-for-advanced
+    span.adv-open
+      =t('advanced.click_here_for_adv')
+      span &nbsp; (STRG-F) 
+    span.adv-close
+      =t('advanced.click_here_to_close')
+      span &nbsp; (ESC)
+
+#iokit-advanced-panel.iokit-advanced-panel
+  ul.adv-actions
+    li
+      a.live-tipsy.iokit-link-action( href='/trash-basket' )
+        span.icn.icn-trash
+        span=t('trash.title')
+    li
+      a.live-tipsy.iokit-link-action( href='/settings' )
+        span.icn.icn-preferences
+        span=t('preferences.title')
+
+  form#search-form
+    ul.query-options
+      li.active
+        span=t('search.title')
+      li
+        span=t('search.saved')
+
+    .query
+      button.options
+        span.caret
+      button( type='submit' )
+        span.icn.icn-search
+      input( type='text', name='query' )

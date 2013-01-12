@@ -7,7 +7,7 @@ style
   input.receipient{ border: none; width: auto; box-shadow: none; border-radius: 1px; background: inherit; }
   form#notification-form textarea{ display: none; width: 380px; margin: 20px 10px 5px; border: 1px solid #aaa; height: 5em; }
   .post-content{ display: none; text-align: right; margin-right: 10px; }
-  #notifications-list{ list-style: none; }
+  #notifications-list{ list-style: none; height: 360px; overflow: auto; }
   #notifications-list li.notification{ font-size: 10px; margin: 20px 10px; height: 40px }
   #notifications-list li.notification .userpic{ width: 32px; height: 32px; margin-right: 10px }
   #notifications-list li.notification .head{ color: #999 }
@@ -23,7 +23,7 @@ style
   #notifications-list li.sys-notification .title{ width: 120px }
 
 h1
-  .title Nachrichtenstrom
+  .title Aktivitäten & Nachrichten
 
 form#notification-form( data-bind='submit: postMessage' )
   span.textarea-caret

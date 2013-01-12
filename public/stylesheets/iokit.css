@@ -193,8 +193,20 @@ video {
 .icn.icn-image {
   background-position: -32px -80px;
 }
+.icn.icn-search {
+  background-position: -64px -16px;
+}
 .icn.white {
   background-image: url("/images/icons/iokit-icons16x16w.png");
+}
+.icn32 {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  background-image: url("/images/icons/iokit-icons32x32.png");
+}
+.icn32.icn-trash {
+  background-position: -96px -64px;
 }
 .dropdown {
   position: relative;
@@ -215,7 +227,7 @@ ul.dropdown-menu {
   top: 22px;
   left: 0px;
   z-index: 100;
-  min-width: 135px;
+  min-width: 200px;
   padding: 10px 0 5px;
   border-radius: 1px;
   border: 1px solid #ddd;
@@ -237,6 +249,11 @@ ul.dropdown-menu.right-hand {
 }
 .dropdown li .icn-checkbox {
   margin-right: 5px;
+}
+.dropdown li.spacer {
+  height: 5px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 5px;
 }
 .dropdown li:hover {
   background: #dfdfdf;
@@ -812,7 +829,6 @@ h1 {
   line-height: 14px;
   text-align: right;
   padding-top: 5px;
-  width: 300px;
 }
 #iokit-top-panel #useractions a {
   color: #aaa;
@@ -835,6 +851,122 @@ h1 {
 }
 #iokit-top-panel #useractions .dropdown a:hover {
   color: #000;
+}
+#iokit-top-panel #click-here-for-advanced {
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 5px;
+  opacity: 0.4;
+  cursor: pointer;
+}
+#iokit-top-panel #click-here-for-advanced .adv-close {
+  display: none;
+}
+#iokit-top-panel:hover #click-here-for-advanced {
+  opacity: 1;
+}
+#iokit-advanced-panel {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: #f3f3f3;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 5px 0 10px rgba(0,0,0,0.4);
+  padding: 5px;
+  display: none;
+  z-index: 1;
+}
+#iokit-advanced-panel .adv-actions {
+  list-style: none;
+  width: 150px;
+  float: left;
+}
+#iokit-advanced-panel .adv-actions li {
+  padding: 2px 10px;
+}
+#iokit-advanced-panel .adv-actions a {
+  text-decoration: none;
+  font-size: 12px;
+  color: #555;
+  opacity: 0.7;
+}
+#iokit-advanced-panel .adv-actions a .icn {
+  float: left;
+  margin: 5px 3px 0 0;
+}
+#iokit-advanced-panel .adv-actions a:hover {
+  opacity: 1;
+}
+#iokit-advanced-panel #search-form {
+  float: left;
+  margin: 0;
+  position: relative;
+}
+#iokit-advanced-panel #search-form .query-options {
+  list-style: none;
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 460px;
+  z-index: 1;
+}
+#iokit-advanced-panel #search-form .query-options li {
+  background: #eaeaea;
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-radius: 1px;
+  padding: 3px 5px;
+  float: left;
+  font-size: 11px;
+}
+#iokit-advanced-panel #search-form .query-options li:last-child {
+  border-right: 1px solid #ddd;
+}
+#iokit-advanced-panel #search-form .query-options li.active {
+  background: #fff;
+}
+#iokit-advanced-panel #search-form .query {
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 1px;
+  position: absolute;
+  top: 27px;
+  left: 0;
+  width: 460px;
+}
+#iokit-advanced-panel #search-form .query input {
+  border: none;
+  background: none;
+  width: 400px;
+}
+#iokit-advanced-panel #search-form .query input:hover,
+#iokit-advanced-panel #search-form .query input:focus {
+  box-shadow: none;
+}
+#iokit-advanced-panel #search-form .query button {
+  border: none;
+  background: none;
+  outline: none;
+  float: right;
+  margin: 5px 0 0 5px;
+}
+#iokit-advanced-panel #search-form .query button.options {
+  width: 16px;
+  height: 16px;
+  position: relative;
+}
+#iokit-advanced-panel #search-form .query button.options .caret {
+  border-color: rgba(0,0,0,0.5) transparent transparent transparent;
+  border-style: solid;
+  border-width: 5px;
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 8px;
+  right: 12px;
 }
 #iokit-main-panel {
   position: absolute;

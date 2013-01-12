@@ -177,6 +177,14 @@
     "title": "Dateien verwalten",
     "new": "Neuen Ordner erstellen"
   },
+  "advanced": {
+    "click_here_for_adv": "Hier klicken um erweiterte Einstellungen und Suche anzuzeigen",
+    "click_here_to_close": "Einstellungen und Suche schließen"
+  },
+  "search": {
+    "title": "Suche",
+    "saved": "Gespeicherte Suchen"
+  },
   "preferences": {
     "title": "Einstellungen",
     "saved": "Einstellungen wurden gespeichert",
@@ -309,5 +317,8 @@
     "web": "Internetauftritt",
     "tickets": "Kartenreservierung",
     "select_file": "Datei wählen"
+  },
+  "trash": {
+    "title": "Papierkorb"
   }
 }

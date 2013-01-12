@@ -63,7 +63,7 @@ $(function(){
         if( xhr.status === 0 )
           iokit.notify({error: ['You are offline!!\n Please Check Your Network.']});
         else if( xhr.status in [401,403,304] )
-          window.location.replace('/login');
+          location.replace('/login');
         //else if( xhr.status === 404 )
         //  iokit.notify('Destination target could not be found', true);
         else if( xhr.status === 500 )
@@ -249,6 +249,24 @@ $(function(){
         formatProgress: "{percent}% of {total_size}",
         waitingForResponse: "Processing..."
       }
+    },
+
+    advancedPanel: {
+
+      show: function(){
+        $('#iokit-advanced-panel').slideDown({ easing: 'easeOutBounce', duration: 500 });
+        $('#click-here-for-advanced .adv-close').show();
+        $('#click-here-for-advanced .adv-open').hide();
+        setTimeout( function(){
+          $('#iokit-advanced-panel .query input').focus();
+        }, 500)
+      },
+
+      hide: function(){
+        $('#iokit-advanced-panel').slideUp(200);
+        $('#click-here-for-advanced .adv-close').hide();
+        $('#click-here-for-advanced .adv-open').show();
+      }
     }
 
   };
@@ -285,12 +303,37 @@ $(function(){
         !$(e.target).hasClass('js-remove-on-click') && 
         !$(e.target).closest('.js-remove-on-click').length )
       $('.js-remove-on-click').remove();
+    if( !$(e.target).hasClass('iokit-advanced-panel') &&
+        !$(e.target).closest('.iokit-advanced-panel').length &&
+        !$(e.target).closest('#iokit-top-panel').length )
+      $('#iokit-advanced-panel').slideUp(200);
     $('.tipsy').remove();
   }).on('keydown', function(e){
     if( e.keyCode === 27 ){ // ESC
       iokit.modal('close');
+      iokit.advancedPanel.hide();
+      return false;
     }
+    if( (e.ctrlKey || e.metaKey) && e.keyCode === 70 ){ // CTRL-f
+      iokit.advancedPanel.show();
+      return false;
+    }
+  })
+
+  $('#click-here-for-advanced').on('click', function(e){
+    if( $('#iokit-advanced-panel').is(':visible') )
+      iokit.advancedPanel.hide();
+    else
+      iokit.advancedPanel.show();
   });
+
+  /*
+  $('#iokit-advanced-panel').on('mouseleave', function(e){
+    if( $(e.target).hasClass('iokit-top-panel') || $(e.target).closest('.iokit-top-panel').length )
+      return;
+    $(this).slideUp(200);
+  })
+*/
 
   $('.js-get-focus:first').focus();
 
