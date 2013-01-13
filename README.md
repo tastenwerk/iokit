@@ -77,6 +77,65 @@ It looks like this:
       "mailerFrom": "automailer <automailer@domain.com>"
     }
 
+### USING only parts of iokit
+
+You can also use only parts of iokit by just requiring the desired components.
+In your package.json
+
+
+    {
+      ...
+      "dependencies": {
+        "iokit": "git://github.com/tastenwerk/iokit.git",
+      }
+      ...
+    }
+
+In your app.js
+
+    var ioauth = require('iokit/lib/plugins/auth');
+
+    // ...
+
+    app.configure(function(){
+
+
+      // enable authentication routes (login/logout)
+      ioauth.routes( app );
+
+    }
+
+
+Defining a route (either in app.js or in your routes.js file)
+
+    var ioauth = require('iokit/lib/plugins/auth');
+
+    app.get( '/secure', ioauth.check, function( req, res ){
+      // this block will only pe processed if
+      // ioauth.check was positive (means: session.user object exists)
+      // otherwise, will redirect to '/login'
+      if( req.session.valid )
+        res.send('you are working secure')
+      else
+        res.redirect('/login');
+    });
+
+Overriding iomapper dependency in ioauth.check
+
+    var ioauth = require('iokit/lib/plugins/auth');
+
+    ioauth.checkWithoutRedirect = ioauth.check = function( req, res, next){
+      if( !req.session.userId )
+        return res.redirect('/login');
+      next();
+    }
+
+    ioauth.tryLoginUser = function( req, res, next){
+      if( req.body.username === 'myuser' && req.body.password === 'mypass' )
+        req.session.valid = 'myidisnowvalid';
+      next();
+    });
+
 ### Further reading
 
 to get more information about using iokit, you should visit the

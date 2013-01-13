@@ -94,9 +94,43 @@ $(function(){
         e.preventDefault();
         var elem = this;
         iokit.ajaxLoad( this );
-      })
+      });
+
+      $(document).on('click', 'a[data-link=true]', function(e){
+        location.hash = $(this).attr('href');
+      });
+
+      $(window).on( 'hashchange', iokit.loadRemoteAfterHashChange );
 
     },
+
+    /**
+     * check for hash in url and eventually
+     * reload the page
+     */
+    loadRemoteAfterHashChange: function loadRemoteAfterHashChange(){
+
+      var urlarr = location.hash.substring(1).split('?')
+        , pararr
+        , url = urlarr[0];
+
+      // deprecated?
+      var params;
+      if( urlarr.length > 1 )
+        pararr = urlarr[1].split('&');
+
+      if( pararr && pararr.length > 0 )
+        for( var i=0, param; param=pararr[i]; i++ ){
+          if( param.split('=').length === 2 )
+            params[param.split('=')[0]] = param.split('=')[1];
+        }
+      // end deprecated?
+
+      iokit.advancedPanel.hide();
+      iokit.main.load( url + ( urlarr.length > 1 ? '?'+urlarr[1] : '' ) );
+
+    },
+
 
     /**
      * add a notification message to the
@@ -306,7 +340,7 @@ $(function(){
     if( !$(e.target).hasClass('iokit-advanced-panel') &&
         !$(e.target).closest('.iokit-advanced-panel').length &&
         !$(e.target).closest('#iokit-top-panel').length )
-      $('#iokit-advanced-panel').slideUp(200);
+      iokit.advancedPanel.hide();
     $('.tipsy').remove();
   }).on('keydown', function(e){
     if( e.keyCode === 27 ){ // ESC
@@ -350,5 +384,8 @@ $(function(){
   if( typeof($.fn.iokitSidebar) === 'function' )
     $('#iokit-sidebar').iokitSidebar();
   iokit.setupAjaxHelpers();
+
+  if( location.hash.length > 0 )
+    iokit.loadRemoteAfterHashChange();
 
 });

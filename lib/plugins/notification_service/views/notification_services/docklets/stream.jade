@@ -5,9 +5,10 @@ style
   ul.messages{ list-style: none; }
   li.message{ margin: 5px 0; border: 1px solid #eee; padding: 5px 0 }
   input.receipient{ border: none; width: auto; box-shadow: none; border-radius: 1px; background: inherit; }
-  form#notification-form textarea{ display: none; width: 380px; margin: 20px 10px 5px; border: 1px solid #aaa; height: 5em; }
+  form#notification-form textarea{ display: none; width: 360px; margin: 20px 10px 5px; border: 1px solid #aaa; height: 5em; }
   .post-content{ display: none; text-align: right; margin-right: 10px; }
-  #notifications-list{ list-style: none; height: 360px; overflow: auto; }
+  .notifications-overflow{ height: 360px; overflow: auto; }
+  #notifications-list{ list-style: none; }
   #notifications-list li.notification{ font-size: 10px; margin: 20px 10px; height: 40px }
   #notifications-list li.notification .userpic{ width: 32px; height: 32px; margin-right: 10px }
   #notifications-list li.notification .head{ color: #999 }
@@ -25,15 +26,16 @@ style
 h1
   .title Aktivitäten & Nachrichten
 
-form#notification-form( data-bind='submit: postMessage' )
-  span.textarea-caret
-  textarea(data-bind='value: message' )
-  .post-content
-    span#cancel-post.btn Abbrechen
-    button.btn( type='submit' ) Posten
+.notifications-overflow
+  form#notification-form( data-bind='submit: postMessage' )
+    span.textarea-caret
+    textarea(data-bind='value: message' )
+    .post-content
+      span#cancel-post.btn Abbrechen
+      button.btn( type='submit' ) Posten
 
 
-ul.dashboard-list#notifications-list( data-bind='template: { name: \'notificationTemplate\', foreach: notifications }' )
+  ul.dashboard-list#notifications-list( data-bind='template: { name: \'notificationTemplate\', foreach: notifications }' )
 
 script( type='text/html', id='notificationTemplate' )
   <!-- ko if: type === 'Message' -->
@@ -48,7 +50,7 @@ script( type='text/html', id='notificationTemplate' )
   li.notification.sys-notification( data-bind='attr: { \'data-id\': _id, id: _id }' )
     span.lbl.action.pull-left(data-bind='if: message.indexOf(\'creation\') === 0, css: {green: message.match(/^creation|^sharing/), red: message.indexOf(\'unsharing\') === 0 }, text: t(message.split(\'.\')[0]+\'.title\')')
     span.icn.pull-left( data-bind='css: \'icn-\'+docType.replace(/s$/,\'\')' )
-    a.title.live-tipsy-l.pull-left( data-bind='text: docName, attr: {\'original-title\': docName, href: \'/documents/\'+_id}' )
+    a.title.live-tipsy-l.pull-left( data-bind='text: docName, attr: {\'original-title\': docName, href: \'#/\'+docType+\'/\'+_id}', data-link='true' )
     <!-- ko if: typeof(affectedUserName) !== 'undefined' && affectedUserName -->
     span.affected-user.pull-left.lbl( data-bind='text: affectedUserName === \'anybody\' ? t(\'anybody\') : affectedUserName')
     <!-- /ko -->

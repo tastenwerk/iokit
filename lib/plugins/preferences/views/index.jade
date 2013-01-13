@@ -1,7 +1,7 @@
 form.content-padding( action='/preferences', method='post', data-remote='true' )
 
   .main-control
-    button.btn( type='submit' )
+    button( type='submit', style='border:none; background: none; margin-right: 5px; curosr: pointer' )
       i.icn.icn-save
 
   h1.title
@@ -90,3 +90,22 @@ style
   body table.preferences .icn-small:hover {
     opacity: 1;
   }
+
+script
+  iokit.sidebar.find('.active').removeClass('active');
+
+  // the plus icon
+  // adds inputs (for array elements)
+  $('table.preferences .icn-plus').on('click', function(){
+    var input = $(this).closest('td').find('input:first').clone();
+    $(this).prev().prev('input').before( input.after('<i class="icn icn-small icn-minus" />').after( '<br/>' ) );
+    $(this).prev().prev('input').val('').focus();
+  });
+
+  // the minus icon
+  // removes inputs (for array elements)
+  $('table.preferences .icn-minus').live('click', function(){
+    $(this).prev('input').remove();
+    $(this).next('br').remove();
+    $(this).remove();
+  });

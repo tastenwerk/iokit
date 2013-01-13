@@ -1,23 +1,12 @@
 #iokit-top-panel.iokit-top-panel
-  a#userpic( data-user-img=currentUser._id, href='/users/'+currentUser._id, data-remote='true' )
-    img( class='userpic-#{currentUser._id}', src='/users/'+currentUser._id+'/pic?size=24', style='width:24px;height:24px' )
   #useractions.useractions
-    .dropdown.pull-right
-      a( href='#', data-toggle='dropdown' )
-        span &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        span.caret.white
-      ul.dropdown-menu.right-hand
-        li
-          a( href='/users/#{currentUser._id}', data-remote='true' )
-            =t('user.my_profile')
-        li
-          a( href='/preferences', data-remote='true' )
-            =t('preferences.title')
-        li.spacer
-        li
-          a( href='/logout' )
-            =t('user.logout')
-    a.pull-right( href='/users/'+currentUser._id, data-remote='true' )
+    a.pull-right.logout( href='/logout' )
+      span.icn.icn-power.white
+
+    a#userpic.pull-right( data-user-img=currentUser._id, href='#/users/'+currentUser._id, data-link='true' )
+      img( class='userpic-#{currentUser._id}', src='/users/'+currentUser._id+'/pic?size=24', style='width:24px;height:24px' )
+
+    a.pull-right( href='#/users/'+currentUser._id, data-link='true' )
       =currentUser.name.full
 
   #desktop-control(style="display:none")
@@ -39,11 +28,11 @@
 #iokit-advanced-panel.iokit-advanced-panel
   ul.adv-actions
     li
-      a.live-tipsy.iokit-link-action( href='/trash-basket' )
+      a.live-tipsy.iokit-link-action( href='#/trash-basket', data-link='true' )
         span.icn.icn-trash
         span=t('trash.title')
     li
-      a.live-tipsy.iokit-link-action( href='/settings' )
+      a.live-tipsy.iokit-link-action( href='#/preferences', data-link='true' )
         span.icn.icn-preferences
         span=t('preferences.title')
 
