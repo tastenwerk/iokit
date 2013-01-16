@@ -3,30 +3,36 @@
  * adds actions to the iokit-sidebar on the left hand side
  */
 
-$(function(){
+iokit = typeof(iokit) !== 'undefined' && iokit || {};
 
-  $.fn.iokitSidebar = function iokitSidebar( options ){
+iokit.sidebar = {
 
-    var sidebar = this;
-
-    $(this).find('li').on('click', function(e){
-
-      var self = this;
-      e.preventDefault();
-
-      $(sidebar).find('.active').removeClass('active').removeClass('loading');
-      $(this).addClass('active loading');
-      $(this).find('img').hide().after('<div class="loader"><div class="circle"><div class="circle"><div class="circle"><div class="circle"><div class="circle"></div>');
-
-      iokit.main.load( $(self).find('a').attr('href'), function(){
-        $(self).find('.loader').remove().end().find('img').fadeIn(300);
-        $(self).removeClass('loading');
+  load: function( iconId, url ){
+    console.log(iconId, url);
+    $(this.elem).find('.active').removeClass('active').removeClass('loading');
+    $(iconId).addClass('active loading')
+      .find('img').hide().after('<div class="loader"><div class="circle"><div class="circle"><div class="circle"><div class="circle"><div class="circle"></div>');
+    iokit.main.load( url, function(){
+        $(iconId).find('.loader').remove().end().find('img').fadeIn(300);
+        setTimeout( function(){ $(iconId).removeClass('loading'); }, 300 );
       });
+
+  },
+
+  init: function(){
+
+    this.elem = $('#iokit-sidebar');
+
+    $(iokit.sidebar.elem).find('li').on('click', function(e){
+
+      e.preventDefault();
+      iokit.sidebar.load( this, $(this).find('a').attr('href') )
 
     });
 
-    $(this).find('li:first').click();
+    if( location.hash.length === 0 )
+    $(iokit.sidebar.elem).find('li:first').click();
 
-  };
+  }
 
-});
+};

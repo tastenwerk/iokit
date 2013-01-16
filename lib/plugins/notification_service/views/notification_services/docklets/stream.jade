@@ -50,7 +50,7 @@ script( type='text/html', id='notificationTemplate' )
   li.notification.sys-notification( data-bind='attr: { \'data-id\': _id, id: _id }' )
     span.lbl.action.pull-left(data-bind='if: message.indexOf(\'creation\') === 0, css: {green: message.match(/^creation|^sharing/), red: message.indexOf(\'unsharing\') === 0 }, text: t(message.split(\'.\')[0]+\'.title\')')
     span.icn.pull-left( data-bind='css: \'icn-\'+docType.replace(/s$/,\'\')' )
-    a.title.live-tipsy-l.pull-left( data-bind='text: docName, attr: {\'original-title\': docName, href: \'#/\'+docType+\'/\'+_id}', data-link='true' )
+    a.title.live-tipsy-l.pull-left( data-bind='text: docName, attr: {\'original-title\': docName, href: \'#/\'+docType+\'/\'+docId+\'?fio=true&app=\'+docType}', data-link='true' )
     <!-- ko if: typeof(affectedUserName) !== 'undefined' && affectedUserName -->
     span.affected-user.pull-left.lbl( data-bind='text: affectedUserName === \'anybody\' ? t(\'anybody\') : affectedUserName')
     <!-- /ko -->
