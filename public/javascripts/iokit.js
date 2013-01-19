@@ -380,7 +380,8 @@ $(function(){
     })
   }
 
-  iokit.sidebar.init();
+  if( iokit.sidebar )
+    iokit.sidebar.init();
   iokit.setupAjaxHelpers();
 
   if( location.hash.length > 0 )

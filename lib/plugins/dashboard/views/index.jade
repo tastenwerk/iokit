@@ -10,21 +10,22 @@
           -for( var j=0, docklet; docklet=iokit.plugins[i].docklets[j]; j++ )
             -dockletPath = iokit.plugins[i].name+'/docklets/'+docklet;
             li(data-docklet-path=dockletPath)
-              span.icn.icn-checkbox.pull-left( class=(currentUser.preferences.docklets.indexOf( dockletPath ) >= 0 ? 'checked' : null) )
+              span.icn.icn-checkbox.pull-left( class=(currentUser.preferences.docklets && currentUser.preferences.docklets.indexOf( dockletPath ) >= 0 ? 'checked' : null) )
               span=t(iokit.plugins[i].name+'.docklets.'+docklet+'.title')
 
   h1.title Dashboard
 
   .docklets-container.content-padding-w-overflow(style='top: 47px')
-    -currentUser.preferences.docklets.forEach(function( docklet ){
-      .iokit-docklet(id=docklet.replace(/\//g,'-'))
-        .loader
-          .circle
-          .circle
-          .circle
-          .circle
-          .circle
-    -})
+    if( currentUser.preferences.docklets )
+      -currentUser.preferences.docklets.forEach(function( docklet ){
+        .iokit-docklet(id=docklet.replace(/\//g,'-'))
+          .loader
+            .circle
+            .circle
+            .circle
+            .circle
+            .circle
+      -})
 
 script
   $('.dashboard-plugin .select-docklets .icn-checkbox').on('click', function(){
@@ -39,6 +40,7 @@ script
     }
   });
 
--each docklet in currentUser.preferences.docklets
-  script
-    $('#' + '#{docklet.replace(/\//g,'-')}').load( iokit.host.master + '/#{docklet}' )
+if( currentUser.preferences.docklets )
+  -each docklet in currentUser.preferences.docklets
+    script
+      $('#' + '#{docklet.replace(/\//g,'-')}').load( iokit.host.master + '/#{docklet}' )

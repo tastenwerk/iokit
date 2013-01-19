@@ -14,10 +14,16 @@ function DocumentBaseModel( self ){
      */
     formattedDate: function formattedDate(date, human){
       date = self[date];
-      if( human )
+      if( typeof(human) === 'boolean' && human )
         return moment(date).fromNow();
+      else if( human )
+        return moment(date).format(human);
       else
         return moment(date).format('DD.MM.YYYY HH:MM');
+    },
+
+    t: function( text ){
+      return $.i18n.t( text );
     },
     
     // -------------------------------------------------------- PUBLIC STATUS */

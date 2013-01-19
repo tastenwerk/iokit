@@ -24,6 +24,7 @@
   "last_edited_at": "Zuletzt geändert am __date__",
   "by": "von",
   "of": "von",
+  "never": "nie",
   "undo": "rückgängig machen",
   "history": "Verlauf",
   "finished": "fertig",
@@ -43,7 +44,10 @@
   },
   "removing": {
     "ok": "__name__ wurde vom System gelöscht",
-    "permanent_ok": "__name__ wurde unwiederruflich vom System gelöscht",
+    "permanent": {
+      "ok": "__name__ wurde unwiederruflich vom System gelöscht",
+      "failed": "__name__ konnte nicht unwiederruflich vom System gelöscht werden"
+    },
     "failed": "Löschen fehlgeschlagen",
     "denied": "Sie besitzen nicht ausreichend Rechte um dieses Dokument zu löschen",
     "undo": "Rückgängig machen"
@@ -80,6 +84,11 @@
     "registration": {
       "ok": "Die Registrierung abgeschlossen",
       "failed": "Registrierung konnte nicht durchgeführt werden. Bitte kontaktieren Sie den Support"
+    },
+    "suspending": {
+      "failed": "Account __name__ konnte nicht suspendiert werden. Grund: ",
+      "ok": "Account __name__ wurde suspendiert",
+      "restored": "Account __name__ wurde wieder aktiviert"
     },
     "saving": {
       "ok": "Profileinstellungen gespeichert",
@@ -180,6 +189,14 @@
   "advanced": {
     "click_here_for_adv": "Hier klicken um erweiterte Einstellungen und Suche anzuzeigen",
     "click_here_to_close": "Einstellungen und Suche schließen"
+  },
+  "comments": {
+    "title": "Kommentare",
+    "post": "Abschicken",
+    "posting": {
+      "ok": "Kommentar wurde gespeichert",
+      "failed": "Kommentar konnte nicht gespeichert werden"
+    }
   },
   "search": {
     "title": "Suche",

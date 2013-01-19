@@ -1,0 +1,10 @@
+script( type='text/html', id='commentFormTemplate' )
+
+  form.comment-item( data-bind='submit: saveComment' )
+    img.pull-left.userpic( src='/users/'+currentUser._id+'/pic' )
+    .content
+      a( src='/users/'+currentUser._id )=currentUser.name.full
+      br
+      textarea( data-bind='value: content' )
+      .info
+        button.btn( type='submit' )=t('comments.post')

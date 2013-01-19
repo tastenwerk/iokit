@@ -49,6 +49,14 @@ html
 .hide
   display: none
 
+.clearfix
+  zoom: 1
+  &:before, &:after
+    content: ""
+    display: table
+  &:after
+    clear: both
+
 .desc
   color: #777
   font-size: 12px
@@ -62,6 +70,8 @@ html
 
 table
   font-size: 12px
+  td.right
+    text-align: right
 
 fieldset
   border: none
@@ -99,8 +109,8 @@ form
       margin: 5px
 
 .userpic
-  border: 3px solid IO_WHITE
-  box-shadow: -1px 1px 3px IO_BLACK
+  //border: 3px solid IO_WHITE
+  //box-shadow: -1px 1px 3px IO_BLACK
   position: relative
   .editpic
     background-color: rgba( 0, 0, 0, 0.5 )
@@ -632,6 +642,9 @@ input[type=text],input[type=password]
     a
       text-decoration: none
       color: #333
+      float: left
+      width: 200px
+      TEXT_OVERFLOW()
   ul
     list-style: none
     margin: 0 0 0 10px
@@ -782,13 +795,44 @@ input[type=text],input[type=password]
     right: 0
   .side-tabs-content
     div
-      padding: 10px
+      padding: 0 10px
       font-size: 12px
       label.pull-left
         width: 100px
         color: #777
       p
         margin: 10px 0
+
+  .comments
+    margin: 0
+    div
+      padding: 0
+    h1
+      font-size: 14px
+      text-transform: uppercase
+
+
+.comments-list
+  list-style: none
+
+.comment-item
+  margin: 5px 0
+  .userpic
+    width: 24px
+    height: 24px
+  .content
+    margin: 5px 0 0 30px
+    .info
+      font-size: 10px
+      color: #999
+
+  textarea
+    border: 1px solid #ddd
+    width: 100%
+    height: 5em
+
+
+
 
 
 

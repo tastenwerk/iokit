@@ -1,0 +1,9 @@
+script( type='text/html', id='commentsListTemplate' )
+  li.clearfix.comment-item( data-bind='attr: { \'data-id\': _id, id: _id }' )
+    img.pull-left.userpic( data-bind='attr: { src: \'/users/\'+_user._id+\'/pic\'}' )
+    .content
+      a( data-bind='text: _user.name.full' )
+      br
+      p( data-bind='text: content' )
+      .info
+        span.pull-right.live-tipsy( data-bind='text: formattedDate(createdAt, true), attr: {\'original-title\': formattedDate(createdAt)}' )

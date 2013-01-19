@@ -211,6 +211,18 @@ video {
 .icn.icn-history {
   background-position: -112px -32px;
 }
+.icn.icn-email {
+  background-position: -80px -80px;
+}
+.icn.icn-user {
+  background-position: 0px -32px;
+}
+.icn.icn-user.role-editor {
+  background-position: -16px -32px;
+}
+.icn.icn-user.role-admin {
+  background-position: -32px -32px;
+}
 .icn.white {
   background-image: url("/images/icons/iokit-icons16x16w.png");
 }
@@ -733,6 +745,17 @@ html {
 .hide {
   display: none;
 }
+.clearfix {
+  zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
 .desc {
   color: #777;
   font-size: 12px;
@@ -746,6 +769,9 @@ html {
 }
 table {
   font-size: 12px;
+}
+table td.right {
+  text-align: right;
 }
 fieldset {
   border: none;
@@ -783,8 +809,6 @@ form label.pull-left {
   margin: 5px;
 }
 .userpic {
-  border: 3px solid #f8f8f8;
-  box-shadow: -1px 1px 3px #333;
   position: relative;
 }
 .userpic .editpic {
@@ -1420,6 +1444,11 @@ input[type=password]:hover {
 .iokit-tree li a {
   text-decoration: none;
   color: #333;
+  float: left;
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .iokit-tree ul {
   list-style: none;
@@ -1633,7 +1662,7 @@ input[type=password]:hover {
   right: 0;
 }
 #info-modal .side-tabs-content div {
-  padding: 10px;
+  padding: 0 10px;
   font-size: 12px;
 }
 #info-modal .side-tabs-content div label.pull-left {
@@ -1642,6 +1671,38 @@ input[type=password]:hover {
 }
 #info-modal .side-tabs-content div p {
   margin: 10px 0;
+}
+#info-modal .comments {
+  margin: 0;
+}
+#info-modal .comments div {
+  padding: 0;
+}
+#info-modal .comments h1 {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.comments-list {
+  list-style: none;
+}
+.comment-item {
+  margin: 5px 0;
+}
+.comment-item .userpic {
+  width: 24px;
+  height: 24px;
+}
+.comment-item .content {
+  margin: 5px 0 0 30px;
+}
+.comment-item .content .info {
+  font-size: 10px;
+  color: #999;
+}
+.comment-item textarea {
+  border: 1px solid #ddd;
+  width: 100%;
+  height: 5em;
 }
 #info-modal-caret {
   position: absolute;
