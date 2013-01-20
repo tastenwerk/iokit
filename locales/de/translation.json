@@ -29,6 +29,7 @@
   "history": "Verlauf",
   "finished": "fertig",
   "not_found": "Dokument nicht gefunden",
+  "insufficient_rights": "Nicht genügend Zugriffsrechte auf dieses Objekt",
   "select_all": "Alle markieren",
   "delete_selected": "Markierte Dokumente löschen",
   "edit_selected": "Markiertes Dokument bearbeiten",
@@ -196,6 +197,14 @@
     "posting": {
       "ok": "Kommentar wurde gespeichert",
       "failed": "Kommentar konnte nicht gespeichert werden"
+    },
+    "saving": {
+      "ok": "Kommentar wurde gespeichert",
+      "failed": "Kommentar konnte nicht gespeichert werden"
+    },
+    "removing": {
+      "ok": "Kommentar wurde gelöscht",
+      "failed": "Kommentar konnte nicht gelöscht werden"
     }
   },
   "search": {

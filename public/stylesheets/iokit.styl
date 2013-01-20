@@ -795,7 +795,6 @@ input[type=text],input[type=password]
     right: 0
   .side-tabs-content
     div
-      padding: 0 10px
       font-size: 12px
       label.pull-left
         width: 100px
@@ -817,14 +816,27 @@ input[type=text],input[type=password]
 
 .comment-item
   margin: 5px 0
+  padding: 5px
   .userpic
     width: 24px
     height: 24px
+  .actions
+    float: right
+    a
+      cursor: pointer
+      opacity: 0.5
+      &:hover
+        opacity: 1
   .content
     margin: 5px 0 0 30px
     .info
       font-size: 10px
       color: #999
+  &:hover
+    background: rgba(0,0,0,0.05)
+
+  .content-edit
+    display: none
 
   textarea
     border: 1px solid #ddd

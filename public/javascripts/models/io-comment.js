@@ -12,7 +12,7 @@ IOComment = function( attrs, parent ){
     else
       self[i] = attrs[i];
 
-  self.saveComment = function(){
+  self.saveComment = function( form ){
     if( !self._id )
       $.ajax({ url: '/documents/'+parent._id+'/comments',
                type: 'post',
@@ -25,10 +25,51 @@ IOComment = function( attrs, parent ){
                 if( response.success ){
                   self._id = response.commentId;
                   self._user = response._user;
-                  parent.comments.push( self );
+                  parent.comments.unshift( self );
                 }
+                iokit.notify( response.flash );
                }
-      });  
+      });
+    else
+      $.ajax({ url: '/documents/'+parent._id+'/comments/'+self._id,
+              data: { _csrf: $('#_csrf').val(), comment: { content: self.content() } },
+              type: 'put',
+              success: function( response ){
+                if( response.success ){
+                  var elem = $(form).closest('.comment-item');
+                  self.toggleCommentForm( elem );
+                }
+                iokit.notify( response.flash );
+
+              }
+      });
   };
+
+  self.removeComment = function(){
+    $.ajax({  url: '/documents/'+parent._id+'/comments/'+self._id,
+              data: { _csrf: $('#_csrf').val() },
+              type: 'delete',
+              success: function( response ){
+                if( response.success )
+                  parent.comments.remove( self );
+                iokit.notify( response.flash );
+              } 
+    });
+  };
+
+  self.toggleEditComment = function( obj, e ){
+    self.toggleCommentForm( $(e.target).closest('.comment-item') );
+  };
+
+  self.toggleCommentForm = function( elem ){
+    console.log(elem);
+    elem.find('.content-view').toggle();
+    elem.find('.content-edit').slideToggle(200);
+    setTimeout(function(){ elem.find('textarea').focus(); }, 200);
+  }
+
+  self.simpleFormattedContent = ko.computed( function(){
+    return self.content().replace(/\n/g, "<br />");
+  });
 
 }

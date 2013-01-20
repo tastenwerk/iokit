@@ -1662,7 +1662,6 @@ input[type=password]:hover {
   right: 0;
 }
 #info-modal .side-tabs-content div {
-  padding: 0 10px;
   font-size: 12px;
 }
 #info-modal .side-tabs-content div label.pull-left {
@@ -1687,10 +1686,21 @@ input[type=password]:hover {
 }
 .comment-item {
   margin: 5px 0;
+  padding: 5px;
 }
 .comment-item .userpic {
   width: 24px;
   height: 24px;
+}
+.comment-item .actions {
+  float: right;
+}
+.comment-item .actions a {
+  cursor: pointer;
+  opacity: 0.5;
+}
+.comment-item .actions a:hover {
+  opacity: 1;
 }
 .comment-item .content {
   margin: 5px 0 0 30px;
@@ -1698,6 +1708,12 @@ input[type=password]:hover {
 .comment-item .content .info {
   font-size: 10px;
   color: #999;
+}
+.comment-item:hover {
+  background: rgba(0,0,0,0.05);
+}
+.comment-item .content-edit {
+  display: none;
 }
 .comment-item textarea {
   border: 1px solid #ddd;

@@ -1,9 +1,21 @@
 script( type='text/html', id='commentsListTemplate' )
+  // ko if: typeof(deletedAt) === 'undefined' || !deletedAt
   li.clearfix.comment-item( data-bind='attr: { \'data-id\': _id, id: _id }' )
     img.pull-left.userpic( data-bind='attr: { src: \'/users/\'+_user._id+\'/pic\'}' )
     .content
+      .actions( data-bind='if: _user._id === "#{currentUser._id}" || #{currentUser.roles.indexOf("manager") >= 0}')
+        a( data-bind='click: toggleEditComment')
+          span.icn.icn-pencil
+        a( data-bind='click: removeComment')
+          span.icn.icn-trash
       a( data-bind='text: _user.name.full' )
       br
-      p( data-bind='text: content' )
+      p.content-view( data-bind='html: simpleFormattedContent' )
+      form.content-edit( data-bind='submit: saveComment' )
+        textarea( data-bind='value: content')
+        .info
+          a.btn( type='click: toggleEditComment')=t('cancel')
+          button.btn( type='submit' )=t('save')
       .info
-        span.pull-right.live-tipsy( data-bind='text: formattedDate(createdAt, true), attr: {\'original-title\': formattedDate(createdAt)}' )
+        span.pull-right.live-tipsy( data-bind='text: formattedDate("createdAt", true), attr: {\'original-title\': formattedDate("createdAt")}' )
+  // /ko

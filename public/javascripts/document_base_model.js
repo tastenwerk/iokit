@@ -13,13 +13,13 @@ function DocumentBaseModel( self ){
      * @param {Boolean} [human] - human friendly format (from now, until)
      */
     formattedDate: function formattedDate(date, human){
-      date = self[date];
+      date = typeof(self[date]) === 'function' ? self[date]() : self[date];
       if( typeof(human) === 'boolean' && human )
         return moment(date).fromNow();
       else if( human )
         return moment(date).format(human);
       else
-        return moment(date).format('DD.MM.YYYY HH:MM');
+        return moment(date).format('DD.MM.YYYY HH:mm');
     },
 
     t: function( text ){
