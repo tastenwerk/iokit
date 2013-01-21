@@ -1,5 +1,5 @@
 script( type='text/html', id='commentFormTemplate' )
-  if( typeof(currentUser) !== 'undefined' )
+  if( typeof(currentUser) !== 'undefined' && currentUser )
     form.comment-item( data-bind='submit: saveComment' )
       img.pull-left.userpic( src='/users/'+currentUser._id+'/pic' )
       .content
