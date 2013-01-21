@@ -384,6 +384,13 @@ $(function(){
     iokit.sidebar.init();
   iokit.setupAjaxHelpers();
 
+  iokit.usersCache = {};
+  $.getJSON( '/users/friends.json?include_self=true', function( response ){
+    if( response.success )
+      for( var i in response.users )
+        iokit.usersCache[response.users[i]._id] = response.users[i];
+  });
+
   if( location.hash.length > 0 )
     iokit.loadRemoteAfterHashChange();
 

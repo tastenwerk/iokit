@@ -194,6 +194,9 @@
   "comments": {
     "title": "Kommentare",
     "post": "Abschicken",
+    "edit": "Kommentar bearbeiten",
+    "remove": "Kommentar entfernen",
+    "follow_up": "Antwort schreiben",
     "posting": {
       "ok": "Kommentar wurde gespeichert",
       "failed": "Kommentar konnte nicht gespeichert werden"

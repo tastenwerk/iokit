@@ -55,18 +55,18 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="22.627417"
-     inkscape:cx="-32.900962"
-     inkscape:cy="9.2335426"
+     inkscape:zoom="2.56"
+     inkscape:cx="109.71373"
+     inkscape:cy="106.44266"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:snap-global="false"
      inkscape:window-width="1280"
      inkscape:window-height="752"
-     inkscape:window-x="1"
+     inkscape:window-x="0"
      inkscape:window-y="0"
-     inkscape:window-maximized="0"
+     inkscape:window-maximized="1"
      showguides="true"
      inkscape:guide-bbox="true">
     <inkscape:grid
@@ -100,7 +100,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -161,59 +161,55 @@
          inkscape:connector-curvature="0" />
     </g>
     <g
-       id="g4864"
-       transform="matrix(0.80985817,0,0,0.80985817,22.768788,169.0882)">
+       id="g4493"
+       transform="matrix(0.46933176,0.08854465,-0.09046194,0.47949433,312.6546,413.12509)"
+       inkscape:export-filename="/Users/zerha/devel/tw/tas10/tas10box/vendor/assets/images/tas10-icons_16x16.png"
+       inkscape:export-xdpi="44.996399"
+       inkscape:export-ydpi="44.996399"
+       style="fill:#000000">
+      <path
+         style="fill:#000000;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m -270.60264,1059.4528 4.89462,3.4702"
+         id="path4454"
+         inkscape:connector-curvature="0" />
       <g
-         style="fill:#000000"
-         inkscape:export-ydpi="44.996399"
-         inkscape:export-xdpi="44.996399"
-         inkscape:export-filename="/Users/zerha/devel/tw/tas10/tas10box/vendor/assets/images/tas10-icons_16x16.png"
-         transform="matrix(0.5795234,0.10933353,-0.11170096,0.59207198,357.94639,301.33288)"
-         id="g4493">
+         id="g4489"
+         style="fill:#000000">
         <path
            inkscape:connector-curvature="0"
-           id="path4454"
-           d="m -270.60264,1059.4528 4.89462,3.4702"
-           style="fill:#000000;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-        <g
-           style="fill:#000000"
-           id="g4489">
-          <path
-             style="fill:#000000;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-             d="m -282.34447,1080.8285 5.3392,-2.3438 14.45943,-20.3942 -4.89462,-3.4703 -14.45943,20.3943 z"
-             id="path4449"
-             inkscape:connector-curvature="0" />
-          <path
-             inkscape:transform-center-y="0.14676739"
-             inkscape:transform-center-x="-0.47878343"
-             transform="matrix(1.2326675,-0.37310882,0.41156872,1.1174784,55.066202,907.00674)"
-             d="m -290.53382,53.734514 c 0.0667,-0.0067 1.98733,2.660684 1.95978,2.721847 -0.0275,0.06116 -3.29788,0.390737 -3.33708,0.3363 -0.0392,-0.05444 1.31055,-3.051421 1.3773,-3.058147 z"
-             inkscape:randomized="0"
-             inkscape:rounded="0.02"
-             inkscape:flatsided="true"
-             sodipodi:arg2="-0.62403641"
-             sodipodi:arg1="-1.671234"
-             sodipodi:r2="0.5269683"
-             sodipodi:r1="1.9364232"
-             sodipodi:cy="55.661179"
-             sodipodi:cx="-290.33966"
-             sodipodi:sides="3"
-             id="path4470"
-             style="fill:#000000;fill-opacity:1;stroke:#00000f;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-             sodipodi:type="star" />
-        </g>
+           id="path4449"
+           d="m -282.34447,1080.8285 5.3392,-2.3438 14.45943,-20.3942 -4.89462,-3.4703 -14.45943,20.3943 z"
+           style="fill:#000000;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+        <path
+           sodipodi:type="star"
+           style="fill:#000000;fill-opacity:1;stroke:#00000f;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="path4470"
+           sodipodi:sides="3"
+           sodipodi:cx="-290.33966"
+           sodipodi:cy="55.661179"
+           sodipodi:r1="1.9364232"
+           sodipodi:r2="0.5269683"
+           sodipodi:arg1="-1.671234"
+           sodipodi:arg2="-0.62403641"
+           inkscape:flatsided="true"
+           inkscape:rounded="0.02"
+           inkscape:randomized="0"
+           d="m -290.53382,53.734514 c 0.0667,-0.0067 1.98733,2.660684 1.95978,2.721847 -0.0275,0.06116 -3.29788,0.390737 -3.33708,0.3363 -0.0392,-0.05444 1.31055,-3.051421 1.3773,-3.058147 z"
+           transform="matrix(1.2326675,-0.37310882,0.41156872,1.1174784,55.066202,907.00674)"
+           inkscape:transform-center-x="-0.47878343"
+           inkscape:transform-center-y="0.14676739" />
       </g>
-      <path
-         inkscape:connector-curvature="0"
-         id="path4860"
-         d="m 74.183078,905.70066 4.166879,4.23001"
-         style="fill:#ffffff;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-      <path
-         style="fill:#ffffff;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="m 82.201164,898.12452 4.166879,4.23001"
-         id="path4862"
-         inkscape:connector-curvature="0" />
     </g>
+    <path
+       style="fill:#ffffff;stroke:#ffffff;stroke-width:0.80985814px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 82.84656,902.57728 3.374581,3.42571"
+       id="path4860"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4862"
+       d="m 89.340072,896.44168 3.374581,3.42571"
+       style="fill:#ffffff;stroke:#ffffff;stroke-width:0.80985814px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
     <g
        id="g6611"
        transform="translate(-48.707731,16.020351)">
@@ -1304,5 +1300,13 @@
        inkscape:export-filename="/Users/zerha/devel/tw/node_modules/iokit/public/images/user.png"
        inkscape:export-xdpi="722.07001"
        inkscape:export-ydpi="722.07001" />
+    <image
+       width="12.383245"
+       height="9.2874346"
+       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAASCAYAAABB7B6eAAAABHNCSVQICAgIfAhkiAAAAPVJREFU OI21lWEVgkAQhL+1gDSQBl4EIhjBCEbQBkYwAhFoIBGMgAnGHxzPewcenOK+t/92Z5mZ28UksTTM zElqFzcAm4XAhZldgXsOOACSkgk4oAXUl6frR/0z4EegG8BXGwAUwC0E/naAxSabmQNqYPdB1Ytn 1UpqsjwATlNfncjOM62SEnlJ6kzwOBugnJCbEnj8CB4ycuGARXuQEVug8T72saJEMZNi9EzJNzmV 56+eqSQzs5Leu4G9Aw7APih9SipSizYp2czml8A1qK/+cio8ow44jySKw0t2G+hLsmTDu6+aZTB1 m7IOHbhZBjEbZf5wXuCvHmLIh7VoAAAAAElFTkSuQmCC "
+       id="image3165"
+       x="97.696251"
+       y="-985.65594"
+       transform="scale(1,-1)" />
   </g>
 </svg>
