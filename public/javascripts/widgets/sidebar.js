@@ -1,6 +1,6 @@
 /**
  * sidebar widget
- * adds actions to the iokit-sidebar on the left hand side
+ * adds actions to the iokit-menubar on the left hand side
  */
 
 iokit = typeof(iokit) !== 'undefined' && iokit || {};
@@ -21,7 +21,7 @@ iokit.sidebar = {
 
   init: function(){
 
-    this.elem = $('#iokit-sidebar');
+    this.elem = $('#iokit-menubar');
 
     $(iokit.sidebar.elem).find('li').on('click', function(e){
 
@@ -30,8 +30,8 @@ iokit.sidebar = {
 
     });
 
-    if( location.hash.length === 0 )
-    $(iokit.sidebar.elem).find('li:first').click();
+    //if( location.hash.length === 0 )
+    //$(iokit.sidebar.elem).find('li:first').click();
 
   }
 

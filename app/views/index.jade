@@ -2,6 +2,21 @@ extends layout
 
 block content
   include toppanel
+
   #iokit-main-panel
-    #iokit-main-content
+
+    #iokit-account-info
+      a.userpic( data-user-img=currentUser._id, href='#/users/'+currentUser._id, data-link='true' )
+        img( class='userpic-#{currentUser._id}', src='/users/'+currentUser._id+'/pic?size=128' )
+
+      .user-actions
+        a.edit.live-tipsy-r( href='#/users/'+currentUser._id, data-link='true', original-title=t('user.edit_profile') )
+          span.icn.icn-edit2.white
+        a.logout.live-tipsy-r( href='/logout', original-title=t('user.logout') )
+          span.icn.icn-exit.white
+
     include sidebar
+
+    #iokit-main-content.hide
+
+    include dashboard

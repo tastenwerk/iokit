@@ -223,6 +223,12 @@ video {
 .icn.icn-reply {
   background-position: -96px -80px;
 }
+.icn.icn-edit2 {
+  background-position: -112px -80px;
+}
+.icn.icn-exit {
+  background-position: -128px -80px;
+}
 .icn.icn-user {
   background-position: 0px -32px;
 }
@@ -858,41 +864,47 @@ h1 {
   top: 0;
   left: 0;
   right: 0;
-  height: 30px;
-  background-color: #111;
+  height: 40px;
+  background-color: #333;
   padding: 5px;
 }
+#iokit-top-panel #logo {
+  float: left;
+  margin-left: 23px;
+}
+#iokit-top-panel #logo img {
+  width: 40px;
+  height: 40px;
+}
+#iokit-top-panel .dashboard {
+  cursor: pointer;
+}
+#iokit-top-panel #logo-text {
+  font-size: 23px;
+  color: #ccc;
+  margin: 5px 0 0 8px;
+  float: left;
+}
 #iokit-top-panel #useractions {
-  float: right;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  max-width: 50%;
   line-height: 14px;
   text-align: right;
-  padding-top: 5px;
-  margin-top: 1px;
+  font-size: 12px;
+  color: #fff;
 }
 #iokit-top-panel #useractions a {
   color: #fff;
   text-decoration: none;
-  font-size: 12px;
-  line-height: 16px;
   opacity: 0.7;
+}
+#iokit-top-panel #useractions a.site-title {
+  color: #aaa;
+  font-size: 10px;
 }
 #iokit-top-panel #useractions a:hover {
-  opacity: 1;
-}
-#iokit-top-panel #useractions a#userpic {
-  margin: -3px 5px 0 10px;
-}
-#iokit-top-panel #useractions a#userpic img {
-  border: none;
-  width: 28px;
-  height: 28px;
-  border-radius: 1px;
-}
-#iokit-top-panel #useractions a.logout {
-  margin: 1px 5px 0 5px;
-  opacity: 0.7;
-}
-#iokit-top-panel #useractions a.logout:hover {
   opacity: 1;
 }
 #iokit-top-panel #click-here-for-advanced {
@@ -1013,11 +1025,27 @@ h1 {
 }
 #iokit-main-panel {
   position: absolute;
-  top: 40px;
+  top: 50px;
   left: 0;
   right: 0;
   bottom: 0;
-  background: #eaeaea;
+  background-color: #333;
+}
+#iokit-dashboard {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 10px;
+  left: 110px;
+  bottom: 10px;
+  right: 10px;
+  color: #ccc;
+}
+#iokit-dashboard h1.title {
+  font-size: 32px;
+  font-weight: 100;
 }
 #iokit-main-content {
   position: absolute;
@@ -1026,7 +1054,6 @@ h1 {
   right: 10px;
   bottom: 10px;
   background-color: #f8f8f8;
-  box-shadow: -2px 2px 4px #bbb;
 }
 #iokit-main-content h1.title {
   font-size: 18px;
@@ -1044,36 +1071,70 @@ h1 {
   top: 12px;
   left: 10px;
 }
-ul#iokit-sidebar {
+#iokit-account-info {
   position: absolute;
   top: 10px;
+  left: 0;
+}
+#iokit-account-info .userpic,
+#iokit-account-info .userpic img {
+  width: 96px;
+  height: 96px;
+  border: none;
+}
+#iokit-account-info .userpic img {
+  filter: #808080;
+  filter: url("/images/ff-greyscale-filter.svg#grayscale");
+  -webkit-filter: grayscale(1);
+  -o-filter: grayscale(100%);
+}
+#iokit-account-info .user-actions {
+  background-color: #222;
+  border-bottom: 1px solid #000;
+  margin-top: -5px;
+  height: 24px;
+  width: 100%;
+}
+#iokit-account-info .user-actions a {
+  float: left;
+  margin: 2px 0;
+  opacity: 0.3;
+  padding: 0 10px;
+}
+#iokit-account-info .user-actions a.edit {
+  border-right: 1px solid #555;
+}
+#iokit-account-info .user-actions a:hover {
+  opacity: 1;
+}
+ul#iokit-menubar {
+  position: absolute;
+  top: 150px;
   left: 10px;
   bottom: 10px;
   list-style: none;
 }
-ul#iokit-sidebar li {
+ul#iokit-menubar li {
   margin: 0 5px 10px 5px;
   padding: 15px;
   width: 30px;
   border-radius: 1px;
   text-align: center;
 }
-ul#iokit-sidebar li img.icon {
+ul#iokit-menubar li img.icon {
   background-size: 24px;
   width: 24px;
   height: 24px;
   opacity: 0.7;
 }
-ul#iokit-sidebar li.active {
-  background: #f8f8f8;
-  box-shadow: -2px 2px 2px #bbb;
+ul#iokit-menubar li.active {
   border-bottom-left-radius: 3px;
   border-top-left-radius: 3px;
 }
-ul#iokit-sidebar li.active img.icon {
+ul#iokit-menubar li.active img.icon {
   opacity: 0.8;
 }
-ul#iokit-sidebar li.loading {
+ul#iokit-menubar li.loading {
   height: 28px;
 }
 .content-padding {
@@ -1368,21 +1429,17 @@ input[type=password]:focus,
 input[type=text]:hover,
 input[type=password]:hover {
   border: 1px solid #bbb;
-  box-shadow: -1px 1px 2px rgba(0,0,0,0.3) inset;
   outline: medium none;
   transition: none 0s ease 0s;
 }
 .iokit-docklet {
-  width: 100px;
-  height: 100px;
-  background-color: #f5f5f5;
-  background-image: -moz-linear-gradient(center top, #f5f5f5, #f1f1f1);
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#f1f1f1));
-  background-repeat: repeat-x;
-  background-repeat: repeat-x;
-  box-shadow: -1px 1px 4px rgba(0,0,0,0.5);
+  width: 200px;
+  height: 200px;
   position: relative;
+  float: left;
   margin: 5px;
+  color: #fff;
+  padding: 20px;
 }
 .iokit-docklet .loader {
   position: absolute;
@@ -1391,12 +1448,16 @@ input[type=password]:hover {
   right: 0;
   bottom: 0;
   height: 40px;
+  color: #fff;
 }
-.iokit-docklet h1 {
-  font-size: 18px;
-  font-weight: 300;
-  border-bottom: 1px solid #ddd;
-  padding: 5px 10px;
+.iokit-docklet h1.messages-count {
+  font-size: 40px;
+  font-weight: 100;
+  margin-bottom: 5px;
+}
+.iokit-docklet h2.messages-text {
+  font-size: 14px;
+  font-weight: 100;
 }
 .iokit-docklet .action-btn {
   position: absolute;

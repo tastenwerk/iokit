@@ -92,6 +92,7 @@ var settings_json = [
 '  },',
 '  "userRoles": ["manager", "user"],',
 '  "mailerSettings": { "host": "localhost.loc", "port": 25, "domain": "localhost.loc", "authentication": false }',
+'  "mailerFrom": "__appName__ <automailer@IObox.com>',
 '}'
 ].join(eol);
 

@@ -111,6 +111,7 @@ iokit.loadRemoteAfterHashChange = function loadRemoteAfterHashChange(){
   // end deprecated?
 
   iokit.advancedPanel.hide();
+  $('#iokit-dashboard').hide();
   url = url + ( urlarr.length > 1 ? '?'+urlarr[1] : '' );
   if( params.app )
     iokit.sidebar.load( $('#app-icn-'+params.app), url );
@@ -358,6 +359,11 @@ $(function(){
       iokit.advancedPanel.hide();
     else
       iokit.advancedPanel.show();
+  });
+
+  $('#iokit-top-panel .dashboard').on('click', function(e){
+    $('#iokit-main-content').hide();
+    $('#iokit-dashboard').fadeIn(200);
   });
 
   /*

@@ -36,11 +36,11 @@ script
       docklet.attr('id', dockletPath.replace(/\//g,'-') )
       $('.docklets-container').append( docklet );
       $.ajax({ url: '/users/docklets', dataType: 'script', data: {_csrf: iokit._csrf, docklets: dockletPath }, type: 'post' });
-      docklet.load( iokit.host.master + '/' + dockletPath )
+      docklet.load( iokit.host.native + '/' + dockletPath )
     }
   });
 
 if( currentUser.preferences.docklets )
   -each docklet in currentUser.preferences.docklets
     script
-      $('#' + '#{docklet.replace(/\//g,'-')}').load( iokit.host.master + '/#{docklet}' )
+      $('#' + '#{docklet.replace(/\//g,'-')}').load( iokit.host.native + '/#{docklet}' )

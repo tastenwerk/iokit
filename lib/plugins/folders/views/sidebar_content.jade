@@ -10,7 +10,7 @@ script
   var homogeneous = new kendo.data.HierarchicalDataSource({
     transport: {
       read: {
-        url: iokit.host.master+'/folders',
+        url: iokit.host.native+'/folders',
         dataType: 'json'
       }
     },

@@ -45,7 +45,7 @@
                 span.icn.icn-checkbox( class=(user.roles.indexOf(role) >= 0 ? 'checked' : null) )
 
 script
-  iokit.sidebar.find('.active').removeClass('active');
+  $('#iokit-menubar').find('.active').removeClass('active');
   var container = $('#iokit-main-content');
   container.find('.editpic').on('click', function(){
 

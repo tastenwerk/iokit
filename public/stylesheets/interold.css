@@ -276,7 +276,7 @@ body .iokit-tree .delete {
   position: absolute;
   right: 5px;
 }
-body #iokit-sidebar-content .iokit-tree {
+body #iokit-menubar-content .iokit-tree {
   position: absolute;
   top: 50px;
   left: 10px;
@@ -341,7 +341,7 @@ body #iokit-modal #upload-progress {
   width: 300px;
   height: 10px;
 }
-body #iokit-sidebar {
+body #iokit-menubar {
   position: absolute;
   top: 0;
   left: 0;
@@ -350,16 +350,16 @@ body #iokit-sidebar {
   background-color: #333;
   text-align: center;
 }
-body #iokit-sidebar ul {
+body #iokit-menubar ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-body #iokit-sidebar ul li {
+body #iokit-menubar ul li {
   margin: 0;
   padding: 0;
 }
-body #iokit-sidebar a.button {
+body #iokit-menubar a.button {
   float: left;
   position: relative;
   margin-left: -15px;
@@ -370,29 +370,29 @@ body #iokit-sidebar a.button {
   border-radius: 35px;
   padding: 7px 9px;
 }
-body #iokit-sidebar a.button img {
+body #iokit-menubar a.button img {
   border: none;
   width: 28px;
   height: 28px;
   opacity: 0.7;
 }
-body #iokit-sidebar a.button .loader {
+body #iokit-menubar a.button .loader {
   width: 28px;
   height: 28px;
 }
-body #iokit-sidebar a.button .loader .circle {
+body #iokit-menubar a.button .loader .circle {
   width: 28px;
   height: 28px;
 }
-body #iokit-sidebar a.button.sidebar-button-hover,
-body #iokit-sidebar a.button.active {
+body #iokit-menubar a.button.sidebar-button-hover,
+body #iokit-menubar a.button.active {
   background-color: #eee;
 }
-body #iokit-sidebar a.button.sidebar-button-hover .loader .circle:after,
-body #iokit-sidebar a.button.active .loader .circle:after {
+body #iokit-menubar a.button.sidebar-button-hover .loader .circle:after,
+body #iokit-menubar a.button.active .loader .circle:after {
   background: #000;
 }
-body #iokit-sidebar a.button .hover-text {
+body #iokit-menubar a.button .hover-text {
   font-family: SegoeUI, sans-serif;
   display: none;
   position: absolute;
@@ -405,7 +405,7 @@ body #iokit-sidebar a.button .hover-text {
   text-align: left;
   background-color: #444;
 }
-body #iokit-sidebar #active-line {
+body #iokit-menubar #active-line {
   border-top: 2px solid #fff;
   width: 15px;
   height: 2px;
@@ -413,33 +413,33 @@ body #iokit-sidebar #active-line {
   top: 33px;
   right: 0;
 }
-body #iokit-sidebar .sidebar-bottom-content {
+body #iokit-menubar .sidebar-bottom-content {
   position: absolute;
   bottom: 3px;
   left: 0;
   width: 100%;
   height: 20px;
 }
-body #iokit-sidebar .sidebar-bottom-content .small {
+body #iokit-menubar .sidebar-bottom-content .small {
   position: absolute;
   top: 0;
 }
-body #iokit-sidebar .sidebar-bottom-content .small.first {
+body #iokit-menubar .sidebar-bottom-content .small.first {
   left: 2px;
   top: 1px;
 }
-body #iokit-sidebar .sidebar-bottom-content .small.first img {
+body #iokit-menubar .sidebar-bottom-content .small.first img {
   width: 18px;
   height: 18px;
 }
-body #iokit-sidebar .sidebar-bottom-content .small.last {
+body #iokit-menubar .sidebar-bottom-content .small.last {
   right: 2px;
 }
-body #iokit-sidebar .sidebar-bottom-content .small.last img {
+body #iokit-menubar .sidebar-bottom-content .small.last img {
   width: 20px;
   height: 20px;
 }
-body #iokit-sidebar-content,
+body #iokit-menubar-content,
 body .sidebar-content {
   width: 300px;
   position: absolute;
@@ -451,7 +451,7 @@ body .sidebar-content {
   border-right: 1px solid #aaa;
   box-shadow: 3px 0 3px #999;
 }
-body #iokit-sidebar-content h4,
+body #iokit-menubar-content h4,
 body .sidebar-content h4 {
   text-transform: uppercase;
   color: #777;
@@ -460,13 +460,13 @@ body .sidebar-content h4 {
   font-family: 'SegoeUI', sans-serif;
   position: relative;
 }
-body #iokit-sidebar-content h4 .icnbtn,
+body #iokit-menubar-content h4 .icnbtn,
 body .sidebar-content h4 .icnbtn {
   position: absolute;
   right: 5px;
   top: -3px;
 }
-body #iokit-sidebar-content .sidebar-margin,
+body #iokit-menubar-content .sidebar-margin,
 body .sidebar-content .sidebar-margin {
   margin: 10px;
 }

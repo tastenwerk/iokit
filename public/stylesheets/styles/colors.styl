@@ -21,6 +21,12 @@ IO_POS_ABSOLUTE()
   right: 0
   bottom: 0
 
+IO_GREYSCALE()
+  filter: gray
+  filter: url('/images/ff-greyscale-filter.svg#grayscale')
+  -webkit-filter: grayscale(1);
+  -o-filter: grayscale(100%)
+
 IO_GRADIENT(col1, col2)
   background-color: col1;
   background-image: -moz-linear-gradient(center top , col1, col2)

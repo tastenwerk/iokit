@@ -1,13 +1,14 @@
 #iokit-top-panel.iokit-top-panel
+
+  #logo.dashboard
+    img( src='/images/logo_200x200.png')
+  span#logo-text.dashboard box
+
   #useractions.useractions
-    a.pull-right.logout( href='/logout' )
-      span.icn.icn-power.white
-
-    a#userpic.pull-right( data-user-img=currentUser._id, href='#/users/'+currentUser._id, data-link='true' )
-      img( class='userpic-#{currentUser._id}', src='/users/'+currentUser._id+'/pic?size=24', style='width:24px;height:24px' )
-
     a.pull-right( href='#/users/'+currentUser._id, data-link='true' )
       =currentUser.name.full
+    br
+    a.site-title( href='/' )=iokit.config.site.title
 
   #desktop-control(style="display:none")
     a#minimize-window-button( href='#' )

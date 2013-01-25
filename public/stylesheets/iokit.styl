@@ -149,35 +149,43 @@ h1
   top: 0
   left: 0
   right: 0
-  height: 30px
-  background-color: IO_PITCHBLACK
+  height: 40px
+  background-color: IO_BLACK
   padding: 5px
+
+  #logo
+    float: left
+    margin-left: 23px
+    img
+      width: 40px
+      height: 40px
+  .dashboard
+    cursor: pointer
+
+  #logo-text
+    font-size: 23px
+    color: #ccc
+    margin: 5px 0 0 8px
+    float: left
+
   #useractions
-    float: right
+    position: absolute
+    top: 15px
+    right: 20px
+    max-width: 50%
     line-height: 14px
     text-align: right
-    padding-top: 5px
-    margin-top: 1px
+    font-size: 12px
+    color: white
     a
       color: white
       text-decoration: none
-      font-size: 12px
-      line-height: 16px
       opacity: 0.7
+      &.site-title
+        color: #aaa
+        font-size: 10px
       &:hover
         opacity: 1
-      &#userpic
-        margin: -3px 5px 0 10px
-        img
-          border: none
-          width: 28px
-          height: 28px
-          border-radius: 1px
-      &.logout
-        margin: 1px 5px 0 5px
-        opacity: 0.7
-        &:hover
-          opacity: 1
 
   #click-here-for-advanced
     text-align: center
@@ -284,11 +292,24 @@ h1
 
 #iokit-main-panel
   position: absolute
-  top: 40px
+  top: 50px
   left: 0
   right: 0
   bottom: 0
-  background: IO_GREY_BG
+  background-color: IO_BLACK
+
+#iokit-dashboard
+  IO_POS_ABSOLUTE()
+  top: 10px
+  left: 110px
+  bottom: 10px
+  right: 10px
+  color: #ccc
+
+  h1.title
+    font-size: 32px
+    font-weight: 100
+
 
 #iokit-main-content
   position: absolute
@@ -297,7 +318,7 @@ h1
   right: 10px
   bottom: 10px
   background-color: IO_WHITE
-  box-shadow: -2px 2px 4px #bbb
+  //box-shadow: -2px 2px 4px #bbb
 
   h1.title
     font-size: 18px
@@ -314,10 +335,40 @@ h1
     left: 10px
 
 
-
-ul#iokit-sidebar
+#iokit-account-info
   position: absolute
   top: 10px
+  left: 0
+
+  .userpic, .userpic img
+    width: 96px
+    height: 96px
+    border: none
+  .userpic img
+    IO_GREYSCALE()
+
+  .user-actions
+    background-color: #222
+    border-bottom: 1px solid #000
+    margin-top: -5px
+    height: 24px
+    width: 100%
+    a
+      float: left
+      margin: 2px 0
+      opacity: 0.3
+      padding: 0 10px
+      &.edit
+        border-right: 1px solid #555
+      &:hover
+        opacity: 1
+
+
+
+
+ul#iokit-menubar
+  position: absolute
+  top: 150px
   left: 10px
   bottom: 10px
   list-style: none
@@ -333,8 +384,6 @@ ul#iokit-sidebar
       height: 24px
       opacity: 0.7
     &.active
-      background: IO_WHITE
-      box-shadow: -2px 2px 2px #bbb
       border-bottom-left-radius: 3px;
       border-top-left-radius: 3px;
       img.icon
@@ -569,18 +618,21 @@ input[type=text],input[type=password]
 
   &:focus, &:hover
     border: 1px solid #bbb;
-    box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.3) inset;
+    //box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.3) inset;
     outline: medium none;
     transition: none 0s ease 0s;
 
 .iokit-docklet
-  width: 100px
-  height: 100px
-  IO_GRADIENT(#F5F5F5, #F1F1F1)
-  background-repeat: repeat-x;
-  box-shadow: -1px 1px 4px rgba(0,0,0,0.5);
+  width: 200px
+  height: 200px
+  //IO_GRADIENT(#F5F5F5, #F1F1F1)
+  //background-repeat: repeat-x;
+  //box-shadow: -1px 1px 4px rgba(0,0,0,0.5);
   position: relative
+  float: left
   margin: 5px
+  color: white
+  padding: 20px
   .loader
     position: absolute
     top: 0
@@ -588,11 +640,14 @@ input[type=text],input[type=password]
     right: 0
     bottom: 0
     height: 40px
-  h1
-    font-size: 18px
-    font-weight: 300
-    border-bottom: 1px solid #ddd
-    padding: 5px 10px
+    color: white
+  h1.messages-count
+    font-size: 40px
+    font-weight: 100
+    margin-bottom: 5px
+  h2.messages-text
+    font-size: 14px
+    font-weight: 100
   .action-btn
     position: absolute
     top: 8px

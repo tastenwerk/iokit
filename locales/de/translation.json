@@ -34,6 +34,7 @@
   "delete_selected": "Markierte Dokumente löschen",
   "edit_selected": "Markiertes Dokument bearbeiten",
   "anybody": "jeder",
+  "duplicate_error": "Ein Dokument mit dem Namen __name__ existiert bereits (gleiche Namen nicht erlaubt)",
   "saving": {
     "ok": "__name__ wurde gespeichert",
     "failed": "__name__ konnte nicht gespeichert werden"
@@ -137,11 +138,31 @@
     "new_passwords_missmatch": "Die eingegebenen Passwörter stimmen nicht überein",
     "password_saved": "Neues Passwort gespeichert"
   },
+  "forgot_password": {
+    "desc": "Sie können Ihr Passwort zurücksetzen, wenn Sie die Email-Adresse Ihres Accounts hier eingeben. <b>Hinweis:</b> Ihr Passwort bleibt unverändert, bis Sie auf den Link in der Email klicken.",
+    "reset_request": "Anfrage auf Passwortzurücksetzen",
+    "reset_request_text": "Hallo,\n\nSie haben eine Anfrage gestellt, dass Ihr Passwort \nzurückgesetzt werden soll. Der folgende Link führt Sie \nzu einer Maske wo Sie ein neues Passwort setzen können.\n\n",
+    "bye": "\n\nIhr __site__-Team",
+    "reset_request_send": "Eine Email wurde an die angegebene Adresse versand.",
+    "email_not_found": "Die angegebene Adresse existiert nicht in unserem System",
+    "key_not_found": "Der Schlüssel oder die Email Adresse passen nicht zusammen",
+    "send": "Senden",
+    "set": "Setzen",
+    "set_desc": "Sie können jetzt ein neues Passwort festlegen.",
+    "reset_finished": "Sie haben Ihr Passwort erfolgreich geändert"
+  },
   "users": {
     "title": "BenutzerInnen"
   },
   "notification_service": {
     "docklets": {
+      "summary": {
+        "title": "Neue Nachrichten",
+        "new_messages": "Neue Nachrichten"
+      },
+      "clock": {
+        "title": "Uhr"
+      },
       "stream": {
         "title": "Persönliche Nachrichten"
       }
