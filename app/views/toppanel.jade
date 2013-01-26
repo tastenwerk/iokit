@@ -17,36 +17,3 @@
       img( src='/images/icons/win_maximize.svg' )
     a#close-window-button( href='#' )
       img( src='/images/icons/win_close.svg' )
-
-  #click-here-for-advanced
-    span.adv-open
-      =t('advanced.click_here_for_adv')
-      span &nbsp; (STRG-F) 
-    span.adv-close
-      =t('advanced.click_here_to_close')
-      span &nbsp; (ESC)
-
-#iokit-advanced-panel.iokit-advanced-panel
-  ul.adv-actions
-    li
-      a.live-tipsy.iokit-link-action( href='#/trash-basket', data-link='true' )
-        span.icn.icn-trash
-        span=t('trash.title')
-    li
-      a.live-tipsy.iokit-link-action( href='#/preferences', data-link='true' )
-        span.icn.icn-preferences
-        span=t('preferences.title')
-
-  form#search-form
-    ul.query-options
-      li.active
-        span=t('search.title')
-      li
-        span=t('search.saved')
-
-    .query
-      button.options
-        span.caret
-      button( type='submit' )
-        span.icn.icn-search
-      input( type='text', name='query' )

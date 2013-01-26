@@ -1,0 +1,15 @@
+ul#iokit-menubar
+  -for( i in iokit.plugins )
+    -if( iokit.plugins[i].sidebarWidget && iokit.pluginAllowed( iokit.plugins[i] ) ) 
+      li( id="app-icn-" + (iokit.plugins[i].sidebarWidget.overrideName || iokit.plugins[i].name ) )
+        a( href=(typeof(iokit.plugins[i].sidebarWidget) === 'object' && iokit.plugins[i].sidebarWidget.href ? iokit.plugins[i].sidebarWidget.href : '/'+iokit.plugins[i].name.toLowerCase()), data-sidebar-remote=(iokit.plugins[i].sidebarWidget.sidebarRemote && iokit.plugins[i].name.toLowerCase()+'/sidebar_content'), rel='tooltip-e' )
+          img.icon.pull-left( src=(typeof(iokit.plugins[i].sidebarWidget) === 'object' && iokit.plugins[i].sidebarWidget.icon ? iokit.plugins[i].sidebarWidget.icon : '/images/app-icons/'+iokit.plugins[i].name.toLowerCase()+'/96x96w.png') )
+          span.pull-left.desc=t((iokit.plugins[i].sidebarWidget.overrideName || iokit.plugins[i].name)+'.title')
+
+  li.spacer
+  -for( i in iokit.plugins )
+    -if( iokit.plugins[i].sidebarBottomWidget && iokit.pluginAllowed( iokit.plugins[i] ) ) 
+      li( id="app-icn-" + (iokit.plugins[i].sidebarBottomWidget.overrideName || iokit.plugins[i].name ) )
+        a( href=(typeof(iokit.plugins[i].sidebarBottomWidget) === 'object' && iokit.plugins[i].sidebarWidget.href ? iokit.plugins[i].sidebarBottomWidget.href : '/'+iokit.plugins[i].name.toLowerCase()), data-sidebar-remote=(iokit.plugins[i].sidebarBottomWidget.sidebarRemote && iokit.plugins[i].name.toLowerCase()+'/sidebar_content'), rel='tooltip-e' )
+          img.icon.pull-left( src=(typeof(iokit.plugins[i].sidebarBottomWidget) === 'object' && iokit.plugins[i].sidebarWidget.icon ? iokit.plugins[i].sidebarBottomWidget.icon : '/images/app-icons/'+iokit.plugins[i].name.toLowerCase()+'/96x96w.png') )
+          span.pull-left.desc=t((iokit.plugins[i].sidebarBottomWidget.overrideName || iokit.plugins[i].name)+'.title')

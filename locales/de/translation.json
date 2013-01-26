@@ -177,7 +177,8 @@
       "add_receipients": "Empfänger Email oder Name",
       "send": "Abschicken",
       "none": "Keine Nachrichten"
-    }
+    },
+    "title": "Nachrichtenstrom"
   },
   "document": {
     "order": {
@@ -260,6 +261,9 @@
     "failed_to_save_rel_path": "Konnte relativen Pfad für __name__ nicht setzen",
     "already_exists_path": "Eine Datei dem Namen __name__ existiert bereits in diesem Pfad"
   },
+  "webelements": {
+    "title": "Webseiten"
+  },
   "web": {
     "title": "Web",
     "pages": "Webseiten",
@@ -297,7 +301,8 @@
       "file_size": "Dateigröße",
       "content_type": "Dateityp",
       "rel_path": "Relativer Pfad",
-      "dimensions": "Dimension"
+      "dimensions": "Dimension",
+      "files_in_total": "Dateien"
     },
     "editor": {
       "bold": "Fett",

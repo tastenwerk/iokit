@@ -921,46 +921,11 @@ h1 {
 #iokit-top-panel:hover #click-here-for-advanced {
   opacity: 1;
 }
-#iokit-advanced-panel {
-  position: absolute;
-  top: 40px;
-  left: 0;
-  right: 0;
-  height: 60px;
-  background-color: #f3f3f3;
-  border-bottom: 1px solid #ddd;
-  box-shadow: 5px 0 10px rgba(0,0,0,0.4);
-  padding: 5px;
-  display: none;
-  z-index: 1;
-}
-#iokit-advanced-panel .adv-actions {
-  list-style: none;
-  width: 150px;
-  float: left;
-}
-#iokit-advanced-panel .adv-actions li {
-  padding: 2px 10px;
-}
-#iokit-advanced-panel .adv-actions a {
-  text-decoration: none;
-  font-size: 12px;
-  color: #555;
-  opacity: 0.7;
-}
-#iokit-advanced-panel .adv-actions a .icn {
-  float: left;
-  margin: 5px 3px 0 0;
-}
-#iokit-advanced-panel .adv-actions a:hover {
-  opacity: 1;
-}
-#iokit-advanced-panel #search-form {
-  float: left;
+#search-container #search-form {
   margin: 0;
   position: relative;
 }
-#iokit-advanced-panel #search-form .query-options {
+#search-container #search-form .query-options {
   list-style: none;
   position: absolute;
   top: 5px;
@@ -968,7 +933,7 @@ h1 {
   width: 460px;
   z-index: 1;
 }
-#iokit-advanced-panel #search-form .query-options li {
+#search-container #search-form .query-options li {
   background: #eaeaea;
   border-top: 1px solid #ddd;
   border-left: 1px solid #ddd;
@@ -977,51 +942,77 @@ h1 {
   float: left;
   font-size: 11px;
 }
-#iokit-advanced-panel #search-form .query-options li:last-child {
+#search-container #search-form .query-options li:last-child {
   border-right: 1px solid #ddd;
 }
-#iokit-advanced-panel #search-form .query-options li.active {
+#search-container #search-form .query-options li.active {
   background: #fff;
 }
-#iokit-advanced-panel #search-form .query {
+#search-container #search-form .query {
   border: 1px solid #ddd;
   background: #fff;
   border-radius: 1px;
-  position: absolute;
-  top: 27px;
-  left: 0;
-  width: 460px;
 }
-#iokit-advanced-panel #search-form .query input {
+#search-container #search-form .query input {
   border: none;
   background: none;
-  width: 400px;
+  width: 500px;
+  font-size: 16px;
 }
-#iokit-advanced-panel #search-form .query input:hover,
-#iokit-advanced-panel #search-form .query input:focus {
+#search-container #search-form .query input:hover,
+#search-container #search-form .query input:focus {
   box-shadow: none;
 }
-#iokit-advanced-panel #search-form .query button {
+#search-container #search-form .query button {
   border: none;
   background: none;
   outline: none;
   float: right;
   margin: 5px 0 0 5px;
+  cursor: pointer;
 }
-#iokit-advanced-panel #search-form .query button.options {
-  width: 16px;
-  height: 16px;
+#search-container #search-form .query button[type=submit] img {
+  width: 24px;
+  height: 24px;
+  opacity: 0.5;
+}
+#search-container #search-form .query button.options {
+  width: 24px;
+  height: 24px;
   position: relative;
 }
-#iokit-advanced-panel #search-form .query button.options .caret {
+#search-container #search-form .query button.options .caret {
   border-color: rgba(0,0,0,0.5) transparent transparent transparent;
   border-style: solid;
   border-width: 5px;
   height: 0;
   width: 0;
   position: absolute;
-  top: 8px;
-  right: 12px;
+  top: 12px;
+  right: 14px;
+}
+#iokit-search-results {
+  list-style: none;
+  margin: 0;
+}
+#iokit-search-results li {
+  margin: 5px 0;
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+}
+#iokit-search-results li .title {
+  margin: 0;
+}
+#iokit-search-results li .updated-date {
+  font-size: 12px;
+  color: #555;
+  margin-top: 4px;
+}
+#iokit-search-results li .icn {
+  margin: 3px 5px 0 0;
+}
+#iokit-search-results li:last-child {
+  border: none;
 }
 #iokit-main-panel {
   position: absolute;
@@ -1038,7 +1029,7 @@ h1 {
   right: 0;
   bottom: 0;
   top: 10px;
-  left: 110px;
+  left: 170px;
   bottom: 10px;
   right: 10px;
   color: #ccc;
@@ -1110,16 +1101,15 @@ h1 {
 ul#iokit-menubar {
   position: absolute;
   top: 150px;
-  left: 10px;
+  left: 0;
   bottom: 10px;
   list-style: none;
 }
 ul#iokit-menubar li {
-  margin: 0 5px 10px 5px;
-  padding: 15px;
-  width: 30px;
-  border-radius: 1px;
-  text-align: center;
+  margin: 0;
+  height: 25px;
+  padding: 2px 5px 2px 24px;
+  min-width: 68px;
 }
 ul#iokit-menubar li img.icon {
   background-size: 24px;
@@ -1127,15 +1117,36 @@ ul#iokit-menubar li img.icon {
   height: 24px;
   opacity: 0.7;
 }
+ul#iokit-menubar li .desc {
+  color: #fff;
+  opacity: 0.3;
+  font-size: 14px;
+  margin: 2px 0 0 10px;
+}
 ul#iokit-menubar li.active {
-  border-bottom-left-radius: 3px;
-  border-top-left-radius: 3px;
+  background-color: #111;
 }
 ul#iokit-menubar li.active img.icon {
   opacity: 0.8;
 }
-ul#iokit-menubar li.loading {
-  height: 28px;
+ul#iokit-menubar li:hover img.icon {
+  opacity: 1;
+}
+ul#iokit-menubar li:hover .desc {
+  opacity: 0.8;
+}
+ul#iokit-menubar li .loader {
+  width: 16px;
+  height: 16px;
+  margin: 4px 0 0 0;
+}
+ul#iokit-menubar li .loader .circle {
+  width: 16px;
+  height: 16px;
+}
+ul#iokit-menubar li .loader .circle:after {
+  width: 3px;
+  height: 3px;
 }
 .content-padding {
   padding: 12px 20px;
@@ -1913,6 +1924,43 @@ input[type=password]:hover {
   box-shadow: -2px 2px 2px #ccc;
   overflow: auto;
   background-color: #fff;
+}
+.top-tabs-nav {
+  list-style: none;
+  position: absolute;
+  top: -2px;
+  left: 50px;
+}
+.top-tabs-nav > li {
+  float: left;
+  margin: 0 5px;
+  padding: 7px 20px 12px;
+  font-weight: 100;
+  cursor: pointer;
+  position: relative;
+  border-radius: 2px;
+}
+.top-tabs-nav > li.active {
+  background: #333;
+  color: #fff;
+}
+.top-tabs-nav > li.active .active-caret {
+  border-color: transparent transparent #f8f8f8 transparent;
+  border-style: solid;
+  border-width: 8px;
+  height: 0;
+  width: 0;
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  margin-right: -8px;
+}
+.top-tabs-content {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 /* ------------------------------------------------ tipys */
 .tipsy {

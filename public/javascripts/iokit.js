@@ -28,7 +28,7 @@ iokit.main = {
 iokit.mainHeight = function(){ return $(window).height() - 70 };
 
 iokit.hideSidebar = function(){ 
-  iokit.sidebar.animate({ left: '-40%' }); 
+  iokit.menubar.animate({ left: '-40%' }); 
   $('#iokit-main-content').animate({ left: 0 });
 };
 
@@ -94,12 +94,25 @@ iokit.setupAjaxHelpers = function setupAjaxHelpers(){
  */
 iokit.loadRemoteAfterHashChange = function loadRemoteAfterHashChange(){
 
+  if( iokit.ignoreHashChange ){
+    iokit.ignoreHashChange = false;
+    return;
+  }
+
+  iokit.menubar.clearActive();
+
+
   var urlarr = location.hash.substring(1).split('?')
     , pararr
-    , url = urlarr[0];
+    , params = {}
+    , url = urlarr[0]
+    , appIcn = $('#iokit-menubar a[href="'+url+'"]');
 
-  // deprecated?
-  var params = {};
+  if( appIcn.length ){
+    iokit.menubar.load( appIcn.closest('li'), url );
+    return;
+  }
+
   if( urlarr.length > 1 )
     pararr = urlarr[1].split('&');
 
@@ -108,13 +121,12 @@ iokit.loadRemoteAfterHashChange = function loadRemoteAfterHashChange(){
       if( param.split('=').length === 2 )
         params[param.split('=')[0]] = param.split('=')[1];
     }
-  // end deprecated?
 
   iokit.advancedPanel.hide();
   $('#iokit-dashboard').hide();
   url = url + ( urlarr.length > 1 ? '?'+urlarr[1] : '' );
   if( params.app )
-    iokit.sidebar.load( $('#app-icn-'+params.app), url );
+    iokit.menubar.load( $('#app-icn-'+params.app), url );
   else
     iokit.main.load( url );
 
@@ -214,6 +226,7 @@ iokit.modal = function( html, options ){
       winCtrlBtn.css( { right: 16*(countWinCtrlBtns++)+32 } );
       $('#iokit-modal').prepend(winCtrlBtn);
       winCtrlBtn.on('click', function(e){
+        e.preventDefault();
         options.windowControls[$(this).attr('winCtrl')].callback( $('#iokit-modal') );
       })
     }
@@ -363,6 +376,8 @@ $(function(){
 
   $('#iokit-top-panel .dashboard').on('click', function(e){
     $('#iokit-main-content').hide();
+    iokit.menubar.clearActive();
+    $('#iokit-menubar .desc').fadeIn(200);
     $('#iokit-dashboard').fadeIn(200);
   });
 
@@ -386,8 +401,8 @@ $(function(){
     })
   }
 
-  if( iokit.sidebar )
-    iokit.sidebar.init();
+  if( iokit.menubar )
+    iokit.menubar.init();
   iokit.setupAjaxHelpers();
 
   iokit.usersCache = {};
