@@ -65,6 +65,7 @@
     "failed_for": "Zugriff auf __name__ konnte nicht entzogen werden für"
   },
   "user": {
+    "cannot_suspend_yourself": "Sie können sich selbst nicht suspendieren",
     "email": "Email Adresse",
     "password": "Passwort",
     "login": "Anmelden",
@@ -152,7 +153,9 @@
     "reset_finished": "Sie haben Ihr Passwort erfolgreich geändert"
   },
   "users": {
-    "title": "BenutzerInnen"
+    "title": "Accounts",
+    "new": "Neuer Account",
+    "click_for_details": "Klicken Sie auf einen Account um Details anzeigen"
   },
   "notification_service": {
     "docklets": {
