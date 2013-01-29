@@ -37,17 +37,18 @@ $(function(){
        * delete selected data items
        */
       deleteSelected: function( item, e ){
-        if( options.deleteSelected )
+
+        if( options.deleteSelected && typeof(options.deleteSelected === 'function' ))
           return options.deleteSelected( tree, item, e );
         for( var i in tree.treeViewModel.selectedItems() )
-          $.ajax({ url: '/documents/'+tree.treeViewModel.selectedItems()[i]._id,
+          $.ajax({ url: options.saveUrl+tree.treeViewModel.selectedItems()[i]._id,
                    type: 'delete',
                    dataType: 'json',
                    data: { _csrf: $('#_csrf').val() },
                    success: function( response ){
                       if( response.success ){
-                        tree.treeViewModel.selectedItems.remove( tree.treeViewModel.selectedItems()[i] );
                         tree.treeViewModel.items.remove( tree.treeViewModel.selectedItems()[i] );
+                        tree.treeViewModel.selectedItems.remove( tree.treeViewModel.selectedItems()[i] );
                       }
                       iokit.notify( response.flash );
                    }
@@ -57,9 +58,18 @@ $(function(){
       /**
        * returns a new data item
        */
-      newItemForm: options.newItemForm || function(){
-        alert('not implemented yet');
-        //ko.applyBindings()
+      newItemForm: options.newItemForm || function( item, e ){
+        var form = $('.iokit-content:visible .item-form');
+        $('.iokit-content:visible .click-for-details').hide();
+        $(e.target).closest('.iokit-tree').find('.selected').removeClass('selected');
+        form.find('.click-for-details').hide();
+        ko.cleanNode( form.get(0) );
+        ko.applyBindings( this.newItem(), form.get(0) );
+        form.find('.top-tabs').iokitTopTabs();
+        form.fadeIn(200);
+        setTimeout( function(){
+          form.find('input[type=text]:first').focus();
+        },200);
       },
 
       newItem: function(){
@@ -75,6 +85,10 @@ $(function(){
       self.children = ko.observableArray([]);
       self.comments = ko.observableArray([]);
 
+      if( options.saveAttrs )
+        for( var i in options.saveAttrs )
+          self[options.saveAttrs[i]] = ko.observable(null);
+
       for( var i in data )
         if( i === 'comments' )
           for( var j=data.comments.length-1,comment; comment=data.comments[j]; j-- ){
@@ -82,11 +96,22 @@ $(function(){
           }
         else if( i.match(/_id|acl|createdAt|updatedAt|holder|tags/) )
           self[i] = data[i];
+        else if( data[i] instanceof Array )
+          self[i] = ko.observableArray(data[i]);
         else
           self[i] = ko.observable(data[i]);
 
-      self.showForm = options.showForm || function showForm(){
-        alert('showForm is not implemented');
+      self.showForm = options.showForm || function showForm( item, e ){
+        $('.iokit-content:visible .click-for-details').hide();
+        var form = $('.iokit-content:visible .item-form');
+        ko.cleanNode( form.get(0) );
+        ko.applyBindings( this, form.get(0) );
+        form.find('.top-tabs').iokitTopTabs();
+        form.fadeIn(200);
+        if( e ){
+          $(e.target).closest('.tree-content').find('.selected').removeClass('selected');
+          $(e.target).closest('li').addClass('selected');
+        }
       };
 
       self.saveForm = options.saveForm || function saveForm( form ){
@@ -95,7 +120,7 @@ $(function(){
         for( var i in options.saveAttrs )
           data[ options.saveKey ][ options.saveAttrs[i] ] = self[options.saveAttrs[i]]();
         if( self._id )
-          $.ajax({ url: options.saveUrl,
+          $.ajax({ url: options.saveUrl+self._id,
                    data: data,
                    type: 'put',
                    dataType: 'json',
@@ -109,8 +134,11 @@ $(function(){
                    type: 'post',
                    dataType: 'json',
                    success: function( response ){
-                     if( response.success )
+                     if( response.success ){
+                       self._id = response._id;
                        tree.treeViewModel.items.push( self );
+                       self.showForm();
+                     }
                      iokit.notify( response.flash );
                    }
           });

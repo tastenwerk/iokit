@@ -10,6 +10,24 @@ h1( data-bind='text: name().full' )
 
 form.iokit-form( data-bind='submit: saveForm' )
 
+  .span6.pull-right
+    div(style='margin-left: 50px')
+      p.desc=t('user.roles.title')
+
+      table
+        -each role in iokit.config.userRoles
+          tr
+            td
+              input(type='checkbox', data-bind='value: "'+role+'", checked: roles')
+            td( style='padding-right: 20px')=t('user.roles.'+role)
+
+      p=t('user.options')
+
+      p
+        input(type='checkbox', data-bind='checked: suspended')
+        span.desc=t('user.suspended')
+
+
   p.span6
     label=t('user.nick')
     br
@@ -32,6 +50,5 @@ form.iokit-form( data-bind='submit: saveForm' )
     input(type='text', data-bind='value: email')
 
   p.span6
-    input(type='checkbox', name="send_confirmation_email")
+    input(type='checkbox', data-bind="checked: sendConfirmationEmail")
     label=t('user.send_confirmation_email')
-

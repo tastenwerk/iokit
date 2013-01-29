@@ -9,7 +9,7 @@
           span.icn-plus.icn
         a.btn.w-icn-only.live-tipsy( href='#', original-title=t('refresh'), data-bind='click: fetchData' )
           span.icn.icn-refresh
-        a.btn.w-icn-only.live-tipsy.enableable( href='#', original-title=t('delete_selected'), data-bind='css: {enabled: selectedItems().length > 0}, click: deleteSelected')
+        a.btn.w-icn-only.live-tipsy.enableable( href='#', original-title=t('users.delete_selected'), data-bind='css: {enabled: selectedItems().length > 0}, click: deleteSelected')
           span.icn.icn-trash
 
       br.clearfix
@@ -32,8 +32,13 @@ script(type='text/html', id='userItemTemplate')
         span.icn.icn-arr-right
         | &nbsp;
       a.pull-right( data-bind='click: toggleSuspendUser' )
+        // ko if: suspended()
         span.icn.icn-locked( data-bind='css: {unlocked: !suspended()}' )
-      a.link-trigger( href='#', data-bind='text: name().full, click: showForm' )
+        // /ko
+        // ko if: roles().indexOf('manager') >= 0
+        span.icn.icn-user.role-admin(style='opacity:0.3')
+        // /ko
+      a.link-trigger( href='#', data-bind='text: name().nick, click: showForm' )
   // /ko
 
 script(type='text/html', id='userItemForm')
@@ -58,46 +63,14 @@ script(type='text/html', id='userItemForm')
 script(type='text/javascript')
   $('#iokit-users .iokit-tree').iokitTree({
     url: '/users.json',
-    saveUrl: '/users',
+    saveUrl: '/users/',
     saveKey: 'user',
-    saveAttrs: ['name', 'email'],
+    saveAttrs: ['name', 'email', 'sendConfirmationEmail', 'roles', 'suspended'],
     defaultValues: { name: {nick: ''}, email: ''},
-    deleteSelected: function( tree ){
-      for( var i in tree.treeViewModel.selectedItems() )
-        $.ajax({ url: '/users/'+tree.treeViewModel.selectedItems()[i]._id,
-                 type: 'delete',
-                 dataType: 'json',
-                 data: { _csrf: $('#_csrf').val() },
-                 success: function( response ){
-                    if( response.success ){
-                      tree.treeViewModel.selectedItems.remove( tree.treeViewModel.selectedItems()[i] );
-                      tree.treeViewModel.items.remove( tree.treeViewModel.selectedItems()[i] );
-                    }
-                    iokit.notify( response.flash );
-                 }
-        });
-    },
     before: function( tree ){
       tree.treeViewModel.showSuspended = ko.observable(false);
       tree.TreeItemModel.prototype.toggleSuspendUser = function( item, e ){
         console.log('toggle suspend');
       };
-    },
-    showForm: function( item, e ){
-      $('#iokit-users .click-for-details').hide();
-      ko.cleanNode( $('#iokit-user-form').get(0) );
-      ko.applyBindings( this, $('#iokit-user-form').get(0) );
-      $('#iokit-user-form .top-tabs').iokitTopTabs();
-      $('#iokit-user-form').fadeIn(200);
-    },
-    newItemForm: function(){
-      $('#iokit-users .click-for-details').hide();
-      ko.cleanNode( $('#iokit-user-form').get(0) );
-      ko.applyBindings( this.newItem(), $('#iokit-user-form').get(0) );
-      $('#iokit-user-form .top-tabs').iokitTopTabs();
-      $('#iokit-user-form').fadeIn(200);
-      setTimeout( function(){
-        $('#iokit-user-form input[type=text]:first').focus();
-      },200);
     }
   })

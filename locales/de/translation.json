@@ -35,6 +35,7 @@
   "edit_selected": "Markiertes Dokument bearbeiten",
   "anybody": "jeder",
   "duplicate_error": "Ein Dokument mit dem Namen __name__ existiert bereits (gleiche Namen nicht erlaubt)",
+  "bye": "\n\nIhr __site__-Team",
   "saving": {
     "ok": "__name__ wurde gespeichert",
     "failed": "__name__ konnte nicht gespeichert werden"
@@ -65,7 +66,7 @@
     "failed_for": "Zugriff auf __name__ konnte nicht entzogen werden für"
   },
   "user": {
-    "cannot_suspend_yourself": "Sie können sich selbst nicht suspendieren",
+    "cannot_remove_yourself": "Sie können sich selbst nicht vom System löschen",
     "email": "Email Adresse",
     "email_invalid": "Email Adresse ungültig",
     "password": "Passwort",
@@ -86,10 +87,17 @@
     "send_confirmation_email": "Anmeldelink mit Option zum Passwort-setzen versenden",
     "too_many_tries": "Zu viele fehlgeschlagne Versuche. Support kontaktieren",
     "confirmation_sent_again": "Bestätigungsemail wurde noch einmal versandt an __email__ (__tries__ verbleibende Versuche)",
+    "welcome": "Ein TASTENbox Account wurde für dich erstellt",
+    "welcome_text": "Hallo,\n\n__name__ hat einen Account für Sie erstellt. Sie können Ihr Passwort setzen und sich gleich anmelden, wenn Sie auf untenstehenden Link klicken",
+    "confirmation_email": {
+      "ok": "Einladungsemail wurde versandt"
+    },
     "registration": {
       "ok": "Die Registrierung abgeschlossen",
       "failed": "Registrierung konnte nicht durchgeführt werden. Bitte kontaktieren Sie den Support"
     },
+    "options": "Andere Einstellungen",
+    "suspended": "Account suspendiert",
     "suspending": {
       "failed": "Account __name__ konnte nicht suspendiert werden. Grund: ",
       "ok": "Account __name__ wurde suspendiert",
@@ -151,7 +159,6 @@
     "desc": "Sie können Ihr Passwort zurücksetzen, wenn Sie die Email-Adresse Ihres Accounts hier eingeben. <b>Hinweis:</b> Ihr Passwort bleibt unverändert, bis Sie auf den Link in der Email klicken.",
     "reset_request": "Anfrage auf Passwortzurücksetzen",
     "reset_request_text": "Hallo,\n\nSie haben eine Anfrage gestellt, dass Ihr Passwort \nzurückgesetzt werden soll. Der folgende Link führt Sie \nzu einer Maske wo Sie ein neues Passwort setzen können.\n\n",
-    "bye": "\n\nIhr __site__-Team",
     "reset_request_send": "Eine Email wurde an die angegebene Adresse versand.",
     "email_not_found": "Die angegebene Adresse existiert nicht in unserem System",
     "key_not_found": "Der Schlüssel oder die Email Adresse passen nicht zusammen",
@@ -163,7 +170,8 @@
   "users": {
     "title": "Accounts",
     "new": "Neuer Account",
-    "click_for_details": "Klicken Sie auf einen Account um Details anzeigen"
+    "click_for_details": "Klicken Sie auf einen Account um Details anzeigen",
+    "delete_selected": "Ausgewählte Accounts löschen"
   },
   "notification_service": {
     "docklets": {
@@ -192,6 +200,7 @@
     "title": "Nachrichtenstrom"
   },
   "document": {
+    "click_for_details": "Klicken Sie auf ein Dokument um Details anzeigen",
     "order": {
       "saving": {
         "ok": "Sortierung gespeichert",
@@ -273,7 +282,23 @@
     "already_exists_path": "Eine Datei dem Namen __name__ existiert bereits in diesem Pfad"
   },
   "webelements": {
-    "title": "Webseiten"
+    "title": "Web Elemente",
+    "new": "Neues Web Element"
+  },
+  "webelement": {
+    "design": "Gestalten",
+    "preferences": "Einstellungen",
+    "name": "Titel",
+    "template": "Vorlage",
+    "layout": "Layout",
+    "content": "Text",
+    "startpage": "Startpage",
+    "locked_for_public": "Nicht für die Öffentlichkeit freigeschaltet",
+    "hidden": "Versteckt",
+    "hidden_desc": "Diese Seite wird nicht in der Navigation / Menü angezeigt",
+    "no_robots": "Keine SEO",
+    "no_robots_desc": "Suchmaschinen anweisen, diese Seite nicht in ihre Ergebnisliste miteinzubeziehen",
+    "slug": "Slug (ID)"
   },
   "web": {
     "title": "Web",
@@ -347,43 +372,6 @@
     "content": "Text",
     "locked_for_public": "Nicht für die Öffentlichkeit freigeschaltet",
     "connect_with_project": "Veranstaltung"
-  },
-  "webpages": {
-    "title": "Webpages",
-    "new": "Neue Seite hinzufügen",
-    "name": "Titel",
-    "template": "Vorlage",
-    "layout": "Layout",
-    "content": "Text",
-    "startpage": "Startpage",
-    "locked_for_public": "Nicht für die Öffentlichkeit freigeschaltet",
-    "hidden": "Versteckt",
-    "hidden_desc": "Diese Seite wird nicht in der Navigation / Menü angezeigt",
-    "no_robots": "Keine SEO",
-    "no_robots_desc": "Suchmaschinen anweisen, diese Seite nicht in ihre Ergebnisliste miteinzubeziehen",
-    "slug": "Slug (ID)"
-  },
-  "veranstaltungen": {
-    "title": "Veranstaltungen",
-    "new": "Neue Veranstaltung",
-    "name": "Titel",
-    "subtitle": "Untertitel",
-    "company": "Kompanie / Performer / Veranstalter",
-    "description": "Kurzbeschreibung",
-    "dates": "Termine",
-    "starts_at": "Beginn",
-    "select_date_time": "Wählen Sie Datum und Uhrzeit",
-    "sections": {
-      "location": "Veranstaltungsort",
-      "dates": "Termine",
-      "general": "Allgemein",
-      "photos": "Fotos"
-    },
-    "address": "Adresse",
-    "contact": "Kontaktadresse",
-    "web": "Internetauftritt",
-    "tickets": "Kartenreservierung",
-    "select_file": "Datei wählen"
   },
   "trash": {
     "title": "Papierkorb"
