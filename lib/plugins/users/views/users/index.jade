@@ -5,7 +5,7 @@
       h1.title=t('users.title')
 
       .tree-controls
-        a.btn.w-icn-only.live-tipsy( href='/users/new', original-title=t('users.new') )
+        a.btn.w-icn-only.live-tipsy( href='/users/new', original-title=t('users.new'), data-bind='click: newItemForm' )
           span.icn-plus.icn
         a.btn.w-icn-only.live-tipsy( href='#', original-title=t('refresh'), data-bind='click: fetchData' )
           span.icn.icn-refresh
@@ -18,9 +18,11 @@
 
   .iokit-content
 
-    .click-for-details
+    .click-for-details.no-item-form
       h1.title=t('users.title')
       span=t('users.click_for_details')
+
+    #iokit-user-form.item-form( data-bind='template: {name: "userItemForm"}' )
 
 script(type='text/html', id='userItemTemplate')
   // ko if: $parent.showSuspended() || !suspended()
@@ -34,9 +36,32 @@ script(type='text/html', id='userItemTemplate')
       a.link-trigger( href='#', data-bind='text: name().full, click: showForm' )
   // /ko
 
+script(type='text/html', id='userItemForm')
+
+  .top-tabs
+
+    ul.top-tabs-nav
+      li=t('user.general')
+      li=t('user.preferences')
+
+    .top-tabs-content
+
+      .content-padding
+
+        include snippets/form
+
+      .content-padding
+
+        include snippets/preferences
+
+
 script(type='text/javascript')
   $('#iokit-users .iokit-tree').iokitTree({
     url: '/users.json',
+    saveUrl: '/users',
+    saveKey: 'user',
+    saveAttrs: ['name', 'email'],
+    defaultValues: { name: {nick: ''}, email: ''},
     deleteSelected: function( tree ){
       for( var i in tree.treeViewModel.selectedItems() )
         $.ajax({ url: '/users/'+tree.treeViewModel.selectedItems()[i]._id,
@@ -57,5 +82,22 @@ script(type='text/javascript')
       tree.TreeItemModel.prototype.toggleSuspendUser = function( item, e ){
         console.log('toggle suspend');
       };
+    },
+    showForm: function( item, e ){
+      $('#iokit-users .click-for-details').hide();
+      ko.cleanNode( $('#iokit-user-form').get(0) );
+      ko.applyBindings( this, $('#iokit-user-form').get(0) );
+      $('#iokit-user-form .top-tabs').iokitTopTabs();
+      $('#iokit-user-form').fadeIn(200);
+    },
+    newItemForm: function(){
+      $('#iokit-users .click-for-details').hide();
+      ko.cleanNode( $('#iokit-user-form').get(0) );
+      ko.applyBindings( this.newItem(), $('#iokit-user-form').get(0) );
+      $('#iokit-user-form .top-tabs').iokitTopTabs();
+      $('#iokit-user-form').fadeIn(200);
+      setTimeout( function(){
+        $('#iokit-user-form input[type=text]:first').focus();
+      },200);
     }
   })

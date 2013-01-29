@@ -67,6 +67,7 @@
   "user": {
     "cannot_suspend_yourself": "Sie können sich selbst nicht suspendieren",
     "email": "Email Adresse",
+    "email_invalid": "Email Adresse ungültig",
     "password": "Passwort",
     "login": "Anmelden",
     "login_required": "Anmeldung erforderlich",
@@ -82,6 +83,7 @@
     "verification_required": "Fast fertig! Eine Email wurde an die angegebene Adresse gesendet",
     "mail_already_registered": "Diese Emailadresse ist bereits registriert (Posteingang bzw. Spamordner prüfen)",
     "send_confirmation_again": "Email noch einmal versenden (__tries__ Versuche übrig)",
+    "send_confirmation_email": "Anmeldelink mit Option zum Passwort-setzen versenden",
     "too_many_tries": "Zu viele fehlgeschlagne Versuche. Support kontaktieren",
     "confirmation_sent_again": "Bestätigungsemail wurde noch einmal versandt an __email__ (__tries__ verbleibende Versuche)",
     "registration": {
@@ -97,10 +99,16 @@
       "ok": "Profileinstellungen gespeichert",
       "failed": "Profileinstellungen konnten nicht gespeichert werden"
     },
+    "creation": {
+      "ok": "Account wurde erfolgreich angelegt",
+      "failed": "Account konnte nicht angelegt werden"
+    },
     "logged_off": "Sie sind jetzt abgemeldet",
     "administrational_privileges": "Administrative Rechte",
     "email": "Email",
     "name": "Name",
+    "general": "Allgemein",
+    "preferences": "Voreinstellungen",
     "firstname": "Vorname",
     "lastname": "Nachname",
     "nick": "Nick",

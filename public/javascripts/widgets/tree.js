@@ -52,6 +52,18 @@ $(function(){
                       iokit.notify( response.flash );
                    }
           });
+      },
+
+      /**
+       * returns a new data item
+       */
+      newItemForm: options.newItemForm || function(){
+        alert('not implemented yet');
+        //ko.applyBindings()
+      },
+
+      newItem: function(){
+        return new tree.TreeItemModel( options.defaultValues || {} );
       }
 
     };
@@ -76,6 +88,42 @@ $(function(){
       self.showForm = options.showForm || function showForm(){
         alert('showForm is not implemented');
       };
+
+      self.saveForm = options.saveForm || function saveForm( form ){
+        var data = { _csrf: $('#_csrf').val() };
+        data[ options.saveKey ] = {};
+        for( var i in options.saveAttrs )
+          data[ options.saveKey ][ options.saveAttrs[i] ] = self[options.saveAttrs[i]]();
+        if( self._id )
+          $.ajax({ url: options.saveUrl,
+                   data: data,
+                   type: 'put',
+                   dataType: 'json',
+                   success: function( response ){
+                     iokit.notify( response.flash );
+                   }
+          })
+        else
+          $.ajax({ url: options.saveUrl,
+                   data: data,
+                   type: 'post',
+                   dataType: 'json',
+                   success: function( response ){
+                     if( response.success )
+                       tree.treeViewModel.items.push( self );
+                     iokit.notify( response.flash );
+                   }
+          });
+      };
+
+      self.submitSaveForm = options.submitSaveForm || function submitSaveForm(){
+        this.saveForm();
+      };
+
+      self.hideForm = options.hideForm || function hideForm( item, e ){
+        $(e.target).closest('.item-form').fadeOut();
+        $(e.target).closest('.item-form').prev('.no-item-form').fadeIn( 200 );
+      }
 
       self.markSelected = options.markSelected || function markSelected(elem, e){
         var treeItem = self.getTreeItem( e );

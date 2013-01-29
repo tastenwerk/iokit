@@ -1,0 +1,37 @@
+ul.top-tabs-action-nav
+  li.action-nav
+    a.btn.green(data-bind='click: submitSaveForm')
+      =t('save')
+  li.action-nav
+    a.btn(data-bind='click: hideForm')
+      =t('cancel')
+
+h1( data-bind='text: name().full' )
+
+form.iokit-form( data-bind='submit: saveForm' )
+
+  p.span6
+    label=t('user.nick')
+    br
+    input(type='text', data-bind='value: name().nick')
+  table.span6
+    tr
+      td
+        label=t('user.firstname')
+      td
+        label=t('user.lastname')
+    tr
+      td
+        input(type='text', data-bind='value: name().first')
+      td
+        input(type='text', data-bind='value: name().last')
+
+  p.span6
+    label=t('user.email')
+    br
+    input(type='text', data-bind='value: email')
+
+  p.span6
+    input(type='checkbox', name="send_confirmation_email")
+    label=t('user.send_confirmation_email')
+

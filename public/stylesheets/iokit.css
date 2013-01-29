@@ -782,7 +782,11 @@ html {
 .span400 {
   width: 400px;
 }
-.span-full {
+.span6 {
+  width: 50%;
+}
+.span-full,
+.span12 {
   width: 100%;
 }
 table {
@@ -1088,6 +1092,9 @@ h1 {
   right: 0;
   border-left: 1px solid #ccc;
   padding: 10px;
+}
+#iokit-main-content .iokit-content h1 {
+  font-weight: 100;
 }
 #iokit-account-info {
   position: absolute;
@@ -1440,6 +1447,30 @@ ul#iokit-menubar li .loader .circle:after {
   box-shadow: none;
   opacity: 1;
 }
+.btn.blue {
+  background-color: #118be7;
+  background-image: -moz-linear-gradient(center top, #118be7, #007ad6);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#118be7), to(#007ad6));
+  background-repeat: repeat-x;
+  color: #fff;
+  text-shadow: none;
+  font-weight: 500;
+  border: 1px solid #118be7;
+}
+.btn.green {
+  background-color: #8a0;
+  background-image: -moz-linear-gradient(center top, #8a0, #9b1);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#8a0), to(#9b1));
+  background-repeat: repeat-x;
+  color: #fff;
+  text-shadow: none;
+  font-weight: 500;
+  border: 1px solid #8a0;
+}
+.btn.green:hover {
+  border: 1px solid #790;
+  box-shadow: -1px 1px 1px rgba(0,0,0,0.3);
+}
 .cntBox {
   padding: 1px 6px;
   border: 1px solid #aaa;
@@ -1602,9 +1633,10 @@ input[type=password]:hover {
 }
 .iokit-tree .tree-item a.show-details-arr {
   padding-left: 3px;
-  border-left: 1px solid #aaa;
+  border-left: 1px solid rgba(0,0,0,0.5);
   line-height: 22px;
   margin: -3px 5px 0 8px;
+  cursor: pointer;
 }
 .iokit-tree .tree-item a.show-details-arr .icn {
   margin-top: 2px;
@@ -1952,19 +1984,22 @@ input[type=password]:hover {
   color: #000;
   opacity: 0.7;
 }
-.iokit-form-controls,
+.,
+-controls,
 .iokit-editor-controls {
   height: 25px;
   margin: 5px 10px 0 0;
 }
-.iokit-form-controls .btn,
+. .btn,
+-controls .btn,
 .iokit-editor-controls .btn {
   background: none;
   box-shadow: none;
   border: none;
   opacity: 0.5;
 }
-.iokit-form-controls .btn:hover,
+. .btn:hover,
+-controls .btn:hover,
 .iokit-editor-controls .btn:hover {
   opacity: 1;
 }
@@ -1981,6 +2016,7 @@ input[type=password]:hover {
   position: absolute;
   top: -2px;
   left: 50px;
+  right: 0;
 }
 .top-tabs-nav > li {
   float: left;
@@ -2012,6 +2048,32 @@ input[type=password]:hover {
   left: 0;
   right: 0;
   bottom: 0;
+}
+.top-tabs-content .top-tabs-action-nav {
+  position: absolute;
+  top: -50px;
+  right: 5px;
+  list-style: none;
+}
+.top-tabs-content .top-tabs-action-nav li {
+  float: right;
+  margin-left: 5px;
+  padding: 7px 0 12px;
+  cursor: pointer;
+}
+.iokit-form label {
+  font-weight: 100;
+  font-size: 14px;
+  color: #555;
+}
+.iokit-form input[type=text] {
+  width: 100%;
+}
+.iokit-form table td {
+  padding-right: 10px;
+}
+.iokit-form table td:last-child {
+  padding: 0;
 }
 /* ------------------------------------------------ tipys */
 .tipsy {

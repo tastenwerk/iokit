@@ -67,7 +67,10 @@ html
 .span400
   width: 400px
 
-.span-full
+.span6
+  width: 50%
+
+.span-full, .span12
   width: 100%
 
 table
@@ -352,6 +355,9 @@ h1
     border-left: 1px solid #ccc
     padding: 10px
 
+    h1
+      font-weight: 100
+
 #iokit-account-info
   position: absolute
   top: 10px
@@ -627,6 +633,21 @@ ul#iokit-menubar
       background: none
       box-shadow: none
       opacity: 1
+  &.blue
+    IO_GRADIENT(#118be7, #007ad6)
+    color: white
+    text-shadow: none
+    font-weight: 500
+    border: 1px solid #118be7
+  &.green
+    IO_GRADIENT(#8a0, #9b1)
+    color: white
+    text-shadow: none
+    font-weight: 500
+    border: 1px solid #8a0
+    &:hover
+      border: 1px solid #790
+      box-shadow: -1px 1px 1px rgba(0,0,0,0.3)
 
 .cntBox
   padding: 1px 6px
@@ -758,9 +779,10 @@ input[type=text],input[type=password]
       font-size: 14px
     a.show-details-arr
       padding-left: 3px
-      border-left: 1px solid #aaa
+      border-left: 1px solid rgba(0,0,0,0.5)
       line-height: 22px
       margin: -3px 5px 0 8px
+      cursor: pointer
       .icn
         margin-top: 2px
         float: right
@@ -1051,7 +1073,8 @@ input[type=text],input[type=password]
     color: black
     opacity: 0.7
 
-.iokit-form-controls, .iokit-editor-controls
+.
+-controls, .iokit-editor-controls
   height: 25px
   margin: 5px 10px 0 0
   .btn
@@ -1075,6 +1098,7 @@ input[type=text],input[type=password]
   position: absolute
   top: -2px
   left: 50px
+  right: 0
   > li
     float: left
     margin: 0 5px
@@ -1105,7 +1129,30 @@ input[type=text],input[type=password]
   right: 0
   bottom: 0
 
+  .top-tabs-action-nav
+    position: absolute
+    top: -50px
+    right: 5px
+    list-style: none
+    li
+      float: right
+      margin-left: 5px
+      padding: 7px 0 12px
+      cursor: pointer
 
+.iokit-form
+  label
+    font-weight: 100
+    font-size: 14px
+    color: #555
+  input[type=text]
+    width: 100%
+  table
+    td
+      padding-right: 10px
+      &:last-child
+        padding: 0
+        
 /* ------------------------------------------------ tipys */
 .tipsy
   font-size: 10px

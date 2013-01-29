@@ -26,6 +26,7 @@ iokit.menubar = {
   },
 
   clearActive: function(){
+    $('#iokit-menubar .desc').fadeOut(200);
     var icn = this.elem.find('img.icon');
     icn.each( function(index, icn){
       $(icn).attr('src', $(icn).attr('src').replace('96x96g','96x96w'));
