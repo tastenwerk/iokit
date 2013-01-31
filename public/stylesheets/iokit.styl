@@ -450,10 +450,14 @@ ul#iokit-menubar
 .content-padding-w-overflow
   position: absolute
   top: 12px
-  left: 20px
-  right: 20px
+  left: 10px
+  right: 10px
   bottom: 10px
-  overflow: auto
+  overflow-y: auto
+  overflow-x: hidden
+
+  .form-content
+    width: 99%
 
 .progress
   width: 300px
@@ -765,7 +769,7 @@ input[type=text],input[type=password]
       text-decoration: none
       color: #333
       TEXT_OVERFLOW()
-  ul
+  > ul
     list-style: none
     position: absolute
     top: 70px
@@ -776,7 +780,7 @@ input[type=text],input[type=password]
     overflow: auto
     ul
       list-style: none
-      margin: 0 0 0 10px
+      margin: 5px 0 0 10px
   .placeholder
     outline: 1px dashed IO_ORANGE
     border-radius: 1px
@@ -799,14 +803,14 @@ input[type=text],input[type=password]
       font-size: 14px
     a.show-details-arr
       padding-left: 3px
-      border-left: 1px solid rgba(0,0,0,0.5)
+      border-left: 1px solid rgba(0,0,0,0.1)
       line-height: 22px
       margin: -3px 5px 0 8px
       cursor: pointer
       .icn
         margin-top: 2px
         float: right
-        opacity: 0.7
+        opacity: 0.3
     &.selected
       box-shadow: -1px 1px 2px rgba(0,0,0,0.3) inset
       IO_GRADIENT(#118be7, #007ad6)
@@ -1077,8 +1081,7 @@ input[type=text],input[type=password]
     color: black
     opacity: 0.7
 
-.
--controls, .iokit-editor-controls
+.iokit-controls, .iokit-editor-controls
   height: 25px
   margin: 5px 10px 0 0
   .btn

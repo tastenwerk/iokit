@@ -74,6 +74,7 @@ var settings_json = [
 '"site": {',
 '  "title": "__appName__",',
 '  "locales": ["de", "en"],',
+'  "fallbackLocale": "en",',
 '  "layouts": ["default"]',
 '  },',
 '  "session": {',
@@ -137,6 +138,7 @@ program
     mkdir( name + '/public/javascripts');
     mkdir( name + '/public/images');
     write( name + '/app.js', app_js );
+    write( name + '/public/stylesheets/iokit-page.styl', 'body\n  .iokit-page\n    margin: 0' );
     write( name + '/config/iokit.json', settings_json.replace( /__appName__/g, normalizedName ).replace(/__absolutePath__/g, process.cwd()+path.sep+normalizedName) );
     write( name + '/package.json', package_json.replace( /__appName__/g, name.replace(/ /g, '_') ) );
     write( name + '/README.md', name + ' README' );

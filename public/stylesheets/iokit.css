@@ -146,6 +146,21 @@ video {
 .icn.icn-win-arrange-left {
   background-position: -144px -16px;
 }
+.icn.icn-win-arrange-right {
+  background-position: -128px -16px;
+}
+.icn.icn-elem-float-none {
+  background-position: -96px -96px;
+}
+.icn.icn-elem-float-right {
+  background-position: -112px -96px;
+}
+.icn.icn-elem-float-left {
+  background-position: -128px -96px;
+}
+.icn.icn-elem-absolute {
+  background-position: -144px -96px;
+}
 .icn.icn-locked {
   background-position: -80px -32px;
 }
@@ -1202,10 +1217,14 @@ ul#iokit-menubar li .loader .circle:after {
 .content-padding-w-overflow {
   position: absolute;
   top: 12px;
-  left: 20px;
-  right: 20px;
+  left: 10px;
+  right: 10px;
   bottom: 10px;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.content-padding-w-overflow .form-content {
+  width: 99%;
 }
 .progress {
   width: 300px;
@@ -1601,7 +1620,7 @@ input[type=password]:hover {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.iokit-tree ul {
+.iokit-tree > ul {
   list-style: none;
   position: absolute;
   top: 70px;
@@ -1611,9 +1630,9 @@ input[type=password]:hover {
   padding-bottom: 10px;
   overflow: auto;
 }
-.iokit-tree ul ul {
+.iokit-tree > ul ul {
   list-style: none;
-  margin: 0 0 0 10px;
+  margin: 5px 0 0 10px;
 }
 .iokit-tree .placeholder {
   outline: 1px dashed #d44a26;
@@ -1653,7 +1672,7 @@ input[type=password]:hover {
 }
 .iokit-tree .tree-item a.show-details-arr {
   padding-left: 3px;
-  border-left: 1px solid rgba(0,0,0,0.5);
+  border-left: 1px solid rgba(0,0,0,0.1);
   line-height: 22px;
   margin: -3px 5px 0 8px;
   cursor: pointer;
@@ -1661,7 +1680,7 @@ input[type=password]:hover {
 .iokit-tree .tree-item a.show-details-arr .icn {
   margin-top: 2px;
   float: right;
-  opacity: 0.7;
+  opacity: 0.3;
 }
 .iokit-tree .tree-item.selected {
   box-shadow: -1px 1px 2px rgba(0,0,0,0.3) inset;
@@ -1990,22 +2009,19 @@ input[type=password]:hover {
   color: #000;
   opacity: 0.7;
 }
-.,
--controls,
+.iokit-controls,
 .iokit-editor-controls {
   height: 25px;
   margin: 5px 10px 0 0;
 }
-. .btn,
--controls .btn,
+.iokit-controls .btn,
 .iokit-editor-controls .btn {
   background: none;
   box-shadow: none;
   border: none;
   opacity: 0.5;
 }
-. .btn:hover,
--controls .btn:hover,
+.iokit-controls .btn:hover,
 .iokit-editor-controls .btn:hover {
   opacity: 1;
 }

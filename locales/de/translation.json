@@ -286,6 +286,8 @@
     "new": "Neues Web Element"
   },
   "webelement": {
+    "layout": "Layout",
+    "title": "Titel der Seite",
     "design": "Gestalten",
     "preferences": "Einstellungen",
     "name": "Titel",
@@ -296,11 +298,30 @@
     "locked_for_public": "Nicht für die Öffentlichkeit freigeschaltet",
     "hidden": "Versteckt",
     "hidden_desc": "Diese Seite wird nicht in der Navigation / Menü angezeigt",
+    "frontpage": "Startseite",
+    "frontpage_desc": "Diese Seite soll als Startseite verwendet werden (nur eine Seite kann Startseite sein)",
     "no_robots": "Keine SEO",
     "no_robots_desc": "Suchmaschinen anweisen, diese Seite nicht in ihre Ergebnisliste miteinzubeziehen",
     "slug": "Slug (ID)"
   },
   "web": {
+    "page_designer":{
+      "create_box": "Neue Box hinzufügen",
+      "float_left": "Linksfließend",
+      "float_right": "Rechtsfließend",
+      "position_absolute": "Absolutpositioniert",
+      "float_left_all_over": "Linksfließend über ganze Seite",
+      "float_right_all_over": "Rechtsfließend über ganze Seite",
+      "float_none": "Nicht fließen",
+      "plugins": {
+        "image-browser": {
+          "title": "Bildergalerie"
+        },
+        "text-content": {
+          "title": "Einfacher Textsatz"
+        }
+      }
+    },
     "title": "Web",
     "pages": "Webseiten",
     "articles": "Artikel",

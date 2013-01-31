@@ -6,4 +6,5 @@ html
   body
     input( type='hidden', id='_csrf', value=_csrf )
     input( type='hidden', id='_host_master', value=iokit.config.hostname )
+    input( type='hidden', id='_fallbackLocale', value=iokit.config.site.fallbackLocale )
     block content

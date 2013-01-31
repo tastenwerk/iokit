@@ -69,6 +69,8 @@ $(function(){
         form.fadeIn(200);
         setTimeout( function(){
           form.find('input[type=text]:first').focus();
+          if( options.afterShowForm && typeof(options.afterShowForm) === 'function' )
+            options.afterShowForm( form );
         },200);
       },
 
@@ -94,7 +96,7 @@ $(function(){
           for( var j=data.comments.length-1,comment; comment=data.comments[j]; j-- ){
             self.comments.push( new IOComment( comment, self ) );
           }
-        else if( i.match(/_id|acl|createdAt|updatedAt|holder|tags/) )
+        else if( i.match(/_id|acl|createdAt|updatedAt|holder/) )
           self[i] = data[i];
         else if( data[i] instanceof Array )
           self[i] = ko.observableArray(data[i]);
@@ -112,6 +114,8 @@ $(function(){
           $(e.target).closest('.tree-content').find('.selected').removeClass('selected');
           $(e.target).closest('li').addClass('selected');
         }
+        if( options.afterShowForm && typeof(options.afterShowForm) === 'function' )
+          options.afterShowForm( form );
       };
 
       self.saveForm = options.saveForm || function saveForm( form ){
@@ -154,6 +158,8 @@ $(function(){
       }
 
       self.markSelected = options.markSelected || function markSelected(elem, e){
+        if( $(e.target).hasClass('tree-trigger') )
+          return;
         var treeItem = self.getTreeItem( e );
         if( treeItem.hasClass('selected') )
           tree.treeViewModel.selectedItems.remove( this );
@@ -168,6 +174,42 @@ $(function(){
           treeItem = $(e.target)
         return treeItem;
       }
+
+
+      /**
+       * toggles all children of this node
+       */       
+      self.toggleChildren = function( model, e ){
+        if( $(e.target).hasClass('open') ){
+          $(e.target).removeClass('open');
+          self.children.removeAll();
+          return;
+        }
+        $(e.target).addClass('loading');
+        $.getJSON( '/webpages.json?parentId='+model._id, function( data ){
+          self.children.removeAll();
+          if( data.length === 0 )
+            $(e.target).removeClass('loading').css('opacity',0);
+          for( var i in data )
+            self.children.push( new tree.TreeItemModel( data[i] ) );
+          $(e.target).removeClass('loading').addClass('open');
+        });
+      };
+
+      /**
+       * helper sort function
+       */
+      self.sortFunction = function(a, b) {
+        return (a.pos && b.pos ? ((a.pos > b.pos) ? 1 : -1) : (typeof(a.pos) !== 'undefined' || typeof(b.pos) !== 'undefined' ) );
+      };
+
+      /**
+       * returns children sorted by given sort order
+       */
+      self.sortedChildren = ko.dependentObservable( function() {
+        return self.children.slice().sort(self.sortFunction);
+      }, self );
+
 
     }
 
