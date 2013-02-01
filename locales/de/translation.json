@@ -307,15 +307,26 @@
   "web": {
     "page_designer":{
       "create_box": "Neue Box hinzufügen",
-      "float_left": "Linksfließend",
-      "float_right": "Rechtsfließend",
-      "position_absolute": "Absolutpositioniert",
-      "float_left_all_over": "Linksfließend über ganze Seite",
-      "float_right_all_over": "Rechtsfließend über ganze Seite",
-      "float_none": "Nicht fließen",
+      "float-left": "Linksfließend",
+      "float-right": "Rechtsfließend",
+      "position-absolute": "Absolutpositioniert",
+      "float-left-all-over": "Linksfließend über ganze Seite",
+      "float-right-all-over": "Rechtsfließend über ganze Seite",
+      "float-none": "Nicht fließen",
+      "span1": "1 Boxenbreite",
+      "span2": "2 Boxen breit",
+      "span3": "3 Boxen breit",
+      "span4": "50% der Seitenbreite",
+      "span5": "5 Boxen breit",
+      "span6": "6 Boxen breit",
+      "span7": "7 Boxen breit",
+      "span8": "100% der Seitenbreite",
+      "remove-box": "Diese Box löschen",
+      "move": "Absolut positionieren",
       "plugins": {
         "image-browser": {
-          "title": "Bildergalerie"
+          "title": "Bildergalerie",
+          "choose": "Bild(er) wählen"
         },
         "text-content": {
           "title": "Einfacher Textsatz"

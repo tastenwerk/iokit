@@ -143,23 +143,28 @@ video {
 .icn.icn-refresh {
   background-position: -80px -16px;
 }
-.icn.icn-win-arrange-left {
+.icn.icn-win-arrange-left,
+.icn.icn-box-float-left-all-over {
   background-position: -144px -16px;
 }
-.icn.icn-win-arrange-right {
+.icn.icn-win-arrange-right,
+.icn.icn-box-float-right-all-over {
   background-position: -128px -16px;
 }
-.icn.icn-elem-float-none {
+.icn.icn-box-float-none {
   background-position: -96px -96px;
 }
-.icn.icn-elem-float-right {
+.icn.icn-box-float-right {
   background-position: -112px -96px;
 }
-.icn.icn-elem-float-left {
+.icn.icn-box-float-left {
   background-position: -128px -96px;
 }
-.icn.icn-elem-absolute {
+.icn.icn-box-position-absolute {
   background-position: -144px -96px;
+}
+.icn.icn-move {
+  background-position: -80px -96px;
 }
 .icn.icn-locked {
   background-position: -80px -32px;
@@ -2027,11 +2032,8 @@ input[type=password]:hover {
 }
 .iokit-editor-content {
   margin: 5px;
-  border: 1px solid #ddd;
   padding: 5px;
-  box-shadow: -2px 2px 2px #ccc;
   overflow: auto;
-  background-color: #fff;
 }
 .top-tabs-nav {
   list-style: none;
