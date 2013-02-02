@@ -320,7 +320,7 @@
   },
   "web": {
     "page_designer":{
-      "create_box": "Neue Box hinzufügen",
+      "create_box": "Neues WebBit hinzufügen",
       "float-left": "Linksfließend",
       "float-right": "Rechtsfließend",
       "position-absolute": "Absolutpositioniert",
@@ -335,8 +335,10 @@
       "span6": "6 Boxen breit",
       "span7": "7 Boxen breit",
       "span8": "100% der Seitenbreite",
-      "remove-box": "Diese Box löschen",
+      "remove-web_bit": "Dieses WebBit löschen",
+      "web_bit-properties": "WebBit Eigenschaften",
       "move": "Absolut positionieren",
+      "edit_page_source": "Seitenquelltext bearbeiten",
       "plugins": {
         "image-browser": {
           "title": "Bildergalerie",
@@ -344,8 +346,12 @@
         },
         "text-content": {
           "title": "Einfacher Textsatz",
-          "edit": "Bearbeiten"
+          "edit": "Bearbeiten",
+          "languages": "Sprachen"
         }
+      },
+      "properties": {
+        "title": "Properties"
       }
     },
     "title": "Web",

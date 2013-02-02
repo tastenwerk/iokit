@@ -253,7 +253,7 @@ iokit.modal = function( html, options ){
       setupModalActions();
     });
   } else {
-    html = html || options.data;
+    html = html || options.data || options.html;
     $('#iokit-modal .modal-inner-wrapper').html( html ).fadeIn(200);
     if( options && options.before && typeof(options.before) === 'function' )
       options.before( $('#iokit-modal') );
