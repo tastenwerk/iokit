@@ -281,9 +281,23 @@
     "failed_to_save_rel_path": "Konnte relativen Pfad für __name__ nicht setzen",
     "already_exists_path": "Eine Datei dem Namen __name__ existiert bereits in diesem Pfad"
   },
-  "webelements": {
-    "title": "Web Elemente",
-    "new": "Neues Web Element"
+  "web_pages": {
+    "title": "Webseiten",
+    "new": "Neue Webseite"
+  },
+  "web_page": {
+    "hidden": "Versteckt",
+    "hidden_desc": "Diese Seite wird nicht in der Navigation / Menü angezeigt",
+    "frontpage": "Startseite",
+    "frontpage_desc": "Diese Seite soll als Startseite verwendet werden (nur eine Seite kann Startseite sein)",
+    "no_robots": "Keine SEO",
+    "no_robots_desc": "Suchmaschinen anweisen, diese Seite nicht in ihre Ergebnisliste miteinzubeziehen",
+    "slug": "Slug (ID)",
+    "layout": "Layout",
+    "properties": "Eigenschaften"
+  },
+  "web_bit": {
+    "name": "Name des WebBits"
   },
   "webelement": {
     "layout": "Layout",
@@ -329,7 +343,8 @@
           "choose": "Bild(er) wählen"
         },
         "text-content": {
-          "title": "Einfacher Textsatz"
+          "title": "Einfacher Textsatz",
+          "edit": "Bearbeiten"
         }
       }
     },

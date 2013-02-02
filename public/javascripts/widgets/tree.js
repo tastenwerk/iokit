@@ -70,7 +70,7 @@ $(function(){
         setTimeout( function(){
           form.find('input[type=text]:first').focus();
           if( options.afterShowForm && typeof(options.afterShowForm) === 'function' )
-            options.afterShowForm( form );
+            options.afterShowForm(item, form );
         },200);
       },
 
@@ -115,14 +115,11 @@ $(function(){
           $(e.target).closest('li').addClass('selected');
         }
         if( options.afterShowForm && typeof(options.afterShowForm) === 'function' )
-          options.afterShowForm( form );
+          options.afterShowForm(self, form );
       };
 
-      self.saveForm = options.saveForm || function saveForm( form ){
-        var data = { _csrf: $('#_csrf').val() };
-        data[ options.saveKey ] = {};
-        for( var i in options.saveAttrs )
-          data[ options.saveKey ][ options.saveAttrs[i] ] = self[options.saveAttrs[i]]();
+      self._ajaxSaveForm = function( data ){
+
         if( self._id )
           $.ajax({ url: options.saveUrl+self._id,
                    data: data,
@@ -139,17 +136,29 @@ $(function(){
                    dataType: 'json',
                    success: function( response ){
                      if( response.success ){
-                       self._id = response._id;
-                       tree.treeViewModel.items.push( self );
-                       self.showForm();
+                       var newItem = new tree.TreeItemModel( response[ options.saveKey ] )
+                       tree.treeViewModel.items.push( newItem );
+                       newItem.showForm();
                      }
                      iokit.notify( response.flash );
                    }
           });
+
+      }
+
+      self.saveForm = options.saveForm || function saveForm( form ){
+        var data = { _csrf: $('#_csrf').val() };
+        data[ options.saveKey ] = {};
+        for( var i in options.saveAttrs )
+          data[ options.saveKey ][ options.saveAttrs[i] ] = self[options.saveAttrs[i]]();
+        if( options && typeof( options.beforeSave ) === 'function' )
+          options.beforeSave.call( self, form, data, self._ajaxSaveForm );
+        else
+          self._ajaxSaveForm( data );
       };
 
-      self.submitSaveForm = options.submitSaveForm || function submitSaveForm(){
-        this.saveForm();
+      self.submitSaveForm = options.submitSaveForm || function submitSaveForm( item, e ){
+        this.saveForm( $(e.target).closest('.item-form').find('form') );
       };
 
       self.hideForm = options.hideForm || function hideForm( item, e ){
