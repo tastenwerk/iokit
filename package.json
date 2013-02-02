@@ -1,6 +1,6 @@
 {
   "name": "iokit",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "preferGlobal": "true",
   "author": "thorsten zerha <thorsten.zerha@tastenwerk.com>",
   "description": "flexible cms with focus on team collaboration",
