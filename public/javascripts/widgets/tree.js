@@ -139,6 +139,8 @@ $(function(){
                        var newItem = new tree.TreeItemModel( response[ options.saveKey ] )
                        tree.treeViewModel.items.push( newItem );
                        newItem.showForm();
+                       if( typeof( options.afterSaveForm ) === 'function' )
+                        options.afterSaveForm( newItem );
                      }
                      iokit.notify( response.flash );
                    }
