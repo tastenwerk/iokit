@@ -51,5 +51,5 @@ if( currentUser.preferences.docklets )
   -each docklet in currentUser.preferences.docklets
     script
       $(function(){
-        $('#' + '#{docklet.replace(/\//g,'-')}').load( iokit.host.native + '/#{docklet}' )
+        $('#' + '#{docklet.replace(new RegExp('\/','g'),'-')}').load( iokit.host.native + '/#{docklet}' )
       });
