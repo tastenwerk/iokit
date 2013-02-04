@@ -124,10 +124,12 @@ video {
 .icnicn-person-female {
   background-position: -32px -16px;
 }
-.icn.icn-checkbox {
+.icn.icn-checkbox,
+.icn.icn-plain {
   background-position: 0 -80px;
 }
-.icn.icn-checkbox.checked {
+.icn.icn-checkbox.checked,
+.icn.icn-plain.checked {
   background-position: -16px -80px;
 }
 .icn.icn-web_element,

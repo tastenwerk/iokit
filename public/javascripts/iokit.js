@@ -44,10 +44,10 @@ iokit.setupAjaxHelpers = function setupAjaxHelpers(){
   
   $(document).bind("ajaxSend", function(e, req){})
   .bind("ajaxError", function(e, xhr){
-    if( xhr.status === 0 )
-      iokit.notify({error: ['You are offline!!\n Please Check Your Network.']});
-    else if( xhr.status in [401,403,304] )
+    if( [401,403,304].indexOf( xhr.status ) >= 0 && location.href.indexOf('/login') < 0 )
       location.replace('/login');
+    else if( xhr.status === 0 )
+      iokit.notify({error: ['You are offline!!\n Please Check Your Network.']});
     //else if( xhr.status === 404 )
     //  iokit.notify('Destination target could not be found', true);
     else if( xhr.status === 500 )
