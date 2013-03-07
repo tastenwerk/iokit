@@ -323,52 +323,6 @@
     "slug": "Slug (ID)"
   },
   "web": {
-    "page_designer":{
-      "create_box": "Neues WebBit hinzufügen",
-      "float-left": "Linksfließend",
-      "float-right": "Rechtsfließend",
-      "position-absolute": "Absolutpositioniert",
-      "float-left-all-over": "Linksfließend über ganze Seite",
-      "float-right-all-over": "Rechtsfließend über ganze Seite",
-      "float-none": "Nicht fließen",
-      "span1": "1 Boxenbreite",
-      "span2": "2 Boxen breit",
-      "span3": "3 Boxen breit",
-      "span4": "50% der Seitenbreite",
-      "span5": "5 Boxen breit",
-      "span6": "6 Boxen breit",
-      "span7": "7 Boxen breit",
-      "span8": "100% der Seitenbreite",
-      "detach-web_bit": "Dieses WebBit auskoppeln",
-      "web_bit-properties": "WebBit Eigenschaften",
-      "move": "Positionieren",
-      "edit_page_source": "Seitenquelltext bearbeiten",
-      "library": "Bibliothek",
-      "library_desc": "Ziehen Sie ein WebBit in einen Container um es dort anzuhängen",
-      "category": "Kategorie",
-      "uncategorized": "Unkategorisiert",
-      "templates": "Vorlagen",
-      "meta": "Meta Info",
-      "meta_keys": "Meta Schlüsselwörter",
-      "meta_desc": "Meta Beschreibung",
-      "plugins": {
-        "plain-container": {
-          "title": "Leerer Container"
-        },
-        "image-browser": {
-          "title": "Bildergalerie",
-          "choose": "Bild(er) wählen"
-        },
-        "text-content": {
-          "title": "Einfacher Textsatz",
-          "edit": "Bearbeiten",
-          "languages": "Sprachen"
-        }
-      },
-      "properties": {
-        "title": "Properties"
-      }
-    },
     "title": "Web",
     "pages": "Webseiten",
     "articles": "Artikel",

@@ -16,7 +16,7 @@
   },
   "main": "index",
   "dependencies": {
-    "iomapper": "git://github.com/tastenwerk/iomapper.git",
+    "iomapper": "*",
     "commander": "1.1.1",
     "moment": "1.7.2",
     "stylus": "0.31.0",
